@@ -82,28 +82,19 @@ recipes and block pages after each release.
 
 ### Screenshots wanted
 
+The storefront screenshots of these pages (24 images, desktop 1440 and phone 375) were taken on 2026-10-20
+from the theme preview, which runs the same code as the live theme. The ones left need the Shopify admin, the
+theme editor or GitHub.
+
 | Page | Screenshot |
 |---|---|
 | `horizon/theme-settings.mdx` | The editor with Theme settings open (group list), and the **Logo and favicon** group. |
 | `horizon/sections-groups-blocks.mdx` | The sidebar for the reverse engineering service page with **Service hero** opened down to its buttons; the header's static blocks (no Remove option); a FAQ category or card list showing its "nothing to show" note. |
 | `horizon/what-is-horizon.mdx` | **Online Store → Themes** with the current theme and the theme library. |
 | `page-recipes/overview.mdx` | The **Theme template** field on a page in the admin, and the editor's template picker (**Pages** list). |
-| `page-recipes/homepage.mdx` | The sidebar with the 9 homepage sections; the **Process** section with one step active. |
-| `page-recipes/service-page.mdx` | A **Text cards over their images** section ("What gets delivered"); the **Quote** section. |
-| `page-recipes/location-page.mdx` | Chicago's bento **Gallery** and **Projects** grid; a **Content row** on 3D scanning services California. |
-| `page-recipes/landing-page.mdx` | A short landing hero (text, short form, photo band); the CNC hero or its "Key benefits" row. |
-| `page-recipes/company-pages.mdx` | The About us statement row; the services overview stats row. |
-| `page-recipes/blog-and-case-studies.mdx` | The article sticky column; the author box; the case studies list. |
-| `page-recipes/product-page.mdx` | The Specs section with the brochure link; the application photos; the product record (Title, Description, Media). |
-| `page-recipes/contact-pages.mdx` | The free consultation calendar and the copy / map row; **Settings → Notifications** (sender email). |
-| `blocks/checklist.mdx` | A location page's CAD row (Chicago). |
-| `blocks/mark.mdx` | A location intro with the logo squares; a part drawing (homepage Services or the services overview). |
-| `blocks/sticky-column.mdx` | An article on desktop with the right column. |
-| `blocks/flow.mdx` | Reverse engineering → **What we do**, desktop and phone. |
-| `blocks/process.mdx` | The homepage Process section with the "01 / 05" counter. |
-| `blocks/blog-blocks.mdx` | The bottom of the blog list with **Load more** and the count. |
-| `blocks/icon.mdx` | The homepage hero row of icons; the Why Tangent check badges. |
-| `blocks/contact-details.mdx` | A service page's Quote section. |
+| `page-recipes/homepage.mdx` | The sidebar with the 9 homepage sections. |
+| `page-recipes/product-page.mdx` | The product record (Title, Description, Media). |
+| `page-recipes/contact-pages.mdx` | **Settings → Notifications** (sender email). |
 | `blocks/product-blocks.mdx` | The editor sidebar for the HandySCAN template: **Product information → Product media / Details**. |
 | `technical/branches-and-deploy.mdx` | A shopify[bot] commit on GitHub; the theme library showing the theme connected to `main`. |
 | `technical/migration-and-redirects.mdx` | The URL redirects **Import** dialog. |
