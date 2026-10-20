@@ -1,0 +1,64 @@
+---
+title: "Flow chart"
+description: "Steps and their results on the ruled grid, joined by arrows."
+---
+
+The **Flow chart** block shows a process as a small diagram: each step or result is a cell on the ruled grid,
+and arrows on the lines between the cells show what leads to what. Each cell is a **Flow node** block inside
+the flow chart. The words are real text, so search engines and screen readers read them in order.
+
+## What it looks like
+
+On a large screen (990 pixels and up) the chart has 4 equal columns and 2 rows, with thin lines between the
+cells. Columns 1 and 2 run the full height; columns 3 and 4 can be split into a top row and a bottom row, so
+one step can branch into two results.
+
+- A **Process step** cell shows its title only.
+- A **Deliverable** cell (a result, such as a file type) has a light gray background, a small blue square, its
+  title and a line under it.
+- The arrows are small round marks on the line to the right of a cell.
+
+On tablets (750 to 989 pixels) the chart has 2 columns. On phones it's a single column in block order; the
+branch cells are indented, with a blue line on their left edge.
+
+## Block settings
+
+### Flow chart
+
+| Setting | What it does |
+|---|---|
+| **Show only when** and **Value** | For a template shared by several pages: connect **Show only when** to a field of the page, and the chart shows only on pages where that field equals **Value**. Leave **Value** blank to always show the chart. |
+| **Padding** (**Top**, **Bottom**) | Space above and below the chart. |
+
+### Flow node
+
+| Setting | What it does |
+|---|---|
+| **Title** | The name of the step or result, for example "Mesh File". |
+| **Line** | Shown under the title, for example what a file is used for. |
+| **Type** | **Process step**, or **Deliverable (muted cell, accent square)** for a result. |
+| **Position** | Where the cell sits on large screens: **Column 1, both rows**, **Column 2, both rows**, **Columns 3 and 4, top row**, **Column 3, bottom row**, **Column 4, bottom row**, or **Auto** (in block order). |
+| **Arrows** | **None**, **One, to the next cell**, or **Two, to the top and bottom rows** (for a step that branches). |
+
+<Tip>
+Keep the nodes in reading order in the sidebar. Phones show them in that order, one under the other.
+</Tip>
+
+## Where it's used on the site
+
+On the **reverse engineering** service page, in the **What we do** section. It shows how a part becomes files:
+
+| Cell | Type | Position | Arrows |
+|---|---|---|---|
+| 3D Laser Scan | Process step | Column 1, both rows | One |
+| Mesh File | Process step | Column 2, both rows | Two |
+| STL & OBJ File, "Conceptual projects, 3D printing, digital assets" | Deliverable | Columns 3 and 4, top row | None |
+| Reverse Engineering | Process step | Column 3, bottom row | One |
+| STEP, XT, IGES, "3D, Manufacturable CAD Files" | Deliverable | Column 4, bottom row | None |
+
+## Notes
+
+- The **Position** choices are made for this shape: two steps, then a split into a top result and a bottom step
+  with its own result. To change the words, edit the nodes. For a different shape, ask your developer.
+- Placed straight in a section with the **Rails, no inner padding** frame, the chart runs from rail to rail and
+  its lines meet the page's column lines. See [Section layout](/blocks/section-layout).

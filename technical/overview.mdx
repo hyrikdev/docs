@@ -1,0 +1,81 @@
+---
+title: "Technical overview"
+description: "What the usetangent.com theme is, how the repository is laid out and where a developer should start."
+---
+
+This tab is for developers who maintain the usetangent.com theme. The **Site guide** tab covers the same site for
+the people who edit it in the theme editor; link to those pages when you hand work back to the team.
+
+## What the theme is
+
+- **Base theme:** Shopify **Horizon 4.3.0** (`config/settings_schema.json` → `theme_info`: `theme_name` Horizon,
+  `theme_version` 4.3.0, author Shopify).
+- **Tangent layer:** new blocks, snippets, assets and settings added on top of Horizon to build the Tangent design:
+  ruled grids with rails, mono eyebrows with accent squares, blue gradient headings, bare line icons.
+  Most of it is new files (prefixes `ts-`, `_ts-`, `tangent-`, plus a few data blocks such as `card-list`,
+  `quote-form`, `faq-category`). A smaller part is settings and markup added to Horizon's own files.
+  See [Architecture](/technical/architecture).
+- **Store:** `usetangent.myshopify.com`. The site sells nothing online: products are quote or call only, and a
+  theme setting blocks cart and checkout (see [Architecture](/technical/architecture#sales-disabled)).
+- **Content:** every page has its own JSON template with the copy, images and cards typed into its blocks, so
+  staff can edit and rearrange them in the theme editor. FAQs, blog posts and a few page fields live in the
+  Shopify admin. See [Content model](/technical/content-model).
+
+## Repository layout
+
+The theme repository holds the theme folders Shopify reads plus three folders Shopify ignores.
+
+| Folder | What it holds |
+|---|---|
+| `assets/` | Horizon's CSS and JS, plus `tangent-tokens.css` (design tokens and shared `.ts-*` classes), the self-hosted fonts (`tangent-geist.woff2`, `tangent-geist-mono.woff2`, `tangent-inter.woff2`), the Tangent JS modules (`ts-*.js`, `quote-form.js`) and SVG artwork (`ts-scan-*.svg`, `ts-pixel-mark*.svg`, `ts-hero-*.svg`, `tangent-logo.svg`, `icon-*.svg`). |
+| `blocks/` | Horizon theme blocks (some extended with `ts_*` settings) and the Tangent blocks (`ts-*`, `_ts-*`, `card-list`, `_card-list-item`, `breadcrumbs`, `contact-details`, `faq-category`, `quote-form`…). |
+| `config/` | `settings_schema.json` (Horizon's theme settings plus one **Tangent** group) and `settings_data.json` (the live values). |
+| `layout/` | `theme.liquid` (loads the Tangent tokens, the sales-disabled guards) and `password.liquid`. |
+| `locales/` | Horizon's storefront and schema translations. Every `*.schema.json` also carries a `tangent` group of editor labels, written by a script. See [Architecture](/technical/architecture#editor-labels-locales). |
+| `sections/` | Horizon sections (several extended with `ts_*` settings), `mobile-sticky-cta.liquid` (new) and the header and footer section groups (`header-group.json`, `footer-group.json`). |
+| `snippets/` | Horizon snippets (a few extended) and the Tangent snippets `ts-*.liquid`. |
+| `templates/` | One JSON template per page type and per page: 93 JSON templates, 81 of them page templates (`page.json` plus 80 `page.<suffix>.json`). See [Templates (JSON)](/technical/templates-json). |
+| `docs/` | Not theme code. Design rules and decisions (`docs/agents/BOARD.md`), UX specs (`docs/ux/*.md`, spacing system in `docs/ux/SPACING.md`), the launch checklist (`docs/launch/CHECKLIST.md`), the build plan (`docs/tangent-homepage/PLAN.md`) and the editor-label source (`docs/tangent-homepage/tangent-locale.json` + `sync_locales.py`). |
+| `migration/` | Not theme code. The WordPress → Shopify migration: content JSON, extraction and import scripts, template generators, check scripts, backups, the URL map and the redirect CSVs. See [Migration and redirects](/technical/migration-and-redirects). |
+| `preview/` | Not theme code. The approved static design reference (`preview/index.html`, rendered from `preview/horizon/`) and page sketches (`preview/pages/`), plus the QA console scripts in `preview/pages/_kit/`. See [Local setup](/technical/local-setup#the-preview-folder). |
+
+`.theme-check.yml` excludes `preview/**`, `docs/**` and `migration/**` from Theme Check. Shopify CLI and the
+GitHub integration only sync the theme folders, so those three folders never reach a theme.
+
+## Where to start
+
+<Steps>
+  <Step title="Set up a local theme">
+    Install the tools and run the theme against the store. See [Local setup](/technical/local-setup).
+  </Step>
+  <Step title="Learn how changes reach the live site">
+    `main` is the live theme. Read [Branches and deploy](/technical/branches-and-deploy) before you push anything.
+  </Step>
+  <Step title="Read the design rules">
+    The rules in [Design system](/technical/design-system) were set by the site owner and are checked in QA.
+    The staff version is [Do's and don'ts](/design-rules/do-and-dont).
+  </Step>
+  <Step title="Find your way around the code">
+    [Architecture](/technical/architecture) explains the Tangent layer, [Custom blocks](/technical/custom-blocks)
+    lists every Tangent block and where it's used, and [Templates (JSON)](/technical/templates-json) covers the
+    template files and their pitfalls.
+  </Step>
+  <Step title="Check before you ship">
+    Follow [QA and launch](/technical/qa-and-launch).
+  </Step>
+</Steps>
+
+## Ground rules for changes
+
+These come from the project's design and build rules (`docs/agents/BOARD.md`):
+
+- **Blocks first.** Everything a merchant might move is a theme block or a setting on one, so it can be
+  rearranged in the theme editor.
+- **Extend before creating.** Reuse a Horizon block and add a setting before writing a new block. Every new
+  setting has a default that keeps the old display. Never rename or remove an existing setting id: templates
+  and the live theme's saved values depend on it.
+- **Follow Horizon's conventions** in new blocks: `content_for 'blocks'`, private `_` blocks,
+  `{{ block.shopify_attributes }}`, `"tag": null`, `{% doc %}` in snippets, presets, `t:` label keys,
+  `spacing-style`, CSS in `{% stylesheet %}` using tokens only.
+- **Content comes from usetangent.com.** No invented text, alt, labels or captions. Text changes made during
+  the migration are logged in `migration/content/CHANGES-text.md`.

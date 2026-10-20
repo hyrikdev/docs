@@ -1,0 +1,105 @@
+---
+title: "Product blocks"
+description: "The blocks of the HandySCAN product page, and the shop blocks of the default product template."
+---
+
+A product page in Shopify is built from a **Product information** section. Its blocks read the product
+you're looking at: its title, description and photos come from the product in the Shopify admin
+(**Products**), not from the theme editor. The site has one product, the HandySCAN Black Elite scanner, on the
+template **quote**. The site doesn't sell online, so that page has no price and no cart: visitors call or book
+a call instead.
+
+<Frame caption="The top of the HandySCAN page: the Product media block on the left, the Details block on the right">
+  <img src="/images/product.png" alt="The HandySCAN product page with breadcrumbs, the scanner photo on the left, and on the right the Creaform and Tangent logos, the title, the description and two buttons" />
+</Frame>
+
+## What it looks like
+
+The top of the page is split in two equal halves on the ruled grid, under a breadcrumbs strip:
+
+- on the left, the product's photo (**Product media**);
+- on the right (**Details**): the Creaform and Tangent logos, the product title, the description, and the
+  **Call Now** and **Schedule a call** buttons. On large screens this half stays in view while the photo
+  column scrolls.
+
+Below the top come ordinary sections, built from the same blocks as the rest of the site: applications,
+photos, benefits, specs, software, portability and a call to action. See
+[Product page](/page-recipes/product-page) for each one.
+
+## Block settings
+
+### Product information (the section)
+
+| Setting | What it does |
+|---|---|
+| **Media position** | The photo column on the **Left** or **Right** on large screens. The site uses **Left**. |
+| **Equal columns** | Splits the photo and the details 50 / 50. On. |
+| **Sticky add to cart bar** | A bar with the cart button when visitors scroll. Off: the site has no cart. |
+| **Rails** | The thin vertical page lines. **Rails, no inner padding**, as on the other pages. See [Section layout](/blocks/section-layout). |
+| **Breadcrumbs strip above the product** | Shows the breadcrumbs ("Home / HandySCAN Black Elite") in a ruled strip above the photo and the details. On. |
+
+### Product media
+
+Shows the photos and videos of the product, in the order set on the product in the admin.
+
+| Setting | What it does |
+|---|---|
+| **Type** | **Grid** or **Carousel**. Phones always get a carousel. The site uses **Grid**. |
+| **Columns** | **1** or **2** photos side by side in the grid. The site uses **1**. |
+| **Gap** | Space between the photos. 0 on the site. |
+| **Mobile pagination** | How phones show where you are in the carousel: **Dots**, **Counter**, **Hint** or **Thumbnails**. **Dots** on the site. |
+| **Aspect ratio** | **Auto** keeps each photo's own shape. **Auto** on the site. |
+| **Media fit** | **Contain** shows the whole photo, never cropped. |
+| **Corner radius** | 0 on the site: square corners. |
+| **Enable zoom** | Lets visitors open a photo larger. Off on the site. |
+
+### Details
+
+The right half. It holds other blocks, like a group.
+
+| Setting | What it does |
+|---|---|
+| **Sticky on desktop** | Keeps the details in view while the photo column scrolls. On. |
+| **Gap** | Space between the blocks inside. 16 pixels on the site. |
+| **Padding** | Space inside the half. 48 pixels on every side on the site. |
+
+Inside **Details**, the HandySCAN page uses:
+
+| Block | What it holds |
+|---|---|
+| **Group** with two **Image** blocks | The Creaform and Tangent logos, with the **Tangent style** **Logo in a row**. |
+| **Text** named **Product title** | The product's title from the admin, shown as the page's main heading (**Heading large**). |
+| **Text** named **Description** | The product's description from the admin (**Lede, wide**). |
+| **Group** with two **Button** blocks | **Call Now** and **Schedule a call**. See [Buttons](/blocks/buttons). |
+
+## Where it's used on the site
+
+Only on the HandySCAN Black Elite page (template **quote**).
+
+### The default product template
+
+The theme also has a default product template (template **product**), the theme's standard shop layout. A new
+product gets it unless you pick another template on the product in the admin. Its blocks are the shop blocks:
+
+| Block | What it does |
+|---|---|
+| **Price** | The product's price. |
+| **Variant picker** | Buttons or drop-downs to choose a size, color or other option. |
+| **Buy buttons** | Holds **Quantity**, **Add to cart** and **Accelerated checkout** (express payment buttons). |
+| **Disclosures** | Notices set on the product in the admin (Shopify's product disclosures), as fold-out rows. |
+| **Recommended products** | A section with other products under the main one. |
+
+The site doesn't sell online, so the HandySCAN page uses none of these blocks.
+
+## Notes
+
+<Warning>
+Don't add **Price**, **Variant picker** or **Buy buttons** to the HandySCAN page. The page is built to have no
+price and no cart.
+</Warning>
+
+- To change the title, the description or the photos at the top, edit the product in the admin
+  (**Products** → HandySCAN Black Elite). The theme editor shows where they appear but doesn't hold them.
+- Everything under the top (applications, photos, benefits, specs, software, portability, call to action) is
+  typed in the theme editor, in the **quote** template.
+- To change the text Google shows for the product, see [Pages and SEO](/admin/pages-and-seo#products-and-blog-posts).

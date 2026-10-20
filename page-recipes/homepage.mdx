@@ -1,0 +1,187 @@
+---
+title: "Homepage"
+description: "The Home page template, section by section, and what you can safely change in each."
+---
+
+The homepage uses the **Home page** template, the first template the theme editor opens. It introduces
+Tangent Solutions and sends visitors to a call or a message. All of its words, icons and photos are typed in
+the theme editor: nothing on it comes from the page record, a blog or a metaobject.
+
+<Columns cols={2}>
+  <Frame caption="The top of the homepage on a desktop screen">
+    <img src="/images/home-desktop.png" alt="The homepage hero: the title, the intro, the call and message buttons and the scan frame" />
+  </Frame>
+  <Frame caption="The same part on a phone">
+    <img src="/images/home-phone.png" alt="The homepage on a phone: the title, the intro, the two buttons stacked and the top of the scan frame" style={{ maxWidth: "320px" }} />
+  </Frame>
+</Columns>
+
+## The sections, top to bottom
+
+| # | Section in the sidebar | What visitors see |
+|---|---|---|
+| 1 | **Hero** | The page title, the intro, the call and message buttons, the scan picture and four short facts |
+| 2 | **Logo grid** | "Trusted by industry leaders" and twelve client logos |
+| 3 | **Services** | "What we do" and six service cells, each with an icon |
+| 4 | **Process** | The five steps from part to CAD file, playing one after the other |
+| 5 | **Stats** | Four big figures, such as 0.025mm |
+| 6 | **Why Tangent** | Three reasons with icons, then five short checked lines |
+| 7 | **Capabilities** | A heading, an intro and six project photos with captions |
+| 8 | **Scanning options** | In-house, shop and mobile scanning, each with check chips |
+| 9 | **Call to action** | "Tell us about your project" with the two buttons again |
+
+Every section has the Tangent frame: **Rails, no inner padding**, and a **Top border across the page**
+except the hero. See [Section layout](/blocks/section-layout).
+
+<Note>
+Unlike service and location pages, the homepage doesn't use **Card list** blocks. Each card is a **Group**
+holding an **Icon** and **Text** blocks. To change a card, open its group and click the block inside.
+</Note>
+
+## 1. Hero
+
+**What you see:** the main heading "Precision 3D scanning services and reverse engineering", an intro, the
+phone button and **Send a message**, a wide scan picture with a moving laser line, and a row of four facts
+with icons (0.025mm accuracy, In-house + mobile scanning, Same-day service available, Serving aerospace,
+auto, medical and more).
+
+**Built from:**
+
+- A **Group** with the title: a **Text** block, Tangent style **Display (hero title)**.
+- A **Group** with **Lines** set to **Lines between blocks, stacked on tablet**: the intro (**Text**,
+  **Lede, wide**) on the left and a group with two **Button** blocks on the right.
+- A **Scan frame** block: the photo, the readout caption and the strip of file formats under the picture.
+  See [Scan frame](/blocks/scan-frame).
+- A **Group** with **Lines** set to **Ruled grid, compact cells on phones** (4 columns on desktop, 2 on
+  tablet and phone). Each of its four groups holds an **Icon** (Tangent style **Accent**) and a **Text**
+  (**Label**).
+
+**Safe to change:** the words, the buttons' labels and links, the scan frame's photo, caption and formats,
+and the facts. Keep the title the only **Display (hero title)** text on the page.
+
+<Tip>
+The scan frame is decorative and hidden from screen readers. Its caption should repeat something already on
+the page, such as "0.025mm accuracy".
+</Tip>
+
+## 2. Logo grid
+
+**What you see:** the eyebrow "Trusted by industry leaders", the heading "Serving major industries" and a
+grid of client logos.
+
+**Built from:** a **Group** with an **Eyebrow** and a **Heading medium** text, then a **Group** set to
+**Grid with lines** (6 columns on desktop, 4 on tablet, 3 on phones) holding twelve **Image** blocks with
+Tangent style **Logo**.
+
+**Safe to change:** swap a logo by clicking its **Image** block and choosing another image. Keep twelve logos
+so the grid fills two full rows on desktop. Add alt text to each logo (the client's name). See
+[Images](/blocks/images).
+
+## 3. Services
+
+**What you see:** "What we do", the heading "3D scanning and engineering services", an intro and six cells:
+3D laser scanning, Reverse engineering, CAD design services, Dimensional inspection, Legacy part
+documentation and On-site mobile scanning.
+
+**Built from:**
+
+- A **Group** for the section head: **Eyebrow**, **Heading large**, **Lede**, and a **Pixel mark** (a faint
+  part drawing on the right, from 990 pixels wide).
+- A **Group** set to **Grid with lines** (3 columns on desktop, 2 on tablet, 1 on phones). Each cell is a
+  **Group** with an **Icon** (**Accent**) and a group with a **Card title** and a **Body small** text.
+
+**Safe to change:** the words of each cell, and its icon from the **Tangent** icons. The homepage icons are
+the reference for the whole site, so change one only on purpose. See [Icons](/design-rules/icons).
+
+## 4. Process
+
+**What you see:** "Our process", "From physical part to CAD file in 5 steps", and five steps (Scope, Scan,
+Process, Rebuild, Deliver). The active step shows its photo; the steps advance by themselves.
+
+**Built from:** a **Group** for the head (**Eyebrow** and **Heading large**), then a **Group** with
+**Lines between blocks** holding a **Process** block. The **Process** block holds five **Process step**
+blocks, each with a **Number** (01. to 05.), **Title**, **Text** and **Image**. On the **Process** block,
+**Autoplay** is on and **Time per step** is 6 seconds. See [Process](/blocks/process).
+
+**Safe to change:** each step's title, text and photo. To add or remove a step, change the heading too
+("in 5 steps"). Keep **Accessible name** on the **Process** block the same as the heading.
+
+## 5. Stats
+
+**What you see:** four figures: 0.025mm accuracy, 24–48 hours processed and delivered, 2–5 business days,
+800 sq ft dedicated warehouse.
+
+**Built from:** a **Group** set to **Grid with lines** (4 columns on desktop, 2 on tablet, 1 on phones).
+Each cell is a **Group** with a **Text** in **Stat value** and a **Text** in **Eyebrow, leading mark**.
+
+**Safe to change:** the figures and the lines under them. Use only figures Tangent can stand behind.
+
+## 6. Why Tangent
+
+**What you see:** a centred head "Why engineers choose Tangent Solutions for 3D scanning" with a faint dot
+pattern behind it, three reasons (Experience, Precision, Responsiveness) and a row of five checked lines
+(Fast turn-around, Same day service, Expert technicians, Universal file delivery, In-house teams).
+
+**Built from:**
+
+- The section's **Background pattern** is **Dot lattice**, and its content is centred.
+- A **Group** for the head: **Eyebrow**, **Heading large**, **Lede**.
+- A **Group** set to **Grid with lines** (3 columns): each reason is a **Group** with an **Icon** (**Accent**)
+  and a group with a **Card title** and a **Body small** text.
+- A **Group** set to **Grid with lines** (5 columns on desktop, 1 on tablet and phones): each line is a
+  **Group** with an **Icon** (**Tangent check**, Tangent style **Badge**) and a **Text** in **Mono**.
+
+**Safe to change:** the words of the reasons and the checked lines. The dot pattern is the only decoration of
+its kind on the page; don't add another one elsewhere on the homepage.
+
+## 7. Capabilities
+
+**What you see:** "Scanning capabilities", the heading "3D scanning services for every geometry and
+application", an intro about the Costa Mesa lab, and six photos with a caption under each.
+
+**Built from:**
+
+- A **Group** set to **No lines, stacked on tablet**: the head (**Eyebrow**, **Heading large**) on the left,
+  the **Lede** on the right.
+- A **Group** set to **Grid with lines** (3 columns on desktop, 2 on tablet, 1 on phones). Each photo is a
+  **Group** with **Lines between blocks** holding an **Image** (Tangent style **Media**, 4:3) and a caption
+  (**Text**, **Eyebrow, leading mark**).
+
+**Safe to change:** the photos and captions. Keep six photos (two full rows) and the same 4:3 shape for all.
+Give each photo alt text.
+
+## 8. Scanning options
+
+**What you see:** three columns: In-house scanning, Shop scanning, Mobile, large-scale scanning. Each has an
+icon, a short text and three check chips, such as "Same-day available".
+
+**Built from:** a **Group** set to **Grid with lines** (3 columns on desktop, 1 on tablet and phones). Each
+column is a **Group** with an **Icon** (**Accent**) and a group with a **Card title**, a **Body small** text
+and a **Text** in **Chips, with checks**. The chips are a bulleted list in that text block: one bullet, one
+chip.
+
+**Safe to change:** the words and the chips. Keep two to four short chips per column.
+
+## 9. Call to action
+
+**What you see:** "Tell us about your project", a line about quoting in one business day, and the phone and
+**Send a message** buttons, with a faint dot pattern at the end.
+
+**Built from:** the section's **Background pattern** is **Dot lattice at the end**. Inside, a **Group** set
+to **Lines between blocks, stacked on tablet** holds three groups: the **Heading medium**, the **Lede** and
+the two **Button** blocks.
+
+**Safe to change:** the words and the buttons. The phone button links to `tel:` plus the number; the message
+button links to `/pages/contact-us`.
+
+## Common changes
+
+- **Change a text:** click it in the preview, edit it, click **Save**. See
+  [Editing content](/editing-pages/editing-content).
+- **Change the phone number:** the two call buttons on the homepage carry the number in their **Label** and
+  **Link**. See [Change the phone number](/how-to/change-phone-number).
+- **Replace a photo or logo:** see [Replace an image](/how-to/replace-image).
+- **Change a service cell or a reason:** open its **Group** and edit the **Text** and **Icon** inside. See
+  [Icons](/design-rules/icons) before you change an icon.
+- **Hide a section for a while:** use the eye icon next to its name instead of deleting it. See
+  [Editing content](/editing-pages/editing-content).

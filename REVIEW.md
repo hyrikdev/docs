@@ -61,7 +61,7 @@ and remove any store details (staff names, emails) before saving them:
 ## 3. Placeholders
 
 - **Support contact** in `help/contact.mdx`: name, email and response time of whoever looks after the theme.
-- No GitHub repository or Mintlify account has been set up yet (see `README.md` for the steps).
+- The guide lives in the public GitHub repository hyrikdev/docs; pushes to `main` deploy through Mintlify.
 
 ## 4. Decisions for the site owner
 
@@ -73,3 +73,56 @@ and remove any store details (staff names, emails) before saving them:
   developer is told, so they're kept when the theme is updated.
 - **Theme copies.** The guide recommends duplicating the live theme before big changes. Agree who may publish a
   copy, so two people don't overwrite each other's work.
+
+## 5. Pages added on 2026-10-20
+
+The **Coming from WordPress**, **Shopify and Horizon** and **Page recipes** groups, ten block pages, and the
+**Technical** tab. They describe the theme as of 2026-10-20; the theme is still changing, so re-check the page
+recipes and block pages after each release.
+
+### Screenshots wanted
+
+| Page | Screenshot |
+|---|---|
+| `horizon/theme-settings.mdx` | The editor with Theme settings open (group list), and the **Logo and favicon** group. |
+| `horizon/sections-groups-blocks.mdx` | The sidebar for the reverse engineering service page with **Service hero** opened down to its buttons; the header's static blocks (no Remove option); a FAQ category or card list showing its "nothing to show" note. |
+| `horizon/what-is-horizon.mdx` | **Online Store → Themes** with the current theme and the theme library. |
+| `page-recipes/overview.mdx` | The **Theme template** field on a page in the admin, and the editor's template picker (**Pages** list). |
+| `page-recipes/homepage.mdx` | The sidebar with the 9 homepage sections; the **Process** section with one step active. |
+| `page-recipes/service-page.mdx` | A **Text cards over their images** section ("What gets delivered"); the **Quote** section. |
+| `page-recipes/location-page.mdx` | Chicago's bento **Gallery** and **Projects** grid; a **Content row** on 3D scanning services California. |
+| `page-recipes/landing-page.mdx` | A short landing hero (text, short form, photo band); the CNC hero or its "Key benefits" row. |
+| `page-recipes/company-pages.mdx` | The About us statement row; the services overview stats row. |
+| `page-recipes/blog-and-case-studies.mdx` | The article sticky column; the author box; the case studies list. |
+| `page-recipes/product-page.mdx` | The Specs section with the brochure link; the application photos; the product record (Title, Description, Media). |
+| `page-recipes/contact-pages.mdx` | The free consultation calendar and the copy / map row; **Settings → Notifications** (sender email). |
+| `blocks/checklist.mdx` | A location page's CAD row (Chicago). |
+| `blocks/mark.mdx` | A location intro with the logo squares; a part drawing (homepage Services or the services overview). |
+| `blocks/sticky-column.mdx` | An article on desktop with the right column. |
+| `blocks/flow.mdx` | Reverse engineering → **What we do**, desktop and phone. |
+| `blocks/process.mdx` | The homepage Process section with the "01 / 05" counter. |
+| `blocks/blog-blocks.mdx` | The bottom of the blog list with **Load more** and the count. |
+| `blocks/icon.mdx` | The homepage hero row of icons; the Why Tangent check badges. |
+| `blocks/contact-details.mdx` | A service page's Quote section. |
+| `blocks/product-blocks.mdx` | The editor sidebar for the HandySCAN template: **Product information → Product media / Details**. |
+| `technical/branches-and-deploy.mdx` | A shopify[bot] commit on GitHub; the theme library showing the theme connected to `main`. |
+| `technical/migration-and-redirects.mdx` | The URL redirects **Import** dialog. |
+
+### Facts to confirm
+
+- **Admin names of three page fields**: the page headline, hero subheading and hero image fields (short landing
+  pages) are described without a bold label.
+- **Live theme templates**: that no live page uses the shared **landing** or **landing-short** template.
+- **Store settings** the repo can't show: spam protection (**Online Store → Preferences**), the cookie banner
+  (**Settings → Customer privacy**), the sender email (**Settings → Notifications**), Google Analytics.
+- **Contact form email**: send a test from the live form and check the "Source page" line arrives.
+- **Case study breadcrumb**: should show the case studies blog's title, not "Blog".
+- **Shopify behaviour** stated from Shopify's documentation, not seen on screen: blocks can't be dragged
+  between sections; section and nesting limits; no revision history for pages and posts; **Product media**
+  always shows a carousel on phones; one development theme per CLI login.
+- **Editor wording**: "Theme settings icon" vs "gear icon" (`horizon/theme-settings.mdx`, `blocks/header.mdx`).
+- **Branches**: that `dev` is not connected to any theme, and whether new work branches from `dev` from now on.
+- **Updating Horizon**: whether the store offers Horizon updates for this theme, and the public Horizon
+  repository's release tags.
+- **Launch**: whether re-running `import_services.py` at the domain switch is still needed (dry run first).
+- **Old redirects**: what handled redirects on the WordPress site (no plugin shows in the saved pages).

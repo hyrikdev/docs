@@ -1,0 +1,192 @@
+---
+title: "Architecture"
+description: "How the Tangent layer sits on top of Horizon: new files, settings added to Horizon files, tokens, the card list, scripts and editor labels."
+---
+
+The theme is Horizon 4.3.0 with a Tangent layer on top. The first commit of the repository is the Horizon upload
+before any Tangent work, so `git diff <first commit> -- <path>` shows exactly what the Tangent layer changed in a
+Horizon file:
+
+```bash
+FIRST=$(git rev-list --max-parents=0 HEAD)
+git diff --stat "$FIRST" HEAD -- assets blocks config layout sections snippets templates
+```
+
+The layer has two parts:
+
+1. **New files.** About 170 added files: blocks, snippets, assets, one section, and the page templates.
+2. **Edits to Horizon files.** About 50 Horizon files changed (plus the 23 schema locale files), mostly to add
+   `ts_*` settings and their CSS. These are what you re-apply when you update Horizon
+   (see [Updating Horizon](/technical/updating-horizon)).
+
+## How a page is built
+
+Every Tangent page is made of Horizon's generic **Section** (`sections/section.liquid`) holding **Group** blocks,
+with Tangent blocks inside them:
+
+```text
+Section (ts_frame: rails, ts_rule, ts_pattern)
+└─ Group (ts_grid: lines | grid | cards …, ts_columns*)
+   ├─ Text (ts_style: eyebrow | heading_md | lede …)
+   ├─ Card list (layout, ts_icon_style …)
+   │  └─ Card (_card-list-item) × n
+   ├─ Image (ts_style, ts_span …) / Button (ts_style, icon …)
+   └─ Group …
+```
+
+Horizon's main sections (`main-page`, `main-blog`, `main-blog-post`, `main-404`, `product-information`) take the
+same frame settings through `snippets/ts-frame.liquid`; the footer has the same settings with its own copy of the
+frame CSS in `sections/footer.liquid`. The staff view of this is
+[Sections and blocks](/getting-started/sections-and-blocks) and [Section layout](/blocks/section-layout).
+
+## Settings added to Horizon files
+
+Each added setting has a default that keeps Horizon's own look, so a block without Tangent settings renders as
+stock Horizon.
+
+| File | Added settings (ids) | What they do |
+|---|---|---|
+| `sections/section.liquid` + `snippets/section.liquid` | `ts_frame`, `ts_rule`, `ts_pattern` | Rails at the page width (with or without inner padding), a 1px rule across the page, a faint dot lattice. Inside a frame, Horizon's spacing scale variables are retuned so padding and gaps above 20px scale fluidly (see [Design system](/technical/design-system#spacing)). |
+| `sections/main-page`, `main-blog`, `main-blog-post`, `main-404`, `product-information`, `footer` | `ts_frame`, `ts_rule` (+ `ts_pattern` on main-page / main-404, `ts_posts_per_page` on main-blog, `ts_crumbs_strip` on product-information) | The same frame on Horizon's main sections. |
+| `blocks/group.liquid` + `snippets/group.liquid` | `ts_grid`, `ts_columns`, `ts_columns_tablet`, `ts_columns_mobile` | Ruled rows and grids: 1px lines between cells, equal-column grids, separate cards. |
+| `blocks/text.liquid` + `snippets/text.liquid` | `ts_style`, `ts_page_title_fallback`, `ts_hide_section_when_blank`, `ts_field_wrapper` | The Tangent type styles (eyebrow, display, headings, lede, prose, chips, statements…). |
+| `blocks/button.liquid` + `snippets/button.liquid` | `icon`, `ts_style`, `ts_size`, `ts_arrow`, `ts_full_mobile` | Neutral square buttons, leading line icon, trailing arrow, full width on phones. |
+| `blocks/icon.liquid` + `snippets/icon.liquid`, `snippets/icon-or-image.liquid` | `ts_style`; `ts_*` values in the `icon` list | The Tangent line icons (24px grid, stroked). |
+| `blocks/image.liquid` | `ts_style`, `ts_span`, `ts_contain`, `ts_caption`, `ts_focus_y`, `ts_min_height`, `ts_max_height`, `ts_fill_top`, `ts_fill_bottom`, `ts_copy_first`, `ts_hide_when_blank` | Logo and media cells, bento spans, whole-image display, captions, crop position. |
+| `blocks/menu.liquid` | `ts_style`, `ts_index_captions` | The ruled "index" menu (locations hub, 404). |
+| `blocks/page-content.liquid`, `blocks/_blog-post-content.liquid` | `ts_style` (+ `ts_heading_labels` on `page-content`) | The long-form reading style for bodies kept from the old site. |
+| `blocks/_blog-post-card`, `_blog-post-info-text`, `_blog-post-featured-image` | `ts_style` (+ `ts_show_tag` on `_blog-post-info-text`) | Ruled blog cards, mono details, ruled featured image. |
+| `sections/header.liquid` (+ `_header-menu`, `snippets/header-drawer.liquid`, `assets/header-drawer.js`) | `ts_style`, `show_cart` | The "Technical" header: bar, dropdowns, mobile drawer; cart icon switch. |
+| `sections/header-announcements.liquid`, `blocks/_announcement.liquid` | `ts_style` (on the section; `_announcement` reads it) | The brand gradient announcement bar. |
+| `config/settings_schema.json` | `ts_sales_disabled` in a **Tangent** group | See [Sales disabled](#sales-disabled). |
+
+`blocks/group.liquid` is at Horizon's limit of 40 settings: don't add more to it. `sections/header.liquid` has
+44 and is the source of the `ExcessiveSettingsCount` warning in the Theme Check baseline.
+
+### Other edits to Horizon files
+
+- **External links**: `snippets/media.liquid`, `snippets/mega-menu-list.liquid`, `sections/hero.liquid`,
+  `blocks/_card.liquid`, `blocks/_announcement.liquid` and other link outputs call
+  `snippets/ts-link-target.liquid`. See [External links](#external-links).
+- **Alt text**: `blocks/_blog-post-image.liquid`, `blocks/_blog-post-featured-image.liquid` and
+  `snippets/product-media.liquid` drop Shopify's fallback alt (the article or product title) when the image has
+  no alt of its own.
+- **Readability**: `snippets/accordion-styles.liquid` caps accordion answers at 65ch.
+- **Embeds**: `blocks/custom-liquid.liquid` gains `.ts-embed` frame classes for iframes (used for the Calendly
+  embed on the free consultation page).
+- **Product page**: `snippets/product-information-content.liquid` takes a `leading_blocks` parameter for the
+  breadcrumbs strip; `snippets/meta-tags.liquid` prints no `og:price` for products on the `quote` template.
+- **Group link names**: `snippets/group.liquid` gives a linked group's overlay link an accessible name.
+- **Templates and groups**: Horizon's own `templates/*.json`, `sections/header-group.json` and
+  `sections/footer-group.json` hold Tangent content.
+
+Several of these edits carry a `Hyrik custom` comment, but not all of them. Use the diff against the first
+commit, not a text search, to find every change.
+
+## Tokens and global CSS
+
+| File | Loaded from | What it holds |
+|---|---|---|
+| `assets/tangent-tokens.css` | `snippets/stylesheets.liquid` | The design tokens (Arc UI roles such as `--background`, `--foreground`, `--border`, `--accent`; `--space-*`, `--text-*`, `--font-display/body/mono`, `--radius-*`, `--control-height-*`, motion; the brand ramps `--ts-ramp-ink`, `--ts-wash`; `--ts-max: 1400px`) and shared classes (`.ts-eyebrow`, `.ts-heading--*`, `.ts-lede`, `.ts-btn--*`, `.ts-arrow-ne`, `.ts-reveal`…). Also `text-size-adjust: 100%` for iOS. |
+| `snippets/ts-tokens.liquid` | `layout/theme.liquid`, after Horizon's `theme-styles-variables` and `color-palette` | A compatibility layer: the older `--ts-*` names (`--ts-ink`, `--ts-line`, `--ts-accent`…) used by the first data blocks, aliased to the Arc roles. Also sets `--narrow-page-width: 87.5rem` (1400px), the 2px accent focus ring and the `.shopify-section:has([data-hide-section])` rule that hides a section when a data block has nothing to show. |
+| `snippets/stylesheets.liquid` | Horizon | Preloads Geist and Inter, declares the three self-hosted `@font-face` rules (Geist, Geist Mono, Inter; latin subset) and loads `tangent-tokens.css`. |
+
+Component CSS lives in each block's or section's `{% stylesheet %}` tag, as in Horizon. There are no separate
+`ts-*.css` asset files. See [Design system](/technical/design-system) for the token values and rules.
+
+## The card list
+
+`blocks/card-list.liquid` (editor name **Card list**) renders most grids on the site: industries, benefits,
+options, galleries, stats, steps, quotes, link cells, tiles. Its cards are child blocks
+`blocks/_card-list-item.liquid` (**Card**).
+
+A parent block can't read its children's settings (`block.blocks` only gives `id` and `type`), but the list
+needs every card's data to pick its look (stats mode, badges, a full last row, icon bands). So:
+
+1. Each `_card-list-item` prints a **record**, not markup (`snippets/ts-card-record.liquid`).
+2. The card list captures `{% content_for 'blocks' %}`, parses the records, and renders each card with
+   `snippets/ts-card.liquid`, passing the list-level settings (layout, columns, icon style, image sizes, bento).
+
+Helper snippets: `ts-card-icon` (icon and label), `ts-card-images` / `ts-card-img` (one or more photos),
+`ts-card-sizes` (the `sizes` attribute from the drawn cell width), `ts-card-fill` (how a grid ends on a full
+row), `ts-card-mode` and `ts-stats-mode` (key-specs and stats looks from the data).
+
+The list also has two data sources: **Cards** (`cards`, a `metaobject_list` of `card` entries) and **Blog
+posts** (`blog`, `post_limit`). When **Cards** is empty and a blog is set, it shows the latest posts. No template
+uses the `card` metaobject source today; every card is a static `_card-list-item`.
+
+Layouts (`layout`): `grid` **Cards**, `stats` **Stats**, `steps` **Numbered steps**, `gallery` **Gallery**,
+`quotes` **Quotes**, `notes` **Drawing notes**, `entries` **Entries**, `links` **Link cells**, `checks`
+**Check list**, `tiles` **Tiles**, `strip` **Note strip**. The full settings list is in
+[Custom blocks](/technical/custom-blocks#card-list-settings), and the staff guide is [Card list](/blocks/card-list).
+
+## Scripts
+
+Tangent JavaScript follows Horizon: ES modules, custom elements extending `Component` from `@theme/component`,
+`ref` attributes, loaded with `<script type="module">`.
+
+| Module | Loaded by | Does |
+|---|---|---|
+| `ts-no-cart.js` | `snippets/scripts.liquid`, first module after the import map, when `ts_sales_disabled` is on | Blocks cart and checkout forms, links and Ajax cart writes. |
+| `ts-external-links.js` | `snippets/scripts.liquid`, every page | Opens external links inside store HTML in a new tab. |
+| `ts-step-tabs.js` | `blocks/ts-process.liquid` | The homepage process tabs (autoplay, image follows the step). |
+| `ts-load-more.js` | `blocks/ts-load-more.liquid` | Appends the next page of blog posts (Section Rendering API). |
+| `ts-sticky-cta.js` | `sections/mobile-sticky-cta.liquid` (reveal on scroll) | Shows and hides the phone call bar. |
+| `ts-lightbox.js` | `snippets/ts-lightbox.liquid` | The portfolio photo viewer. |
+| `quote-form.js` | `blocks/quote-form.liquid` | Form validation and the success state. |
+
+The `@theme/ts-*` aliases are declared in the import map in `snippets/scripts.liquid`.
+
+## External links
+
+A link to another site opens in a new tab and shows a diagonal arrow. Two pieces do this:
+
+- `snippets/ts-link-target.liquid`: for links from `url` settings. It outputs
+  ` target="_blank" rel="noopener" aria-describedby="ts-new-window"` for an absolute http(s) URL whose host is not
+  `usetangent.com`, `www.usetangent.com`, `usetangent.myshopify.com` or the current domain, and nothing
+  otherwise. Callers capture it; a non-blank result also switches the arrow to `.ts-arrow-ne`.
+- `assets/ts-external-links.js`: for links inside store HTML that Liquid can't rewrite (rich text, page and
+  article bodies, FAQ answers), in `#MainContent` and the footer. Links that already have a `target` keep it.
+
+`layout/theme.liquid` prints the hidden `#ts-new-window` description (Horizon's `accessibility.new_window`
+text). `mailto:`, `tel:`, relative links and `#anchors` are never touched.
+
+## Sales disabled
+
+The store sells nothing online. The theme setting **Block cart and checkout** (`ts_sales_disabled`, group
+**Tangent** in theme settings, default on) switches the cart off everywhere:
+
+| File | With the setting on |
+|---|---|
+| `layout/theme.liquid` | The cart page gets `noindex` and redirects to the home page (not in the theme editor); no cart drawer; no quick-add modal. |
+| `snippets/scripts.liquid` | Loads `ts-no-cart.js` first; doesn't load `quick-add.js`. |
+| `snippets/header-actions.liquid` | Hides the cart icon (also controlled by the header's **Show cart icon**, `show_cart`). |
+| `blocks/buy-buttons.liquid` | No product form, add to cart or accelerated checkout. |
+| `sections/product-information.liquid` | No sticky add to cart. |
+| `snippets/quick-add.liquid` | Renders nothing. |
+
+Turning the setting off brings Horizon's cart back, but the product data (inventory policy, the quote template)
+was also set up for a no-sales store.
+
+## Editor labels (locales)
+
+Tangent block names, setting labels, options and info texts use `t:tangent.*` keys. The English source is
+`docs/tangent-homepage/tangent-locale.json`. `docs/tangent-homepage/sync_locales.py` writes it as the last
+`"tangent": { … }` group of all 23 `locales/*.schema.json` files (the files are JSONC with `//` comments, so the
+script edits them as text). Non-English schema locales get the English strings, so every key exists everywhere and
+Theme Check's `MatchingTranslations` passes.
+
+To add a label: add the key to `tangent-locale.json`, run `python3 docs/tangent-homepage/sync_locales.py`, and
+commit the JSON source and all 23 locale files together.
+
+Many of the earlier Tangent blocks (`card-list`, `quote-form`, `contact-details`, `breadcrumbs`,
+`mobile-sticky-cta` and most of the unused ones) have plain English labels in their schema, or a mix of plain
+labels and `t:` keys. That works too: the editor shows the plain text in every language. To find the label a
+staff member sees for a `t:` key, look the key up in `locales/en.default.schema.json`.
+
+## Where the design decisions live
+
+- `docs/agents/BOARD.md`: the build rules, the numbered design rules, decisions and platform findings.
+- `docs/ux/*.md`: UX specs per page type and the spacing system (`SPACING.md`).
+- `docs/tangent-homepage/PLAN.md`: why each new component exists and how it was scoped.
+- `preview/`: the approved visual reference.

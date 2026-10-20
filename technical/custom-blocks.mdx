@@ -1,0 +1,129 @@
+---
+title: "Custom blocks"
+description: "Reference of every block the Tangent layer added: file, editor name, purpose, key settings and the templates that use it."
+---
+
+This page lists the blocks and the one section added on top of Horizon. Horizon blocks that only gained `ts_*`
+settings are listed in [Architecture](/technical/architecture#settings-added-to-horizon-files).
+
+"Used in" counts the JSON templates and section groups whose JSON contains the block type (`templates/*.json`,
+`sections/*.json`). Recount after big template changes:
+
+```bash
+grep -l '"type": "ts-mark"' templates/*.json sections/*.json | wc -l
+```
+
+Editor names come from the schema `name` (resolved through `locales/en.default.schema.json` for `t:` keys).
+Child blocks (prefix `_`) only appear inside their parent.
+
+## Blocks in use
+
+| File (`blocks/`) | Editor name | Purpose | Key setting ids | Used in |
+|---|---|---|---|---|
+| `card-list.liquid` | **Card list** | Grids of cards in 11 layouts (see below). Renders its `_card-list-item` children through records. | `layout`, `card_style`, `ts_icon_style`, `columns`, `columns_mobile`, `ts_tablet_columns`, `ts_desktop_from`, `ts_pairs`, `image_ratio`, `cards`, `blog` | 74: 46 location, 13 service, 8 landing, about-us, our-company, team, services, 3d-scanner-reverse-engineering, 3d-laser-scanning-for-boats, product.quote |
+| `_card-list-item.liquid` | **Card** | One static card: prints a record the card list renders. | `title`, `text`, `label`, `icon`, `image`, `image_2` … `image_12`, `image_contain`, `image_band`, `image_focus_y`, `link`, `link_label` | with every card list |
+| `breadcrumbs.liquid` | **Breadcrumbs** | Breadcrumb trail plus `BreadcrumbList` JSON-LD; optional parent crumb. | `home_label`, `parent_label`, `parent_link`, `current_title`, `ts_style` (`strip`) | 86: nearly every page, article and blog template |
+| `contact-details.liquid` | **Contact details** | Phone, email, schedule link, address and hours rows with line icons. Phone falls back to the store phone. | `phone`, `ts_hide_phone`, `email`, `schedule_link`, `address`, `address_link`, `hours` | 61: 46 location, 13 service, contact, free-consultation |
+| `faq-category.liquid` | **FAQ category** | Lists every `faq` entry whose category is the picked `faq_category`, as an accordion, plus `FAQPage` JSON-LD. | `category` (metaobject handle), `hide_section_when_empty`, `output_schema`, `open_first`, `ts_ruled` | 10: 7 service, hawaii, landing-orange-county, 3d-scanner-reverse-engineering |
+| `quote-form.liquid` | **Quote form** | The quote request form (Shopify contact form). Presets **Quote form**, **Quote form (location)**, **Quote form (short)**. | `variant_name`, `anchor_id`, `show_company`, `show_phone`, `show_needs`, `show_location`, `*_label`, `submit_label`, `success_heading` | 66: 46 location, 13 service, 6 landing-short, contact |
+| `ts-checklist.liquid` | **Checklist** | Short lines with check marks, one item per line. | `items`, `items_source`, `layout` (`inline` / `list` / `grid`), `appearance`, `text_size` | 22 location |
+| `ts-mark.liquid` | **Pixel mark** | A faint decorative drawing on the edge of its group; no layout space, hidden from screen readers. | `motif` (`logo`, `auto`, `bracket`, `cad_part`, `cylinder_head`, `tire`, `engine`, `plate`, `wheel`, `handheld`), `corner`, `size` | 53: 46 location, 4 service, landing, index, services |
+| `ts-sticky.liquid` | **Sticky column** | Ruled aside that sticks under the header beside a long body; holds any blocks. | `top`, `width`, `mobile_position` (`after` / `before` / `hide`), `ts_centred`, `gap` | 3: article, landing, landing-cnc |
+| `ts-flow.liquid` | **Flow chart** | Process and result nodes on the ruled grid with arrow chips. | `show_if`, `show_if_value` | 1: service-reverse-engineering |
+| `_ts-flow-node.liquid` | **Flow node** | One node; places itself and draws its own arrows. | `title`, `text`, `kind`, `position`, `arrows` | with ts-flow |
+| `ts-gallery.liquid` | **Project gallery** | Project tiles, with an optional lightbox. | `ts_layout` (`cards` / `tiles`), `ts_columns`, `ts_lightbox`, `columns_mobile`, `aspect_ratio` | 1: portfolio |
+| `_ts-project.liquid` | **Project** | One tile. | `image`, `caption`, `tag`, `link` | with ts-gallery |
+| `ts-process.liquid` | **Process** | Image stage (2/3) beside the step list (1/3); tabs with autoplay (`ts-step-tabs.js`). | `autoplay`, `interval`, `aspect_ratio`, `aria_label` | 1: index |
+| `_ts-process-step.liquid` | **Process step** | One step: tab, text and its image panel. | `number`, `title`, `text`, `image` | with ts-process |
+| `ts-scan-frame.liquid` | **Scan frame** | The homepage hero scan viewport: rulers, point-cloud image, laser sweep, readout caption. | `image`, `caption`, `formats`, `sweep`, `sweep_duration`, `aspect_ratio`, `aspect_ratio_mobile` | 1: index |
+| `ts-blog-tags.liquid` | **Blog tags** | Tag filter chips above the posts in `main-blog`. | `show_all`, `all_label`, `hidden_tags` | 1: blog |
+| `ts-load-more.liquid` | **Load more** | Button that appends the next page of posts in `main-blog`. Page size is main-blog's `ts_posts_per_page`. | `label`, `show_count` | 1: blog |
+| `ts-recent-posts.liquid` | **Recent posts** | Compact list of the latest posts with thumbnails, for the article aside. | `heading`, `blog`, `limit`, `show_images` | 1: article |
+| `_header-phone.liquid` | **Phone** | Static header block: click-to-call link. | `phone`, `label`, `show_icon`, `hide_in_drawer`, `ts_style` | header-group |
+| `_header-cta.liquid` | **Quote button** | Static header block: the quote button (hidden below 750px). | `label`, `link`, `ts_style` | header-group |
+
+### Section
+
+| File | Editor name | Purpose | Key setting ids | Used in |
+|---|---|---|---|---|
+| `sections/mobile-sticky-cta.liquid` | **Mobile sticky CTA** | The phone and quote bar on phones and tablets. | `reveal` (`always` / `on_scroll`), `phone`, `call_label`, `quote_label`, `quote_link` | footer-group (currently `"disabled": true`, settings kept) |
+
+## Card list settings
+
+| Id | Label | Values (default first) |
+|---|---|---|
+| `layout` | **Layout** | `grid` Cards, `stats` Stats, `steps` Numbered steps, `gallery` Gallery, `quotes` Quotes, `notes` Drawing notes, `entries` Entries, `links` Link cells, `checks` Check list, `tiles` Tiles, `strip` Note strip |
+| `card_style` | **Card style** | `bordered` Bordered, `plain` Plain, `surface` Tinted |
+| `ts_icon_style` | **Card icon** | `tile` Tile, `accent` Accent icon beside the label, `bare` Bare icon, 24px. The design rules require `bare` on industry, benefit, why and option grids. |
+| `columns` / `columns_mobile` | **Columns on desktop** / **Columns on mobile** | range (3) / `1`, `2` |
+| `ts_tablet_columns` | **Columns on tablet** | `auto` Auto, `desktop` Same as desktop, `3` 3 columns, `rows` One card per row (photo \| text) |
+| `ts_desktop_from` | **Desktop columns from** | `990`, `1200` |
+| `ts_pairs` | **Text cards over their images** | off. Interleaves text and image cards on phones. |
+| `ts_bento`, `ts_even_rows`, `ts_fill_first` | **Bento**, **Even photo rows**, **Short row first** | off |
+| `ts_photo_start`, `ts_copy_first` | **Photo on the left in the first row**, **Copy first when stacked** | off |
+| `ts_flush`, `ts_foot_strip`, `ts_link_button` | **On the text edge**, **Strip at the cell foot**, **Link as a button** | off |
+| `ts_label_style` | **Label style** | `kicker` Kicker, `number` Number |
+| `ts_chips_beside`, `ts_line_checks`, `ts_tiles_center`, `ts_link_media` | **Checks beside the copy**, **Checks on list lines**, **Centred tiles**, **Images in link cells** | off |
+| `ts_show_for` | **Show for key specs** | `any` Always, `facts` Facts only, `not_facts` Figures and features only |
+| `show_images`, `image_ratio` | **Show images**, **Image ratio** | on; `4 / 3`, `16 / 9`, `16 / 10`, `1 / 1` |
+| `title_tag`, `ts_title_size`, `title_color` | **Title HTML tag**, **Title size**, **Title color** | `h3`; `card` / `section` |
+| `link_label` | **Default link label** | `Learn more` |
+| `cards`, `blog`, `post_limit`, `hide_section_when_empty` | **Cards** (metaobject list, type `card`), **Blog posts**, **Number of posts**, **Hide section when empty** | data sources; see [Architecture](/technical/architecture#the-card-list) |
+
+Presets: **Card list**, **Stats strip**, **Numbered steps**, **Image gallery**, **Static cards**, **Static stats
+strip**. Staff guide: [Card list](/blocks/card-list).
+
+## Blocks not used by any template
+
+These blocks exist in `blocks/` but no template or section group uses them. Most were built for the first
+versions of the pages (the metaobject-driven service and location templates, or the first homepage design) and
+were replaced by the card list and static blocks. They still appear in the theme editor's block picker.
+
+| File | Editor name | What it was for |
+|---|---|---|
+| `faq-list.liquid` | **FAQ list** | FAQ accordion from a list of `faq` entries (replaced by **FAQ category**). |
+| `industries-list.liquid` | **Industries list** | Grid of `industry` entries. |
+| `service-list.liquid` | **Service list** | Grid of `service` entries linking to their web pages. |
+| `ts-testimonial.liquid` | **Testimonial** | One quote card from a `testimonial` entry or typed text. |
+| `ts-industry-chips.liquid` + child `industries-list` | **Industry chips** | "Industries we serve" chips band. |
+| `optional-image.liquid` | **Image (optional)** | An image that renders nothing when empty (for optional dynamic sources). |
+| `steps-list.liquid` + `_steps-list-item.liquid` | **Steps list** / **Step** | Numbered list on 1px lines. |
+| `ts-cards.liquid` + `_ts-card.liquid` | **Card grid** / **Card** | Auto-numbered card grid. |
+| `ts-stats.liquid` + `_ts-stat.liquid` | **Stats strip** / **Stat** | Strip of key figures. |
+| `ts-steps.liquid` + `_ts-step.liquid` | **Process steps** / **Process step** | Numbered timeline. |
+| `ts-logo-marquee.liquid` + `_ts-client-logo.liquid` | **Logo marquee** / **Client logo** | Scrolling client logos (Horizon's marquee). |
+| `ts-media-frame.liquid` | **Media frame** | Image frame with an overlay slot. |
+| `ts-scan-spec.liquid` + `_ts-spec-row.liquid` | **Spec card** / **Spec row** | Small spec sheet for a media frame overlay. |
+| `ts-tabs.liquid` + `_ts-tab.liquid` | **Tabs** / **Tab** | Accessible tabs. |
+| `ts-anchor.liquid` | **Anchor** | Invisible jump target for `/#id` links. |
+
+<Warning>
+`ts-tabs.liquid` reads `tab.settings.title` while looping its children. A parent block can't read child
+settings, so every tab label falls back to "Tab". Fix it (render the label from the child block) before using
+the block.
+</Warning>
+
+Before deleting an unused block, check that the live theme doesn't use it (a template created in the theme
+editor arrives in the repository only after it's merged from `main`), and remember that `card-list`,
+`industries-list`, `service-list` and `ts-testimonial` reference metaobject definitions in their schema (see
+[Content model](/technical/content-model)). Deleting a file is a change the site owner signs off.
+
+## Staff guide pages
+
+| Block | Site guide page |
+|---|---|
+| Card list, Card | [Card list](/blocks/card-list) |
+| FAQ category | [FAQ](/blocks/faq) |
+| Breadcrumbs | [Breadcrumbs](/blocks/breadcrumbs) |
+| Project gallery | [Gallery and lightbox](/blocks/gallery) |
+| Quote form | [Contact details and quote form](/blocks/contact-and-quote-form) |
+| Contact details | [Contact details](/blocks/contact-details) |
+| Checklist | [Checklist](/blocks/checklist) |
+| Pixel mark | [Pixel mark](/blocks/mark) |
+| Sticky column | [Sticky column](/blocks/sticky-column) |
+| Flow chart | [Flow chart](/blocks/flow) |
+| Process | [Process](/blocks/process) |
+| Scan frame | [Scan frame](/blocks/scan-frame) |
+| Blog tags, Load more, Recent posts | [Blog blocks](/blocks/blog-blocks) |
+| Phone, Quote button | [Header](/blocks/header) |
+| Mobile sticky CTA | [Mobile call bar](/blocks/sticky-bar) |

@@ -1,0 +1,58 @@
+---
+title: "Pixel mark"
+description: "The faint drawing on the edge of a section: the logo's pixel squares or a scanned part."
+---
+
+The **Pixel mark** block draws a faint decoration on the edge of the group it's placed in. It's either the pixel
+squares of the Tangent logo, or a line drawing of a scanned part (a bracket, a wheel rim, a machined plate…).
+It's decoration only: it takes no space and screen readers skip it.
+
+## What it looks like
+
+- **Logo**: the small pixel squares of the Tangent logo, fanned out from a corner of the group.
+- **Part scans**: a drawing of a part made of small squares, like a 3D scan, in the empty space beside a
+  section heading.
+- **Handheld scanner**: a drawing of a handheld scanner in the same line style.
+
+Because the mark takes no space, the text doesn't move out of its way. That's why it only goes where the text
+leaves the space empty.
+
+## Block settings
+
+| Setting | What it does |
+|---|---|
+| **Drawing** | **Logo** (the pixel squares), one of the part scans (**Part scan: bracket**, **Part scan: CAD part**, **Part scan: cylinder head**, **Part scan: tire**, **Part scan: engine**, **Part scan: machined plate**, **Part scan: wheel rim (wide)**), **Handheld scanner**, or **Auto**. **Auto** draws the part set in the page's **Scan motif** field, and nothing when that field is blank. |
+| **Position** | **Top right**, **Middle right (from 990px)**, **Bottom right**, or **In the cell**. **In the cell** isn't a decoration on the edge: the drawing sits in the cell itself, centred, like a picture. |
+| **Size** | Only for **Logo**: **Medium** or **Small**. |
+
+### On smaller screens
+
+- The **Logo** is 176 pixels wide (**Medium**) or 128 pixels (**Small**) on large screens, 128 pixels on
+  tablets, and hidden on phones (below 750 pixels wide).
+- The part scans keep their own size on large screens (from 1200 pixels) and shrink a little on tablets.
+  Where there's no room left beside the text, the drawing moves under the text instead of covering it.
+
+## Where it's used on the site
+
+| Page | Drawing and position |
+|---|---|
+| Every location page (46) | **Logo**, **Small**, **Top right**, beside the intro heading under the hero. On 3D laser scanning services, which has no intro, it's in the **Industries** section. |
+| Homepage | **Part scan: bracket**, **Middle right**, in the **Services** section. |
+| Services overview | **Part scan: wheel rim (wide)**, **Middle right**, at the top of the page. |
+| 3D scanning services | **Part scan: machined plate**, **Middle right**, in the **What we do** section. |
+| Reverse engineering | **Part scan: CAD part**, **Middle right**, in the **What we do** section. |
+| CAD design services | **Part scan: bracket**, **Middle right**, in the **What we do** section. |
+| On-demand engineering | **Handheld scanner**, **In the cell**, beside the list in the **Packages** section. |
+| The shared **landing** template (a starting point for new landing pages) | **Auto**, **Bottom right**, in the hero. |
+
+## Notes
+
+<Warning>
+Use a pixel mark at most once per page, and only where there's empty space. Never place it over text. See
+[Do's and don'ts](/design-rules/do-and-dont#layout).
+</Warning>
+
+- Place the pixel mark as the **last block** of the group that holds the heading, not straight inside a group
+  that draws lines between its blocks (see [Section layout](/blocks/section-layout#group-settings)).
+- When you add one, copy it from a page that already has the same kind of section, so the drawing and its
+  position match.

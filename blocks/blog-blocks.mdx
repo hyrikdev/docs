@@ -1,0 +1,77 @@
+---
+title: "Blog blocks"
+description: "The tag chips and Load more button on the blog, and the recent articles beside each post."
+---
+
+Three small blocks finish the blog pages. None of them holds text of its own to keep up to date: they read the
+posts of the blog.
+
+| Block | Where | What it shows |
+|---|---|---|
+| **Blog tags** | The blog list | A row of filter chips, one per tag. |
+| **Load more** | The blog list | A button under the posts that loads the next posts. |
+| **Recent posts** | Every article | The latest posts, each with a small picture and its title. |
+
+The posts themselves are written in the Shopify admin. See [Blog posts](/admin/blog-posts).
+
+## Blog tags
+
+<Frame caption="The blog list with its tag chips">
+  <img src="/images/blog-index.png" alt="The blog page with the title Blog, a row of tag chips and post cards" />
+</Frame>
+
+A row of chips above the posts. The first chip shows all posts; each other chip shows only the posts with that
+tag. The chip of the list you're on is blue.
+
+The chips come from the tags of the posts. A new tag on a post adds a new chip by itself. See
+[Tags and filter chips](/admin/blog-posts#tags-and-filter-chips).
+
+| Setting | What it does |
+|---|---|
+| **Show a chip for all posts first** | Adds a first chip that links to the blog with no tag filter. |
+| **First chip label** | The text of that first chip. Leave it blank to use the blog's title. |
+| **Tags to leave out** | Tag names, separated by commas, that get no chip. For example a tag that would repeat the first chip. |
+| **Padding** (**Top**, **Bottom**, **Left**, **Right**) | Space around the row. |
+
+On the site: the **Blog** list (template **blog**) uses a first chip labelled "Blog" and leaves out the tag
+"Blog". The case studies list has no tag chips.
+
+## Load more
+
+A button under the posts. A click adds the next page of posts under the ones already shown, without leaving the
+page. The button disappears after the last page.
+
+| Setting | What it does |
+|---|---|
+| **Label** | The button text. The site uses "Load more". |
+| **Show post count** | Shows how many posts are shown out of the total, for example "9 / 85". |
+| **Padding** (**Top**, **Bottom**) | Space above and below the button. |
+
+How many posts make one page isn't a setting of this block: it's **Posts per page** on the **Blog posts**
+section. The **Blog** list shows 9 posts per page. At 50 (the most), every post up to 50 is on one page and
+the button isn't needed.
+
+On the site: the **Blog** list only. The case studies list shows up to 50 posts on one page, with no button.
+
+## Recent posts
+
+A short ruled list of the latest posts, each with a small picture and its title, linking to the post. The post
+you're reading is left out, so the list never links to the page it's on.
+
+| Setting | What it does |
+|---|---|
+| **Heading** | The title above the list. |
+| **Blog** | Which blog to list. Leave it blank to use the blog of the post being read. |
+| **Number of posts** | How many posts to show, from 1 to 10. |
+| **Show images** | Shows the small picture of each post. |
+| **Padding** (**Top**, **Bottom**) | Space above and below the list. |
+
+On the site: every article (template **article**), in the [Sticky column](/blocks/sticky-column) beside the
+post, under the **Call Now** and **Get a Quote** buttons. Its heading is "Recent articles" and it shows 5
+posts with their pictures.
+
+## Notes
+
+- The blog list and the article are explained page by page in
+  [Blog and case studies](/page-recipes/blog-and-case-studies).
+- The picture beside each recent post is the post's featured image, set in the admin.

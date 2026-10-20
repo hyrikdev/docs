@@ -1,0 +1,152 @@
+---
+title: "Sections, groups and blocks"
+description: "How a page on this site is stacked: sections, groups inside groups, and the blocks at the bottom."
+---
+
+[Sections and blocks](/getting-started/sections-and-blocks) gave the short version: a page is a stack of
+sections, and each section holds blocks. This page goes one level deeper, with a real page from the site.
+
+## Three layers
+
+| Layer | What it is | What you see in the sidebar |
+|---|---|---|
+| **Section** | A band of the page, from edge to edge. On this site almost every band is Horizon's **Section**, with the Tangent rails and the line on top. | The section's own name, for example **Service hero** or **How it works**. |
+| **Group** | A box that arranges the blocks inside it: one under the other, side by side, or as a ruled grid. Groups can hold other groups. | **Group**, with an arrow to open it. |
+| **Content blocks** | The things visitors read and click: **Text**, **Image**, **Button**, **Card list**, **FAQ category**, **Quote form** and so on. | The block's type, or the first words of its text. |
+
+Groups do the layout work that columns and inner sections did in Elementor. A group's **Direction** setting
+puts its blocks one under the other (**Vertical**) or side by side (**Horizontal**), and its **Tangent grid**
+settings draw the lines between them. See [Section layout](/blocks/section-layout#group-settings).
+
+<Frame caption='The homepage "Services" section (blue). Inside it, a group for the section head (orange) and a group for each card (green).'>
+  <img src="/images/sections-and-blocks.png" alt="The homepage services section outlined in blue, with its heading group outlined in orange and one service card outlined in green" />
+</Frame>
+
+## A real page, top to bottom
+
+Here is the **Reverse engineering** service page (/pages/reverse-engineering, template
+**service-reverse-engineering**). The first section is shown in full, the way the sidebar nests it.
+
+**Service hero** (section)
+
+- **Breadcrumbs**: the "Home / Services / page" trail, **Tangent style**: **Strip: own ruled row**
+- **Group**: holds the whole hero
+  - **Group**: the row. **Direction**: **Horizontal**, **Lines**: **Lines between blocks, stacked on tablet**
+    - **Group**: the copy, on the left
+      - **Text**: "Reverse engineering" (**Eyebrow, leading mark**)
+      - **Text**: the page title (**Heading large**)
+      - **Text**: the intro (**Lede**)
+      - **Group**: the buttons. **Direction**: **Horizontal**
+        - **Button**: "Call us now" (**Primary, neutral**)
+        - **Button**: "Get a Quote" (**Secondary**)
+    - **Group**: the photo, on the right
+      - **Image** (**Media**)
+  - **Card list**: the four key figures under the hero. **Layout**: **Stats**
+    - **Card**: 0.025mm
+    - **Card**: STEP / IGES / XT
+    - **Card**: 5 - 7 business days
+    - **Card**: On-site or ship
+
+So a button in the hero sits five levels deep: section → group → group → group → group → button. Every level
+has a job: the outer group holds the hero together, the row splits it in two, the copy group stacks the texts,
+and the button group lines up the two buttons.
+
+The other sections of the page follow the same patterns:
+
+| Section | What's inside |
+|---|---|
+| **What we do** | A head group (eyebrow, heading, intro and a **Pixel mark**), a **Flow chart** with five **Flow node** blocks, a small heading, then a **Card list** of five project types. |
+| **How it works** | A head group, then a **Card list** with **Layout**: **Numbered steps** and five cards. |
+| **What gets delivered** | A head group, then a **Card list** of three text cards and three photo cards, with **Text cards over their images** on. |
+| **Why Tangent Solutions (with boxes)** | A row group: the head group on one side, a **Card list** of four cards on the other. |
+| **Where we work** | A row group: the head group, and a group with a **Text** and a **Card list** of industries. |
+| **Trusted by** | A head group, then a group of twelve **Image** blocks with **Tangent style**: **Logo**. |
+| **On-site scanning** | A **Card list** with a single card. |
+| **Case studies** | A head group, then a **Card list** with no cards: its **Blog posts** setting is **Case studies** and **Number of posts** is 4, so it shows the latest four case studies by itself. |
+| **Comparison** | A head group, then a **Card list** of two cards. |
+| **FAQ** | A row group: the head group, and a group holding the **FAQ category** block. The questions come from the FAQ entries in the admin. |
+| **Quote** | A row group: the copy (heading, intro and **Contact details**) on one side, the **Quote form** on the other. |
+
+<Tip>
+Three group shapes come back on every page: the **head group** (eyebrow, heading, intro), the **row group**
+(two cells side by side) and the **cell group** inside a row. When you add something, put it in the same kind of
+group as its neighbors, and it lines up by itself.
+</Tip>
+
+## Static blocks and added blocks
+
+Most blocks on the site were **added** to their section. You can drag them, duplicate them, hide them and remove
+them.
+
+A few blocks are **static**: they're part of the section's design and always there. You can change their settings,
+but you can't remove them, drag them elsewhere or add a second one. On this site:
+
+- the header's **Logo**, **Menu**, **Phone** and **Quote button** (see [Header](/blocks/header));
+- the post card in the blog list (**Blog posts** section): its title, details, image and description parts are
+  the same for every post, because one card design is repeated for each post;
+- the top of the scanner's product page: the breadcrumbs, the product photos and the product details.
+
+Some added blocks also only fit inside one parent. A **Card** lives only in a **Card list**, and a **Flow node**
+only in a **Flow chart**. That's why **Add block** inside a card list offers only **Card**.
+
+## Header and footer groups
+
+The header and the footer aren't part of any page template. Each is a **section group**: a small stack of
+sections shared by every page. In the sidebar they sit above and below the page's own sections.
+
+| Group | Sections in it | More |
+|---|---|---|
+| **Header** | **Announcement bar**, then **Header** (logo, menu, phone, quote button) | [Announcement bar](/blocks/announcement-bar), [Header](/blocks/header) |
+| **Footer** | **Footer** (about text, industries, helpful links, contact, social links, copyright), **Utilities** (hidden) and **Mobile sticky CTA** (turned off for now) | [Footer](/blocks/footer), [Mobile call bar](/blocks/sticky-bar) |
+
+A change in the header or footer group shows on every page at once. The footer itself is built like a page
+section: groups inside groups, with **Text**, **Menu**, **Logo** and **Social media links** blocks at the bottom.
+
+## Hide section when empty
+
+Some blocks can hide the **whole section** they're in when they have nothing to show. The setting is on the block,
+not on the section:
+
+| Block | Setting | The section hides when… |
+|---|---|---|
+| **Card list** | **Hide section when empty** | the list has no cards to show, for example a case studies row when the blog has no posts. |
+| **FAQ category** | **Hide section when empty** | no category is picked, or the category has no questions yet. |
+| **Text** | **Hide section when blank** | the text is empty, for example when it comes from a page field that's blank on this page. |
+| **Image** | **Hide when empty** | Only for the image itself: with no image, it leaves no empty frame. The section stays. |
+
+Two things to know:
+
+- **It only works on the live site.** In the theme editor the section stays visible, often with a short note
+  saying what's missing, so you can still fill it in.
+- **A missing section isn't always a mistake.** If a section shows in the editor but not on the site, check
+  whether its card list, FAQ category or text is empty. See
+  [A section disappeared](/help/troubleshooting#a-section-disappeared).
+
+<Note>
+Many sections on the service and location pages have this setting on. Leave it as it is: it keeps the page
+tidy when a piece of content is missing.
+</Note>
+
+## What you can and can't move
+
+**You can:**
+
+- drag a section up or down among the page's sections;
+- drag a block up or down inside its section, and into or out of a group in that section;
+- hide any section or added block with the eye icon, and show it again later.
+
+**You can't:**
+
+- move the header or footer into a page, or a page section into the header or footer;
+- move, remove or duplicate a static block;
+- put a **Card** anywhere but a **Card list** (and the same for other blocks tied to one parent);
+- drag a block from one section into another. To reuse a block somewhere else, add a new one there and copy its
+  settings.
+
+Shopify also sets a few limits: a page template holds at most 25 sections, and blocks can be nested at most
+eight levels deep. The site's pages stay well inside both.
+
+<Warning>
+Each page has its own template. Moving or hiding a block on one service page doesn't change the other service
+pages. If a change belongs on all of them, make it on each page, or ask your developer to do it in one go.
+</Warning>

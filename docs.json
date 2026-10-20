@@ -29,85 +29,163 @@
     "library": "lucide"
   },
   "navigation": {
-    "groups": [
+    "tabs": [
       {
-        "group": "Welcome",
-        "pages": [
-          "index"
+        "tab": "Site guide",
+        "icon": "book-open",
+        "groups": [
+          {
+            "group": "Welcome",
+            "pages": [
+              "index"
+            ]
+          },
+          {
+            "group": "Coming from WordPress",
+            "pages": [
+              "from-wordpress/overview",
+              "from-wordpress/daily-work",
+              "from-wordpress/plugins"
+            ]
+          },
+          {
+            "group": "Getting started",
+            "pages": [
+              "getting-started/theme-editor",
+              "getting-started/preview-and-publish",
+              "getting-started/sections-and-blocks",
+              "getting-started/undo-and-versions"
+            ]
+          },
+          {
+            "group": "Shopify and Horizon",
+            "pages": [
+              "horizon/what-is-horizon",
+              "horizon/theme-settings",
+              "horizon/sections-groups-blocks"
+            ]
+          },
+          {
+            "group": "Editing pages",
+            "pages": [
+              "editing-pages/how-pages-work",
+              "editing-pages/page-types",
+              "editing-pages/editing-content"
+            ]
+          },
+          {
+            "group": "Page recipes",
+            "pages": [
+              "page-recipes/overview",
+              "page-recipes/homepage",
+              "page-recipes/service-page",
+              "page-recipes/location-page",
+              "page-recipes/landing-page",
+              "page-recipes/company-pages",
+              "page-recipes/blog-and-case-studies",
+              "page-recipes/product-page",
+              "page-recipes/contact-pages"
+            ]
+          },
+          {
+            "group": "Building blocks",
+            "pages": [
+              "blocks/overview",
+              "blocks/card-list",
+              "blocks/text-styles",
+              "blocks/buttons",
+              "blocks/images",
+              "blocks/faq",
+              "blocks/breadcrumbs",
+              "blocks/gallery",
+              "blocks/contact-and-quote-form",
+              "blocks/section-layout",
+              "blocks/checklist",
+              "blocks/mark",
+              "blocks/sticky-column",
+              "blocks/flow",
+              "blocks/process",
+              "blocks/scan-frame",
+              "blocks/blog-blocks",
+              "blocks/contact-details",
+              "blocks/icon",
+              "blocks/product-blocks",
+              "blocks/header",
+              "blocks/announcement-bar",
+              "blocks/sticky-bar",
+              "blocks/footer"
+            ]
+          },
+          {
+            "group": "Content in the Shopify admin",
+            "pages": [
+              "admin/pages-and-seo",
+              "admin/blog-posts",
+              "admin/faq-entries",
+              "admin/menus",
+              "admin/files-and-images",
+              "admin/url-redirects"
+            ]
+          },
+          {
+            "group": "Design rules",
+            "pages": [
+              "design-rules/do-and-dont",
+              "design-rules/icons"
+            ]
+          },
+          {
+            "group": "Common tasks",
+            "pages": [
+              "how-to/change-phone-number",
+              "how-to/change-announcement",
+              "how-to/add-faq-question",
+              "how-to/edit-card",
+              "how-to/add-blog-post",
+              "how-to/add-location-page",
+              "how-to/change-seo-title",
+              "how-to/replace-image"
+            ]
+          },
+          {
+            "group": "Help",
+            "pages": [
+              "help/troubleshooting",
+              "help/contact"
+            ]
+          }
         ]
       },
       {
-        "group": "Getting started",
-        "pages": [
-          "getting-started/theme-editor",
-          "getting-started/preview-and-publish",
-          "getting-started/sections-and-blocks",
-          "getting-started/undo-and-versions"
-        ]
-      },
-      {
-        "group": "Editing pages",
-        "pages": [
-          "editing-pages/how-pages-work",
-          "editing-pages/page-types",
-          "editing-pages/editing-content"
-        ]
-      },
-      {
-        "group": "Building blocks",
-        "pages": [
-          "blocks/overview",
-          "blocks/card-list",
-          "blocks/text-styles",
-          "blocks/buttons",
-          "blocks/images",
-          "blocks/faq",
-          "blocks/breadcrumbs",
-          "blocks/gallery",
-          "blocks/contact-and-quote-form",
-          "blocks/section-layout",
-          "blocks/header",
-          "blocks/announcement-bar",
-          "blocks/sticky-bar",
-          "blocks/footer"
-        ]
-      },
-      {
-        "group": "Content in the Shopify admin",
-        "pages": [
-          "admin/pages-and-seo",
-          "admin/blog-posts",
-          "admin/faq-entries",
-          "admin/menus",
-          "admin/files-and-images",
-          "admin/url-redirects"
-        ]
-      },
-      {
-        "group": "Design rules",
-        "pages": [
-          "design-rules/do-and-dont",
-          "design-rules/icons"
-        ]
-      },
-      {
-        "group": "Common tasks",
-        "pages": [
-          "how-to/change-phone-number",
-          "how-to/change-announcement",
-          "how-to/add-faq-question",
-          "how-to/edit-card",
-          "how-to/add-blog-post",
-          "how-to/add-location-page",
-          "how-to/change-seo-title",
-          "how-to/replace-image"
-        ]
-      },
-      {
-        "group": "Help",
-        "pages": [
-          "help/troubleshooting",
-          "help/contact"
+        "tab": "Technical",
+        "icon": "code",
+        "groups": [
+          {
+            "group": "Start here",
+            "pages": [
+              "technical/overview",
+              "technical/local-setup",
+              "technical/branches-and-deploy"
+            ]
+          },
+          {
+            "group": "How the theme is built",
+            "pages": [
+              "technical/architecture",
+              "technical/content-model",
+              "technical/custom-blocks",
+              "technical/templates-json",
+              "technical/design-system"
+            ]
+          },
+          {
+            "group": "Operations",
+            "pages": [
+              "technical/migration-and-redirects",
+              "technical/qa-and-launch",
+              "technical/updating-horizon"
+            ]
+          }
         ]
       }
     ]

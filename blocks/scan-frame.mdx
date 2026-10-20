@@ -1,0 +1,51 @@
+---
+title: "Scan frame"
+description: "The large animated scan picture in the homepage hero."
+---
+
+The **Scan frame** block shows one photo as if it were on a 3D scanner's screen: rulers along the edges, a
+fine grid, corner marks, and a laser line that sweeps across the picture. Behind the laser, the photo turns into a
+point cloud (a picture made of small dots, like raw scan data). A small readout and a strip of file formats
+finish the frame.
+
+<Frame caption="The homepage hero: the scan frame starts under the intro row">
+  <img src="/images/home-desktop.png" alt="The homepage hero with the title, the intro and buttons, and below them a wide photo with rulers, corner marks and a laser line: left of the line the photo is a blue dot pattern" />
+</Frame>
+
+## What it looks like
+
+- **Rulers** along the top and left edges, a 50-pixel grid over the photo, three small targets and four corner
+  marks.
+- **The laser line** moves slowly from side to side. On one side of it you see the photo, on the other side
+  the same photo as a blue point cloud.
+- **The readout**: a small label with a target icon, inside the frame, for example "0.025mm accuracy".
+- **The file formats**: a row of small cells under the picture, one per format.
+
+The whole frame is decoration. Screen readers skip it, and the photo has no alt text.
+
+## Block settings
+
+| Setting | What it does |
+|---|---|
+| **Image** | The photo. The same image is used for the photo and for the point cloud. |
+| **Readout caption** | The small label in the frame. Screen readers don't read it, so use words that are also elsewhere on the page. |
+| **File formats** | The formats in the strip under the picture, separated by commas. Each one gets its own cell. |
+| **Laser sweep** | Makes the laser move. When it's off, or for visitors who have asked their device for reduced motion, the laser stays still part of the way across. |
+| **Sweep duration** | How long one sweep takes, from 3 to 20 seconds. The homepage uses 9. |
+| **Aspect ratio on desktop** | The shape of the frame on large screens: **21:9**, **16:9**, **3:2**, **4:3**, **Square** or **Portrait 4:5**. |
+| **Aspect ratio on mobile** | The same, on phones. |
+| **Padding** (**Top**, **Bottom**, **Left**, **Right**) | Space around the frame. |
+
+## Where it's used on the site
+
+Only on the **homepage**, in the **Hero** section, under the title and the intro. It uses:
+
+- a photo of a scanned engine;
+- the readout "0.025mm accuracy";
+- the formats "STEP, IGES, STL, POINT CLOUD";
+- **21:9** on desktop and **4:3** on phones, with a 9-second sweep.
+
+## Notes
+
+- Part of the photo is always shown as dots. Pick a sharp, wide photo with a clear subject.
+- To replace the photo, see [Replace an image](/how-to/replace-image).

@@ -1,0 +1,125 @@
+---
+title: "Updating Horizon"
+description: "How to take a new Horizon release into a theme with a Tangent layer: a three-way merge from the original upload, the edits to re-apply and the risk areas."
+---
+
+The theme is **Horizon 4.3.0** (`config/settings_schema.json` → `theme_info.theme_version`). A new Horizon
+release brings fixes and features, but this theme has a large layer of code on top of Horizon and about 50 edited
+Horizon files, so an update is a code merge, not a button in the admin.
+
+## Why the admin's theme update doesn't fit
+
+Shopify's theme library can offer updates for themes installed from the Theme Store. That update installs the
+new version as a separate theme and carries your theme editor settings and content across, but **not code
+changes** made to the theme. Here, the code changes are the whole Tangent layer: blocks, snippets, assets, the
+`ts_*` settings in Horizon files, the locale labels. An admin update would produce a stock Horizon theme with
+settings that point at blocks and settings it doesn't have.
+
+Use the admin's update only as a way to get the new Horizon source (see below), never as the update itself.
+
+## The approach: a three-way merge
+
+The repository's **first commit** is the Horizon 4.3.0 upload, before any Tangent work. That makes it the
+common ancestor for a three-way merge:
+
+- files the Tangent layer never touched take the new Horizon version cleanly;
+- files only the Tangent layer added are left alone;
+- files both sides changed show up as conflicts, which is exactly the list you need to review.
+
+<Steps>
+  <Step title="Get the new Horizon source">
+    Either add a fresh copy of Horizon from the Theme Store to the theme library (unpublished) and pull it into a
+    scratch folder (`shopify theme pull --theme <id> --path <scratch folder>`), or take the release from
+    Shopify's public Horizon repository. Use a clean copy, with no settings or content of your own.
+  </Step>
+  <Step title="Make an upstream branch from the first commit">
+    ```bash
+    FIRST=$(git rev-list --max-parents=0 HEAD)
+    git checkout -b horizon-upstream "$FIRST"
+    # replace the theme folders with the new release
+    git rm -r -q assets blocks config layout locales sections snippets templates
+    cp -R <scratch folder>/{assets,blocks,config,layout,locales,sections,snippets,templates} .
+    git add -A && git commit -m "Horizon <new version>"
+    ```
+    Only the theme folders change on this branch. Keep it: the next update starts from its tip instead of the
+    first commit.
+  </Step>
+  <Step title="Merge it into a branch off dev">
+    ```bash
+    git checkout dev && git merge origin/main      # bring in any theme editor commits first
+    git checkout -b horizon-update dev
+    git merge horizon-upstream
+    ```
+  </Step>
+  <Step title="Resolve the conflicts">
+    Follow the rules in the next section, file by file.
+  </Step>
+  <Step title="Check everything">
+    Theme Check (record the new baseline), the static checks, then full visual QA of every page type at all
+    widths and in WebKit (see [QA and launch](/technical/qa-and-launch)). Re-push all templates and section groups
+    to the test theme after the blocks are up
+    (see [the upload race](/technical/templates-json#upload-the-schema-before-the-json)).
+  </Step>
+  <Step title="Release">
+    Merge into `dev`, check on a development theme, then release to `main` as usual
+    (see [Branches and deploy](/technical/branches-and-deploy)).
+  </Step>
+</Steps>
+
+## Resolving conflicts
+
+| Files | Keep |
+|---|---|
+| `templates/*.json`, `sections/header-group.json`, `sections/footer-group.json` | **Ours.** They're the site's content. Then check whether new Horizon defaults or removed settings affect them. |
+| `config/settings_data.json` | **Ours** (merged from the live theme). |
+| `config/settings_schema.json` | **Theirs**, then re-add the **Tangent** group with `ts_sales_disabled` at the end. The new `theme_info.theme_version` comes with it. |
+| `locales/*.schema.json` | **Theirs**, then run `python3 docs/tangent-homepage/sync_locales.py` to append the `tangent` group again. |
+| `locales/*.json` (storefront) | **Theirs.** Check that `accessibility.new_window` still exists; `layout/theme.liquid` prints it for external links. |
+| Liquid, CSS and JS in edited Horizon files | **Theirs, with the Tangent edits re-applied.** Read the Tangent diff of each file (`git diff "$FIRST" dev -- <file>`) and port it onto the new code. |
+| Tangent-only files (`ts-*`, `_ts-*`, `card-list`, `quote-form`…) | Ours. They don't conflict, but they may depend on Horizon code that changed (see below). |
+
+List the edited Horizon files at any time with:
+
+```bash
+git diff --stat --diff-filter=M "$FIRST" dev -- assets blocks config layout sections snippets
+```
+
+## Risk areas
+
+These Horizon parts carry the most Tangent code or are assumed by it. Read Horizon's release notes for changes to
+any of them.
+
+- **Spacing.** The Tangent frame retunes Horizon's `--spacing-scale-md` and `--spacing-scale-default` inside
+  `.custom-section-content.ts-frame` (`snippets/section.liquid`, `sections/footer.liquid`). The whole spacing
+  system (see [Design system](/technical/design-system#spacing)) depends on how Horizon's `spacing-style` and
+  `gap-style` use those variables. The design preview's renderer also reads Horizon's `spacing-style` snippet.
+- **Group and text.** `snippets/group.liquid` (ruled grids) and `snippets/text.liquid` (every `ts_style`) hold the
+  largest Tangent edits and style Horizon's own classes (`.group-block`, `.group-block-content`,
+  `.layout-panel-flex--row/column`, `.text-block`, `.section-content-wrapper`). A renamed Horizon class breaks
+  the styles without any error.
+- **Settings limits.** `blocks/group.liquid` is at 40 settings and `sections/header.liquid` at 44. If Horizon
+  adds settings to either, decide what to drop or move before merging.
+- **Buttons, images and icons.** `blocks/button.liquid` / `snippets/button.liquid`, `blocks/image.liquid`,
+  `snippets/icon.liquid` and `snippets/icon-or-image.liquid` (the `ts_` icon paths and lists).
+- **Header and footer.** `sections/header.liquid`, `blocks/_header-menu.liquid`, `snippets/header-drawer.liquid`,
+  `assets/header-drawer.js` (the "Technical" header and drawer), `sections/footer.liquid`,
+  `sections/header-announcements.liquid`.
+- **Main sections and blog blocks.** `main-page`, `main-blog`, `main-blog-post`, `main-404`,
+  `product-information` (frame settings) and the `_blog-post-*` blocks.
+- **Sales-disabled guards** in `layout/theme.liquid`, `snippets/scripts.liquid`, `blocks/buy-buttons.liquid`,
+  `snippets/quick-add.liquid`, `snippets/header-actions.liquid`. A new cart entry point in Horizon (a new quick-add
+  path, a new cart block) needs its own guard.
+- **Script loading.** The import map in `snippets/scripts.liquid` (the `@theme/ts-*` aliases) and the
+  `Component` base class from `@theme/component` that Tangent custom elements extend.
+- **Behaviour the QA scripts assume.** From 990px Horizon scrolls inside `.page-wrapper`; Horizon's accordion
+  markup (`<details>` in `accordion-custom`) is reused by `snippets/ts-faq-row.liquid`.
+- **Removed or renamed settings.** If Horizon removes or renames a setting id that a template uses, Shopify drops
+  the value silently on upload. Compare the schemas of the blocks the templates use before and after.
+
+## Afterwards
+
+- Update the Horizon version mentioned in [Technical overview](/technical/overview) and
+  [Architecture](/technical/architecture).
+- Update the Theme Check baseline in [Local setup](/technical/local-setup#theme-check) if it changed.
+- Tell the site owner what changed in the theme editor (new Horizon blocks or settings staff might see), so the
+  [Site guide](/) can be updated.

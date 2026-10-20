@@ -1,0 +1,104 @@
+---
+title: "Product page"
+description: "The HandySCAN Black Elite page: which parts come from the product record and which are typed in the theme editor."
+---
+
+The HandySCAN Black Elite scanner has a product page at /products/handyscan-black-elite. It uses the template
+**quote**. The site doesn't sell online, so the page has no price and no cart: visitors call or book a call
+instead. The theme also has Shopify's default product template; the scanner doesn't use it.
+
+<Frame caption="The top of the scanner's product page">
+  <img src="/images/product.png" alt="The HandySCAN product page with photos on the left and the title and description on the right" />
+</Frame>
+
+## Product record or theme editor?
+
+A **product** in Shopify is a record in **Products** in the admin, with its own title, description and photos.
+The template decides what's shown around them.
+
+| Edit in the product record (**Products** → HandySCAN Black Elite) | Edit in the theme editor (template **quote**) |
+|---|---|
+| **Title**: the big heading and the last step of the breadcrumbs. | The Creaform and Tangent logos above the title. |
+| **Description**: the text under the title. | The **Call Now** and **Schedule a call** buttons. |
+| **Media**: the photos on the left. | Every section below the top: applications, photos, benefits, specs, software, portability and the closing call. |
+| **Search engine listing**: the title and description in Google. | |
+| **Theme template**: keep it on **quote**. | |
+
+<Note>
+The specs, software and portability texts used to be fields of the product record. They're now typed in the
+theme editor, like the rest of the sections below the top. The product record no longer holds them.
+</Note>
+
+## The sections, top to bottom
+
+### Product information
+
+The top of the page. Its blocks:
+
+| Block | What you see | Where it comes from |
+|---|---|---|
+| **Breadcrumbs** | Home / HandySCAN Black Elite, in its own ruled row. | The product **Title**. |
+| **Product media** | The product photos, one column, shown whole. | The product's **Media**. |
+| **Details** | The column on the right, which stays in view while the photos scroll. It holds the blocks below. | |
+| A **Group** of two **Image** blocks | The Creaform and Tangent Solutions logos (**Logo in a row**). | Typed. |
+| **Product title** | The title (H1), **Heading large**. | The product **Title**. |
+| **Description** | The description, **Lede, wide**. | The product **Description**. |
+| A **Group** of two **Button** blocks | **Call Now** (with the phone icon) and **Schedule a call** (opens the booking page in a new tab). | Typed. |
+
+### Sections below
+
+| Section | What you see | Built from |
+|---|---|---|
+| **Applications** | "Industry applications for the HandySCAN Black Elite" and three cards with a line icon and a short list each. | A heading group and a [Card list](/blocks/card-list) (**Cards**, bare icons). |
+| **Application photos** | Three photos in a row. | A group of three **Image** blocks (**Media**, 4:3). |
+| **Benefits** | "Benefits of the HandySCAN Black Elite" and five short benefits. | A **Card list** whose cards have only a title, so each shows as a small badge with a check mark. |
+| **Specs** | A heading and the spec text, with the brochure link at the end, beside two photos of the scanner, one above the other. | A group: heading and **Text** (**Long-form text**) \| two **Image** blocks. |
+| **Software** | A rendering beside "Powerful scan software for any application" and its text. | A group: **Image** \| heading and **Text**. |
+| **Portable** | "Completely portable" and its text, beside two photos, one above the other. | A group: heading and **Text** \| two **Image** blocks. |
+| **Call to action** | "Schedule a call for a free demo" beside **Call Now** and **Schedule a call**. | A row group: heading \| two **Button** blocks. |
+
+See [Product blocks](/blocks/product-blocks) for the settings of the product blocks.
+
+## The brochure
+
+The "Download the full brochure here." link is the last line of the **Specs** text. It points to the brochure
+PDF in **Content → Files**. To replace the brochure:
+
+<Steps>
+  <Step title="Upload the new PDF">
+    In the admin, go to **Content → Files** and upload the new brochure. Copy its link.
+  </Step>
+  <Step title="Update the link">
+    In the theme editor, open the **quote** template, click the **Text** block in the **Specs** section, select
+    the link text and paste the new link with the link button.
+  </Step>
+  <Step title="Save and check">
+    Click **Save**, then open the page and click the link.
+  </Step>
+</Steps>
+
+## What's safe to change
+
+- **Title, description and photos** in the product record. Keep the description short: it sits beside the photos.
+- **Texts, cards and photos** of the sections below, in the theme editor.
+- **Don't** set the product's template to the default product template: the page would lose every section
+  below the top and show Shopify's standard product layout.
+- **Don't** add price, quantity or **Add to cart** blocks. The site takes requests by phone, booking or the
+  contact form.
+
+## Common changes
+
+<CardGroup cols={2}>
+  <Card title="Replace an image" icon="image" href="/how-to/replace-image">
+    Swap a photo in a section, or change the product photos in the record.
+  </Card>
+  <Card title="Edit a card" icon="square-pen" href="/how-to/edit-card">
+    Change an application or a benefit.
+  </Card>
+  <Card title="Change the phone number" icon="phone" href="/how-to/change-phone-number">
+    The **Call Now** buttons hold the number in their link.
+  </Card>
+  <Card title="Change the SEO title" icon="search" href="/how-to/change-seo-title">
+    The product has its own search engine listing.
+  </Card>
+</CardGroup>

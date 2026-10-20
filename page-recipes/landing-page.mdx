@@ -1,0 +1,198 @@
+---
+title: "Landing pages"
+description: "The long and short landing pages made for ads and search campaigns: what each section is and where its words live."
+---
+
+Landing pages are made for ads and search campaigns. Each live landing page has a template of its own, so its
+words and photos are in the theme editor and a change affects only that page. There are two families:
+
+| Family | Templates | Pages |
+|---|---|---|
+| **Long landing pages** | **landing-cnc**, **landing-orange-county**, **landing-buy-a-3d-scanner** | /pages/3d-scanning-services-for-cnc, /pages/3d-laser-scanning-orange-county, /pages/buy-a-3d-scanner |
+| **Short landing pages** | **landing-short-** + address (5 templates) | /pages/reverse-engineering-company, /pages/3d-scanning-free-estimates, /pages/3d-scanner-reverse-engineering-los-angeles, /pages/3d-scanner-reverse-engineering-orange-county, /pages/3d-mobile-laser-scanning-services-orange-county |
+
+Two more campaign pages are built the same way and are described at the end of this page:
+/pages/3d-laser-scanning-for-boats (template **3d-laser-scanning-for-boats**) and
+/pages/3d-scanner-reverse-engineering (template **3d-scanner-reverse-engineering**).
+
+The theme also keeps two shared layouts, **landing** and **landing-short**, that a new landing page can start
+from. See [The shared landing layouts](#the-shared-landing-layouts).
+
+<Note>
+Every section on these pages sits in the ruled frame of the site (see [Section layout](/blocks/section-layout)).
+The section names below are the names you see in the theme editor sidebar.
+</Note>
+
+## Long landing pages
+
+The three long landing pages look like the [service pages](/page-recipes/service-page): a hero with text and a
+photo, then rows of cards, photos and calls. Each one has its own set of sections, so they're described one by
+one. Everything on them is typed in the theme editor, except the FAQ questions on the Orange County page.
+
+<Frame caption="The hero of the Orange County landing page: eyebrow, title, intro, chips, two buttons and a photo with a caption">
+  <img src="/images/image-caption.png" alt="A landing page hero: title, intro, chips and buttons on the left, a photo on the right with the caption '3D scanning of engine head'" />
+</Frame>
+
+### 3D scanning services for CNC (landing-cnc)
+
+| Section | What you see | Built from |
+|---|---|---|
+| **Hero** | Breadcrumbs (Home / page), the title, an intro, a **Call Now** button and a photo on the right. | **Breadcrumbs**, then a group with the text (**Heading large**, **Lede**, a **Button**) beside an **Image** (**Media**). |
+| **Machine-ready files** | A photo beside a heading, two paragraphs and a **Click for file examples** button. | A row group: **Image** \| **Row heading**, **Split text**, **Button**. |
+| **Key benefits** | A heading and four benefits, each with a line icon. | A heading group and a [Card list](/blocks/card-list) with the **Entries** layout and bare icons. |
+| **How to use** | Three steps with a photo each: scan, convert, optimize. | A heading group and a **Card list** (**Cards** layout, with images). |
+| **Clients** | "Our clients rely on our expertise" and 12 client logos. | A heading group and a group of **Image** blocks in the **Logo** style. |
+| **Schedule a call** | A heading beside **Call us now** and **Let's talk**. | A row group: heading \| two **Button** blocks. |
+| **Serving all industries** | A heading and six photos. | A **Card list** with the **Gallery** layout. |
+| **Get started** | A centred "Get started" label with the **Call Now** button. | A [Sticky column](/blocks/sticky-column). Below 990 pixels it's hidden, and the whole section with it. |
+
+### 3D scan Orange County (landing-orange-county)
+
+This page's breadcrumbs read Home / Locations / page.
+
+| Section | What you see | Built from |
+|---|---|---|
+| **Hero** | An eyebrow, the title, an intro, four chips, the phone button and **Get a free estimate**, and a photo with a caption. | **Breadcrumbs** (parent **Locations**), then the text group (**Eyebrow, leading mark**, **Heading large**, **Lede**, **Chips**, two buttons) beside an **Image**. |
+| **What we do** | An eyebrow, a heading beside a statement, then four service cards with icons. | A head group (**Row heading** \| **Statement text**) and a **Card list** (**Entries**). |
+| **Who we work with** | A heading and paragraph, a gray "Industries" cell, and a ticked list of eight uses. | A **Card list** (**Entries**, **Tinted**) for the industries and a **Card list** (**Check list**) for the uses. |
+| **How it works** | Four numbered steps, 01. to 04. | A **Card list** with the **Numbered steps** layout. |
+| **Work gallery** | Five project photos with captions. | A **Card list** with the **Gallery** layout. |
+| **Trusted by** | "Engineering teams that rely on us" and ten client logos. | A heading group and **Image** blocks in the **Logo** style. |
+| **Why Tangent Solutions** | A heading beside a statement, then four reasons with icons and labels. | A head group and a **Card list** (**Entries**). |
+| **Scanning capabilities** | A heading and paragraph beside three ways to work (in-house, shop, mobile), each with check chips. | A row group: text \| **Card list** (**Entries**). The chips come from each card's **Label**. |
+| **Deliverables** | Five file formats, each with a picture. | A **Card list** (**Cards**, with images). The report picture is shown whole. |
+| **FAQ** | "3D scanning Orange County FAQ" and its questions. | A heading group and an [FAQ category](/blocks/faq) block. The questions are FAQ entries in the admin. |
+| **Get started** | "Tell us about your project", a short text and three buttons. | A row group: text \| three **Button** blocks. |
+
+### Buy a 3D scanner (landing-buy-a-3d-scanner)
+
+| Section | What you see | Built from |
+|---|---|---|
+| **Hero** | The title, an intro, a **Book a call** button and a photo. | **Breadcrumbs**, the text group and an **Image**, as on the CNC page. |
+| **Benefits** | "Benefits of 3D laser scanners" and four benefits with icons. | A heading group and a **Card list** (**Entries**). |
+| **Reasons to buy** | Two photos beside a heading, three uses with icons, and a third photo. | A row group: two **Image** blocks \| heading, **Closing line**, a **Card list** (**Entries**, **Plain**) and an **Image**. |
+| **Creaform agent** | A heading with the Creaform logo, a statement, and five short tiles with icons. | A head group (**Row heading**, an **Image** in the **Logo in a row** style, **Statement text**) and a **Card list** (**Tiles**). |
+| **Get started** | "Schedule a free demo" beside **Call Now** and **Book a call**. | A row group: eyebrow and heading \| two buttons. |
+
+## Short landing pages
+
+The five short landing pages share one layout, and their templates are near copies of each other. Only the
+words, photos and quotes differ.
+
+<Frame caption="The services row of a short landing page: four photo link cells">
+  <img src="/images/card-list-links.png" alt="The heading 'Reverse engineering Los Angeles + services we offer' above four photo cards: 3D scanning, CAD design, Data analysis, Large scale scans" />
+</Frame>
+
+| Section | What you see | Built from | Where the words come from |
+|---|---|---|---|
+| **Page** (the hero) | Breadcrumbs, the title and intro on the left, a short form on the right, then a wide photo band. | The **Page** section. Inside: the **Page** group with **Breadcrumbs**, the **Hero** group (**Hero text** group \| **Form** group with a heading and the [Quote form](/blocks/contact-and-quote-form)), and the **Hero photo** image (21:9). | The page record's own fields: see the table below. |
+| **Statement** | A large statement title beside a sentence and a bold closing line. | A row group: **Statement title** \| **Statement text** and **Closing line**. | Typed in the theme editor. |
+| **Contact** | The office address and hours with small icons, beside **Call us now** and **Schedule a call**. | A row group of [Icon](/blocks/icon) and **Text** (**Label**) pairs, beside two buttons. | Typed in the theme editor. The address here is plain text, not a Contact details block. |
+| **What is** | A photo beside "What is …?" and its paragraphs. | A row group: **Image** \| **Row heading**, **Split text**. | Typed. |
+| **Benefits** | A heading and four benefits with icons. | A **Card list** (**Entries**, bare icons). | Typed. |
+| **CAD file creation** | "CAD file creation and more", its text and **Click for file examples**, beside a picture. | A row group: text and **Button** \| **Image**. | Typed. |
+| **Testimonials** | "What clients say about our services" and two or three client quotes with logos. | A **Card list** with the **Quotes** layout. | Typed in each **Card**. |
+| **Services we offer** | Four photo cells that link to the service pages. | A **Card list** with the **Link cells** layout and images. | Typed. |
+| **Get a quote** | A closing heading beside **Contact us now**. | A row group: heading \| **Button**. | Typed. |
+
+The breadcrumbs of three short pages (Los Angeles and the two Orange County pages) read Home / Locations /
+page. The other two read Home / page.
+
+### Text from the page's own fields
+
+The hero of a short landing page isn't typed in the theme editor. It reads fields of the page record in the
+Shopify admin (**Online Store → Pages** → the page → **Metafields**):
+
+| On the page | Page field |
+|---|---|
+| The title (H1) | The headline field. When it's empty, the page **Title** is used. |
+| The intro under the title | The hero subheading field. |
+| The heading above the form | **Form heading** |
+| The form button | **Form button label** |
+| The wide photo under the hero | The hero image field. |
+
+In the theme editor these settings show the name of the connected field instead of a text box. See
+[Text that comes from the page's own fields](/editing-pages/how-pages-work#text-that-comes-from-the-pages-own-fields).
+
+The form itself is the short version of the quote form: **Full name**, **Email** and **Phone**, with no project
+description. Its messages go to the store's sender email, like every form on the site.
+
+## Two more campaign pages
+
+These two pages have their own templates and follow the same pattern as the long landing pages.
+
+**3D laser scanning for boats** (template **3d-laser-scanning-for-boats**):
+
+| Section | What you see |
+|---|---|
+| **Hero** | The title (from the page's headline field, or else the page title), a one-line intro and a photo. |
+| **Maritime engineering** | A photo beside a heading and text. |
+| **Performance boat case** | A small blue label, a heading and the project story, beside a photo. |
+| **From 3D scan to CAD** | A heading, then two columns, each with two drawings (a **Card list** **Gallery**, shown whole) and a short text. |
+| **Searching for 3D laser scanning** | A closing heading beside a line of text and **Contact us**. |
+| **Call to action** | "Tell us about your project", a short text, the phone button and **Send a message**. |
+
+**3D scanner reverse engineering** (template **3d-scanner-reverse-engineering**):
+
+| Section | What you see |
+|---|---|
+| **Hero** | The title, **Call us now** and a photo. |
+| **Statement** | "What is reverse engineering?" beside a statement. |
+| **Achieve full functionality** | A photo beside a heading and text. |
+| **Price** | A small box with the service name, its rate (**Price** style), a ticked list, **Discuss your project** and a photo. |
+| **Benefits** | A photo beside a heading, text and **Click for file examples**. |
+| **Image cards** | Three cards with a picture, title and text. |
+| **Mosaic** | Three photos in a row. |
+| **Latest projects** | One link cell, **View latest projects**, to the portfolio. |
+| **FAQ** | "Reverse engineering F.A.Q" beside its questions, from an [FAQ category](/blocks/faq). |
+| **Work with Tangent Solutions** | A closing heading beside a text and **Contact us**. |
+| **Call to action** | "Tell us about your project", a short text, the phone button and **Send a message**. |
+
+## The shared landing layouts
+
+The templates **landing** and **landing-short** hold the original landing layouts. The live landing pages now
+use their own templates, which were built from these two. Keep them as they are: they're a starting point for
+a new landing page.
+
+- **landing-short** is the hero described in [Short landing pages](#short-landing-pages) (breadcrumbs, title,
+  intro, short form, photo band), followed by the page's **Content** from the admin.
+- **landing** reads almost everything from the page record: the eyebrow (**Hero eyebrow**), the title, the intro,
+  chips (**Hero points**), two buttons (**Hero button 1 label** / **Hero button 1 link** and
+  **Hero button 2 label** / **Hero button 2 link**) and a faint [Pixel mark](/blocks/mark) set to **Auto**
+  (it shows the drawing chosen in the page's **Scan motif** field). Below the hero, the page's **Content** sits
+  beside a [Sticky column](/blocks/sticky-column) with a "Get started" label and the same two buttons. The
+  column is hidden below 990 pixels.
+
+## What's safe to change
+
+- **Words, photos and buttons** in any typed block: click the block, change it, save. Keep the existing
+  [text styles](/blocks/text-styles).
+- **Cards**: add, remove or reorder **Card** blocks inside a card list. See [Edit a card](/how-to/edit-card).
+- **Hero texts on short landing pages**: change them in the page record, not in the theme editor.
+- **Don't** change a section's **Tangent frame** or a group's **Lines** settings, and don't move a section
+  above the hero. The column lines are lined up from one section to the next.
+- **Don't** switch a landing page to the **landing** or **landing-short** template: it would lose the sections
+  in its own template.
+
+## Common changes
+
+<CardGroup cols={2}>
+  <Card title="Change the phone number" icon="phone" href="/how-to/change-phone-number">
+    Call buttons on landing pages hold the number in their link.
+  </Card>
+  <Card title="Replace an image" icon="image" href="/how-to/replace-image">
+    Swap a hero photo or a gallery photo.
+  </Card>
+  <Card title="Edit a card" icon="square-pen" href="/how-to/edit-card">
+    Change a benefit, a step or a quote.
+  </Card>
+  <Card title="Add a FAQ question" icon="circle-help" href="/how-to/add-faq-question">
+    For the Orange County and reverse engineering FAQs.
+  </Card>
+  <Card title="Change the SEO title" icon="search" href="/how-to/change-seo-title">
+    The title and description Google shows for the page.
+  </Card>
+  <Card title="Pages and SEO" icon="file-text" href="/admin/pages-and-seo">
+    Where the page record and its fields live.
+  </Card>
+</CardGroup>

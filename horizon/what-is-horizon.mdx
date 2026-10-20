@@ -1,0 +1,104 @@
+---
+title: "What is Horizon"
+description: "Shopify themes, the Horizon theme, and the Tangent layer added on top, in plain words."
+---
+
+## What a theme is
+
+A **theme** is the design of a Shopify site: the layout of every kind of page, the fonts, the colors, the
+header and the footer. It's like a WordPress theme together with the page builder layouts.
+
+What a theme is **not**: your content records. Pages, blog posts, menus, images and FAQ entries live in the
+Shopify admin and stay put when you change or copy a theme.
+
+A store can hold several themes. One is live (Shopify calls it the **current theme**); the others wait in the
+**Theme library**, where only staff can see them. See [Preview and publish](/getting-started/preview-and-publish).
+
+## Horizon, Shopify's own theme
+
+**Horizon** is a theme made by Shopify itself. The Tangent site is built on it.
+
+Horizon is built from **blocks that hold other blocks**. A section can hold groups, a group can hold more groups,
+and so on down to a single text or button. That's what lets you rearrange a page in the theme editor without
+code: you drag blocks up and down, in and out of groups, the way you moved widgets in Elementor. See
+[Sections, groups and blocks](/horizon/sections-groups-blocks) for how this looks on a real page.
+
+<Frame caption="The homepage: built from Horizon sections and blocks, styled by the Tangent layer">
+  <img src="/images/home-desktop.png" alt="The Tangent Solutions homepage with the menu, the headline and the two call buttons" />
+</Frame>
+
+## The Tangent layer
+
+On its own, Horizon looks like a shop. The Tangent design (the ruled grid, the blue headings, the thin lines, the
+line icons) comes from additions made for this site. They live inside the theme, so you see them as ordinary
+settings and blocks in the theme editor.
+
+### 1. Tangent settings on Horizon's own blocks
+
+Several of Horizon's blocks got extra settings, grouped under a name that starts with **Tangent**:
+
+| Block | Tangent settings | What they do | More |
+|---|---|---|---|
+| **Text** | **Tangent style** | Turns a text into an eyebrow, a heading, an intro, chips, ticks and so on. | [Text styles](/blocks/text-styles) |
+| **Button** | **Tangent style** | The square Tangent buttons (**Primary, neutral**, **Secondary**, **Accent**), with the phone icon on call buttons. | [Buttons](/blocks/buttons) |
+| **Image** | **Tangent style** | How the picture is framed: **Media** for photos, **Logo** or **Logo in a row** for client logos. | [Images](/blocks/images) |
+| **Section** | **Tangent frame** | The rails down both sides of the page, the line between sections, the faint dot pattern. | [Section layout](/blocks/section-layout) |
+| **Group** | **Tangent grid** | Lines between cells, ruled grids, and how many columns on each screen size. | [Section layout](/blocks/section-layout#group-settings) |
+
+### 2. New blocks
+
+These blocks were added to the theme for this site:
+
+| Block | What it's for | More |
+|---|---|---|
+| **Card list** with **Card** | Every grid of cards: industries, benefits, steps, galleries, quotes, link cells. One block, eleven layouts. | [Card list](/blocks/card-list) |
+| **FAQ category** | The question lists, filled from the FAQ entries in the admin. | [FAQ](/blocks/faq) |
+| **Quote form** and **Contact details** | The request form, and the phone, email, address and hours list. | [Contact details and quote form](/blocks/contact-and-quote-form) |
+| **Breadcrumbs** | The "Home / Services / page" trail. | [Breadcrumbs](/blocks/breadcrumbs) |
+| **Checklist** | A short list of ticked items. | [Checklist](/blocks/checklist) |
+| **Pixel mark** | A faint decoration taken from the logo or a scanned part. | [Pixel mark](/blocks/mark) |
+| **Flow chart** and **Process** | The scan → mesh → CAD diagram on the reverse engineering page, and the homepage's process steps with their pictures. | [Flow chart](/blocks/flow), [Process](/blocks/process) |
+| **Scan frame** | A photo shown as a measured scan, with rulers and a laser sweep. | [Scan frame](/blocks/scan-frame) |
+| **Sticky column** | A column that stays in view beside long text, for example the call buttons beside an article. | [Sticky column](/blocks/sticky-column) |
+| **Project gallery** | The portfolio photos with the full-screen viewer. | [Gallery and lightbox](/blocks/gallery) |
+| **Recent posts**, **Blog tags**, **Load more** | The blog's latest posts list, tag chips and **Load more** button. | [Blog blocks](/blocks/blog-blocks) |
+
+### 3. One shared set of design values
+
+The Tangent colors, fonts, spacing and corner shapes are written down once, in a single list in the theme files.
+Developers call these values **design tokens**. Every Tangent block reads from that list:
+
+- **Colors**: near-black text on white, and one accent blue (#0562EF) for headings, icons and selected items.
+- **Fonts**: Geist for headings, Inter for text, Geist Mono for small labels. They come with the theme.
+- **Shapes**: square corners and thin 1-pixel lines.
+
+That's why every page looks alike without you setting colors or fonts, and why the color and font settings in
+**Theme settings** don't restyle the Tangent blocks. See [Theme settings](/horizon/theme-settings).
+
+### 4. Site-wide behavior
+
+A few things happen by themselves on every page:
+
+- **No shopping cart.** The site sells by quote and phone. A Tangent setting hides the cart and stops checkout,
+  even on the scanner's product page.
+- **Links to other websites** open in a new tab and get a diagonal arrow (↗).
+- **Sections with nothing to show hide themselves** when **Hide section when empty** is on. See
+  [Hide section when empty](/horizon/sections-groups-blocks#hide-section-when-empty).
+
+## What this means for you
+
+<CardGroup cols={2}>
+  <Card title="Use the Tangent blocks" icon="blocks" href="/blocks/overview">
+    The block list also shows Horizon blocks the site doesn't use, such as product grids and slideshows. Stick
+    to the blocks this guide describes.
+  </Card>
+  <Card title="Leave the style settings alone" icon="lock" href="/horizon/theme-settings">
+    Change words and pictures. Keep the Tangent styles, frames and grids as they are.
+  </Card>
+</CardGroup>
+
+<Warning>
+Shopify releases new versions of Horizon. Because the Tangent changes live inside the theme files, updating
+Horizon is a developer job: never accept a theme update yourself. Your developer's notes are in
+[Updating Horizon](/technical/updating-horizon).
+</Warning>

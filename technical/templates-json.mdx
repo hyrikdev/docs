@@ -1,0 +1,167 @@
+---
+title: "Templates (JSON)"
+description: "Conventions and pitfalls for templates/*.json: naming, static and dynamic blocks, dynamic sources, metaobject values and the editor round trip."
+---
+
+Every page layout is a JSON template in `templates/`. There are 93 JSON templates; 81 of them are page
+templates (`page.json` plus 80 `page.<suffix>.json`). Staff edit them through the theme editor, so treat each file as **content**, not code.
+
+## Naming
+
+A page record picks its template by **suffix** (Admin → Pages → **Theme template**): suffix `location-chicago`
+→ `templates/page.location-chicago.json`. The suffix after the type is the page's URL handle wherever a page has
+its own template.
+
+| Pattern | Count | Pages |
+|---|---|---|
+| `page.service-<handle>.json` | 13 | One per service page, `/pages/<handle>` (for example `page.service-reverse-engineering`) |
+| `page.location-<handle>.json` | 46 | One per location page, `/pages/<handle>` (for example `page.location-chicago`, `page.location-3d-scanning-services-anaheim`) |
+| `page.landing.json`, `page.landing-short.json` | 2 | Shared landing layouts that read page metafields |
+| `page.landing-short-<handle>.json` | 5 | Short landing pages with their own layout |
+| `page.landing-cnc`, `page.landing-orange-county`, `page.landing-buy-a-3d-scanner` | 3 | Landing pages rebuilt as service-style pages |
+| `page.<handle>.json` | 11 | Company and other pages: `about-us`, `our-company`, `team`, `portfolio`, `3d-scan`, `3d-scanner-reverse-engineering`, `3d-laser-scanning-for-boats`, `free-consultation`, `contact`, `services` (services hub), `locations-hub` |
+| `page.json` | 1 | Default page template (title, hero fields, body) |
+| `blog.json`, `blog.case-studies.json`, `article.json` | 3 | Blog index, case studies index, every article |
+| `product.json`, `product.quote.json` | 2 | Default product, and the HandySCAN quote page |
+| `index.json`, `404.json` | 2 | Homepage, not-found page |
+
+Horizon's other templates (`cart`, `collection`, `list-collections`, `search`, `password`, `gift_card.liquid`)
+are kept. The staff view is [Page types](/editing-pages/page-types).
+
+## Structure
+
+```json
+{
+  "sections": {
+    "hero": {
+      "type": "section",
+      "blocks": {
+        "hero_row": {
+          "type": "group",
+          "settings": { "ts_grid": "lines" },
+          "blocks": { "hero_title": { "type": "text", "settings": { "text": "<h1>…</h1>", "ts_style": "display" } } },
+          "block_order": ["hero_title"]
+        }
+      },
+      "block_order": ["hero_row"],
+      "settings": { "ts_frame": "rails", "ts_rule": true }
+    }
+  },
+  "order": ["hero"]
+}
+```
+
+- **Keys are ids.** Section and block keys (`hero`, `hero_row`, `hero_title`) are stable identifiers. Some
+  CSS and QA scripts depend on them: for example `snippets/text.liquid` scopes the homepage hero lede with
+  `.shopify-section[id$='__ts_hero']`, and `check_touch.py` expects the `ts_hero` section in `index.json`.
+  Don't rename keys in existing templates.
+- **Unknown settings are dropped.** A setting id the block's schema doesn't define is removed by Shopify when the
+  template is uploaded, without an error.
+
+## Static and dynamic blocks
+
+| | Dynamic blocks | Static blocks |
+|---|---|---|
+| Declared in | The template JSON (`blocks` + `block_order`) | Liquid, with `{% content_for 'block', type: '…', id: '…' %}`; the JSON holds their settings with `"static": true` |
+| In the theme editor | Can be added, removed, reordered, hidden | Can be edited, not removed or moved |
+| Examples | Almost every block on the Tangent pages | `breadcrumbs` (`ts-crumbs`) in `product-information`, `_header-phone` and `_header-cta` in the header, Horizon's blog-post and product blocks |
+
+The Tangent pages use dynamic blocks so staff can drag them. Add a static block only where a section must
+always render something in a fixed place.
+
+## Dynamic sources
+
+A setting can be connected to store data instead of typed text. In the JSON the value is a Liquid expression:
+
+| Where | Syntax used in this theme |
+|---|---|
+| Page field (plain) | `"text": "<h1>{{ closest.page.metafields.custom.headline.value }}</h1>"` |
+| Page field (rich text) | `"text": "{{ closest.page.metafields.custom.hero_points \| metafield_tag }}"` |
+| Page field (image) | `"image": "{{ closest.page.metafields.custom.hero_image.value }}"` |
+| Page field (button) | `"label": "{{ closest.page.metafields.custom.hero_button_1_label.value }}"`, `"link": "{{ closest.page.metafields.custom.hero_button_1_url.value }}"` |
+| Page or product title | `{{ closest.page.title }}`, `{{ closest.product.title }}`, `{{ closest.product.description }}` |
+| Article | `{{ article.title }}` in `article.json` |
+
+### Pitfalls
+
+- **Only some setting types accept a dynamic source**: text, rich text, inline rich text, url, image picker and
+  similar. A `textarea`, `select`, `range` or `checkbox` holding `{{ … }}` makes Shopify **reject the whole
+  template** on push.
+- **`.value` for plain fields, `metafield_tag` for rich text.** A rich text field's `.value` is structured data,
+  not HTML; the templates render it with `| metafield_tag`. A **Text** block connected to a rich text field can
+  turn on **Spacing of a connected rich text field** (`ts_field_wrapper`) so the field's paragraphs get the
+  block's spacing.
+- **Blank fields still render the block.** A connected text with an empty field prints an empty element (for
+  example an empty `<h1>`). Use **Hide section when blank** or **Page title when blank** on the Text block, or
+  make the field required.
+- **Metaobject templates** (`templates/metaobject/<type>.json`, only possible when a definition has web pages
+  on) read the entry with `{{ metaobject.<field>.value }}`, a nested reference with
+  `{{ metaobject.<ref>.value.<field>.value }}`, and rich text with `{{ metaobject.<field> | metafield_tag }}`.
+  The theme has no metaobject template today; the old service template is archived in
+  `migration/archive/templates/metaobject/service.json` as a reference. Check in the theme editor that a nested
+  reference source actually connects before relying on it.
+
+## Metaobject settings take handles
+
+The value of a `metaobject` or `metaobject_list` setting in a template is the entry's **handle**, not its GID:
+
+```json
+"settings": {
+  "category": "reverse-engineering",
+  "industries": ["aerospace", "automotive"]
+}
+```
+
+- `metaobject_list` needs a JSON **array** of handles. A comma-separated string is rejected on upload ("value
+  must be an array").
+- A GID (`gid://shopify/Metaobject/…`) or a `shopify://` URL leaves the setting **blank**, silently.
+
+## Upload the schema before the JSON
+
+When a change adds a setting to a block and uses it in a template, the block file must reach the theme first.
+`shopify theme dev` (and a push of the whole theme) can upload the template before the block. Shopify then
+drops the unknown key and stores the template without it, with no error; the rendered page just lacks the new
+class or value.
+
+After any change that adds block settings, re-push the templates and section groups once the blocks are up, and
+check the rendered result:
+
+```bash
+shopify theme push --theme <theme id> --nodelete \
+  --only 'templates/*.json' --only 'sections/*.json'
+```
+
+On the live theme the GitHub sync writes all files of a commit, but if a value is missing after a release,
+check this first.
+
+## The theme editor rewrites the file
+
+- When someone saves in the theme editor, Shopify writes the **whole** template back. It adds the
+  auto-generated header comment and may reorder keys. On the live theme this arrives
+  as a `shopify[bot]` commit on `main` (see [Branches and deploy](/technical/branches-and-deploy)).
+- After launch, the live theme's templates are the master copy of the content. Before you change a template in
+  git, merge `main` into your branch so you edit the current content, not an old one.
+
+<Warning>
+Most page templates were **generated** by scripts in `migration/scripts/` (`build_service_pages.py`,
+`build_location_pages.py`, `service_layouts.py`, the `build_*_page.py` scripts) from the migrated content.
+Re-running a generator rewrites the whole template from `migration/content/` and throws away every theme editor
+edit made since. Once staff edit a page, change it by hand (or in the theme editor) instead of re-running its
+generator, unless the site owner agrees.
+</Warning>
+
+## New templates
+
+- **In the theme editor:** **Create template**, based on an existing one (see
+  [Add a location page](/how-to/add-location-page)). On the live theme, the new file comes back to `main` as a
+  `shopify[bot]` commit; merge it into `dev`.
+- **In git:** copy the closest template, keep the same section and block structure, then assign the suffix to the
+  page in the admin. If the page replaces an old URL, add a redirect (see
+  [Migration and redirects](/technical/migration-and-redirects#add-a-redirect-for-a-new-page)).
+
+## Size limits
+
+Shopify limits how many sections a JSON template can hold and how many blocks a section can hold (see
+Shopify's theme architecture documentation for the current numbers). When the static cards were introduced, the
+biggest section on the site held about 22–27 of the 50 blocks a section allows. A long page should be split
+into more sections rather than one section with many blocks.

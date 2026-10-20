@@ -1,0 +1,203 @@
+---
+title: "Location page"
+description: "The 46 location templates and the locations overview: their sections, where the words come from and what to change."
+---
+
+Each location page, such as 3D scanning Chicago, has its own template named **location-** plus the page's
+address. There are 46 of them. A location page presents Tangent's services for one city or area and ends on
+the quote form. All of its words and photos are typed in the theme editor, in that page's template. The
+locations overview (/pages/locations) uses one more template, **locations-hub**, described at the end of this
+page.
+
+<Frame caption="The top of a location page: breadcrumbs, hero, and the intro with its at-a-glance cards">
+  <img src="/images/location-page.png" alt="The Chicago location page with breadcrumbs Home / Locations / 3D scanning Chicago, the title, two buttons, a photo, and the intro with four cards" />
+</Frame>
+
+## Three layouts
+
+The 46 templates come in three layouts. All of them start with **Location hero** and end with **Quote**.
+
+| Layout | Templates | Examples |
+|---|---|---|
+| **City page** | 33 | Chicago, Atlanta, Boston, Phoenix, Seattle, Hawaii |
+| **Service in a city**, with content rows | 12 | 3D scanning services California, 3D scanning services Irvine, 3D mobile laser scanning Las Vegas, Las Vegas |
+| **3D laser scanning services**, a layout of its own | 1 | /pages/3d-laser-scanning-services |
+
+The city page layout has two versions: 23 pages have an **Industries** section, 9 don't. Hawaii adds content
+rows and a **FAQ** section. Look at the sidebar of the template you open to see which version it is.
+
+## City page, top to bottom
+
+This is the layout of **location-chicago** and most city pages.
+
+| # | Section in the sidebar | What visitors see |
+|---|---|---|
+| 1 | **Location hero** | Breadcrumbs, the title, the intro, **Call us now** and **Get a Quote**, a photo |
+| 2 | **Intro and at a glance** | An eyebrow, a heading, an intro, and four cards with icons |
+| 3 | **Gallery** | A heading and a grid of project photos |
+| 4 | **CAD row** | A photo beside a heading, text, a checked list (on most pages) and a button to file examples |
+| 5 | **Services** | A heading and cards with photos, each linking to a service page |
+| 6 | **Industries** | A heading and industry photos with captions (on 23 of the 33 city pages) |
+| 7 | **Client quotes** | A heading and three client testimonials |
+| 8 | **Projects** | A heading and rendering photos with captions |
+| 9 | **Quote** | The heading, the contact details and the quote form |
+
+### 1. Location hero
+
+**Built from:**
+
+- **Breadcrumbs**, Tangent style **Strip: own ruled row**, with **Parent label** "Locations" and **Parent
+  link** `/pages/locations`. The last step is the page's **Title** in the admin.
+  See [Breadcrumbs](/blocks/breadcrumbs).
+- A **Hero row** group set to **Lines between blocks, stacked on tablet**: the **Hero text** group (the
+  title in **Display (hero title)**, the intro in **Lede**, and a **Buttons** group) and an **Image**
+  (Tangent style **Media**).
+
+**Safe to change:** the title, the intro and the photo. **Call us now** links to `tel:` plus the number;
+**Get a Quote** links to `#quote`, the form at the bottom: keep that link.
+
+### 2. Intro and at a glance
+
+**Built from:** an **Intro row** group (**Lines between blocks, stacked on tablet**) with the **Intro
+heading** group (**Eyebrow, leading mark**, **Heading medium** and a **Pixel mark**, the faint logo squares)
+and the **Intro text** group (**Lede**). Under it, a **Card list**: layout **Cards**, 4 columns, **Card
+style** **Plain**, **Card icon** **Bare icon, 24px**. Each **Card** has a title, a short text and an icon.
+
+**Safe to change:** the words and icons. Use the icon that matches the idea (see [Icons](/design-rules/icons)).
+Keep four cards so the row stays full. The pixel mark appears only here: don't add another on the page.
+
+### 3. Gallery
+
+**Built from:** a **Heading medium**, then a **Card list**: layout **Gallery**, 4 columns (2 on phones),
+**Bento** on, photos at 4:3. Each photo is a **Card** with only an **Image**. Bento makes the first photo
+large and the last ones wide so the grid ends on a full row. See [Card list](/blocks/card-list).
+
+**Safe to change:** the photos, and how many there are. Bento fills the rows by itself. Give every photo alt
+text in **Content → Files**.
+
+### 4. CAD row
+
+**Built from:** a **CAD row** group (**Lines between blocks, stacked on tablet**) with an **Image** on the
+left and the **CAD copy** group on the right: **Heading medium**, a **Lede, wide** paragraph, a **Label**
+("Benefits of…"), a **Checklist** block, another **Lede, wide** paragraph and a **Button**. On 11 city
+pages the label and the checklist aren't there: the row has two paragraphs and the button.
+
+- The **Checklist** holds its lines in **Items**, one per line. See [Checklist](/blocks/checklist).
+- The **Click for file examples** button links to a shared folder on another website, so it opens in a new
+  tab with the diagonal arrow.
+
+**Safe to change:** the words, the list lines and the photo.
+
+### 5. Services
+
+**Built from:** a **Heading** group with a **Heading medium**, then a **Card list**: layout **Cards**,
+4 columns (2 on phones), photos at 4:3, **Default link label** "See details". Each **Card** has a title, an
+image and a **Link** to a service page, for example `/pages/cad-design-services`.
+
+**Safe to change:** the cards' titles, photos and order. Link each card to the right service page with its
+short address.
+
+### 6. Industries
+
+**Built from:** a **Heading** group with a **Heading medium**, then a **Card list**: layout **Gallery**,
+4 columns (2 on phones), photos at 4:3. Each **Card** has an industry name as its title and a photo.
+
+**Safe to change:** the names and photos. Keep the photos the same shape.
+
+### 7. Client quotes
+
+**Built from:** a **Heading** group with a **Heading medium**, then a **Card list**: layout **Quotes**,
+3 columns. In each **Card**, **Text** is the quote, **Title** the person's name, **Label** the company and
+**Image** the client's logo.
+
+**Safe to change:** use real client quotes only, word for word. Don't invent or shorten a quote.
+
+### 8. Projects
+
+**Built from:** a **Heading** group with a **Heading medium**, then a **Group** set to **Grid with lines**
+(4 columns on desktop, 2 on tablet and phones). The first block is an **Image** with **Grid span** set to
+**Lead, 2 columns, fills the row**. Each other project is a **Group** (**Lines between blocks**) with an
+**Image** and a caption in **Eyebrow, leading mark**.
+
+**Safe to change:** the photos and captions. Keep one shape (4:3) for every photo so the rows line up.
+
+### 9. Quote
+
+**Built from:** a **Quote row** group (**Lines between blocks, stacked on tablet**): the **Quote text**
+group with a **Heading large** and a **Contact details** block, and the **Form** group with the **Quote
+form** block (its **Form name (for tracking)** is "location"). See
+[Contact details and quote form](/blocks/contact-and-quote-form).
+
+**Safe to change:** the heading. The phone number is typed in the **Contact details** block's **Phone**
+field. Leave the form's **Anchor ID** as `quote`.
+
+## Service in a city pages
+
+These pages (for example 3D scanning services California or 3D mobile laser scanning Phoenix) keep the
+first three sections of a city page (**Location hero**, **Intro and at a glance**, **Gallery**) and the
+**Quote** at the end. In between, they use these sections, in an order that follows each page's text:
+
+| Section in the sidebar | What it's built from |
+|---|---|
+| **Band** | A short **Card title** on the left; a **Row text** and a **Button** on the right |
+| **Content row** | A photo with a caption on one side; on the other an **Eyebrow, leading mark**, a **Row heading**, sometimes a **Closing line**, a **Row text** and a **Button**. The photo side alternates from row to row |
+| **Content rows** | Several text and photo rows in one section, built with a **Card list** |
+| **Industries**, **Services**, **Client quotes** | The same as on city pages, on some of these pages |
+| **Closing** | A **Heading medium**, a **Lede** and a **Button**, with the **Dot lattice** pattern |
+
+Each content row is its own section, so you can reorder rows by dragging the sections in the sidebar.
+
+## 3D laser scanning services
+
+**location-3d-laser-scanning-services** has a layout of its own: **Location hero**, **Industries**, **Our 3D
+scanning process**, **Technology**, **Benefits** (a **Card list**, layout **Entries**, with bare icons),
+**Why choose Tangent Solutions** (a **Card list**, layout **Check list**), **Clients**, **Project photos**
+(a **Card list**, layout **Gallery**, **Even photo rows** on) and **Quote**.
+
+## Where the words come from
+
+| What | Where to change it |
+|---|---|
+| Headings, texts, cards, photos, buttons | Theme editor, in the page's own **location-** template |
+| The last breadcrumb | The page's **Title** in **Online Store → Pages** |
+| FAQ questions (Hawaii only) | **FAQ** entries in the admin. See [FAQ](/blocks/faq) |
+| Search title and description | The page's **Search engine listing**. See [Pages and SEO](/admin/pages-and-seo) |
+| The link on the locations overview | The **Locations** menu. See [Menus](/admin/menus#locations-menu) |
+
+<Note>
+Location pages are separate: a change in **location-chicago** changes only Chicago. To change the same text
+on many location pages, ask your developer, who can update all the templates at once.
+</Note>
+
+## The locations overview
+
+The locations overview (/pages/locations) uses the **locations-hub** template. It shows the title, Tangent's
+address, phone, email and office hours, and a list of every location page in ruled columns.
+
+<Frame caption="The locations overview: the contact details come from the page's Content, the list from the Locations menu">
+  <img src="/images/locations-hub.png" alt="The locations overview: breadcrumbs, the title Locations, the address, phone, email and office hours, then city names in three ruled columns" />
+</Frame>
+
+It has one section, **Page**, with one **Locations hub** group (**Lines between blocks**) inside:
+
+| Block | What it shows | Where the words come from |
+|---|---|---|
+| **Breadcrumbs** | Home / Locations | The page title |
+| **Hero** group with a **Title** text block (**Display (hero title)**) | The title "Locations" | Connected to the page's **Title** in the admin |
+| **Page text** group with a **Content** block | Address, phone, email and office hours | The page's **Content** box in **Online Store → Pages**. **Short h3 headings as labels** turns its small headings into the mono labels |
+| **Locations** (**Menu** block) | Every location in three ruled columns, with a caption and the nested pages under each city | The **Locations** menu in **Online Store → Navigation**. **Tangent style** is **Index: ruled columns**; **Caption from the page title** adds the small line under a city |
+
+The section has the **Dot lattice at the end** pattern behind the title.
+
+**Safe to change:** the contact text (in the page's **Content**) and the list (in the **Locations** menu).
+Nothing on this page needs the theme editor for everyday changes.
+
+## Common changes
+
+- [Add a location page](/how-to/add-location-page): copy an existing location template, connect it to a new
+  page and add it to the **Locations** menu.
+- [Add or edit a card in a grid](/how-to/edit-card)
+- [Replace an image](/how-to/replace-image)
+- [Change the phone number](/how-to/change-phone-number)
+- [Change a page's SEO title](/how-to/change-seo-title)
+- [Menus](/admin/menus#locations-menu): rename, reorder or remove a city on the overview.

@@ -1,0 +1,145 @@
+---
+title: "Company pages"
+description: "About us, Our company, Team, Portfolio, the reverse engineering scanner page, the services overview and plain text pages."
+---
+
+The company pages tell visitors who Tangent is and what it does. Each has a template of its own, named after the
+page: **about-us**, **our-company**, **team**, **portfolio**, **3d-scan** and **services**. Plain text pages,
+such as /pages/thank-you, use the **Default page** template. Almost everything on these pages is typed in the
+theme editor; the exceptions are listed per page.
+
+| Page | Address | Template |
+|---|---|---|
+| About us | /pages/about-us | **about-us** |
+| Our company | /pages/our-company | **our-company** |
+| Meet our team | /pages/team | **team** |
+| Portfolio | /pages/portfolio | **portfolio** |
+| Reverse engineering scanner | /pages/3d-scan | **3d-scan** |
+| Services overview | /pages/services | **services** |
+| Plain text pages | for example /pages/thank-you | **Default page** |
+
+## The closing call on every company page
+
+Every company page ends with a **Call to action** section: "Tell us about your project", a one-line text, the
+phone button and **Send a message** (a link to the contact page). It looks the same everywhere, but each template
+has its own copy. If you change its words, change them on each page. The services overview has its own words
+in this section (see below).
+
+## About us
+
+| Section | What you see | Built from |
+|---|---|---|
+| **Hero** | Breadcrumbs (Home / page), the title "About us", an intro, **Call us now** and a photo. | **Breadcrumbs**, then a row group: **Heading large**, **Lede**, **Button** \| **Image** (**Media**). |
+| **Statement** | The Tangent Solutions wordmark beside a statement about the team. | A row group: **Image** in the **Wordmark** style \| **Statement text**. |
+| **What sets us apart** | A heading and four reasons, each with a line icon. | A heading group and a [Card list](/blocks/card-list) with the **Entries** layout and bare icons. |
+| **Call to action** | The closing call. | See above. |
+
+## Our company
+
+| Section | What you see | Built from |
+|---|---|---|
+| **Hero** | The title "Our company", an intro, **Contact us** and a photo. | As on About us. |
+| **Statement** | "Tangent Solutions" as a large title beside a statement. | A row group: **Statement title** \| **Statement text**. |
+| **3D laser scanning** | A photo beside a heading, a paragraph and two cells with icons (native software, file format). | A row group: **Image** \| text and a **Card list** (**Entries**). |
+| **Why 3D laser scanning is important** | Three cards with a picture, title and text. | A **Card list** (**Cards**, with images). |
+| **Photo band** | Two wide photos side by side. | A **Card list** with the **Gallery** layout, 16:9. |
+| **CAD software integration** | A heading, a paragraph and a closing line, beside a ticked list of seven tasks. | A row group: text (**Row heading**, **Split text**, **Closing line, cell foot**) \| **Card list** (**Check list**). |
+| **The importance of scan to CAD** | A heading, a line, a paragraph, **Click for file examples** and a "CAD file delivery" cell, beside a photo. | A row group: text, **Button** and a **Card list** (**Entries**) \| **Image**. |
+| **Closing** | "Ready to discuss your project goals?" beside a line and **Contact us**. | A row group: heading \| text and **Button**. |
+| **Call to action** | The closing call. | See above. |
+
+## Meet our team
+
+| Section | What you see | Built from |
+|---|---|---|
+| **Hero** | The title "Discover our company", **Contact us** and a photo. | As on About us. |
+| **Statement** | "Meet our team" beside a statement. | A row group: **Statement title** \| **Statement text**. |
+| **Our team** | A photo beside a heading and an "Our team" cell. | A row group: **Image** \| heading and a **Card list** (**Entries**). |
+| **The 3D experience and the design formula** | Two columns, each with a heading, text and a photo; the first has a **Learn more** button. | A group with two groups, each: text group and **Image** (16:10). |
+| **Closing** | "Rely on the best in 3D scanning services" beside a line and **Contact us**. | A row group: heading \| text and **Button**. |
+| **Call to action** | The closing call. | See above. |
+
+## Portfolio
+
+<Frame caption="The portfolio: a ruled grid of project photos">
+  <img src="/images/gallery-portfolio.png" alt="The portfolio page with project photos in a four-column grid" />
+</Frame>
+
+| Section | What you see | Built from | Where the words come from |
+|---|---|---|---|
+| **Hero** | Breadcrumbs and the page title. | **Breadcrumbs** and a **Text** block in the **Display (hero title)** style. | The page's headline field in the admin; when it's empty, the page **Title**. |
+| **Gallery** | 12 project photos, four per row. A click opens the photo full screen. | A **Project gallery** block (**Ruled tiles**, 4 columns, lightbox on) with one **Project** block per photo. | Each **Project**'s **Caption**. |
+| **Let's talk** | One **Let's talk!** button. | A row group with a **Button**. | Typed. |
+| **Call to action** | The closing call. | See above. | Typed. |
+
+To add, remove or reorder projects, see [Gallery and lightbox](/blocks/gallery#add-a-photo-to-the-portfolio).
+
+## Reverse engineering scanner (3d-scan)
+
+| Section | What you see | Built from | Where the words come from |
+|---|---|---|---|
+| **Hero** | The title, an intro, **Contact us** and a photo. | **Breadcrumbs**, then a row group: **Display (hero title)**, **Lede**, **Button** \| **Image**. | The title is the page's headline field (or the page **Title**). The intro is typed. |
+| **Reverse engineering scanner** | A software screenshot beside a paragraph. | A row group: **Image** \| **Split text**. | Typed. |
+| **Discuss with our team** | "Discuss 3D inspection services with our team" beside a text and **Contact us**. | A row group: heading \| text and **Button**. | Typed. |
+| **Call to action** | The closing call. | See above. | Typed. |
+
+## Services overview
+
+<Frame caption="The services overview">
+  <img src="/images/services-hub.png" alt="The services overview page with its title and intro" />
+</Frame>
+
+| Section | What you see | Built from | Where the words come from |
+|---|---|---|---|
+| **Page** | Breadcrumbs, the title, an intro, **Call us now** and a faint wheel-rim drawing on the right. | The **Page** section: **Breadcrumbs**, then a group with the title (**Display (hero title)**), the page **Content**, a **Button** and a [Pixel mark](/blocks/mark) (**Part scan: wheel rim (wide)**, **Middle right (from 990px)**). | The title is the page **Title** and the intro is the page **Content**, both in the admin (**Online Store → Pages** → Services). |
+| **Services we provide** | "Explore what we are doing better", the heading and eight service cards, each with a photo and **See details**. | A heading group and a **Card list** (**Cards**, with images). Each service is a **Card** with its **Link**. | Typed in each card. |
+| **Working to success** | A label and a photo, beside four figures (new clients per month, businesses helped, years in business, satisfaction). | A row group: **Eyebrow, leading mark** and **Image** \| four groups, each a **Stat value** and a label. | Typed. |
+| **Call to action** | "Searching for a complete engineering company?", a text, the phone button and **Free estimates**. | The closing call with this page's own words. | Typed. |
+
+To add a service card, select the **Card list** in **Services we provide**, add a **Card**, then set its **Title**,
+**Image** and **Link**. See [Edit a card](/how-to/edit-card).
+
+## Plain text pages (Default page)
+
+Pages that only need a title and some text use the **Default page** template, for example /pages/thank-you. It
+has two sections:
+
+| Section | What you see | Where the words come from |
+|---|---|---|
+| **Page** | Breadcrumbs, the title, an optional intro, then the page text. | The title is the page's headline field, or else the page **Title**. The intro is the hero subheading field. The text is the page **Content**. All are in the page record in the admin. |
+| **Call to action** | The closing call. | Typed in the theme editor. This copy is shared by every page on the **Default page** template. |
+
+To make a new plain page, add the page in **Online Store → Pages**, write its **Content** and leave
+**Theme template** on **Default page**. See [Pages and SEO](/admin/pages-and-seo).
+
+<Warning>
+The **Default page** template is shared. A change to its sections changes every plain text page at once.
+</Warning>
+
+## What's safe to change
+
+- **Words, photos and buttons** in any typed block. Keep the [text style](/blocks/text-styles) each block
+  already has.
+- **Cards** in a card list: add, remove or reorder them. Keep the icon rules in
+  [Do's and don'ts](/design-rules/do-and-dont).
+- **Don't** change a section's **Tangent frame** settings or a group's **Lines**: the column lines line up from
+  one section to the next.
+- **Don't** switch one of these pages to another template. The words live in the template, so the page would
+  show another page's content.
+
+## Common changes
+
+<CardGroup cols={2}>
+  <Card title="Replace an image" icon="image" href="/how-to/replace-image">
+    Swap a hero photo or a project photo.
+  </Card>
+  <Card title="Edit a card" icon="square-pen" href="/how-to/edit-card">
+    Change a reason, a service card or a figure.
+  </Card>
+  <Card title="Change the phone number" icon="phone" href="/how-to/change-phone-number">
+    The phone button in each closing call.
+  </Card>
+  <Card title="Change the SEO title" icon="search" href="/how-to/change-seo-title">
+    The title and description Google shows.
+  </Card>
+</CardGroup>

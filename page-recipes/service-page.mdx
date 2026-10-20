@@ -1,0 +1,152 @@
+---
+title: "Service page"
+description: "The 13 service templates: the sections every service page shares, the ones that vary, and where each text comes from."
+---
+
+Each service page, such as Reverse engineering or 3D inspection, has its own template named **service-**
+plus the page's address. There are 13 of them. A service page explains one service and ends on the quote
+form. Almost all of its words and photos are typed in the theme editor, in that page's template.
+
+<Frame caption="The top of a service page: breadcrumbs, title, buttons and photo">
+  <img src="/images/service-page.png" alt="The 3D scanning services page with breadcrumbs, the page title, two buttons and a photo" />
+</Frame>
+
+The services overview (/pages/services) is a different layout. See [Company pages](/page-recipes/company-pages).
+
+## The 13 service templates
+
+| Template | Page | Sections |
+|---|---|---|
+| **service-3d-scanning-services** | /pages/3d-scanning-services | 14 |
+| **service-reverse-engineering** | /pages/reverse-engineering | 12 |
+| **service-cad-design-services** | /pages/cad-design-services | 10 |
+| **service-3d-mobile-laser-scanning-services** | /pages/3d-mobile-laser-scanning-services | 12 |
+| **service-reverse-engineering-orange-county** | /pages/reverse-engineering-orange-county | 14 |
+| **service-model-rendering** | /pages/model-rendering | 11 |
+| **service-3d-printing-services** | /pages/3d-printing-services | 9 |
+| **service-manufacturer-sourcing** | /pages/manufacturer-sourcing | 8 |
+| **service-3d-inspection** | /pages/3d-inspection | 7 |
+| **service-mobile-laser-scanning** | /pages/mobile-laser-scanning | 7 |
+| **service-3d-product-scanning** | /pages/3d-product-scanning | 7 |
+| **service-on-demand-engineering** | /pages/on-demand-engineering | 7 |
+| **service-patent-design** | /pages/patent-design | 6 |
+
+The first three (3D scanning services, Reverse engineering, CAD design services) share the fullest layout.
+The others follow the content of the old pages, so their middle sections differ.
+
+## What every service page has
+
+Every service template starts with **Service hero** and ends with **Quote**. Everything in between varies.
+
+### Service hero (top)
+
+**What you see:** the breadcrumbs Home / Services / page, the page title, often an intro, the **Call us
+now** and **Get a Quote** buttons, and a photo on the right. On some pages a row of key figures sits under
+it, for example "0.025mm".
+
+**Built from:**
+
+- **Breadcrumbs**, Tangent style **Strip: own ruled row**, with **Parent label** "Services" and
+  **Parent link** `/pages/services`. The last step is the page's **Title** from the admin.
+  See [Breadcrumbs](/blocks/breadcrumbs).
+- A **Group** with **Lines between blocks**, holding:
+  - a **Group** set to **Lines between blocks, stacked on tablet**: on the left a group with the eyebrow
+    (on some pages), the title (**Text**, **Heading large**), the intro (**Lede**) and a group with two
+    **Button** blocks; on the right a group with the photo (**Image**, Tangent style **Media**);
+  - on some pages, a **Card list** of key figures (layout **Stats** or **Drawing notes**, 4 or 2 columns).
+
+**Where the words come from:** typed in the theme editor, except the last breadcrumb, which is the page
+title in the admin.
+
+**Safe to change:** the words, the photo and the key figures. **Call us now** links to `tel:` plus the phone
+number. **Get a Quote** links to `#quote`, which jumps to the form at the bottom: keep that link.
+
+### Quote (bottom)
+
+**What you see:** a heading such as "Tell us about your project", sometimes a short line under it, the phone,
+email, address and hours, and the quote form on the right.
+
+**Built from:** a **Group** set to **Lines between blocks, stacked on tablet**. The left group holds a
+**Heading large**, sometimes a **Lede**, and a **Contact details** block. The right group holds the
+**Quote form** block (its **Form name (for tracking)** is "service"). See
+[Contact details and quote form](/blocks/contact-and-quote-form).
+
+**Where the words come from:** typed in the theme editor. The **Contact details** block has the phone
+number typed in its **Phone** field on every service page.
+
+**Safe to change:** the heading and the line under it. Leave the form's **Anchor ID** as `quote`, or the
+**Get a Quote** buttons stop jumping to it.
+
+## The full layout, top to bottom
+
+This is the layout of **service-3d-scanning-services**. Reverse engineering and CAD design services use
+most of the same sections, in the same order. The last column counts the service pages that have a section
+of that name; on another page it can use a different card list layout.
+
+| # | Section in the sidebar | What it's built from | On these pages |
+|---|---|---|---|
+| 1 | **Service hero** | See above | All 13 |
+| 2 | **What we do** | Section head (**Eyebrow**, **Heading large**, a **Pixel mark**), then a **Card list**, layout **Cards**, 3 columns, **Bare icon, 24px**: in-house, shop and mobile scanning | 5 pages |
+| 3 | **Industries** | A **Heading medium**, then a **Card list**, layout **Cards**, 4 columns, one bare icon per industry | 4 pages |
+| 4 | **Deliverables** | Section head, then a **Card list**, layout **Cards**, 4 columns, no icons: the file formats | 3D scanning services only |
+| 5 | **Gallery** | A **Card list**, layout **Gallery**, 3 columns, photos at 4:3 with a caption each | 6 pages |
+| 6 | **How it works** | Section head, then a **Card list**, layout **Numbered steps**, 5 columns | 4 pages |
+| 7 | **What gets delivered** | A **Heading large**, then a **Card list**, layout **Cards**, 3 columns, **Text cards over their images** on: text 1, image 1, text 2, image 2… | 2 pages |
+| 8 | **Why Tangent Solutions** | Section head with the **Dot lattice** pattern, then a **Card list**, layout **Cards**, 4 columns, bare icons | 3 pages |
+| 9 | **Where we work** | A row: heading on the left, a **Row text** on the right | 2 pages |
+| 10 | **Trusted by** | Section head, then a **Group** set to **Grid with lines** of **Image** blocks (Tangent style **Logo**) | 3 pages |
+| 11 | **On-site scanning** | A **Card list** with one wide card: photo and text side by side | 2 pages |
+| 12 | **Case studies** | Section head, then a **Card list** with no cards and **Blog posts** set to **Case studies**: it shows the latest case studies by itself | 3 pages |
+| 13 | **FAQ** | A row: heading on the left, the **FAQ category** block on the right | 7 pages |
+| 14 | **Quote** | See above | All 13 |
+
+On **service-reverse-engineering**, **What we do** also has a **Flow chart** block (scan → mesh → CAD), and
+a **Comparison** section (two cards: 3D scanning vs reverse engineering) sits before the FAQ. See
+[Flow chart](/blocks/flow).
+
+## Sections that only some pages have
+
+The other service pages mix the sections above with these. The name in the sidebar tells you what each one is.
+
+| Section in the sidebar | What it's built from | Used on |
+|---|---|---|
+| **Statement** | A large **Statement title** beside a **Statement text**, with the **Dot lattice from the bottom start** pattern | Model rendering, 3D product scanning, On-demand engineering, Patent design |
+| **Content rows** (and named rows such as **What is 3D inspection**, **Is it real or CAD**) | A photo (or two) beside a **Row heading** and a **Split text** in a row set to **Lines between blocks, stacked on tablet** | Most of the other pages |
+| **Closing line** | One sentence in **Closing line** style | 3D mobile laser scanning, Mobile laser scanning, Model rendering |
+| **Entries**, **Applications entries**, **Why useful**, most **Benefits** | A **Card list**, layout **Entries**: a term and a sentence in each cell, with a bare icon | Several pages |
+| **Checks**, **Packages** | A **Card list**, layout **Check list** | 3D product scanning, On-demand engineering |
+| **Testimonials** | A **Card list**, layout **Quotes**: the quote, the logo and the person | On-demand engineering, Reverse engineering Orange County |
+| **Engineering services**, **Services** | A **Card list** of links to other services (layout **Link cells**, or **Cards** with photos) | On-demand engineering, Model rendering |
+| **View latest projects** | A single **Button** | Model rendering |
+
+For what each card list layout looks like, see [Card list](/blocks/card-list#choose-a-layout).
+
+## Where the words come from
+
+| What | Where to change it |
+|---|---|
+| Headings, texts, cards, photos, buttons | Theme editor, in the page's own **service-** template |
+| The last breadcrumb | The page's **Title** in **Online Store → Pages** |
+| FAQ questions and answers | **FAQ** entries in the admin. The page's **FAQ category** block picks which category it shows. See [FAQ](/blocks/faq) |
+| Case study cards | The **Case studies** blog in **Online Store → Blog posts**. The newest posts show by themselves. See [Blog posts](/admin/blog-posts) |
+| Search title and description | The page's **Search engine listing** in the admin. See [Pages and SEO](/admin/pages-and-seo) |
+
+## What's safe to change
+
+- **Words, photos, icons and card order** in any section: yes. Click the block in the preview or the
+  sidebar, edit, **Save**.
+- **Hiding a section** you don't need for a while: yes, with the eye icon.
+- **Adding a section:** copy one from another service page so its lines and spacing match. Don't place two
+  card grids of the same kind back to back. See [Do's and don'ts](/design-rules/do-and-dont#layout).
+- **Card list settings** (layout, columns, icon style): only to match another page. Industry, benefit and
+  reason cards always keep **Bare icon, 24px**.
+- **Breadcrumbs, the form's Anchor ID and Form name:** leave them as they are.
+
+## Common changes
+
+- [Add or edit a card in a grid](/how-to/edit-card)
+- [Add a FAQ question](/how-to/add-faq-question)
+- [Replace an image](/how-to/replace-image)
+- [Change the phone number](/how-to/change-phone-number)
+- [Change a page's SEO title](/how-to/change-seo-title)
+- [Add a blog post](/how-to/add-blog-post) (a new case study shows on the pages with a **Case studies** section)

@@ -1,0 +1,105 @@
+---
+title: "Contact pages"
+description: "The contact page and the free consultation page: their sections, the quote form and where messages go."
+---
+
+Two pages exist to start a conversation: the contact page (/pages/contact-us, template **contact**) with the
+contact details and the quote form, and the free consultation page (/pages/free-consultation, template
+**free-consultation**) with a booking calendar and a map. Both are edited in the theme editor; only the free
+consultation hero reads the page record.
+
+## Where form messages go
+
+Every form on the site, on the contact page, the service and location pages and the short landing pages, is a
+**Quote form** block. It's a standard Shopify contact form:
+
+- Each message is emailed to the store's **sender email**. You set it in the Shopify admin under
+  **Settings → Notifications**. Change it there if messages should reach another inbox.
+- Each message carries a hidden **Source page** line with the address of the page it was sent from, so you can
+  see which page brought the request.
+- The form can't take file uploads. Visitors who want to send photos or drawings should email them.
+
+See [Contact details and quote form](/blocks/contact-and-quote-form#quote-form) for every setting of the form.
+
+<Tip>
+After a change to the form or the sender email, send yourself a test message from the live page and check it
+arrives.
+</Tip>
+
+## The contact page (contact)
+
+<Frame caption="The contact page: contact details on the left, the quote form on the right">
+  <img src="/images/contact-page.png" alt="The contact page with a heading, call and meeting buttons, rows for phone, email, address and hours, and a form" />
+</Frame>
+
+The whole page is one section, **Page**. There's no closing call below it: the form is the call.
+
+| Part | What you see | Built from |
+|---|---|---|
+| **Breadcrumbs** | Home / page, in its own ruled row. | The **Breadcrumbs** block. |
+| **Get in touch** group (left) | The label "Get in touch", the title "Let's discuss your project", an intro, the phone button and **Schedule a meeting**, then the rows Phone, Email, Address and Office hours. | **Text** blocks (**Eyebrow, leading mark**, **Display (hero title)**, **Lede**), a **Buttons** group with two **Button** blocks, and a [Contact details](/blocks/contact-details) block. |
+| **Send us a message** group (right) | "Send us a message", a short text, and the form. | **Text** blocks (**Card title**, **Body small**) and the **Quote form**. |
+
+Everything is typed in the theme editor, including the phone, email, address and hours in **Contact details**.
+The address row links to Google Maps through **Address link**.
+
+### The contact form
+
+The form on this page is the full quote form:
+
+| Field | Required |
+|---|---|
+| **Name** | Yes |
+| **Phone** | No |
+| **Email** | Yes |
+| **Company** | No |
+| **Tell us about your project** | Yes |
+
+Under the button it shows "* Required fields". After sending, the visitor sees "You're all set!" and a thank-you
+text: change both under **Messages** in the form's settings.
+
+## The free consultation page (free-consultation)
+
+| Section | What you see | Built from | Where the words come from |
+|---|---|---|---|
+| **Hero** | Breadcrumbs, the title and an intro, side by side. No photo. | **Breadcrumbs**, then a row group with two **Text** blocks (**Display (hero title)**, **Lede**). | The page record: the title is the page's headline field (or the page **Title**), the intro the hero subheading field. |
+| **Booking** | The booking calendar, built into the page. | A **Custom Liquid** block holding the calendar embed. | The booking service. |
+| **Why choose Tangent Solutions** | A photo beside a heading, a paragraph, a ticked list and **Call us now**. | A row group: **Image** \| **Row heading**, **Split text**, **Ticks, 2 columns**, **Button**. | Typed. |
+| **Copy \| map** | "3D laser scanning, CAD design, and more", a line about the mobile service, the address and hours, and **Call us now**, beside a map with the address and hours again under it. | A row group: text, a **Contact details** block (phone row hidden) and a **Button** \| a **Custom Liquid** block with the map and a second **Contact details** block. | Typed. |
+| **Clients** | "Join a portfolio of clients" and 12 client logos. | A heading group and **Image** blocks in the **Logo** style. | Typed. |
+| **Call to action** | "Tell us about your project", a short text, the phone button and **Send a message**. | The closing call used on the company pages. | Typed. |
+
+<Warning>
+The calendar and the map are web code inside **Custom Liquid** blocks. Don't edit them by hand. To change the
+calendar link or the map address, ask your developer.
+</Warning>
+
+If the office address or hours change, update both **Contact details** blocks in **Copy | map**, the
+**Contact details** block on the contact page, and the other pages that list them. See the warning in
+[Contact details and quote form](/blocks/contact-and-quote-form#contact-details).
+
+## What's safe to change
+
+- **Texts, buttons and contact details**: click the block, change it, save.
+- **Form labels and messages**: in the **Quote form** settings. Keep **Anchor ID** as "quote": buttons (and the
+  mobile call bar, when it's turned on) use it to jump to the form.
+- **Logos** in **Clients**: replace, add or remove **Image** blocks, keeping the **Logo** style.
+- **Don't** turn on **What do you need?** or **Where should we scan?**: those questions aren't part of the
+  site's forms.
+
+## Common changes
+
+<CardGroup cols={2}>
+  <Card title="Change the phone number" icon="phone" href="/how-to/change-phone-number">
+    The phone button, the Phone row and the other places the number appears.
+  </Card>
+  <Card title="Contact details" icon="map-pin" href="/blocks/contact-details">
+    Phone, email, address and hours rows.
+  </Card>
+  <Card title="Quote form settings" icon="mail" href="/blocks/contact-and-quote-form">
+    Fields, labels and the message after sending.
+  </Card>
+  <Card title="Mobile call bar" icon="smartphone" href="/blocks/sticky-bar">
+    Turned off for now. When it's on, its **Get a Quote** button jumps to the form.
+  </Card>
+</CardGroup>

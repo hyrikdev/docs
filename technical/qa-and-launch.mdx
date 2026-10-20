@@ -1,0 +1,164 @@
+---
+title: "QA and launch"
+description: "The checks to run before merging and releasing, the QA scripts in the repository, the breakpoints to test, and the domain-switch checklist."
+---
+
+## Before you push to main
+
+<Steps>
+  <Step title="dev contains main">
+    `git fetch && git log dev..origin/main` shows nothing. If it shows `shopify[bot]` commits, merge `main`
+    into `dev` first (see [Branches and deploy](/technical/branches-and-deploy#merge-main-back-before-you-push)).
+  </Step>
+  <Step title="Theme Check at baseline">
+    `shopify theme check` reports the 8 known offenses and nothing new
+    (see [Local setup](/technical/local-setup#theme-check)).
+  </Step>
+  <Step title="Static checks pass">
+    Run the static checks below that relate to your change.
+  </Step>
+  <Step title="Visual QA on a development theme">
+    Every changed page, and the other pages that use the blocks you touched, at the widths below. No horizontal
+    scroll at any width.
+  </Step>
+  <Step title="The design rules hold">
+    Go through the [QA checklist](#qa-checklist).
+  </Step>
+  <Step title="Content unchanged unless intended">
+    No words or images added, dropped or reworded by accident. Run the coverage audit when a change touches
+    page content.
+  </Step>
+  <Step title="Release, then verify live">
+    Fast-forward `main`, pull a few changed files back from the live theme and compare, then look at the changed
+    pages on the live site.
+  </Step>
+</Steps>
+
+## Widths to test
+
+The theme's CSS breaks at **750**, **990** and **1200** (Horizon's breakpoints; 750 is by far the most used).
+Test one width inside each range, and both sides of a breakpoint when your change sits on one:
+
+| Width | Range | Why |
+|---|---|---|
+| 375 (also 360, 390, 430) | Phones, below 750 | Text inset rule, text-then-image order, full-width buttons, 44px targets |
+| 768 | Tablet, 750–989 | Tablet columns of card lists and groups |
+| 1024 | 990–1199 | Desktop layout with the 0.85 spacing scale; header fit |
+| 1440 | 1200 and up | Full design: 1400px page, rails visible |
+| 749 / 750, 989 / 990, 1199 / 1200 | Breakpoint edges | Layout switches |
+
+Expected text edge (x of body text from the screen edge): **37 / 72 / 82 / 89** at 375 / 768 / 1024 / 1440,
+±2px (`docs/ux/SPACING.md`).
+
+<Warning>
+From 990px Horizon scrolls the page inside `.page-wrapper` (the `html` and `body` elements don't scroll).
+QA scripts and screenshots must scroll that element; `window.scrollTo` does nothing there.
+</Warning>
+
+### Test on WebKit too
+
+iPhone browsers (Safari and Chrome) both use WebKit. Problems found only there during the build:
+
+- WebKit doesn't stretch an implicit `auto` grid track; use an explicit `minmax(0, 1fr)` track.
+- Percentage or `min(%)` widths of images in grid cells resolve from the image's own size (an SVG logo shrank to
+  11px); use px.
+- iOS enlarges text in narrow columns unless `text-size-adjust: 100%` is set (now in
+  `assets/tangent-tokens.css`).
+
+Test in Safari or a WebKit browser (for example Playwright's WebKit) as well as Chromium.
+
+## QA checklist
+
+- [ ] **Bare icons:** every industry, application, benefit, why, option and compare grid shows a bare 24px icon on
+  each card; no boxed icons; photo cards have no icon.
+- [ ] **Text then its image on phones:** at 375, paired text and image cards read text 1, image 1, text 2,
+  image 2.
+- [ ] **One text edge on phones:** headings, eyebrows, card titles and captions start on the body text's edge.
+- [ ] **External links:** new tab, `rel="noopener"`, diagonal arrow; internal links unchanged.
+- [ ] **Centred standalone heads** from 750px; left-aligned below.
+- [ ] **Dividers:** two-column rows 50 / 50, column lines on shared lines between sections.
+- [ ] **Phone first:** call button first and primary, contact second and secondary, phone icon on call buttons.
+- [ ] **Tokens only**, no raw colors; radius 2 / 4px; no shadows or boxes.
+- [ ] **Keyboard and focus:** every control reachable, 2px accent focus ring visible.
+- [ ] **Reduced motion** respected.
+- [ ] **Other pages** using the touched blocks look unchanged.
+- [ ] **Existing setting ids unchanged**; new settings have neutral defaults; presets still work.
+
+The rules behind each item are in [Design system](/technical/design-system).
+
+## Scripts
+
+### Static checks (no store access, no theme dev)
+
+Run from the repository root. Each exits with status 1 when a check fails.
+
+| Command | Checks |
+|---|---|
+| `python3 -I migration/scripts/check_touch.py` | Mobile touch-target sizes (44px, footer link rows 36px), card text 15px below 750, 65ch caps on FAQ answers and the homepage hero lede, footer titles as h2. Reads the components' `{% stylesheet %}` blocks. |
+| `python3 -I migration/scripts/check_dividers.py [--all] [--show]` | Column dividers of ruled rows sit on shared lines; two-cell rows split 50 / 50; head \| content rows in thirds; CTA rows three equal columns. A model of the layout from the template JSON. |
+| `python3 migration/scripts/check_image_sizes.py [--list]` | The card photos' `sizes` attributes are at least the drawn width at 1920 / 1440 / 1100 / 800 / 390. |
+| `python3 migration/scripts/casing.py --selftest` | The sentence-case helper used by the imports. |
+
+### Page and data checks
+
+The `check_<page>_page.py` scripts (about, our company, team, portfolio, 3d-scan, boats, buy scanner, CNC,
+Orange County, free consultation, scanner RE, product), `check_landing_short_pages.py`, `check_service_pages.py`,
+`check_service_template.py` and `check_services_hub.py` were written during the migration. They compare a
+template's words, images and links with the migrated content or a backup in `migration/backup/`. Some read the
+store (read only) unless given a backup with `--dump` or `--offline`.
+
+Once staff edit those pages in the theme editor, these scripts will report the edits as differences. That's
+expected: use them when you regenerate a template, not as a general regression test.
+
+### Content coverage
+
+```bash
+python3 migration/scripts/audit_coverage.py --only about-us
+python3 -I migration/scripts/check_service_coverage.py --live http://127.0.0.1:9293 --show
+```
+
+`audit_coverage.py` compares every text passage and image of the old page (saved in `migration/source/`) with
+the new page rendered by theme dev at `http://127.0.0.1:9293` (`<main>` only). It reports `missing` (old text
+not on the new page), `invented` (new text that is on no old page), `changed`, `fix_not_applied` and more, and
+writes `migration/inventory/coverage-report.md`. Approved changes from `migration/content/CHANGES-text.md` are
+applied to the old side first. Run theme dev on port 9293 before using it.
+
+### Console scripts
+
+Paste into the browser console on a theme dev page, then call the function. Tolerance ±2px; failed rows are
+marked ✗, unmeasurable rows `?`.
+
+| Script | Call | Checks |
+|---|---|---|
+| `preview/pages/_kit/template-qa.js` | `__templateQA(kind)` with `kind` = `location`, `locations-hub`, `landing`, `landing-short`, `page`, `contact`, `404`, `blog`, `case-studies`, `article`, `product`, `service` or `services` | Rails, text edges, spacing and template-specific parts, using theme selectors, so it runs on any page of that template. |
+| `preview/pages/_kit/spacing-qa.js` | `__spacingQA()` on the homepage | 42 text-edge and vertical-gap checks against the spacing scale at the current width. |
+| `preview/pages/_kit/lines-audit.js` | `__lines()` on preview and sketch pages | Rails that don't meet between sections; panels 3–30px inside a line. |
+
+## Launch checklist
+
+From `docs/launch/CHECKLIST.md`. Admin steps are done by the site owner.
+
+### Before the domain switch
+
+- [ ] Privacy policy imported (turn off Shopify's automatic policy management first). Then
+  `build_redirects.py` turns the `/privacy-policy/` row from `check-manually` into a normal row.
+- [ ] Store time zone set to Pacific (admin).
+- [ ] HandySCAN location quantity 0 (admin, or a token with `write_inventory`).
+- [ ] Client question answered: the locations hub's title "Phone-Number" (kept from the old site).
+- [ ] Decision on the 14 old `/services/<slug>/` URLs (see
+  [Migration and redirects](/technical/migration-and-redirects#what-cant-be-redirected)).
+
+The clean-up of the old `service` and `location` metaobject entries listed in that file is done; the backups are
+in `migration/backup/2026-10-16/`.
+
+### On the switch
+
+- [ ] Re-run the imports that store full URLs on the primary domain (`url` metafields reject relative links), once
+  the real domain is primary. The checklist names `import_pages.py` and `import_services.py`; run them with
+  `--dry-run` first and check what they would write. The service entries `import_services.py` once wrote have
+  since been deleted, and running it without `--dry-run` would create them again.
+- [ ] Redirects: re-import `migration/redirects/redirects.csv` with overwrite on if anything changed since the last
+  import; check every row in both slash forms on the live domain (`check_status.py`).
+- [ ] Remove the storefront password.
+- [ ] Submit `/sitemap.xml` in Search Console (the checklist lists this under the `/services/*` options; it
+  helps search engines find the new addresses either way).

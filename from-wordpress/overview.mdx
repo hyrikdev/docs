@@ -1,0 +1,105 @@
+---
+title: "WordPress and Shopify side by side"
+description: "What each part of the old WordPress site became in Shopify, and where to find it now."
+---
+
+The old usetangent.com ran on **WordPress**, with the **Elementor** page builder for the page layouts and
+**Yoast SEO** for search listings. The new site runs on **Shopify**, with the **Horizon** theme and the Tangent
+blocks added to it (see [What is Horizon](/horizon/what-is-horizon)).
+
+Most of what you did in WordPress still exists. It just lives in a different place, and often has a different
+name.
+
+## Two places instead of one
+
+In WordPress you did almost everything from one dashboard: you opened a page and edited it in Elementor. In
+Shopify the work is split in two:
+
+| Where | What you do there | Open it from |
+|---|---|---|
+| **Shopify admin** | The records of the site: pages, blog posts, menus, images, FAQ entries, redirects, search listings. | Sign in to Shopify. The menu on the left. |
+| **Theme editor** | The design and most of the words on each page: sections, blocks, text, images, buttons. | **Online Store → Themes → Customize**. See [Open the theme editor](/getting-started/theme-editor). |
+
+A useful rule: if it's **what a page is** (its title, address, Google listing, whether it's visible), it's in the
+admin. If it's **what a page shows** (headings, cards, photos, buttons), it's in the theme editor.
+
+## What maps to what
+
+| In WordPress | In Shopify | On this site |
+|---|---|---|
+| **Pages** | **Online Store → Pages**. Each page record holds its title, address, visibility, search listing and the **template** it uses. | Every service, location and landing page is a Shopify page with **its own template**, for example **service-reverse-engineering** or **location-chicago**. The words and photos are in that template, edited in the theme editor. See [How the pages are set up](/editing-pages/how-pages-work). |
+| **Posts** | **Online Store → Blog posts**. A store can have several blogs. | Two blogs: **News** (shown as "Blog", /blogs/news) and **Case studies** (/blogs/case-studies). See [Blog posts](/admin/blog-posts). |
+| **Categories** | Blogs and **tags**. Shopify posts have tags, not categories. | The old "Case studies" category became the **Case studies** blog. The other categories became tags, and the tags become filter chips on the blog page. |
+| **Tags** | **Tags** on each post. | Kept as tags. Reuse existing tags so the chips stay tidy. |
+| **Media Library** | **Content → Files**. | All the images were copied from WordPress into Files, with their original alt text. See [Files and images](/admin/files-and-images). |
+| **Menus** (Appearance → Menus) | **Online Store → Navigation**. | Three menus: **Main menu**, **Locations** and **Helpful Links**. See [Menus](/admin/menus). |
+| **Widgets** and the footer | The **footer**, a shared area of the theme. | Edited once in the theme editor, at the bottom of the sidebar, and shown on every page. See [Footer](/blocks/footer). |
+| **Page builder** (Elementor) | The **theme editor**, with **sections** and **blocks**. | Pages are built from the Tangent blocks: card lists, text styles, buttons, images. See [Sections and blocks](/getting-started/sections-and-blocks). |
+| **Reusable layouts** (page builder templates) | Each page's **template**, and the shared header and footer. | There's no "global block" that updates many pages at once. To reuse a layout, copy it from a page that already has it. |
+| **Yoast SEO** title and description | **Search engine listing** at the bottom of each page, post and product. | The old Yoast titles and descriptions were copied over. See [Change a page's SEO title](/how-to/change-seo-title). |
+| **Redirects** | **URL redirects** in **Online Store → Navigation**. | About 300 old addresses were imported from a list (a CSV file) during the move. See [URL redirects](/admin/url-redirects). |
+| **Contact forms** | The theme's **Quote form** block, which uses Shopify's own contact form. | Messages are emailed to the store's sender email. See [Contact details and quote form](/blocks/contact-and-quote-form). |
+| **FAQ** lists | **Metaobjects**: small records you fill in like a form. | Each question is an **FAQ** entry in **Content → Metaobjects**, grouped by **FAQ category**. See [FAQ entries](/admin/faq-entries). |
+| **Users and roles** | **Staff accounts**, each with its own permissions, in the admin settings. | Each person signs in with their own account. Ask the store owner to add you. |
+| **Themes** and **child theme** | **Online Store → Themes**. One theme is live; the others sit in the **Theme library**. | The Tangent changes live inside the theme itself, so there's no separate child theme. See [What is Horizon](/horizon/what-is-horizon). |
+| **Revisions** | No revision list on pages or posts. In the theme editor: **undo** before you save, and theme copies. | See [Undo and versions](/getting-started/undo-and-versions). |
+| **Drafts** and **Preview** | Pages and posts: **Visibility** set to **Hidden**. Design changes: work on a copy of the theme and **Preview** it. | See [Preview and publish](/getting-started/preview-and-publish). |
+| **Permalinks** and slugs | The **URL handle**, the last part of the address. The part before it is fixed by Shopify. | See [The web addresses changed](#the-web-addresses-changed) below. |
+
+<Note>
+Two things work quite differently. **Saving is publishing**: on the live theme, **Save** makes a change public at
+once (there's no "Update" or "Save draft" step). And **each page has its own template**: a change on the Chicago
+page doesn't change the Phoenix page.
+</Note>
+
+## The web addresses changed
+
+WordPress let you choose almost any address. Shopify puts a fixed word in front of each kind of content, and you
+only choose the last part (the **URL handle**).
+
+| Kind of content | Old WordPress address | New Shopify address |
+|---|---|---|
+| Service page | `/services/reverse-engineering/` | `/pages/reverse-engineering` |
+| Location page | `/phone-number/chicago/` | `/pages/chicago` |
+| Locations overview | `/phone-number/` | `/pages/locations` |
+| Services overview | `/services/` | `/pages/services` |
+| Landing or company page | `/reverse-engineering-company/`, `/about-us/` | `/pages/reverse-engineering-company`, `/pages/about-us` |
+| Blog post | `/scan-to-step-file/` | `/blogs/news/scan-to-step-file` |
+| Case study | `/3d-scanning-for-robotics-rotor-hub/` | `/blogs/case-studies/3d-scanning-for-robotics-rotor-hub` |
+| Blog list | `/blog/` | `/blogs/news` |
+| Category | `/category/reverse-engineering/` | `/blogs/news/tagged/reverse-engineering` (a tag) |
+| Scanner | `/handyscan-black-elite/` | `/products/handyscan-black-elite` |
+| Privacy policy | `/privacy-policy/` | `/policies/privacy-policy` |
+| Sitemap | `/sitemap_index.xml` | `/sitemap.xml` (Shopify builds it for you) |
+
+Redirects send visitors and Google from the old addresses to the new ones.
+
+<Warning>
+Shopify keeps every address that starts with `/services/` for itself, so redirects from the old
+`/services/...` service pages can't work. See
+[A known limit: old /services/ addresses](/admin/url-redirects#a-known-limit-old-services-addresses). When you
+link to a service page, always use the new `/pages/...` address.
+</Warning>
+
+## Words you'll meet
+
+| Shopify word | What it means |
+|---|---|
+| **Theme** | The design of the site. You can keep several; one is live. |
+| **Template** | The layout of one page (or one kind of page): which sections and blocks it shows. |
+| **Section** | A band of the page, from edge to edge. |
+| **Block** | A piece inside a section: a text, an image, a button, a card. Blocks can hold other blocks. |
+| **Metaobject** | A small record you fill in like a form, such as an FAQ question. |
+| **Metafield** | An extra field on a page or product, shown in the **Metafields** area at the bottom of the record. |
+| **URL handle** | The last part of a page's address, for example `chicago` in `/pages/chicago`. |
+
+## Where to go next
+
+<CardGroup cols={2}>
+  <Card title="Daily work, before and after" icon="arrow-left-right" href="/from-wordpress/daily-work">
+    The jobs you did in WordPress, and how to do them now.
+  </Card>
+  <Card title="Where the plugins went" icon="plug" href="/from-wordpress/plugins">
+    Yoast, Elementor, the forms and the rest.
+  </Card>
+</CardGroup>

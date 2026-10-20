@@ -1,0 +1,59 @@
+---
+title: "Where the plugins went"
+description: "The jobs the old WordPress plugins did, and what does them on the Shopify site."
+---
+
+On WordPress, plugins did a lot of the work: the page builder, the SEO box, the forms. Shopify has most of these
+jobs built in, and the rest is done by the theme. Shopify's version of a plugin is called an **app**.
+
+The plugins below are the ones found in the old site's pages, saved during the move.
+
+## Plugin by plugin
+
+| Old plugin | What it did | What does it now | Where you find it |
+|---|---|---|---|
+| **Elementor** and **Elementor Pro** | Page builder: the layout and content of every page. | The Horizon theme with the Tangent blocks. | The theme editor. See [Sections and blocks](/getting-started/sections-and-blocks). |
+| **Essential Addons for Elementor** | Extra page builder widgets. | The Tangent blocks: card lists, checklists, flow charts, galleries and more. | The theme editor. See [Building blocks overview](/blocks/overview). |
+| **Yoast SEO** | Page titles and meta descriptions, the sitemap, structured data for Google. | Shopify itself and the theme. | See [Yoast SEO](#yoast-seo) below. |
+| **Elementor Pro** forms | The contact and quote forms. | The **Quote form** block, which sends through Shopify's own contact form. | The theme editor. See [Contact details and quote form](/blocks/contact-and-quote-form). |
+| **Google Captcha Pro** | reCAPTCHA spam checks on the forms. | Shopify's spam protection for contact forms. | **Online Store → Preferences**. |
+| **Site Kit by Google** | Google Analytics and other Google tools inside WordPress. | Shopify's own **Analytics**. Google Analytics connects through Shopify's **Google & YouTube** app. | **Analytics** in the admin menu. |
+| **WP Consent API** | Kept track of visitors' cookie consent. | Shopify's customer privacy settings, including its cookie banner. | **Settings → Customer privacy**. |
+
+<Note>
+**Calendly** wasn't a plugin on the old site: it was a set of links to Tangent's booking pages. The links are
+still there, in buttons and in the **Schedule link** of the **Contact details** block. The free consultation page
+also shows the booking calendar itself, inside a **Custom Liquid** block. Leave that block as it is; ask your
+developer if the booking page changes.
+</Note>
+
+## Yoast SEO
+
+Yoast's jobs are split between Shopify and the theme:
+
+| Yoast feature | On the Shopify site |
+|---|---|
+| SEO title and meta description of a page or post | **Search engine listing** at the bottom of each page, blog post and product. The old Yoast titles and descriptions were copied there. See [Change a page's SEO title](/how-to/change-seo-title). |
+| Title and description of the homepage | **Online Store → Preferences**. |
+| Slug | **URL handle**, in the same **Search engine listing** box. See [Pages and SEO](/admin/pages-and-seo#the-search-engine-listing). |
+| XML sitemap | Built by Shopify at `/sitemap.xml`. The old sitemap addresses redirect there. |
+| Breadcrumbs | The **Breadcrumbs** block at the top of each page. It also tells Google the page's place in the site. See [Breadcrumbs](/blocks/breadcrumbs). |
+| FAQ structured data | The **FAQ category** block, with **Output FAQPage structured data** turned on. See [FAQ](/blocks/faq). |
+| Readability and keyphrase checks | Not built in. Write for people first and follow the [design rules](/design-rules/do-and-dont) for casing. |
+
+## Redirects
+
+Whatever handled redirects on WordPress, on Shopify they're in **Online Store → Navigation → URL redirects**.
+The redirects from the old addresses were set up during the move. See [URL redirects](/admin/url-redirects).
+
+## Images
+
+The **Media Library** became **Content → Files**. Shopify makes smaller copies of each image for phones and
+small screens by itself, so there's no image-compression plugin to run. Upload photos at a sensible size and
+with a clear file name: see [Files and images](/admin/files-and-images).
+
+## Before you install an app
+
+Apps can add code and blocks to the theme, and some change how pages load. Ask your developer before you install
+one, and never install an app just to change the look of a page: the Tangent blocks already cover the site's
+design.

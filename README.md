@@ -39,7 +39,7 @@ You need Node.js (version 20 or newer) on your computer. Get it from [nodejs.org
 
 ## Publish the guide online
 
-1. Put this folder in a GitHub repository (your developer can do this for you).
+1. Put this folder in a GitHub repository (done: hyrikdev/docs).
 2. Sign up at [mintlify.com](https://mintlify.com).
 3. In the Mintlify dashboard, connect the GitHub repository.
 4. Mintlify builds the guide and gives you a web address for it.

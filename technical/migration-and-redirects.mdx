@@ -1,0 +1,163 @@
+---
+title: "Migration and redirects"
+description: "How the WordPress content was moved, how the 301 redirect list is built and imported, what can't be redirected, and how to add a redirect for a new page."
+---
+
+The `migration/` folder holds everything used to move usetangent.com from WordPress (Elementor, Yoast) to
+Shopify: the old content, the scripts that imported it, backups, the URL map and the redirect files. It isn't
+theme code; Shopify CLI and the GitHub integration ignore it, and Theme Check skips it.
+
+## What's in the folder
+
+| Path | What it holds |
+|---|---|
+| `inventory/url-map.csv` | Every old URL and its new Shopify path (from the old sitemaps, the WordPress REST API, blog pagination, categories, feeds, plus legacy links found in the content). |
+| `inventory/unmapped-links.csv` | Links inside the old content that were already dead on the old site (left unchanged). |
+| `inventory/unused-entries.csv`, `unused-files.csv` | Store entries and Files no import references; review before deleting. |
+| `inventory/coverage-report.md` / `.json` | Output of the content coverage audit. |
+| `redirects/redirects.csv` | **The import file** for Shopify's URL redirects. Only rows whose target exists and is live. |
+| `redirects/redirects-status.csv` | Every row of the URL map with its status. |
+| `redirects/redirects-update-<date>.csv` | Smaller files for a later import (only the rows added since). |
+| `content/` | The migrated content as JSON / HTML: `services/`, `locations/`, `location-pages/`, `location-parts/`, `pages/`, `blog/`, `products/`, `policies/`, `menus/`, and `CHANGES-text.md` (every text change made on the way). |
+| `source/` | Raw downloads of the old site (HTML and REST JSON), for re-extraction. |
+| `scripts/` | Extraction, import, template generator and check scripts; `scripts/graphql/` holds the Admin API operations. |
+| `backup/<date>/` | JSON exports of store data taken before each delete or rebuild. |
+| `archive/templates/` | Retired templates the generators still read. |
+
+## How the content was moved
+
+1. **Extract.** Scripts read `source/` (or the live old site) and write clean JSON / HTML into `content/`. Text is
+   copied verbatim; every change is recorded in the content file's `notes` and in `content/CHANGES-text.md`.
+2. **Re-host images.** `scripts/media.py` uploads every image to Shopify Files (cache in
+   `scripts/file_cache.json`), so nothing points at `/wp-content/`. Alt text is the original alt.
+3. **Rewrite links.** `scripts/links.py` maps links to the old site through `url-map.csv`; anything it can't map
+   is listed in each folder's `_import-report.json`.
+4. **Import.** The import scripts write pages, metafields, metaobjects, articles, menus and the product through
+   `shopify store execute`. Page and blog imports apply `scripts/content_pass.py` on the way (sentence case through
+   `scripts/casing.py`, approved typo fixes, `ts-eyebrow` / `ts-step` classes). The content JSON keeps the old
+   site's words.
+5. **Generate templates.** The service, location, landing and company page templates were generated from
+   `content/` by `build_*` scripts, so every word and image could be checked against the old page.
+6. **Check coverage.** `scripts/audit_coverage.py` compares every text passage and image of each old page with
+   the new page on theme dev (see [QA and launch](/technical/qa-and-launch#content-coverage)).
+
+The full command list, in import order, is in `migration/README.md`. Most scripts that write to the store are
+dry runs unless you pass `--apply`, but some of the first import scripts (for example `import_pages.py`,
+`import_services.py`, `import_blog.py`) write unless you pass `--dry-run`. Read each script's docstring before you
+run it.
+
+## The URL map
+
+`inventory/url-map.csv` has one row per old URL:
+
+| Column | Meaning |
+|---|---|
+| `old_path` | The old path, as on the old site (usually with a trailing slash) |
+| `group` | What kind of old URL it was (`post-news`, `legacy-blog-permalink`, `location-city`, `service`, `service-metaobject`, `landing`, `category`, `sitemap`, `feed`…) |
+| `kind` | What it points to on Shopify: `page`, `article`, `blog`, `product`, `policy`, `static` |
+| `handle` | The Shopify handle `build_redirects.py` checks (`<blog>/<article>` for articles) |
+| `new_path` | The new path, for example `/pages/chicago` |
+
+It holds 304 rows. `scripts/build_inventory.py` builds it from the old site's live sitemaps; the `OVERRIDES` dict
+in that script covers paths whose target isn't derived from the slug (for example `/phone-number/` →
+`/pages/locations`, `/services/reverse-engineering-services/` → `/pages/reverse-engineering`).
+
+The map also covers the old Shopify metaobject web pages: `/pages/service/<handle>` → `/pages/<handle>` (13
+rows), since the service metaobject pages were turned off.
+
+## Building the redirect files
+
+```bash
+python3 migration/scripts/build_redirects.py
+```
+
+It reads the URL map, asks the store which pages, articles, blogs and products exist and are published, and
+writes:
+
+- `redirects/redirects-status.csv`: every row with a status: `ready` (target live), `missing`, `unpublished`,
+  `static` (a fixed target such as `/sitemap.xml` or `/blogs/news.atom`), or `check-manually` (policies, which the
+  script can't read).
+- `redirects/redirects.csv`: the `ready` and `static` rows in Shopify's import format, columns `Redirect from`,
+  `Redirect to`.
+
+Today the status file has 297 `ready`, 6 `static` and 1 `check-manually` row (`/privacy-policy/` →
+`/policies/privacy-policy`, until the privacy policy is set in the admin). Every import script re-runs
+`build_redirects.py` at the end.
+
+## Importing redirects in Shopify
+
+<Steps>
+  <Step title="Open URL redirects">
+    In the Shopify admin, open **URL redirects** (under **Online Store → Navigation**, or search for it).
+  </Step>
+  <Step title="Import the CSV">
+    Click **Import**, choose `migration/redirects/redirects.csv` (or a smaller update file), and turn on the option
+    to overwrite existing redirects with the same path when you re-import.
+  </Step>
+  <Step title="Check">
+    Open a sample of old paths on the live domain, both with and without the trailing slash. Shopify treats them
+    as the same path, so one row covers both.
+  </Step>
+</Steps>
+
+To check many paths at once, list them in a text file, one per line, and run
+`python3 migration/scripts/check_status.py <file>`. It requests each path on `https://www.usetangent.com` without following redirects and prints the status
+code, the `Location` header, the robots meta, the canonical URL and the page title.
+
+<Note>
+A redirect only fires when nothing else answers on that path. If a real page, product or blog exists at the old
+path, the page wins.
+</Note>
+
+## What can't be redirected
+
+**Shopify reserves `/services/*`.** Any request to `/services/<anything>` gets Shopify's own system 404 page, not
+the theme and not the redirect. The old site had 14 service pages at `/services/<slug>/`, so those 14 rows of
+`redirects.csv` never fire. After the first import, 273 of 290 rows redirected. The other 17 were these 14 rows
+plus `/services/`, `/contact` and `/contact-us`, which only failed when tested through theme dev's preview proxy;
+on the real domain those three reach the storefront.
+
+The launch checklist (`docs/launch/CHECKLIST.md`) gives the options:
+
+1. **Check their value first** in the old site's Search Console and analytics: clicks, impressions and backlinks
+   of `/services/*` over the last 12 months.
+2. **If they matter, redirect at the DNS edge**, in front of Shopify. Example with Cloudflare: one redirect rule
+   for paths starting with `/services/`, sending `/services/<slug>/` to `https://www.usetangent.com/pages/<slug>`
+   with a 301; `/services/` → `/pages/services`; the one renamed slug `reverse-engineering-services` →
+   `/pages/reverse-engineering`. Shopify doesn't officially support a proxy in front of its storefront, so test
+   SSL and the theme editor preview after turning it on.
+3. **If they don't, accept the 404s**: submit `/sitemap.xml` in Search Console on launch day and request indexing
+   for the 13 `/pages/<handle>` service pages.
+
+The staff guide explains the same limit in plain words in [URL redirects](/admin/url-redirects).
+
+## Add a redirect for a new page
+
+When a new page replaces an old address (an old WordPress URL, a renamed handle, a removed page):
+
+<Steps>
+  <Step title="Record it in the URL map">
+    Add a row to `migration/inventory/url-map.csv` with `old_path`, `group`, `kind`, `handle` and `new_path`,
+    for example `/phone-number/denver/,location-city,page,denver,/pages/denver`. For a special case, add it to
+    `OVERRIDES` in `build_inventory.py` too, so a rebuild of the map keeps it.
+  </Step>
+  <Step title="Publish the page, then rebuild">
+    `build_redirects.py` only exports rows whose target page is published. Publish the page first, then run
+    `python3 migration/scripts/build_redirects.py` and check the row's status in `redirects-status.csv`.
+  </Step>
+  <Step title="Import the new row">
+    Import the new row in the admin, either as a one-row CSV (header `Redirect from,Redirect to`) or by creating
+    the redirect by hand (**Create URL redirect**).
+  </Step>
+  <Step title="Commit">
+    Commit `url-map.csv` and the regenerated redirect files, so the repository matches the store.
+  </Step>
+</Steps>
+
+<Tip>
+Changing a page's URL handle in the admin offers to create the redirect from the old handle. Use it, then add the
+same row to the URL map.
+</Tip>
+
+Redirects created in the admin are store data: they aren't in git unless you add them to the URL map. Avoid
+chains (A → B → C): point every old path straight at its final page.

@@ -1,0 +1,144 @@
+---
+title: "Content model"
+description: "Where each piece of content lives: template blocks, page fields, metaobjects, blogs, the product and menus, and what each template reads."
+---
+
+Most of the site's content lives **in the theme**, typed into the blocks of each page's JSON template. The rest
+lives in the Shopify admin as store data. This page lists the store data the theme reads and which templates
+read it.
+
+| Content | Lives in | Edited in |
+|---|---|---|
+| Copy, images, cards and buttons of the homepage, service, location, landing and company pages | Template JSON (`templates/*.json`) | Theme editor |
+| Header, footer, announcement bar, mobile call bar | Section groups (`sections/header-group.json`, `sections/footer-group.json`) | Theme editor |
+| Page title, URL handle, SEO title and description, template suffix, a few hero fields | Page records and page metafields | Online Store → Pages |
+| FAQ questions and their categories | Metaobjects `faq` and `faq_category` | Content → Metaobjects |
+| Blog posts and case studies | Blogs `news` and `case-studies` | Online Store → Blog posts |
+| HandySCAN product title and description | Product | Products |
+| Main menu, footer links, locations list | Menus `main-menu`, `footer-helpful-links`, `locations` | Online Store → Navigation |
+| Images | Shopify Files, picked through `image_picker` settings | Content → Files |
+
+<Note>
+Services and locations used to be metaobjects with their own web pages. They are now **ordinary pages**, one
+template each (`page.service-<handle>`, `page.location-<handle>`), with all content in the template's blocks.
+The `service` and `location` metaobject web pages were turned off, and their entries were deleted after a
+backup (kept in `migration/backup/`). The templates that rendered them are archived in
+`migration/archive/templates/` (`metaobject/service.json`, `page.location.json`, `product.quote.json`), where the
+generators still read them.
+</Note>
+
+## Page metafields
+
+Namespace `custom`, storefront-readable. The templates read them through dynamic sources
+(`{{ closest.page.metafields.custom.<key>.value }}`).
+
+| Key | Type | Read by |
+|---|---|---|
+| `headline` | single line text | The h1 of `page.json`, `page.free-consultation`, `page.3d-scan`, `page.3d-laser-scanning-for-boats`, `page.portfolio`, `page.landing` and the 6 `page.landing-short*` templates |
+| `hero_subheading` | multi-line text | The hero lede of `page.json`, `page.free-consultation`, `page.landing` and the 6 `page.landing-short*` templates |
+| `hero_image` | file reference (image) | The hero image of the 6 `page.landing-short*` templates |
+| `form_heading`, `form_button_label` | single line text | The form strip heading and button of the 6 `page.landing-short*` templates |
+| `hero_eyebrow` | single line text | `page.landing` |
+| `hero_points` | rich text (one bulleted list, shown as chips) | `page.landing` (`{{ closest.page.metafields.custom.hero_points \| metafield_tag }}`) |
+| `hero_button_1_label`, `hero_button_1_url`, `hero_button_2_label`, `hero_button_2_url` | single line text + URL | The two hero buttons of `page.landing` (a label and a link field each, so a button block can take both as dynamic sources) |
+| `scan_motif` | single line text, choices `bracket`, `cad_part`, `cylinder_head`, `tire`, `engine`, `plate` | **Pixel mark** blocks with **Drawing** set to `auto` (`page.landing` today). Blank or unknown renders nothing. |
+
+The definitions were created by `migration/scripts/import_pages.py` (headline, hero_subheading, hero_image),
+`run_d6_02_definitions.py` (the landing hero and form strip fields) and `run_d6_05_scan_motif.py`. The
+`url` fields reject relative links, so the import stores full `https://` URLs on the store's primary domain. The
+launch checklist re-runs `import_pages.py` once the real domain is primary.
+
+A page with a blank `headline` shows an empty h1 in templates that read it. **Text** blocks have
+**Page title when blank** (`ts_page_title_fallback`) and **Hide section when blank**
+(`ts_hide_section_when_blank`) for optional fields.
+
+Staff guide: [Text that comes from the page's own fields](/editing-pages/how-pages-work#text-that-comes-from-the-pages-own-fields).
+
+## Metaobjects
+
+| Type | Fields | Entries | Used by |
+|---|---|---|---|
+| `faq` | `question` (single line, required, display name), `answer` (rich text, required), `category` (reference to `faq_category`, required) | In use | **FAQ category** block (`blocks/faq-category.liquid`) |
+| `faq_category` | `name` (single line, required) | One per page that shows FAQs; the handle is the page handle (for example `reverse-engineering`, `hawaii`) | The `category` setting of **FAQ category** in 10 templates |
+| `card` | `title` (required), `text` (multi-line), `label`, `image` (file), `link` (url), `link_label` | None | The `cards` setting of **Card list** (`metaobject_type: card`). No template uses it; cards are static blocks. |
+| `industry` | `name` (required), `description`, `icon` (file) | None | **Industries list** (unused) |
+| `testimonial` | `quote`, `author`, `company` | None | **Testimonial** (unused) |
+| `service` | Title, hero, sections and SEO fields of the old service pages; web pages off | None | **Service list** (unused) |
+
+The `card`, `industry`, `testimonial` and `service` definitions are kept because block schemas reference their
+types. Field lists above are from the creation scripts (`migration/scripts/data.py`,
+`run_d2_03_definitions.py`); the `service` definition was extended later.
+
+### How the FAQ block finds its questions
+
+Liquid can't filter metaobjects by a field, so `faq-category.liquid` reads `metaobjects.faq.values` in one
+paginated page of 250 (an unpaginated loop stops at 50), keeps the entries whose `category` is the picked category
+and whose question isn't blank, and sorts them by entry id (creation order). Only the store's first 250 `faq`
+entries are read; the theme editor shows a warning when there are more. Adding a question in the admin and picking
+its category puts it on every page that shows that category. See [FAQ entries](/admin/faq-entries) for the
+staff steps.
+
+In a template, the setting value is the category's **handle**:
+
+```json
+"faq": {
+  "type": "faq-category",
+  "settings": { "category": "reverse-engineering", "output_schema": true }
+}
+```
+
+## Blogs and articles
+
+| Blog | Template | Notes |
+|---|---|---|
+| `news` | `blog.json` (index), `article.json` (posts) | **Blog tags** chips from the posts' tags, **Load more**, page size `ts_posts_per_page` on `main-blog`. |
+| `case-studies` | `blog.case-studies.json`, `article.json` | Also listed on three service pages: a **Card list** with **Blog posts** set to `case-studies` (`page.service-3d-scanning-services`, `page.service-cad-design-services`, `page.service-reverse-engineering`). |
+
+`article.json` reads the article's title (`{{ article.title }}`), featured image, details and body through
+Horizon's blog-post blocks. The author box at the end of the body and the "Recent articles" aside are part of
+the template, the same on every article.
+
+## Product
+
+The HandySCAN scanner (`/products/handyscan-black-elite`) uses the template suffix `quote`
+(`templates/product.quote.json`). Every word, image and card of the page is a static block in that template; the
+only store data it reads is `{{ closest.product.title }}` and `{{ closest.product.description }}`. The product
+metafield definitions and card entries that used to feed it were deleted after a backup.
+
+The product isn't sold online: inventory is tracked with the policy "deny" so the storefront reports it
+unavailable, and the theme hides every cart path (see [Architecture](/technical/architecture#sales-disabled)).
+The `quote` template also drops `og:price` and Shopify's fallback alt text.
+
+## Menus
+
+| Menu handle | Read by |
+|---|---|
+| `main-menu` | The header (`sections/header-group.json`) and the 404 page's services list (`templates/404.json`, **Menu** with the index style) |
+| `locations` | The locations hub (`templates/page.locations-hub.json`, **Menu** with **Index: ruled columns**) |
+| `footer-helpful-links` | The footer (`sections/footer-group.json`) |
+
+Adding a city to the `locations` menu updates the hub by itself. See [Menus](/admin/menus).
+
+## Shop-level values
+
+- **Store phone** (Settings → Store details): the fallback of the **Contact details** phone row when its
+  `phone` setting is blank.
+
+Every other phone number on the site is typed into blocks (buttons, contact details, header phone, mobile
+call bar, footer text), not read from one place.
+
+## Templates by data source
+
+| Template(s) | Store data read |
+|---|---|
+| `index.json` | None (all content in blocks) |
+| `page.service-*` (13), `page.location-*` (46) | Page title and SEO through Shopify; FAQ category on 7 services and `hawaii`; case-study posts on 3 services |
+| `page.landing.json` | `custom.headline`, `hero_subheading`, `hero_eyebrow`, `hero_points`, `hero_button_*`, `scan_motif`, page body |
+| `page.landing-short*.json` (6) | `custom.headline`, `hero_subheading`, `hero_image`, `form_heading`, `form_button_label`; the base `page.landing-short.json` also shows the page body |
+| `page.landing-cnc`, `page.landing-orange-county`, `page.landing-buy-a-3d-scanner` | None beyond the FAQ category on `landing-orange-county` |
+| `page.json`, `page.free-consultation` | `custom.headline`, `hero_subheading`; `page.json` also shows the page body (**Content** block) |
+| `page.3d-scan`, `page.3d-laser-scanning-for-boats`, `page.portfolio` | `custom.headline` |
+| `page.services`, `page.locations-hub` | Page title and page body; the hub also reads the `locations` menu |
+| `page.contact`, `page.about-us`, `page.our-company`, `page.team`, `page.3d-scanner-reverse-engineering` | None beyond FAQ category on `3d-scanner-reverse-engineering` |
+| `blog.json`, `blog.case-studies.json`, `article.json` | Blog and article data |
+| `product.quote.json` | Product title and description |

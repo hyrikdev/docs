@@ -1,0 +1,123 @@
+---
+title: "Local setup"
+description: "Tools, theme dev, Theme Check, formatting and the design preview for working on the theme locally."
+---
+
+## Prerequisites
+
+| Tool | Used for |
+|---|---|
+| **Git** and access to the theme repository | Branches, history, pull requests. |
+| **Node.js** (a version Shopify CLI supports) and npm | Shopify CLI, and the design preview in `preview/` (`liquidjs` 10.21.1). |
+| **Shopify CLI** | `shopify theme dev`, `theme check`, `theme push` / `pull`, and `shopify store execute` for the migration scripts. Install it as Shopify's documentation describes (npm or Homebrew). |
+| **Python 3** | The scripts in `migration/scripts/` and `docs/tangent-homepage/sync_locales.py`. They use the standard library only. |
+| A **staff or collaborator account** on the store with theme access | Running a development theme and pushing to themes. |
+
+The repository has no `package.json`, lockfile or `.nvmrc` at its root, so there is nothing to install for the
+theme itself.
+
+## Get the code
+
+```bash
+git clone <theme repository URL>
+cd <repository folder>
+git checkout dev
+```
+
+Work on a branch off `dev` (see [Branches and deploy](/technical/branches-and-deploy)). Run every command on this
+page from the repository root unless it says otherwise.
+
+## Run the theme locally
+
+```bash
+shopify theme dev --store usetangent.myshopify.com --port 9293
+```
+
+- Theme dev uploads your working copy to a **development theme** on the store, serves a local preview at
+  `http://127.0.0.1:9293` and hot-reloads Liquid, CSS and JSON changes. It also prints a link to open the
+  development theme in the theme editor.
+- Port **9293** is the one the project's QA scripts expect (for example `audit_coverage.py` and
+  `check_service_coverage.py --live http://127.0.0.1:9293`). Without `--port`, Shopify CLI uses its own default.
+- While the store has a storefront password, theme dev asks for it. Get it from the store owner; never commit it
+  or paste it into scripts.
+- Shopify CLI keeps **one development theme per login**. Two theme dev sessions under the same login overwrite
+  each other's files, so only one person or process should run it at a time.
+
+<Warning>
+Theme dev can upload a template before the block file that defines a new setting. Shopify then drops the
+unknown key from the template **without an error**. After you add a setting and use it in a template, re-push the
+templates once the block is up. See [Templates (JSON)](/technical/templates-json#upload-the-schema-before-the-json).
+</Warning>
+
+## Theme Check
+
+```bash
+shopify theme check
+```
+
+`.theme-check.yml` ignores `preview/**`, `docs/**` and `migration/**` (they aren't theme code). On the current
+code the run reports **8 offenses**, all in Horizon files, and exits non-zero because two of them are errors.
+This is the accepted baseline:
+
+| File | Check | Count |
+|---|---|---|
+| `sections/header.liquid` | `ExcessiveSettingsCount` (warning) | 1 |
+| `snippets/divider.liquid` | `UnusedDocParam` (warning) | 5 |
+| `blocks/disclosures.liquid` | `UnknownFilter` (error) | 1 |
+| `snippets/cart-disclosure-tooltip.liquid` | `UnknownFilter` (error) | 1 |
+
+A change is ready when Theme Check shows these 8 and nothing new.
+
+## Formatting
+
+The repository has **no Prettier configuration** and no formatting script. Code is formatted by hand, and the
+Tangent files mostly wrap at 120 characters.
+
+If you format with Prettier, use Shopify's Liquid plugin (`@shopify/prettier-plugin-liquid`) with
+`printWidth: 120`, and format **only the files you change**. Reformatting Horizon's own files creates large
+diffs that make the next Horizon update much harder to merge (see [Updating Horizon](/technical/updating-horizon)).
+
+## Editor labels
+
+Block and setting labels use `t:` keys. The English source of the Tangent labels is
+`docs/tangent-homepage/tangent-locale.json` (group `tangent`). After you add or change a label there, run:
+
+```bash
+python3 docs/tangent-homepage/sync_locales.py
+```
+
+It writes the `tangent` block into every `locales/*.schema.json` (English text in all of them, so Theme Check's
+`MatchingTranslations` passes). Don't edit the `tangent` block in the locale files by hand: the script replaces
+it. See [Architecture](/technical/architecture#editor-labels-locales).
+
+## The preview folder
+
+`preview/` is the approved static design reference, not theme code. Shopify never reads it.
+
+| Path | What it is |
+|---|---|
+| `preview/index.html` | The approved homepage design, rendered from `preview/horizon/` (sections `ts-*`, blocks `_ts-*`, snippets `ts-*` in Horizon's folder layout). Don't edit it directly. |
+| `preview/render.mjs` | Renders `preview/horizon/` into `index.html`. It reads the theme's `spacing-style` snippet from the repository root. |
+| `preview/package.mjs` | Builds a standalone static package in `preview/dist/tangent-homepage/` plus a `.zip`. |
+| `preview/pages/` | Sketches of the other page types (service, location, landing, blog, product…) with `render-pages.mjs`. |
+| `preview/pages/_kit/` | QA scripts you paste into the browser console on a theme dev page. See [QA and launch](/technical/qa-and-launch). |
+
+```bash
+cd preview
+npm install
+npm run preview            # re-render index.html from preview/horizon/
+npm run package            # standalone copy in preview/dist/
+cd ..
+npx http-server -p 4173    # serve the repository root, then open http://localhost:4173/preview/
+```
+
+Running `shopify theme check --path preview/horizon` on its own reports `MissingAsset`, `MissingTemplate` and
+`JSONMissingSection`, because those files point at Horizon files that only exist in the theme root. That's
+expected.
+
+## Store scripts
+
+The migration scripts read and write store data through `shopify store execute`
+(`migration/scripts/shopify_cli.py`). Run `shopify store auth` first if the CLI asks for it. Most write
+scripts are dry runs unless you pass `--apply` (or run them without `--dry-run`; each script's docstring says
+which). See [Migration and redirects](/technical/migration-and-redirects).

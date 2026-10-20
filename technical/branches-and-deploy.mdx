@@ -1,0 +1,123 @@
+---
+title: "Branches and deploy"
+description: "How the GitHub-connected theme works: main is the live site, dev is for work, and theme editor edits come back as commits."
+---
+
+The theme repository is connected to the store through Shopify's **GitHub integration**. A theme that is
+connected to a branch stays in sync with it in both directions: commits pushed to the branch update the theme,
+and changes saved in the theme editor on that theme are committed back to the branch.
+
+## Branches
+
+| Branch | Connected to | Use |
+|---|---|---|
+| `main` | The **live (published) theme** | Release only. **Pushing to `main` changes the live site.** Never push work in progress, never force-push. |
+| `dev` | Nothing | Integration branch. Reviewed work is merged here first, checked on a development theme, then released. |
+| `feature/tangent-homepage` | Nothing | The redesign's build branch. During the build, task branches were merged here and `dev` was fast-forwarded to it, so it holds the same code as `dev`, sometimes a few planning-note commits ahead. |
+| Feature branches | Nothing | One task per branch, branched off `dev` and merged back into it after review. |
+
+Shopify names a connected theme after its repository and branch (`<repository>/main`).
+
+## How a change reaches the live site
+
+<Steps>
+  <Step title="Work on a feature branch">
+    Branch off `dev`, make the change, run Theme Check and the relevant checks
+    (see [QA and launch](/technical/qa-and-launch)).
+  </Step>
+  <Step title="Check it on a development theme">
+    Run `shopify theme dev` (see [Local setup](/technical/local-setup)) and check the change at every
+    breakpoint, plus the other pages that use the blocks you touched.
+  </Step>
+  <Step title="Merge into dev">
+    Merge the feature branch into `dev` and push `dev`.
+  </Step>
+  <Step title="Bring main's own commits into dev">
+    Fetch and check whether `main` has commits that `dev` doesn't have (`git log dev..origin/main`). Those are
+    theme editor edits made on the live theme. Merge `main` into `dev` first (see below).
+  </Step>
+  <Step title="Release">
+    Fast-forward `main` to `dev` and push it (for example `git push origin dev:main`). The project has released
+    this way each time: `main` only ever moves forward to a commit that is already on `dev`.
+  </Step>
+  <Step title="Verify the live theme">
+    Shopify syncs the commit to the live theme. Pull a few of the changed files back from the live theme into a
+    scratch folder and compare them with the repository:
+    `shopify theme pull --theme <live theme id> --path <scratch folder> --only <file>`. Then check the changed
+    pages on the live site.
+  </Step>
+</Steps>
+
+<Warning>
+If the fast-forward is refused, `main` has commits `dev` lacks. Don't force it: a force-push to `main` throws
+away the edits the team saved in the theme editor. Merge `main` into `dev`, check, and release again.
+</Warning>
+
+## Theme editor edits come back as commits
+
+When someone saves in the theme editor on the live theme (a setting, a template, a section group, a new
+template), Shopify commits the change to `main`. These commits are easy to spot:
+
+- author **shopify[bot]**;
+- subject `Update from Shopify for theme <repository>/main by <staff name>`;
+- a body listing each file, for example `- modified config/settings_data.json (<staff name>)`.
+
+```bash
+git fetch origin
+git log --author='shopify\[bot\]' --format='%h %ad %s' --date=short origin/main
+```
+
+Shopify writes the whole file when it saves, so the diff is often noisier than the change:
+
+- It adds an auto-generated header comment at the top of the JSON file
+  (`/* IMPORTANT: The contents of this file are auto-generated. … */`). Many templates and both section groups
+  already carry it. Leave it in place.
+- It may reorder keys. In the first editor commit on this repository (a favicon set in theme settings), two
+  existing keys of `settings_data.json` moved as well.
+
+### Merge main back before you push
+
+<Steps>
+  <Step title="Merge">
+    `git checkout dev && git merge origin/main`. Name the merge after what the editor changed, for example
+    "Merge main: theme editor change on the live theme (favicon in settings_data)".
+  </Step>
+  <Step title="Resolve conflicts in favour of the content">
+    Conflicts happen in `config/settings_data.json`, `templates/*.json` and `sections/*-group.json`. The live
+    version holds the team's content. Keep its values, and re-apply only the structural change from `dev`
+    (new blocks, new settings, new ids).
+  </Step>
+  <Step title="Check and release">
+    Check the merged result on a development theme, then release as above.
+  </Step>
+</Steps>
+
+<Note>
+Templates the team creates in the theme editor (for example a new `page.location-<city>` template, see
+[Add a location page](/how-to/add-location-page)) arrive the same way, as a new file in a shopify[bot]
+commit. Once merged into `dev`, they're part of the code like any other template.
+</Note>
+
+## Pushing to a theme that isn't live
+
+Use the CLI only against development or unpublished themes. Changes for the live theme go through git.
+
+| Task | Command |
+|---|---|
+| Push one file to a test theme | `shopify theme push --theme <theme id> --only sections/footer.liquid --nodelete` |
+| Re-push all JSON templates and section groups (after adding block settings, see [the upload race](/technical/templates-json#upload-the-schema-before-the-json)) | `shopify theme push --theme <theme id> --only 'templates/*.json' --only 'sections/*.json' --nodelete` |
+| Pull one file from a theme | `shopify theme pull --theme <theme id> --only templates/index.json` |
+| List themes and their ids | `shopify theme list` |
+
+`--nodelete` stops the CLI from deleting files on the theme that aren't in your working copy. Quote globs so
+your shell doesn't expand them.
+
+Changes saved in the theme editor on a development theme stay on that theme. They aren't committed anywhere.
+Pull the files you want to keep, or run theme dev with `--theme-editor-sync` so editor saves are written back to
+your local files.
+
+## Things that change the live site without a commit
+
+Store data isn't in the repository. Editing these in the Shopify admin changes the live site straight away and
+leaves no trace in git: pages and their metafields, blog posts, FAQ and FAQ category entries, menus, files and
+alt text, URL redirects, products, and store settings. See [Content model](/technical/content-model).

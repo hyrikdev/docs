@@ -1,0 +1,214 @@
+---
+title: "Design system"
+description: "The design rules, tokens, spacing scale, breakpoints, type styles and icon rules developers must keep."
+---
+
+The rules below were set by the site owner during the build and are checked in every QA pass. The source is
+`docs/agents/BOARD.md` (rules and decisions), `docs/ux/SPACING.md` (spacing) and `assets/tangent-tokens.css`
+(tokens). The staff version is [Do's and don'ts](/design-rules/do-and-dont); keep the two consistent.
+
+## Rules
+
+### Build
+
+1. **Blocks first.** Every part a merchant could move is a theme block or a setting on one.
+2. **Extend before creating.** Add a setting to an existing block before writing a new one. New settings
+   default to the current look. Never rename or remove a setting id.
+3. **Horizon conventions** in new code: `content_for 'blocks'`, private `_` blocks, `{{ block.shopify_attributes }}`,
+   `"tag": null`, `{% doc %}`, presets, `t:` keys, `spacing-style`. Don't name a snippet parameter `size`.
+4. **CSS** in `{% stylesheet %}`, tokens only (no raw colors), Horizon breakpoints, `prefers-reduced-motion`
+   respected.
+5. **JS** as ES modules with an `@theme/<name>` import-map alias, custom elements extending `Component`.
+6. **Content is usetangent.com's.** No invented text, alt, label, caption or heading, no shortened titles. Images
+   go through `image_picker` and Shopify Files. Consistency changes may restructure a section but never add
+   items to fill a grid or drop content; an empty cell is fine.
+
+### Look
+
+7. **Ruled grid with rails.** 1px lines, rails at the page width, mono labels with accent squares. Lines stay
+   continuous: no panel sits a few pixels inside a line, and backgrounds fill whole cells.
+8. **Accent `#0562ef` for selection and progress**, headings (through the gradient) and icons. Primary buttons
+   are neutral, not blue.
+9. **Square shapes.** Radius 2px for controls and panels, 4px for surfaces (`--radius-*`); no pill buttons, no
+   boxed or shadowed content.
+10. **Gradient titles, black card titles.** Display, large and medium headings use `--ts-ramp-ink`; card titles
+    (`heading_sm`) stay solid.
+11. **Sentence case everywhere**, words unchanged. Menu titles and the "Call Now" / "Get a Quote" labels keep the
+    old site's case. Every casing or typo fix is logged in `migration/content/CHANGES-text.md`.
+12. **Fonts:** Geist (display), Inter (body), Geist Mono (labels).
+
+### Columns and dividers
+
+13. **Two-column rows split 50 / 50.** A head | content row splits in thirds (the head a third), a call-to-action
+    row is three equal columns (a two-cell CTA gives the copy two thirds).
+14. **Column dividers line up** from section to section on shared lines of the frame (k/n of the frame width).
+    `migration/scripts/check_dividers.py` checks this from the template JSON.
+15. **Don't stack two blocks of the same shape** back to back (for example two identical card grids). Vary the
+    rhythm.
+
+### Icons
+
+16. **Card grids carry bare icons.** Industry, application, benefit, why, option and compare grids show an icon
+    on every card in the bare form: 24px, accent, no border, no tile (**Card icon** = **Bare icon, 24px**,
+    `ts_icon_style: bare`). Never a boxed icon in these grids.
+17. **Same concept, same icon.** The homepage icons are the source of truth; a concept that has an icon there
+    uses it everywhere. Industry icons come from the `INDUSTRY_ICONS` map in
+    `migration/scripts/service_layouts.py` (the generators share it). A title with no mapped icon needs a design
+    decision; never reuse an icon that already means another concept.
+18. **Cards with a photo take no icon.** Deliverables, capabilities, photo grids, quotes and logos have no icons.
+
+### Phones
+
+19. **One text edge.** Below 750px every heading, eyebrow, card title and caption starts on the page text inset
+    `--ts-text-inset` (20px inside the frame, so text starts at x = 37 on a 375px screen). A leading marker
+    (square, tick, icon) sits on the edge with the text inline after it.
+20. **Text, then its image.** A row of N text cards over a row of N matching images reads text 1, image 1,
+    text 2, image 2 below 750px. Put them in reading order in the source (card list **Text cards over their
+    images**, `ts_pairs`); desktop keeps the rows by grid placement.
+21. **Full-width hero buttons**, 50px tall below 750px (button **Full width on mobile**, `ts_full_mobile`).
+22. **Touch targets** are 44px (`--minimum-touch-target` in `snippets/theme-styles-variables.liquid`), except the
+    footer link rows, 36px below 750px (`--ts-footer-link-row` in `sections/footer.liquid`).
+23. Card text is 15px below 750px; FAQ answers and the homepage hero lede stop at 65ch.
+
+### Links and buttons
+
+24. **External links open in a new tab** with `rel="noopener"`, and their arrow turns 45° (↗, `.ts-arrow-ne`).
+    External means an http(s) URL whose host isn't `usetangent.com`, `www.usetangent.com` or the myshopify
+    domain. Internal links keep →; `mailto:` and `tel:` are untouched. It's done in theme code, never by
+    rewriting store content. See [Architecture](/technical/architecture#external-links).
+25. **Phone first.** Where a call and a contact action sit together (hero, header, sticky bar, CTA), the call
+    comes first and is primary; contact is second and secondary.
+26. **Every call button shows the phone icon.** A button whose label is the phone number shows the icon and the
+    number only. A button with a leading icon has no trailing arrow.
+27. **Grid foot.** When a grid ends with one onward link, use a secondary button centred 32px below the grid,
+    full width below 750px.
+
+### Section heads and decoration
+
+28. **Centred section heads from 750px.** A standalone head (eyebrow + heading + lede alone in its row) is
+    centred, with the eyebrow's two squares. Heads beside content, heads with art beside them, heroes and the
+    closing form row stay on the start edge. Below 750px all heads sit on the text edge (rule 19). The
+    generators centre heads by setting the head group's alignment; there's no extra CSS or setting.
+29. **Decoration is rare.** The dot lattice behind a head appears only on the "Why" head. Logo-derived and
+    scan-part drawings (**Pixel mark**) appear at most once per page, faint, in empty space, never over text;
+    the scan-part drawings only on the 3D scanning pages.
+
+### Images
+
+30. Photos in one row share one shape. Screenshots, reports and drawings with text are shown whole
+    (`ts_contain` / `image_contain`), never cropped. Alt text is the old site's alt; one alt per file.
+
+## Tokens
+
+Defined in `assets/tangent-tokens.css` on `:root` (light) with a `[data-theme='dark']` variant. Components read
+the semantic roles, never raw values.
+
+| Group | Tokens |
+|---|---|
+| Neutral roles | `--background`, `--surface`, `--surface-raised`, `--surface-muted`, `--foreground`, `--text-secondary`, `--text-muted`, `--border`, `--border-subtle`, `--border-strong` |
+| Accent | `--accent` (`#0562ef`), `--accent-strong` (`#074db7`), `--accent-subtle`, `--accent-foreground` |
+| Brand ramps | `--ts-ramp-1/2/3` (accent, logo cyan `#3cb7dd`, lavender), `--ts-ramp`, `--ts-ramp-line`, `--ts-ramp-ink` (title gradient), `--ts-wash` (hover wash on linked cells) |
+| Status | `--success`, `--warning`, `--danger` |
+| Shape | `--radius-control: 2px`, `--radius-panel: 2px`, `--radius-surface: 4px`, `--radius-pill: 2px` |
+| Type | `--font-display` (Geist), `--font-body` (Inter), `--font-mono` (Geist Mono); `--text-xs` 0.75rem … `--text-5xl` 4.5rem; `--tracking-display: -0.03em`; `--leading-display: 1.1`, `--leading-body: 1.4` |
+| Space | `--space-1` 0.25rem, `--space-2` 0.5rem, `--space-3` 0.75rem, `--space-4` 1rem, `--space-6` 1.5rem, `--space-8` 2rem, `--space-12` 3rem, `--space-16` 4rem, `--space-24` 6rem |
+| Controls | `--control-height-sm` 2.25rem (36px), `--control-height-md` 2.75rem (44px), `--control-height-lg` 3.125rem (50px) |
+| Motion | `--ease-enter`, `--ease-standard`, `--ease-exit`; `--duration-instant` 0.12s … `--duration-considered` 0.48s |
+| Layout | `--ts-max: 1400px`, `--ts-gutter: clamp(16px, 4vw, 40px)`; `--narrow-page-width: 87.5rem` (in `snippets/ts-tokens.liquid`) |
+
+The older `--ts-*` names (`--ts-ink`, `--ts-text`, `--ts-line`, `--ts-accent`, `--ts-mono`…) are aliases of these
+roles in `snippets/ts-tokens.liquid`. Use the Arc roles in new code. Shadows (`--shadow-*`) exist in the token set
+but the design doesn't use shadowed content.
+
+## Spacing
+
+Spacing comes from Horizon's own padding and gap settings. Inside a Tangent frame (`ts_frame`), Horizon's
+scale variables are retuned (`snippets/section.liquid`, same in `sections/footer.liquid`):
+
+- a padding of 20 or less is used as is; a larger value becomes `max(20px, scale × value)`;
+- a gap of 24 or less is used as is; a larger value becomes `max(24px, scale × value)`.
+
+| Width | below 750 | 750–989 | 990–1199 | 1200 and up |
+|---|---|---|---|---|
+| Scale | 0.42 | 0.65 | 0.85 | 1 |
+
+Every spacing setting on a Tangent page uses one of seven values:
+
+| Name | Setting | 375 | 768 | 1024 | 1440 | Used for |
+|---|---|---|---|---|---|---|
+| `gap-sm` | gap 12 | 12 | 12 | 12 | 12 | Title → body in a card, buttons in a row |
+| `gap-md` | gap 16 | 16 | 16 | 16 | 16 | Eyebrow → heading → lede; gaps between separate cards |
+| `gap-lg` | gap 24 | 24 | 24 | 24 | 24 | Icon or image → copy in a card |
+| `pad-sm` | padding 24 | 20 | 20 | 20 | 24 | Compact cells (hero facts, badges, copyright) |
+| `pad-cell` | padding 48 | 20 | 31 | 41 | 48 | Inline padding of every row and cell inside the rails; block padding of content cells |
+| `pad-head` | padding 64 | 27 | 42 | 54 | 64 | Heading cluster → grid |
+| `pad-section` | padding 96 | 40 | 62 | 82 | 96 | Top of a section that opens with a heading cluster |
+
+- **Left edges line up.** With `pad-cell` inline padding everywhere, text starts at x = 37 / 72 / 82 / 89 at
+  375 / 768 / 1024 / 1440.
+- **Vertical rhythm.** `pad-section` above a head, `gap-md` inside it, `pad-head` from the head to the grid. A
+  ruled grid ends on its own bottom line, with no section padding below it.
+- **Balanced cells.** Content cells use the same padding on all four sides.
+- **Continuation sections** (no `ts_rule`) that continue the lines above start with top padding 0.
+- Keep gaps at 24 or less unless they should scale between widths.
+
+Fixed exceptions: gallery captions 12 block / 16 inline; stat cells 16 inline; the announcement bar 6 / 6.
+The full spec, with measured values, is `docs/ux/SPACING.md`.
+
+## Breakpoints and widths
+
+| Breakpoint | Meaning |
+|---|---|
+| below 750px | Phones. Text inset rule, stacked rows, full-width buttons. |
+| 750px | Tablet layout starts (the most used breakpoint in the Tangent CSS). |
+| 990px | Desktop layout starts. From here Horizon scrolls the page inside `.page-wrapper`. |
+| 1200px | Wide desktop: full spacing scale, some grids switch to their desktop columns (card list **Desktop columns from** `1200`). |
+
+The page is 1400px wide at most (`--ts-max`, `--narrow-page-width`), which leaves the rails visible on a 1440px
+screen (`docs/ux/SPACING.md` measures them at x = 40 and 1400). A few decorative drawings use their own widths (1280, 1300, 1420) to decide when they stack
+under the text instead of sitting beside it. Use the Horizon breakpoints (750 / 990 / 1200) for anything else.
+
+## Type styles
+
+The **Text** block's **Tangent style** (`ts_style`) adds a `ts-text--<value>` class; the styles are in the
+`{% stylesheet %}` of `snippets/text.liquid`:
+
+| Value | Label | Look |
+|---|---|---|
+| `eyebrow`, `eyebrow_start` | **Eyebrow**, **Eyebrow, leading mark** | Geist Mono 0.8125rem, secondary color, 5px accent squares on both sides (or only before) |
+| `display` | **Display (hero title)** | Geist 500, `clamp(2.375rem, 4.6vw, 3.75rem)`, at most 31ch, gradient. One per page. |
+| `heading_lg` | **Heading large** | `clamp(2rem, 4.4vw, 3.25rem)`, at most 44rem, gradient |
+| `heading_md` | **Heading medium** | `clamp(1.5rem, 2.6vw, 2.25rem)`, gradient |
+| `heading_sm` | **Card title** | 1.375rem, solid |
+| `lede` | **Lede** | `clamp(1rem, 1.4vw, 1.125rem)`, secondary color, at most 38rem |
+| `lede_wide` | **Lede, wide** | 1rem, at most 50rem (65ch in the homepage hero) |
+| `body` | **Body small** | 0.875rem, secondary color |
+| `prose` | **Long-form text** | Reading style for long bodies kept from the old site |
+
+`assets/tangent-tokens.css` has matching shared classes (`.ts-eyebrow`, `.ts-heading--xl/lg/md/sm`, `.ts-lede`,
+`.ts-body`) for blocks that print their own markup.
+
+The list also has `label`, `stat`, `mono`, `chips`, `chips_large`, `chips_check`, `statement`,
+`statement_long`, `statement_text`, `heading_row`, `prose_columns`, `split_text`, `closing_line`,
+`step_names` and more; see the schema in `blocks/text.liquid`. The staff guide is
+[Text styles](/blocks/text-styles).
+
+## Icons
+
+- The Tangent icons are values with a `ts_` prefix in Horizon's icon lists (56 today: `ts_scan`, `ts_target`,
+  `ts_truck`, `ts_plane`, `ts_car`…), drawn as 24px stroked SVG by `snippets/icon-or-image.liquid` and
+  `snippets/icon.liquid`, with the newer ones in `snippets/ts-icon-more.liquid`. The prefix avoids clashes with
+  Horizon's own icon names.
+- They appear in the **Icon** block, the button's **Leading icon** and the card's **Icon**.
+- The paths are `when 'ts_…'` branches in `snippets/icon.liquid` (first set) and `snippets/ts-icon-more.liquid`
+  (newer ones). The value lists are in three schemas: `blocks/icon.liquid`, `blocks/button.liquid` and
+  `blocks/_card-list-item.liquid`.
+- To add one: draw it on the 24px grid as a stroke-only path, add its `when` branch, add the value with a
+  **Tangent …** label to all three schemas (keep the `ts_` prefix), and add its row to the staff
+  [icon table](/design-rules/icons).
+
+## Motion
+
+- Every animation respects `prefers-reduced-motion`.
+- Scroll reveal (`.ts-reveal`) is CSS only; browsers without scroll-driven animations show the content as is.
+- No count-up numbers. Horizon's own animation settings are used; page transitions are off.

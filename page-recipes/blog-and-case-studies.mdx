@@ -1,0 +1,117 @@
+---
+title: "Blog and case studies"
+description: "The blog list, the case studies list and the article page: what each part shows and where its content comes from."
+---
+
+The site has two blogs, **News** (shown as "Blog", at /blogs/news) and **Case studies** (/blogs/case-studies).
+Three templates lay them out: **blog** for the blog list, **case-studies** for the case studies list, and
+**article** for every single post in both blogs. The posts themselves (title, text, picture, excerpt, tags,
+date) are written in the Shopify admin, not in the theme editor. See [Blog posts](/admin/blog-posts).
+
+<Note>
+In Shopify a blog is a list of posts, and each post is called an **article** or a **blog post**. The theme
+editor only sets how the list and the posts look, plus the blocks around them.
+</Note>
+
+## Where each part comes from
+
+| What you see | Where it comes from |
+|---|---|
+| Post title | The post's **Title** in **Online Store → Blog posts**. |
+| Post text | The post's **Content**. |
+| Picture on the card and at the top of the post | The post's featured **Image**. |
+| Short text on the card | The post's **Excerpt**. If it's empty, the start of the post text is used. |
+| Date on the card and the post | The post's publish date. |
+| Tag on the card and the post, and the filter chips | The post's **Tags**. The first tag shows on the card and the post. |
+| Breadcrumbs, the "Blog" title, buttons, recent articles, author box, closing call | The theme editor (templates **blog**, **case-studies** and **article**). |
+
+## The blog list (blog)
+
+<Frame caption="The blog list with its tag chips">
+  <img src="/images/blog-index.png" alt="The blog page with the title Blog, a row of tag chips and post cards" />
+</Frame>
+
+The blog list is one section, **Blog posts**. From top to bottom:
+
+| Block | What you see | Settings to know |
+|---|---|---|
+| **Breadcrumbs** | Home / Blog. | **Title override** is "Blog", because the blog's own title in the admin is "News". |
+| **Group** with a **Text** | The title "Blog" (**Display (hero title)**). | Typed. |
+| **Blog tags** | A row of filter chips, one per tag, with a first "Blog" chip for all posts. | **First chip label** and **Tags to leave out**. See [Blog blocks](/blocks/blog-blocks). |
+| The post cards | One ruled cell per post: picture, date and first tag, title, and the excerpt cut to three lines. The whole card is a link. | The card's **Tangent style** is **Ruled cell**. |
+| **Load more** | A **Load more** button with the count of posts shown, for example "9 / 85". | **Label** and **Show post count**. |
+
+The section shows 9 posts at a time (**Posts per page** on the **Blog posts** section). **Load more** adds the
+next 9 below them without leaving the page.
+
+<Tip>
+A new tag on a post adds a new chip. Reuse the existing tags so the row of chips stays short. See
+[Tags and filter chips](/admin/blog-posts#tags-and-filter-chips).
+</Tip>
+
+## The case studies list (case-studies)
+
+The case studies list uses the same **Blog posts** section with fewer blocks, and a closing call:
+
+| Section | What you see |
+|---|---|
+| **Blog posts** | Breadcrumbs (Home / Case studies), the title "Case studies" and the post cards. There are no tag chips and no **Load more** button: the section shows up to 50 posts on one page. |
+| **Call to action** | "Tell us about your project", a short text, the phone button and **Send a message**. |
+
+## The article page (article)
+
+<Frame caption="The top of an article: breadcrumbs, date, title and picture">
+  <img src="/images/article.png" alt="An article page with the breadcrumbs Home / Blog, the date, a large blue title and the featured photo" />
+</Frame>
+
+Every post in both blogs uses the **article** template. It has two sections.
+
+### Blog post section
+
+| Block | What you see | Where it comes from |
+|---|---|---|
+| **Breadcrumbs** | Home / Blog / post title. | **Parent label** "Blog" renames the News blog's crumb. A case study shows its own blog's title instead. |
+| **Details** | The date and the first tag, in small mono text. | The post's date and tags. The author is turned off. |
+| **Group** with the title | The post title, large and blue. | The post's **Title**. |
+| **Featured image** | The post picture in a wide 21:9 frame. | The post's **Image**. |
+| **Content** | The post text, followed by the author box: a photo, a name and a short bio. | The text is the post's **Content**. The author box is a group of blocks inside **Content**, typed in the theme editor. |
+| **Sticky column** | **Call Now**, **Get a Quote** and "Recent articles", which stay in view beside the text while visitors scroll. On phones they come after the text. | Typed buttons and a **Recent posts** block. See [Sticky column](/blocks/sticky-column). |
+
+**Recent posts** lists the five latest posts of the same blog, each with a small picture, and leaves out the post
+being read. See [Blog blocks](/blocks/blog-blocks).
+
+### Call to action section
+
+The same closing call as the case studies list: "Tell us about your project", the phone button and
+**Send a message**.
+
+<Warning>
+The author box and the buttons are part of the **article** template, so they show on every post in both blogs.
+A change there changes all posts at once.
+</Warning>
+
+## What's safe to change
+
+- **Posts**: write, edit, tag and hide them in the admin at any time. See [Blog posts](/admin/blog-posts).
+- **Chips**: leave a tag out of the chips with **Tags to leave out** on the **Blog tags** block.
+- **Buttons and the author box** on the article template: change their words in the theme editor, knowing that
+  every post follows.
+- **Don't** change the card's **Tangent style** or the number of **Posts per page** without checking the
+  **Load more** button still works on the live blog.
+
+## Common changes
+
+<CardGroup cols={2}>
+  <Card title="Add a blog post" icon="file-plus" href="/how-to/add-blog-post">
+    Write a post, add its picture, excerpt and tags, and publish it.
+  </Card>
+  <Card title="Blog posts in the admin" icon="newspaper" href="/admin/blog-posts">
+    Links inside posts, tags and hiding a post.
+  </Card>
+  <Card title="Blog blocks" icon="blocks" href="/blocks/blog-blocks">
+    Recent posts, Blog tags and Load more.
+  </Card>
+  <Card title="Change the SEO title" icon="search" href="/how-to/change-seo-title">
+    The title and description Google shows for a post.
+  </Card>
+</CardGroup>

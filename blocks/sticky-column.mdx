@@ -1,0 +1,52 @@
+---
+title: "Sticky column"
+description: "A ruled column beside the main text that stays in view while the page scrolls."
+---
+
+The **Sticky column** block is a narrow column that sits beside the main content of a page. Whatever you put
+in it (buttons, a short heading, a list of recent articles) stays in view while visitors scroll down the long
+text next to it. It's a container: you add other blocks inside it, the same way you add blocks to a group.
+
+## What it looks like
+
+On a large screen (990 pixels wide and up), the column sits to the right of the content, with a thin line on
+its left side from top to bottom. As the visitor scrolls, the blocks inside it stay just under the header. If
+the column holds a quote form, it gets a light gray background.
+
+On tablets and phones there's no room for a second column, so the column moves under the content (or above
+it, or is hidden: see **Below 990px**).
+
+<Note>
+In the **Page** and **Blog post** sections, blocks can only be stacked one under the other. There, the sticky
+column places itself beside the block just before it, for example the post's text. Keep it right after that
+block.
+</Note>
+
+## Block settings
+
+| Setting | What it does |
+|---|---|
+| **Sticky offset** | The space between the header and the column while it sticks. The header's height is added by itself. |
+| **Width** | The width of the column on large screens, from 240 to 480 pixels. The site uses 360. |
+| **Below 990px** | Where the column goes on tablets and phones: **After the content**, **Before the content** or **Hidden**. |
+| **Hide the whole section when hidden** | Only with **Hidden**. For a section that holds nothing but this column: below 990 pixels the whole section, with its top line, is hidden too. |
+| **Centred** | For a column that's alone in its row: no line on its side, and its blocks centred. Centre the row as well. |
+| **Gap** | The space between the blocks inside the column. |
+| **Padding** (**Top**, **Bottom**, **Left**, **Right**) | The space inside the column. The site uses 48 pixels on every side. |
+
+## Where it's used on the site
+
+- **Every blog article** (template **article**): the column beside the post holds the **Call Now** and
+  **Get a Quote** buttons and the **Recent posts** list titled "Recent articles". On phones it comes after the
+  post. See [Blog blocks](/blocks/blog-blocks#recent-posts).
+- **The shared landing template** (template **landing**, a starting point for new landing pages): a
+  "Get started" column beside the page text, with two buttons. It's hidden on tablets and phones. See
+  [Landing pages](/page-recipes/landing-page#the-shared-landing-layouts).
+- **The CNC landing page** (3D scanning services for CNC): the closing "Get started" row is a sticky column on
+  its own, **Centred**, and hidden with its section on tablets and phones.
+
+## Notes
+
+- The column only sticks on large screens (990 pixels and up). Check the page on a phone after a change.
+- To change the buttons in the article column, open the **article** template: the change applies to every
+  blog post at once.

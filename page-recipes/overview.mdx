@@ -1,0 +1,89 @@
+---
+title: "Page recipes"
+description: "Which template each kind of page uses, how many there are, and where to find the recipe for each."
+---
+
+A page recipe tells you what a kind of page is made of, from top to bottom: each section, the blocks inside
+it, and where its words come from. Use it when you need to find something on a page, or before you change a
+page's layout.
+
+For a short tour of the page types, see [The page types](/editing-pages/page-types). This page is the map:
+every kind of page, the template it uses and the recipe that describes it.
+
+## Every page type
+
+The theme has 94 templates in all. A **template** is the layout of a page (see
+[How the pages are set up](/editing-pages/how-pages-work)).
+
+| Page type | Template name | Templates | Example page | Recipe |
+|---|---|---|---|---|
+| Homepage | **Home page** | 1 | / | [Homepage](/page-recipes/homepage) |
+| Service pages | **service-** + address | 13 | /pages/reverse-engineering | [Service page](/page-recipes/service-page) |
+| Services overview | **services** | 1 | /pages/services | [Company pages](/page-recipes/company-pages) |
+| Location pages | **location-** + address | 46 | /pages/chicago | [Location page](/page-recipes/location-page) |
+| Locations overview | **locations-hub** | 1 | /pages/locations | [Location page](/page-recipes/location-page#the-locations-overview) |
+| Long landing pages | **landing-cnc**, **landing-orange-county**, **landing-buy-a-3d-scanner** | 3 | /pages/3d-scanning-services-for-cnc | [Landing pages](/page-recipes/landing-page) |
+| Short landing pages | **landing-short-** + address | 5 | /pages/reverse-engineering-company | [Landing pages](/page-recipes/landing-page) |
+| Shared landing layouts | **landing**, **landing-short** | 2 | | [Landing pages](/page-recipes/landing-page) |
+| Company pages | **about-us**, **our-company**, **team**, **portfolio**, **3d-scan** | 5 | /pages/about-us | [Company pages](/page-recipes/company-pages) |
+| Other one-off pages | **3d-laser-scanning-for-boats**, **3d-scanner-reverse-engineering** | 2 | /pages/3d-laser-scanning-for-boats | [Landing pages](/page-recipes/landing-page#two-more-campaign-pages) |
+| Contact pages | **contact**, **free-consultation** | 2 | /pages/contact-us | [Contact pages](/page-recipes/contact-pages) |
+| Plain text pages | **Default page** | 1 | /pages/thank-you | [How the pages are set up](/editing-pages/how-pages-work#text-that-comes-from-the-pages-own-fields) |
+| Blog list and case studies list | **blog**, **case-studies** | 2 | /blogs/news, /blogs/case-studies | [Blog and case studies](/page-recipes/blog-and-case-studies) |
+| Blog posts | **article** | 1 | any post | [Blog and case studies](/page-recipes/blog-and-case-studies) |
+| Product page | **quote** (and the default product template) | 2 | /products/handyscan-black-elite | [Product page](/page-recipes/product-page) |
+| Shopify's standard pages | 404, search, cart, collection, collections list, password, gift card | 7 | /search | Not part of the Tangent design work; leave them as they are |
+
+<Note>
+Service, location and short landing pages have **one template per page**. The template is named after the
+page's web address: the Chicago page (/pages/chicago) uses **location-chicago**. A change in that template
+changes only that page.
+</Note>
+
+## How a page picks its template
+
+Every page in the Shopify admin has a **Theme template** setting. It names the layout the page uses. Blog
+posts and products have the same setting.
+
+<Steps>
+  <Step title="Open the page in the admin">
+    Go to **Online Store → Pages** and click the page, for example "3D scanning Chicago".
+  </Step>
+  <Step title="Look at Theme template">
+    On the right, **Theme template** shows the template name, for example **location-chicago**.
+  </Step>
+  <Step title="Open that template in the theme editor">
+    In the theme editor, click the page name in the top bar, choose **Pages** and pick the same template name.
+    See [Open a page in the theme editor](/editing-pages/how-pages-work#open-a-page-in-the-theme-editor).
+  </Step>
+</Steps>
+
+The homepage is the exception: it always uses the **Home page** template, which is the first page the theme
+editor opens.
+
+<Warning>
+Don't switch a page to another page's template. The page would show the other page's words and photos,
+because on this site the words live in the template. If a page looks wrong, check its **Theme template**
+first.
+</Warning>
+
+## Parts every page shares
+
+Every template sits between the same shared parts: the [announcement bar](/blocks/announcement-bar) and the
+[header](/blocks/header) at the top, the [footer](/blocks/footer) and the
+[mobile call bar](/blocks/sticky-bar) at the bottom (the call bar is turned off for now). In the theme editor they show in the **Header** and
+**Footer** areas of the sidebar, above and below the page's own sections. Change them once and every page
+follows.
+
+## How to read a recipe
+
+Each recipe goes through the page from top to bottom. For each section it says:
+
+- **What you see** on the page.
+- **What it's built from**: the section, the groups and the blocks inside it, with the names you see in the
+  theme editor sidebar.
+- **Where the words come from**: typed in the theme editor, or read from somewhere else (the page record, an
+  FAQ entry, a blog).
+- **What's safe to change**.
+
+If the words of a section don't come from the theme editor, the recipe says where to change them instead.

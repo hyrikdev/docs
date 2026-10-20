@@ -1,0 +1,137 @@
+---
+title: "Theme settings"
+description: "The site-wide settings of the theme: what each group does, and which ones to leave alone."
+---
+
+**Theme settings** are the settings that apply to the whole site at once, not to one page: the logo, the
+favicon, colors, fonts, buttons and so on.
+
+## Open them
+
+<Steps>
+  <Step title="Open the theme editor">
+    **Online Store → Themes → Customize**. See [Open the theme editor](/getting-started/theme-editor).
+  </Step>
+  <Step title="Switch to theme settings">
+    In the narrow bar on the far left of the editor, click the **Theme settings** icon. The sidebar now lists
+    setting groups instead of the page's sections.
+  </Step>
+  <Step title="Open a group">
+    Click a group, for example **Logo and favicon**, to see its settings.
+  </Step>
+</Steps>
+
+<Warning>
+A theme setting changes **every page** at once. On the live theme, **Save** puts it live straight away. Try any
+change on a copy of the theme first: see [Preview and publish](/getting-started/preview-and-publish).
+</Warning>
+
+## Why most of these don't change the look
+
+The Tangent blocks get their colors, fonts, buttons and spacing from the Tangent design, not from these
+settings (see [What is Horizon](/horizon/what-is-horizon#3-one-shared-set-of-design-values)). Every text and
+button on the site's pages uses a **Tangent style**, so changing a font or a button color here doesn't restyle
+them. It only reaches the few parts Horizon still draws on its own, which then no longer match the rest.
+
+So the rule is simple: **change the logo and the favicon if the brand changes, and leave everything else as it
+is.**
+
+## The groups, one by one
+
+### Logo and favicon
+
+Safe to change, with care.
+
+| Setting | Now | What it does |
+|---|---|---|
+| **Default logo** | The Tangent logo (an SVG file) | The logo in the header and in the footer. |
+| **Inverse logo** | Empty | A light version of the logo, for a see-through header over a dark picture. The site doesn't use one: leave it empty. |
+| **Desktop height** | 26 px | The header logo's height on large screens. |
+| **Mobile height** | 22 px | The header logo's height on phones. |
+| **Favicon** | The Tangent favicon (a PNG file) | The small icon in the browser tab. Use a square image. |
+
+The **Manage store name** link at the top opens the store name in the Shopify settings. The theme adds the
+store name to the end of each page's title (in the browser tab and in search results), unless the title already
+contains it.
+
+<Tip>
+Replace the logo with an SVG file of the same shape, so it stays sharp at any size. After a change, check the
+header on a phone: the logo, the call button and the menu button must still fit on one line.
+</Tip>
+
+### Color palette
+
+**Leave alone.** The base colors of the theme: background, text and two more. The values here
+(a navy text color among them) come from an earlier version of the design. That's expected: the Tangent blocks
+use their own near-black and blue, so these colors don't show on the pages. Changing them can recolor the
+parts Horizon draws on its own.
+
+### Typography
+
+**Leave alone.**
+
+- **Colors → Text**: the default text color, taken from the color palette.
+- **Fonts**: **Body**, **Subheading** and **Heading** are set to Archivo, **Accent** to IBM Plex Mono. The
+  Tangent styles use their own fonts (Geist, Inter and Geist Mono), which come with the theme and aren't listed
+  here. Archivo is only a fallback.
+- **Text presets** (**Paragraph**, **Heading 1** to **Heading 6**): sizes, line heights, letter spacing and
+  case of Horizon's own text styles. A text with a **Tangent style** ignores them.
+
+<Note>
+To make one text bigger or smaller, don't change the presets. Pick another **Tangent style** on that Text block:
+see [Text styles](/blocks/text-styles).
+</Note>
+
+### Page
+
+**Leave alone.**
+
+| Setting | Now | Why it stays |
+|---|---|---|
+| **Background** | White | The page color behind every section. |
+| **Page width** | **Narrow** | The Tangent design sets **Narrow** to 1400 pixels: the width of the rails and of every row. Another value breaks the line-up of the rails and columns. |
+
+### Animations
+
+**Leave alone.** **Page transition** is off and **Card hover effect** is **None**. A page transition was tried
+during the build and turned off again. The other settings in this group are for shop features the site doesn't
+use.
+
+### Buttons
+
+**Leave alone.** **Primary button** and **Secondary button** set the colors, borders, corners and font of
+Horizon's own buttons. The site's buttons use the Tangent **Style** (**Primary, neutral** in black,
+**Secondary** in white with a line) and ignore these values. See [Buttons](/blocks/buttons).
+
+### Icons
+
+**Leave alone.** **Stroke** is **Default**. It sets the line weight of Horizon's small interface icons, such as
+the phone icon in the header and the plus sign of the FAQ lists. The Tangent line icons on the cards keep their
+own weight, so another value here makes the two kinds of icon look different.
+
+### Input fields, Drawers, Popovers and modals
+
+**Leave alone.** These set the look of Horizon's form fields, slide-out panels and pop-ups. The quote form uses
+the Tangent design.
+
+### Shop groups
+
+**Badges**, **Cart**, **Prices**, **Product cards**, **Search**, **Swatches** and **Variant pickers** are for
+online shops. The site doesn't sell online, so they have little or no visible effect. Leave them as they are.
+
+### Tangent
+
+| Setting | Now | What it does |
+|---|---|---|
+| **Block cart and checkout** | On | Hides buy buttons, the cart icon and the cart, sends the cart page to the homepage, and stops cart and checkout requests in the browser. |
+
+<Warning>
+Keep **Block cart and checkout** on. The site sells by quote and phone only. If it's turned off, the scanner's
+product page can show buy buttons again.
+</Warning>
+
+## If you changed something by mistake
+
+Use **undo** in the top bar before you save. After saving, set the value back by hand using the **Now** column
+on this page, or ask your developer: the theme files hold the last approved values. See
+[Undo and versions](/getting-started/undo-and-versions).
