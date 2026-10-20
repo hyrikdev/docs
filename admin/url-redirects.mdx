@@ -1,0 +1,49 @@
+---
+title: "URL redirects"
+description: "Send visitors from an old web address to the right page."
+---
+
+A redirect sends visitors (and Google) from an old web address to a new one. When the site moved to Shopify,
+the addresses of most pages changed, for example `/phone-number/chicago/` became `/pages/chicago`. Redirects
+from the old addresses to the new pages are already set up, so old links and bookmarks keep working.
+
+## Add a redirect
+
+<Steps>
+  <Step title="Open the redirects">
+    Go to **Online Store → Navigation**, then click **URL redirects** (or **View URL redirects**).
+  </Step>
+  <Step title="Create it">
+    Click **Create URL redirect**.
+  </Step>
+  <Step title="Fill in the two addresses">
+    - **Redirect from**: the old address, starting with `/`, for example `/old-page-name`.
+    - **Redirect to**: the new address, for example `/pages/new-page-name`.
+  </Step>
+  <Step title="Save">
+    Click **Save redirect**. Test it: open the old address in your browser and check where you land.
+  </Step>
+</Steps>
+
+## When to add one
+
+- You changed a page's address (its URL handle) and didn't tick **Create a URL redirect** at the time.
+- You removed a page: send its address to the closest page that still exists.
+- You find an old usetangent.com link somewhere (an ad, a directory, an old email) that shows an error page.
+
+<Tip>
+Shopify treats `/old-page` and `/old-page/` (with a slash at the end) as the same address, so one redirect is
+enough for both.
+</Tip>
+
+## A known limit: old /services/ addresses
+
+Shopify keeps every address that starts with `/services/` for its own use. Redirects from those addresses
+don't work. The old website had 14 service pages under `/services/...`, and those old links show Shopify's error
+page. Fixing this needs a change outside Shopify, at the domain's host. Ask your developer if this matters for
+you.
+
+## Don't
+
+- Don't redirect a page to itself, or create a chain (A → B → C). Point every old address straight to its final page.
+- Don't redirect an address that is still a real page: the page wins and the redirect is ignored.

@@ -1,0 +1,68 @@
+---
+title: "Buttons"
+description: "Call buttons, quote buttons and links to other websites."
+---
+
+A **Button** block is a link that looks like a button. The site uses square buttons in two looks: black
+(**Primary, neutral**) for the main action and white with a line (**Secondary**) for the second one.
+
+<Frame caption="A call button (black, with the phone icon) and a quote button (white, with an arrow)">
+  <img src="/images/breadcrumbs-desktop.png" alt="A location hero with a black 'Call us now' button with a phone icon and a white 'Get a Quote' button with an arrow" />
+</Frame>
+
+## Settings
+
+| Setting | What it does |
+|---|---|
+| **Label** | The button text. |
+| **Link** | Where the button goes: a page on the site, a phone number or another website. |
+| **Leading icon** (under **Tangent style**) | An icon before the label. Use **Tangent phone** on call buttons. **Phone on call links** shows the phone icon only when the link is a phone number. |
+| **Style** (under **Tangent style**) | **Primary, neutral** (black), **Secondary** (white with a line) or **Accent** (blue). |
+| **Size** | **Medium**, **Small** or **Large**. |
+| **Trailing arrow** | The arrow after the label. It's hidden on its own when the button has a leading icon. |
+| **Full width on mobile** | On phones, the button fills the width of the screen and gets taller. |
+
+<Note>
+There is also a **Style** setting near the top of the block, from the Horizon theme. Leave it as it is: the
+**Style** under **Tangent style** overrides it.
+</Note>
+
+## Rules for buttons
+
+- **Phone first.** When a call button and a contact button sit together, the call button comes first and is
+  **Primary, neutral**. The contact or quote button comes second and is **Secondary**.
+- **Every call button has the phone icon.** Pick **Tangent phone** as the **Leading icon**.
+- **A button whose label is the phone number** shows only the icon and the number, for example
+  "949-345-0611", not "Call 949-345-0611". Labels like "Call Now" or "Call us now" keep their words.
+- **Don't use Accent** for ordinary buttons. Blue is kept for selected items and progress.
+- **Hero buttons on phones** use **Full width on mobile**.
+
+## Add a call button
+
+1. In the sidebar, click **Add block** in the group where the button should go.
+2. Choose **Call button**. It comes ready with the label "Call Now", the phone icon, the black style and the
+   link `tel:9493450611`.
+3. Change the label if needed. Check the number in the link.
+4. Click **Save**.
+
+<Tip>
+A phone link is written `tel:` followed by the number without spaces, for example `tel:9493450611`. Visitors
+on phones can tap it to call.
+</Tip>
+
+## Links to other websites
+
+A link to another website (for example a Calendly booking page or a Google Drive folder) opens in a new tab
+by itself. You don't need to turn on **Open link in new tab**. Its arrow turns diagonal (↗) so visitors know
+they're leaving the site. Links to pages on usetangent.com keep the straight arrow (→) and open in the same tab.
+
+<Frame caption="A button that goes to another website shows the diagonal arrow">
+  <img src="/images/buttons-external.png" alt="A black 'Book a call' button with a diagonal arrow" />
+</Frame>
+
+This works everywhere on the site: buttons, cards, menus, and links inside text, blog posts and FAQ answers.
+
+## Link to a page on the site
+
+In **Link**, start typing the page name and pick it from the list. Shopify fills in the right address, for
+example `/pages/reverse-engineering`. To jump to the quote form on the same page, type `#quote`.

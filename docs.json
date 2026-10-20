@@ -1,72 +1,115 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mintlify Starter Kit",
+  "name": "Tangent Solutions site guide",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
-  },
-  "favicon": "/favicon.svg",
-  "navigation": {
-    "pages": [
-      {
-        "group": "Getting Started",
-        "pages": [
-          "index",
-          "quickstart"
-        ]
-      }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
+    "primary": "#0562EF",
+    "light": "#3CB7DD",
+    "dark": "#0562EF"
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/tangent-logo.svg",
+    "dark": "/logo/tangent-logo.svg",
+    "href": "/"
   },
-  "navbar": {
-    "links": [
+  "favicon": "/logo/favicon.svg",
+  "fonts": {
+    "heading": {
+      "family": "Geist"
+    },
+    "body": {
+      "family": "Inter"
+    }
+  },
+  "appearance": {
+    "default": "light",
+    "strict": true
+  },
+  "icons": {
+    "library": "lucide"
+  },
+  "navigation": {
+    "groups": [
       {
-        "label": "Support",
-        "href": "mailto:support@mintlify.com"
+        "group": "Welcome",
+        "pages": [
+          "index"
+        ]
+      },
+      {
+        "group": "Getting started",
+        "pages": [
+          "getting-started/theme-editor",
+          "getting-started/preview-and-publish",
+          "getting-started/sections-and-blocks",
+          "getting-started/undo-and-versions"
+        ]
+      },
+      {
+        "group": "Editing pages",
+        "pages": [
+          "editing-pages/how-pages-work",
+          "editing-pages/page-types",
+          "editing-pages/editing-content"
+        ]
+      },
+      {
+        "group": "Building blocks",
+        "pages": [
+          "blocks/overview",
+          "blocks/card-list",
+          "blocks/text-styles",
+          "blocks/buttons",
+          "blocks/images",
+          "blocks/faq",
+          "blocks/breadcrumbs",
+          "blocks/gallery",
+          "blocks/contact-and-quote-form",
+          "blocks/section-layout",
+          "blocks/header",
+          "blocks/announcement-bar",
+          "blocks/sticky-bar",
+          "blocks/footer"
+        ]
+      },
+      {
+        "group": "Content in the Shopify admin",
+        "pages": [
+          "admin/pages-and-seo",
+          "admin/blog-posts",
+          "admin/faq-entries",
+          "admin/menus",
+          "admin/files-and-images",
+          "admin/url-redirects"
+        ]
+      },
+      {
+        "group": "Design rules",
+        "pages": [
+          "design-rules/do-and-dont",
+          "design-rules/icons"
+        ]
+      },
+      {
+        "group": "Common tasks",
+        "pages": [
+          "how-to/change-phone-number",
+          "how-to/change-announcement",
+          "how-to/add-faq-question",
+          "how-to/edit-card",
+          "how-to/add-blog-post",
+          "how-to/add-location-page",
+          "how-to/change-seo-title",
+          "how-to/replace-image"
+        ]
+      },
+      {
+        "group": "Help",
+        "pages": [
+          "help/troubleshooting",
+          "help/contact"
+        ]
       }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://app.mintlify.com"
-    }
-  },
-  "contextual": {
-    "options": [
-      "copy",
-      "view",
-      "chatgpt",
-      "claude",
-      "perplexity",
-      "mcp",
-      "cursor",
-      "vscode"
     ]
-  },
-  "footer": {
-    "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
-    }
   }
 }

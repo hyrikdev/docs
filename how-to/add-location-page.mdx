@@ -1,0 +1,70 @@
+---
+title: "Add a location page"
+description: "What's involved in a new city page, and when to ask your developer."
+---
+
+A location page is made of a page record in the admin and a template of its own in the theme. You can create
+both yourself by copying an existing location page, then replacing its words and photos. It's a careful job:
+plan an hour or two per page.
+
+<Note>
+**When to ask your developer:** if you need several new pages at once, a different layout, or you're not
+comfortable editing a whole page, ask your developer. They can set up new location pages from a list of texts
+and photos.
+</Note>
+
+## What you need first
+
+- The city or area name and the page's web address, for example `/pages/denver`.
+- The texts: title, intro, the services and industries texts, and any client quotes.
+- The photos, with alt text, uploaded in **Content → Files**.
+- The questions and answers for the FAQ, if the page has one.
+
+## Steps
+
+<Steps>
+  <Step title="Create the page record">
+    In the admin, go to **Online Store → Pages** → **Add page**. Type the **Title**, for example
+    "3D scanning Denver". Leave **Content** empty. Set **Visibility** to **Hidden** for now. Under
+    **Search engine listing**, set the page title, the meta description and the **URL handle** (for example
+    `denver`). Click **Save**.
+  </Step>
+  <Step title="Create the template">
+    Open the theme editor. Click the page name in the top bar, choose **Pages**, then **Create template**.
+    Name it **location-** plus the URL handle, for example `location-denver`. Under **Based on**, choose an
+    existing location template with a similar layout, for example **location-chicago**. Click
+    **Create template**.
+  </Step>
+  <Step title="Connect the page to the template">
+    Back in the admin, open the new page. Under **Theme template**, pick the new template
+    (**location-denver**). Click **Save**.
+  </Step>
+  <Step title="Replace the content">
+    In the theme editor, open the new template. Go through every section from top to bottom and replace the
+    city name, texts and photos. Check the breadcrumbs (Home / Locations / page), the headings, the "at a
+    glance" cards, the gallery, the services, the industries, the quotes and the projects.
+  </Step>
+  <Step title="Set up the FAQ">
+    If the page has questions, create a new **FAQ category** and its **FAQ** entries, then pick the category in
+    the page's **FAQ category** block. See [Add a FAQ question](/how-to/add-faq-question). If not, hide the FAQ
+    section.
+  </Step>
+  <Step title="Add it to the Locations menu">
+    In **Online Store → Navigation → Locations**, add a menu item with the city name, linked to the new page.
+    Put it in alphabetical order. The locations overview updates by itself.
+  </Step>
+  <Step title="Check and publish">
+    Preview the page on desktop and in the mobile view. Read every text: nothing should still mention the city
+    you copied from. Then set the page's **Visibility** to **Visible**.
+  </Step>
+</Steps>
+
+<Warning>
+A template you create in the theme editor lives only in that theme. Tell your developer when you add one, so
+it's kept when a new version of the theme is installed.
+</Warning>
+
+## If the old website had this page
+
+If the city had a page on the old website, add a redirect from its old address to the new page. See
+[URL redirects](/admin/url-redirects).

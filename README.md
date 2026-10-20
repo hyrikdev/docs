@@ -1,55 +1,54 @@
-# Mintlify Starter Kit
+# Tangent Solutions site guide
 
-Use the starter kit to get your docs deployed and ready to customize.
+This folder holds the admin guide for the Tangent Solutions website (usetangent.com).
+It explains, in plain language, how to edit the site in Shopify.
 
-Click the green **Use this template** button at the top of this repo to copy the Mintlify starter kit. The starter kit contains examples with
+The guide is built with [Mintlify](https://mintlify.com), a tool that turns these files into a small website
+with a menu and a search box.
 
-- Guide pages
-- Navigation
-- Customizations
-- API reference pages
-- Use of popular components
+## What is in this folder
 
-**[Follow the full quickstart guide](https://starter.mintlify.com/quickstart)**
+| File or folder | What it is |
+|---|---|
+| `docs.json` | The guide's settings: its name, colors, logo and the menu on the left. |
+| `*.mdx` files | The pages of the guide. Each file is one page. You can open them in any text editor. |
+| `images/` | The screenshots used in the pages. |
+| `logo/` | The Tangent logo and the small browser-tab icon. |
+| `REVIEW.md` | A to-do list for the people who look after this guide: missing screenshots, facts to confirm, placeholders. |
 
-## AI-assisted writing
+## Preview the guide on your computer
 
-Set up your AI coding tool to work with Mintlify:
+You need Node.js (version 20 or newer) on your computer. Get it from [nodejs.org](https://nodejs.org).
 
-```bash
-npx skills add https://mintlify.com/docs
-```
+1. Open a terminal (on a Mac: the Terminal app).
+2. Install the Mintlify tool once:
 
-This command installs Mintlify's documentation skill for your configured AI tools like Claude Code, Cursor, Windsurf, and others. The skill includes component reference, writing standards, and workflow guidance.
+   ```bash
+   npm i -g mint
+   ```
 
-See the [AI tools guides](/ai-tools) for tool-specific setup.
+3. Go to this folder, then start the preview:
 
-## Development
+   ```bash
+   cd path/to/tangent-docs
+   mint dev
+   ```
 
-Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview your documentation changes locally. To install, use the following command:
+4. Open http://localhost:3000 in your browser. The page updates each time you save a file.
+5. To stop the preview, go back to the terminal and press Control + C.
 
-```
-npm i -g mint
-```
+## Publish the guide online
 
-Run the following command at the root of your documentation, where your `docs.json` is located:
+1. Put this folder in a GitHub repository (your developer can do this for you).
+2. Sign up at [mintlify.com](https://mintlify.com).
+3. In the Mintlify dashboard, connect the GitHub repository.
+4. Mintlify builds the guide and gives you a web address for it.
 
-```
-mint dev
-```
+From then on, every change pushed to the repository updates the online guide on its own.
 
-View your local preview at `http://localhost:3000`.
+## Editing a page
 
-## Publishing changes
-
-Install our GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app) to propagate changes from your repo to your deployment. Changes are deployed to production automatically after pushing to the default branch.
-
-## Need help?
-
-### Troubleshooting
-
-- If your dev environment isn't running: Run `mint update` to ensure you have the most recent version of the CLI.
-- If a page loads as a 404: Make sure you are running in a folder with a valid `docs.json`.
-
-### Resources
-- [Mintlify documentation](https://mintlify.com/docs)
+- Each page is a `.mdx` file. It is plain text with a few extra tags, such as `<Steps>` for numbered steps
+  or `<Note>` for a highlighted note.
+- To add a page to the menu on the left, add its file name (without `.mdx`) to `docs.json`.
+- Keep screenshots in `images/` and refer to them as `/images/name.png`.

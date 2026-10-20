@@ -1,0 +1,48 @@
+---
+title: "FAQ"
+description: "How the question lists work, and where the questions live."
+---
+
+Pages with frequently asked questions use the **FAQ category** block. The questions themselves aren't typed
+in the theme editor: each one is an **FAQ** entry in the Shopify admin, and each entry belongs to a
+**category**. A page shows every question of its category.
+
+<Frame caption="A FAQ list. A click on a question opens its answer; the plus sign turns into a minus.">
+  <img src="/images/faq-open.png" alt="A section titled '3D scanning services FAQ' with seven questions in ruled rows, the first one open with its answer" />
+</Frame>
+
+## How it fits together
+
+| Where | What lives there |
+|---|---|
+| Shopify admin → **FAQ category** entries | One category per page, for example the category of the reverse engineering page. |
+| Shopify admin → **FAQ** entries | Each question, with its **Question**, **Answer** and **Category**. |
+| Theme editor → **FAQ category** block | Which category the page shows, and how the list looks. |
+
+So:
+
+- **To add, change or remove a question**, edit the FAQ entries in the admin. See
+  [FAQ entries](/admin/faq-entries) and [Add a FAQ question](/how-to/add-faq-question).
+- **To show the questions on a page**, pick the category in the page's **FAQ category** block.
+
+## Block settings
+
+| Setting | What it does |
+|---|---|
+| **Category** | The FAQ category this list shows. |
+| **Hide section when empty** | Hides the whole section when no category is picked or it has no questions. |
+| **Output FAQPage structured data** | Tells search engines this is a FAQ, so they may show the questions in search results. Leave it on. Turn it off only if the page has a second FAQ list. |
+| **Open first question** | Shows the first answer open when the page loads. |
+| **Icon** | **Plus** or **Caret** (a small arrow) at the end of each question. The site uses **Plus**. |
+| **Dividers** | Lines between the questions. |
+| **Ruled rows on the text edge** | For a list placed straight under a wide heading: rows run across the page. |
+| **Question style** | The size of the question text. Keep what the page uses. |
+
+## Order of the questions
+
+Questions show in the order their entries were created in the admin, oldest first. A new question appears at
+the end of the list.
+
+<Note>
+Answers can contain links. Links to other websites open in a new tab by themselves.
+</Note>

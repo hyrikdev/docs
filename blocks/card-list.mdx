@@ -1,0 +1,125 @@
+---
+title: "Card list"
+description: "Grids of cards: industries, benefits, options, galleries, steps, quotes and link cells."
+---
+
+A **Card list** block shows a set of cards in a ruled grid. Each card is a **Card** block inside it. The card
+list decides the layout; each card holds its own words and image.
+
+<Frame caption="A card list with four cards, each with a bare line icon">
+  <img src="/images/card-list-icons.png" alt="Four cards in a row: File creation, Enhancement, Measurement, Compression, each with a small blue line icon" />
+</Frame>
+
+## What a card holds
+
+Click a **Card** in the sidebar to edit it.
+
+| Setting | What it does |
+|---|---|
+| **Title** | The card's title. |
+| **Text** | The card's text. A bulleted list shows one item per line. |
+| **Label** | A small mono label. With an icon it sits beside the icon. Write `a · b · c` (with the middle dot) to show the items as small check chips. In quotes it's the person's name line; in stats it's the line under the number. |
+| **Icon** | A line icon above the title. Pick from the **Tangent** icons. See [Icons](/design-rules/icons) for which icon means what. Leave it on **None** for cards with a photo. |
+| **Image** | The card's photo. |
+| **Show the whole image** | For a screenshot, report or drawing with text in it: shows the whole picture, never cropped. Keep it off for photos. |
+| **Taller wide photo** | For a single card whose photo spans the whole row: makes the photo taller. |
+| **Crop position, vertical** | Where a cropped photo is cut: 0% keeps the top, 50% the middle, 100% the bottom. |
+| **Link** and **Link label** | Makes the whole card a link. The label is the link text; leave it blank to use the list's **Default link label**. |
+| **More images** (**Image 2** to **Image 12**) | Extra photos stacked with the first one, or logos when **Icon** is set to **Images as logo cells**. |
+
+<Tip>
+A card with only a title (no text, image, link or label) shows as a small badge with a check mark.
+</Tip>
+
+## Choose a layout
+
+Click the **Card list** and pick a **Layout**.
+
+| Layout | Use it for |
+|---|---|
+| **Cards** | The standard grid: title and text, with an icon or a photo. Industries, benefits, why-us, options. |
+| **Stats** | Big figures with a short line under each, for example "0.025mm". |
+| **Numbered steps** | A process, numbered 01, 02, 03… |
+| **Gallery** | Photos with a short caption under each. |
+| **Quotes** | Client testimonials: the quote, the logo, the name and the person's line. |
+| **Drawing notes** | Short notes under a drawing, in small mono text. |
+| **Entries** | A term and a sentence in each ruled cell, for example "What sets us apart". |
+| **Link cells** | Each card is a link: its title and an arrow. Turn on **Images in link cells** to add the photo. |
+| **Check list** | Short lines with a blue check mark. |
+| **Tiles** | Short names in large tiles, for example a list of industries. |
+| **Note strip** | A label on the left and a title on the right, on a light gray band. |
+
+### Examples
+
+<Tabs>
+  <Tab title="Gallery">
+    <Frame caption="Gallery: photos with captions. Photo cards have no icon.">
+      <img src="/images/card-list-gallery.png" alt="A gallery of photos in a 4-column grid with one large photo" />
+    </Frame>
+  </Tab>
+  <Tab title="Tiles, centred">
+    <Frame caption="Tiles with Centred tiles turned on">
+      <img src="/images/card-list-tiles-centred.png" alt="Industry tiles with a centred icon above each name" />
+    </Frame>
+  </Tab>
+  <Tab title="Entries">
+    <Frame caption="Entries with bare icons">
+      <img src="/images/card-list-entries.png" alt="Four entries, each with an icon, a short title and a sentence" />
+    </Frame>
+  </Tab>
+  <Tab title="Link cells">
+    <Frame caption="Link cells with Images in link cells turned on">
+      <img src="/images/card-list-links.png" alt="Four photo cards, each with a title and an arrow" />
+    </Frame>
+  </Tab>
+  <Tab title="Photo cards">
+    <Frame caption="Photo cards with a caption, no icon">
+      <img src="/images/card-list-photo-cards.png" alt="Industry photos with a small caption under each" />
+    </Frame>
+  </Tab>
+</Tabs>
+
+## Key settings of the card list
+
+| Setting | What it does | When to use it |
+|---|---|---|
+| **Card icon** | How card icons look. | Always choose **Bare icon, 24px**. It's the site's icon style. |
+| **Card style** | **Bordered** (ruled cells), **Plain** (only lines between cells) or **Tinted** (light gray cells). | Keep what the page already uses, usually **Bordered**. |
+| **Columns on desktop** | How many cards sit side by side on a large screen. | 4 for short cards, 3 for cards with photos and longer text. |
+| **Columns on mobile** | 1 or 2. | 1 for cards with text; 2 only for short tiles or photos. |
+| **Columns on tablet** | Columns from 750 to 989 pixels wide. **Auto** means at most 2. | Leave on **Auto** unless a page already uses something else. |
+| **Desktop columns from** | The screen width where the desktop columns start (990px or 1200px). | 1200px when 4 columns get too narrow on small laptops. |
+| **Text cards over their images** | For a row of text cards over a row of matching photos. Put the cards in reading order: text 1, image 1, text 2, image 2… | Whenever each text has its own image. On phones each text is then followed by its image. |
+| **Centred tiles** | **Tiles** layout: centres the icon and the name in each tile. | When the tiles have icons. |
+| **Images in link cells** | **Link cells** layout: shows each card's photo above its title. | For service link cells that have photos. |
+| **Short row first** | When the cards don't fill the last row, the leftover cards open the list instead of closing it. | Galleries with an odd number of photos. |
+| **Label style** | **Kicker** (small label) or **Number** (the label shown as a large blue number, like 01.). | **Number** for steps that carry their own numbers. |
+| **Checks beside the copy** | Shows `a · b · c` labels as check lines beside the text instead of chips under it. | Option cards with a list of features. |
+| **Checks on list lines** | Each line of a card's list starts with a check instead of a small square. | Lists of reasons or features. |
+| **Photo on the left in the first row** | With 1 column: starts the copy and photo rows with the photo on the left. | Alternating copy and photo rows. |
+| **Copy first when stacked** | With 1 column: on smaller screens the copy comes first, then the photo. | Rows where the text should be read before the photo. |
+| **Bento** | **Gallery** layout: the first photo large, the last ones wide, so the grid ends on a full row. | The location galleries. Designed for 4 columns. |
+| **Show images**, **Image ratio** | Shows or hides the card photos and sets their shape (4:3, 16:9, 16:10, Square). | Keep one ratio per list. |
+| **Title size** | **Card** or **Section** (the title as big as a section heading). | **Section** only for large copy and photo rows. |
+| **Default link label** | The link text for cards with a link and no label of their own. | Usually "Learn more". |
+| **Blog posts**, **Number of posts** | When the list has no cards, it shows the latest posts of this blog. | Case study rows on service pages. |
+| **Hide section when empty** | Hides the whole section when the list has nothing to show. | Leave as it is. |
+
+## Text then its image on phones
+
+When a section has a row of text cards over a row of their photos (for example "What gets delivered"), turn
+on **Text cards over their images** and put the cards in reading order. Desktop keeps two rows; phones show
+each text right before its image.
+
+<Columns cols={2}>
+  <Frame caption="Desktop: texts on the first row, images under them">
+    <img src="/images/card-list-pairs-desktop.png" alt="Three text cards above three matching images on a desktop screen" />
+  </Frame>
+  <Frame caption="Phone: each text followed by its image">
+    <img src="/images/card-list-pairs-phone.png" alt="On a phone, each text card is followed by its own image" />
+  </Frame>
+</Columns>
+
+## Add or edit a card
+
+See [Add or edit a card in a grid](/how-to/edit-card).

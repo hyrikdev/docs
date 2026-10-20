@@ -1,0 +1,54 @@
+---
+title: "Gallery and lightbox"
+description: "Photo grids, and the full-screen viewer on the portfolio page."
+---
+
+The site has two kinds of photo grids:
+
+- **Card list** with the **Gallery** layout: used on service and location pages. Each card is one photo with an
+  optional caption. See [Card list](/blocks/card-list).
+- **Project gallery**: used on the portfolio page. Each photo is a **Project** block, and a click opens the photo
+  full screen (the "lightbox").
+
+## Project gallery
+
+<Frame caption="The portfolio page: a ruled grid of project photos">
+  <img src="/images/gallery-portfolio.png" alt="The portfolio page with project photos in a four-column grid" />
+</Frame>
+
+### Gallery settings
+
+| Setting | What it does |
+|---|---|
+| **Layout** | **Ruled tiles** puts the photos on the site's 1px lines, with the caption over the photo on hover. **Cards** is the theme's plain look. The portfolio uses **Ruled tiles**. |
+| **Columns** | **Ruled tiles** only: photos per row on desktop. |
+| **Open photos in a lightbox** | A click opens the photo full screen with its title, the count, and previous, next and close buttons. |
+| **Columns on mobile** | 1 or 2. |
+| **Image aspect ratio** | The shape of each tile. |
+
+### Project settings
+
+| Setting | What it does |
+|---|---|
+| **Image** | The photo. |
+| **Caption** | The project name, shown on the tile. Also used as the alt text when the image has none. |
+| **Tag** | A short label, for example In-house, Shop or Mobile. |
+| **Link** | Optional, for example a case study article. |
+
+## The lightbox
+
+With **Open photos in a lightbox** on, visitors can click any photo to see it whole. They can move with the
+arrows (or the arrow keys) and close it with the **×** button, the Escape key or a click outside the photo.
+The title under the photo is the image's alt text, or else the caption.
+
+<Frame caption="A portfolio photo opened in the lightbox">
+  <img src="/images/lightbox.png" alt="A boat photo shown full screen on a dark background, with its title, '1 / 12', arrows and a close button" />
+</Frame>
+
+## Add a photo to the portfolio
+
+1. Open the **portfolio** template in the theme editor.
+2. In the **Gallery** section, click the **Project gallery** block, then **Add block** → **Project**.
+3. Pick the **Image** and type the **Caption**.
+4. Drag the new project to where it should appear.
+5. Click **Save**.

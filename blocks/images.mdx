@@ -1,0 +1,53 @@
+---
+title: "Images"
+description: "Photos, logos and drawings: how they're framed and cropped."
+---
+
+Photos appear in two places:
+
+- in an **Image** block, for example the hero photo or a photo beside a block of text;
+- inside a **Card**, for example in a gallery or a set of photo cards. See [Card list](/blocks/card-list).
+
+<Frame caption="A Media image beside the hero text, with a caption in its bottom corner">
+  <img src="/images/image-caption.png" alt="A landing page hero: title, intro, chips and buttons on the left, a photo on the right with the caption '3D scanning of engine head'" />
+</Frame>
+
+## Image block settings
+
+| Setting | What it does |
+|---|---|
+| **Image** | The picture. Click **Change** to pick another one. |
+| **Link** | Optional. Makes the image a link. |
+| **Tangent style** | **Media** for photos (fills its frame on a light gray background), **Logo** for client logos (gray, in color on hover), **Logo in a row** (small color logo), **Wordmark** (a brand name logo). |
+| **Caption** | **Media** only: a short mono label in the bottom corner of the photo. Leave blank for none. |
+| **Crop position, vertical** | **Media** only: where a cropped photo is cut. 0% keeps the top, 50% the middle, 100% the bottom. |
+| **Show the whole image** | **Media** only: for a part on a white background, shows the whole image without cropping. |
+| **Maximum image height** | With **Show the whole image**: limits the height of the image. 0 lets it fill the space. |
+| **Hide when empty** | Shows nothing when no image is picked. |
+| **Aspect ratio** | The shape of the frame: **Auto**, **Portrait**, **Square**, **Landscape**, **4:3**, **21:9** or **16:10**. |
+| **Grid span** | In a photo grid: makes one photo take 2 columns, 2 rows or both. Already set where it's used. |
+
+## Cropping and focus
+
+Most photos are cropped to fill their frame, so every photo in a row has the same height. If the important part
+of a photo is cut off:
+
+1. Click the image (or the card).
+2. Move **Crop position, vertical**: lower numbers keep more of the top, higher numbers more of the bottom.
+3. Check the desktop and the mobile view: the frame shape changes between them.
+
+If the image is a screenshot, a report or a drawing with text in it, turn on **Show the whole image** instead.
+Text in a picture should never be cut off.
+
+## Good images
+
+- **Size:** at least 1600 pixels wide for wide photos, 1000 pixels for cards. Keep files under about 1 MB.
+- **Format:** JPG for photos, PNG or SVG for logos and drawings.
+- **One shape per row:** all photos in a row or a grid use the same aspect ratio.
+- **Real photos:** use Tangent's own project photos. Don't add stock photos that weren't on the site before.
+- **Alt text:** describe each image in a short sentence. See [Files and images](/admin/files-and-images).
+- **Logos:** the alt text is the company name shown on the logo.
+
+<Note>
+Cards with a photo don't get an icon. One marker per card is enough.
+</Note>

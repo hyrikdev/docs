@@ -1,0 +1,53 @@
+---
+title: "Section layout"
+description: "The ruled grid, the lines between cells and the faint decorations."
+---
+
+The Tangent look is a technical drawing grid: thin vertical lines on both sides of the page (the "rails"),
+thin lines between sections, and thin lines between cells. These come from a few settings on sections and
+groups. They're already set on every page. This page explains them so you can recognize them, and copy them
+when you add a section.
+
+## Section settings
+
+Click a section's name in the sidebar to see these, under **Tangent frame**.
+
+| Setting | What it does | On this site |
+|---|---|---|
+| **Rails** | Thin vertical lines at the page width. **Rails with inner padding** adds space inside; **Rails, no inner padding** leaves it to the blocks. | **Rails, no inner padding** on almost every section. |
+| **Top border across the page** | A thin line across the top of the section. | On, so sections are separated by a line. |
+| **Background pattern** | A faint pattern of blue dots behind the heading. **Dot lattice** for a centered heading, **Dot lattice at the end** for left-aligned text, and two variants for the bottom corner. | On a few text-only sections, such as plain page heroes and closing calls. |
+
+## Group settings
+
+A **Group** holds other blocks. Under **Tangent grid**, its **Lines** setting draws thin lines between the blocks
+inside:
+
+| Lines | What it does |
+|---|---|
+| **None** | No lines; the blocks keep their gap. |
+| **Lines between blocks** | A line between each block. |
+| **Lines between blocks, stacked on tablet** | The same, and the blocks stack one under the other below 990 pixels. Used for "text beside photo" rows. |
+| **No lines, stacked on tablet** | No lines, and the blocks stack below 990 pixels. |
+| **Grid with lines** | The blocks become equal columns on a ruled grid. Set **Columns on desktop**, **Columns on tablet** and **Columns on mobile**. |
+| **Cards** | The blocks become separate bordered cards. |
+
+<Note>
+Two-column rows split 50 / 50, and the column lines of one section line up with the lines of the next. If you
+add a section, copy one from the same page so its lines match.
+</Note>
+
+## Pixel mark
+
+The **Pixel mark** block draws a faint decoration on the edge of its group: the pixel squares of the Tangent
+logo, or the outline of a scanned part. It takes no space and screen readers skip it.
+
+| Setting | What it does |
+|---|---|
+| **Drawing** | **Logo** (the pixel squares), one of the **Part scan** drawings, or **Handheld scanner**. **Auto** uses the drawing set for the page. |
+| **Position** | **Top right**, **Middle right**, **Bottom right** or **In the cell**. |
+| **Size** | **Logo** only: **Medium** or **Small**. |
+
+<Warning>
+Use a pixel mark at most once per page, and only where there's empty space. Never place it over text.
+</Warning>

@@ -1,0 +1,40 @@
+---
+title: "Breadcrumbs"
+description: "The small trail at the top of a page that shows where the visitor is."
+---
+
+Breadcrumbs are the small trail at the top of most pages, for example **Home / Locations / 3D scanning Chicago**.
+Visitors can click a step to go back up. Search engines read the trail too.
+
+<Frame caption="Breadcrumbs on a location page, in their own ruled row">
+  <img src="/images/breadcrumbs-desktop.png" alt="Breadcrumbs reading Home / Locations / 3D scanning Chicago above the page title" />
+</Frame>
+
+<Frame caption="The same breadcrumbs on a phone">
+  <img src="/images/breadcrumbs-phone.png" alt="On a phone, the breadcrumbs sit in a thin row above the page title" style={{ maxWidth: "375px" }} />
+</Frame>
+
+## The trails on this site
+
+| Page | Trail |
+|---|---|
+| Service pages | Home / Services / page |
+| Location pages | Home / Locations / page |
+| Blog posts | Home / Blog / post |
+| Other pages | Home / page |
+
+## Settings
+
+| Setting | What it does |
+|---|---|
+| **Home label** | The first step. Keep "Home". |
+| **Parent label** | The middle step, for example "Services" or "Locations". Leave empty for none. |
+| **Parent link** | Where the middle step goes, for example `/pages/services` or `/pages/locations`. |
+| **Title override** | The last step. Leave empty to use the page title. |
+| **Tangent style** | **Strip: own ruled row** puts the trail in its own row with a line under it. Used on every page. |
+| **Accessible name** | What screen readers announce. Keep "Breadcrumb". |
+
+<Tip>
+The breadcrumbs are the first block of the hero section. When you make a new page from an existing
+template, check that **Parent label** and **Parent link** fit the new page.
+</Tip>

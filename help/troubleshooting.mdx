@@ -1,0 +1,77 @@
+---
+title: "Troubleshooting"
+description: "What to check when a change doesn't show up or looks wrong."
+---
+
+## I don't see my change
+
+Check these, in order:
+
+<Steps>
+  <Step title="Did you save?">
+    Changes in the theme editor aren't live until you click **Save**. If you left the editor without saving,
+    they're gone.
+  </Step>
+  <Step title="Did you edit the right theme?">
+    Go to **Online Store → Themes**. Only the **current theme** is live. If you edited a copy in the
+    **Theme library**, visitors won't see it until you publish that copy.
+  </Step>
+  <Step title="Did you edit the right page?">
+    Most pages have their own template. A change on **location-chicago** only shows on the Chicago page. See
+    [How the pages are set up](/editing-pages/how-pages-work).
+  </Step>
+  <Step title="Is the text from the admin?">
+    Some texts come from the page record, the product or a FAQ entry in the admin, not from the theme editor.
+    See [Text that comes from the page's own fields](/editing-pages/how-pages-work#text-that-comes-from-the-pages-own-fields).
+  </Step>
+  <Step title="Is your browser showing an old copy?">
+    Reload the page. On a Mac press Command + Shift + R, on Windows Control + F5. Or open the page in a
+    private window. Shopify can take a minute to update everywhere.
+  </Step>
+  <Step title="Is the block hidden?">
+    In the theme editor sidebar, a hidden block or section shows a crossed-out eye. Click it to show the block.
+  </Step>
+  <Step title="Is it a phone-only or desktop-only part?">
+    The mobile call bar only shows on phones and tablets. The header phone number shows as a square button on
+    phones. Check the right view.
+  </Step>
+</Steps>
+
+## The page shows the old design
+
+The new Tangent design was built on a theme that isn't published yet. Until it is, the live site at
+usetangent.com shows the old design.
+
+- To see the new design, go to **Online Store → Themes**, find the new theme in the **Theme library**, and
+  click **…** → **Preview**.
+- Edit the new design with **Customize** on that theme, not on the current theme.
+- When the new theme is published, it becomes the current theme and the live site shows the new design.
+
+<Note>
+Pages, blog posts, menus, FAQ entries and images are shared by both themes. A change to them shows on the live
+site straight away, whichever theme is live.
+</Note>
+
+## A section disappeared
+
+Some sections hide themselves when they have nothing to show, for example a FAQ section with no category, or
+a section whose heading is empty (**Hide section when blank** or **Hide section when empty** is on). Fill in the
+missing content and the section comes back. The theme editor still shows these sections so you can edit them.
+
+## The layout looks broken on a phone
+
+- Check that you didn't add a very long word or a long link without spaces.
+- Check that photos in the same row use the same **Image ratio**.
+- If you added a section, compare its settings with the same section on another page.
+- Undo your last change (see [Undo and versions](/getting-started/undo-and-versions)) and try again.
+
+## A link goes to an error page
+
+- Links to Tangent pages should start with `/pages/`, `/blogs/` or `/products/`.
+- Old addresses that start with `/services/` can't be redirected by Shopify. Use the new address instead.
+- If an old address is linked from somewhere you can't change, add a redirect. See
+  [URL redirects](/admin/url-redirects).
+
+## Still stuck?
+
+See [Contact and support](/help/contact).

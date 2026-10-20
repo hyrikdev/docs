@@ -1,0 +1,60 @@
+---
+title: "Header"
+description: "The logo, the menu, the phone button and the Contact us button."
+---
+
+The header is shared by every page. In the theme editor it's at the top of the sidebar, under **Header**.
+
+<Frame caption="The header on desktop: logo, menu, phone button and Contact us">
+  <img src="/images/header-desktop.png" alt="The header with the Tangent logo, the menu, a black phone number button and a white Contact us button" />
+</Frame>
+
+<Frame caption="The header on a phone: logo, call button and menu button">
+  <img src="/images/header-phone.png" alt="The phone header with the logo, a black square call button and the menu button" style={{ maxWidth: "375px" }} />
+</Frame>
+
+The header has four parts, each a block you can click:
+
+## Logo
+
+The logo comes from the theme settings. If the brand changes, replace it in **Theme settings** (the gear
+icon in the editor's left bar) → **Logo and favicon**. The footer logo follows.
+
+## Menu
+
+The **Menu** block shows the **Main menu** from **Online Store → Navigation**. To change the menu items, edit
+that menu, not the header. See [Menus](/admin/menus).
+
+On phones and tablets, the menu opens in a drawer from the menu button.
+
+## Phone
+
+The **Phone** block is the black button with the phone number.
+
+| Setting | What it does |
+|---|---|
+| **Phone number** | The number shown and called. Leave empty to use the store phone from **Settings → Store details**. |
+| **Label** | Optional text before the number, for example "Call us". Leave empty: the button shows the icon and the number. |
+| **Show icon** | Shows the phone icon. |
+| **Hide in the drawer layout** | Hides the phone on phones and tablets. Leave it off: there it becomes a square call button. |
+| **Accessible name** | What screen readers say before the number. Keep "Call". |
+| **Style** | **Primary, neutral** makes it the black button. Keep it. |
+
+## Quote button
+
+The **Quote button** block is the white **Contact us** button.
+
+| Setting | What it does |
+|---|---|
+| **Label** | The button text: "Contact us". Leave empty to hide it. |
+| **Link** | Where it goes: `/pages/contact-us`. |
+| **Style** | **Secondary** makes it the white button, second after the phone. Keep it. |
+
+On phones, the **Contact us** button is replaced by the mobile call bar at the bottom of the screen. See
+[Mobile call bar](/blocks/sticky-bar).
+
+## Header settings
+
+Click **Header** itself to see its settings. The important one is **Tangent style** under **Appearance**:
+**Technical** gives the thin, translucent bar with the line under it. Keep it on. **Show cart icon** stays off,
+because the site doesn't sell online.

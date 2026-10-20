@@ -1,0 +1,78 @@
+---
+title: "How the pages are set up"
+description: "Most pages have a layout of their own. Here is how to find the one you want."
+---
+
+## One layout per page
+
+In Shopify, the layout of a page is called a **template**. A template decides which sections and blocks the
+page shows.
+
+On this site, almost every page has **its own template**. The words, images and cards of a service page or a
+location page live in that page's template. This has two results:
+
+- Editing the Chicago page in the theme editor changes **only** the Chicago page.
+- If you want the same change on several pages, you make it on each page.
+
+The header, the footer and the mobile call bar are shared. Change them once and every page follows.
+
+## Template names
+
+Each template is named after the page's web address (the part after `/pages/`):
+
+| Kind of page | Template name | Example page | Example template |
+|---|---|---|---|
+| Service page | **service-** + address | /pages/reverse-engineering | **service-reverse-engineering** |
+| Location page | **location-** + address | /pages/chicago | **location-chicago** |
+| Short landing page | **landing-short-** + address | /pages/reverse-engineering-company | **landing-short-reverse-engineering-company** |
+| Long landing page | **landing-** + a short name | /pages/3d-scanning-services-for-cnc | **landing-cnc** |
+| Services overview | **services** | /pages/services | **services** |
+| Locations overview | **locations-hub** | /pages/locations | **locations-hub** |
+| Other pages | the page's own name | /pages/about-us, /pages/portfolio | **about-us**, **portfolio** |
+| Plain text pages | **Default page** | /pages/thank-you | the default page template |
+
+<Note>
+A few long landing pages have a shorter template name: **landing-cnc** (3D scanning services for CNC),
+**landing-orange-county** (3D scan Orange County) and **landing-buy-a-3d-scanner** (Buy a 3D scanner).
+The contact page uses **contact**.
+</Note>
+
+## Open a page in the theme editor
+
+<Steps>
+  <Step title="Open the theme editor">
+    **Online Store → Themes → Customize**.
+  </Step>
+  <Step title="Open the page list">
+    Click the page name in the middle of the top bar (it says **Home page** when you start).
+  </Step>
+  <Step title="Pick the template">
+    Choose **Pages**, then the template of the page you want, for example **location-chicago**.
+    You can type part of the name in the search box.
+  </Step>
+  <Step title="Check you're on the right page">
+    The preview shows the page. Read its main heading to be sure.
+  </Step>
+</Steps>
+
+<Tip>
+You can also start from the page itself: in the Shopify admin, open the page (see
+[Pages and SEO](/admin/pages-and-seo)) and look at **Theme template** on the right. That tells you which
+template to pick in the editor.
+</Tip>
+
+## Text that comes from the page's own fields
+
+On a few pages, some text isn't typed in the theme editor. It comes from the page record in the Shopify
+admin. Examples: the main heading and intro on plain text pages, and the hero texts and form heading on the
+short landing pages.
+
+In the theme editor, a setting like this shows the name of the field it's connected to instead of a text box.
+To change that text:
+
+1. Go to the page in the Shopify admin.
+2. Scroll down to the **Metafields** area at the bottom.
+3. Change the field, for example **Form heading**, and save.
+
+The main text (body) of plain pages and of the locations overview also comes from the page itself, in the
+**Content** box of the page in the admin.

@@ -1,0 +1,57 @@
+---
+title: "Change the phone number"
+description: "Every place the phone number appears, and how to change it."
+---
+
+The phone number appears in many places. Some are shared by every page; others are on each page.
+
+## Shared places (change once)
+
+<Steps>
+  <Step title="Store details">
+    In the Shopify admin, go to **Settings → Store details** and update the phone number. Blocks whose phone
+    field is empty use this number.
+  </Step>
+  <Step title="Header phone button">
+    In the theme editor, open **Header** → **Phone** and change **Phone number**.
+  </Step>
+  <Step title="Mobile call bar">
+    Open **Footer** → **Mobile sticky CTA** and change **Phone number**.
+  </Step>
+  <Step title="Footer contact text">
+    Open **Footer**, find the "Contact us" **Text** block and change the number. Click the number, use the link
+    button, and update the link too: `tel:` followed by the new number, for example `tel:9495550123`.
+  </Step>
+  <Step title="Footer menu">
+    In the admin, go to **Online Store → Navigation → Helpful Links**. Click **Call Now** and change its link to
+    `tel:` plus the new number. Click **Save menu**.
+  </Step>
+  <Step title="Save and check">
+    Click **Save** in the theme editor. Check the header on desktop and the call bar on a phone.
+  </Step>
+</Steps>
+
+## Places on each page
+
+Most service, location and landing pages also have the number in:
+
+- **Call buttons**, such as "Call us now" or a button showing the number. The number is in the button's **Link**
+  (`tel:…`) and sometimes in its **Label**.
+- **Contact details** blocks, in the closing section of the page, in the **Phone** field.
+- The page's own body text in the admin, on a few plain pages and blog posts.
+
+There are over 80 pages with their own call buttons and contact details. Changing them one by one in the
+theme editor takes a long time.
+
+<Warning>
+**For a full change of the number, ask your developer.** They can update all page layouts in one go and check
+that nothing was missed. Change the shared places above yourself in the meantime, so the header, the call bar
+and the footer are right straight away.
+</Warning>
+
+## Change one page by hand
+
+1. Open the page in the theme editor (see [How the pages are set up](/editing-pages/how-pages-work)).
+2. Click each call button and update **Link** (and **Label** if it shows the number).
+3. Click the **Contact details** block and update **Phone**. If you leave it empty, it uses the store phone.
+4. Click **Save**.

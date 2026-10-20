@@ -1,0 +1,53 @@
+---
+title: "Contact details and quote form"
+description: "The phone, email, address and hours list, and the request form."
+---
+
+<Frame caption="The contact page: contact details on the left, the quote form on the right">
+  <img src="/images/contact-page.png" alt="The contact page with a heading, call and meeting buttons, rows for phone, email, address and hours, and a form" />
+</Frame>
+
+## Contact details
+
+The **Contact details** block shows rows of contact information. It's on the contact page and in the closing
+section of most service and location pages.
+
+| Setting | What it does |
+|---|---|
+| **Phone** | The phone number. Leave empty to use the store phone from **Settings → Store details**. |
+| **Phone row label** | Optional label before the value, for example "Phone". The same goes for **Email row label**, **Address row label** and **Hours row label**. |
+| **Hide the phone row** | Leaves the phone row out, for example when a call button sits right next to the list. |
+| **Email** | The email address. |
+| **Schedule link label** and **Schedule link** | A booking link, for example a Calendly page. |
+| **Open schedule link in a new tab** | Opens the booking page in a new tab. |
+| **Address** and **Address link** | The address, and an optional Google Maps link. |
+| **Hours** | The opening hours. |
+| **Top divider** | A line above the first row. |
+
+<Warning>
+Each page has its own **Contact details** block. If the address, email or hours change, update the block on
+every page, or ask your developer to do it in one go. See [Change the phone number](/how-to/change-phone-number).
+</Warning>
+
+## Quote form
+
+The **Quote form** block is the request form. Visitors fill in their name, email, phone, company and a
+description of the project, then click **Send**.
+
+- Messages are emailed to the store's sender email, set in **Settings → Notifications**.
+- The form can't take file uploads. Ask visitors to email photos instead.
+- Buttons can jump to the form with the link `#quote`. The mobile call bar's **Get a Quote** button does the same
+  when the page has a form.
+
+| Setting | What it does |
+|---|---|
+| **Card style** | Puts the form on a light gray background with padding. |
+| **Anchor ID** | The name buttons use to jump to the form. Keep "quote". Use another name only if a page has two forms. |
+| **Company**, **Phone** | Show or hide these fields. |
+| **What do you need?**, **Where should we scan?** | Extra fields that aren't used on the site. Leave them off. |
+| **Labels** | The label and the gray example text of each field. |
+| **Description label** | The label of the project description box. Leave empty to hide the box (short form). |
+| **Photos note** | An optional note under the form. |
+| **Button label** | The button text, "Send". |
+| **Note under button** | A short note under the button. |
+| **Messages** | The error message, and the heading and text shown after sending. |

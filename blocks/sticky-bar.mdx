@@ -1,0 +1,33 @@
+---
+title: "Mobile call bar"
+description: "The Call Now / Get a Quote bar at the bottom of the screen on phones."
+---
+
+On phones and tablets, a bar with two buttons sits at the bottom of the screen: **Call Now** and
+**Get a Quote**. It's the main way phone visitors reach Tangent.
+
+<Frame caption="The bar on a phone, after the visitor scrolls past the top of the page">
+  <img src="/images/sticky-bar-phone.png" alt="A bar at the bottom of a phone screen with a black Call Now button and a white Get a Quote button" style={{ maxWidth: "375px" }} />
+</Frame>
+
+## How it behaves
+
+- It's hidden at the top of the page, where the hero has its own buttons.
+- It slides in once the visitor scrolls past the first screen.
+- It slides out while the quote form or the footer is on screen, so it never covers them.
+- It doesn't show on desktop screens.
+
+## Where to find it
+
+In the theme editor, it's at the bottom of the sidebar, under **Footer**: **Mobile sticky CTA**. Switch the
+preview to the mobile view to see it.
+
+## Settings
+
+| Setting | What it does |
+|---|---|
+| **Show the bar** | **After scrolling** (the behavior above) or **Always**. Keep **After scrolling**. |
+| **Phone number** | The number the **Call Now** button calls. Leave empty to use the store phone from **Settings → Store details**. |
+| **Call button label** | "Call Now". |
+| **Quote button label** | "Get a Quote". |
+| **Quote button link** | Where **Get a Quote** goes when the page has no quote form: `/pages/contact-us`. On pages with a quote form, the button jumps to the form. |
