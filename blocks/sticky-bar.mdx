@@ -3,36 +3,77 @@ title: "Mobile call bar"
 description: "The Call Now / Get a Quote bar at the bottom of the screen on phones."
 ---
 
-On phones and tablets, a bar with two buttons sits at the bottom of the screen: **Call Now** and
-**Get a Quote**. It's the main way phone visitors reach Tangent.
-
-<Frame caption="The bar on a phone, after the visitor scrolls past the top of the page">
-  <img src="/images/sticky-bar-phone.png" alt="A bar at the bottom of a phone screen with a black Call Now button and a white Get a Quote button" style={{ maxWidth: "375px" }} />
-</Frame>
-
 <Note>
 The bar is hidden for now: the **Mobile sticky CTA** section is turned off (the eye icon in the sidebar), with
 its settings kept. Turn it back on in the theme editor when Tangent wants it to show again.
 </Note>
 
+## What it does
+
+On phones and tablets, a bar with two buttons sits at the bottom of the screen: **Call Now** and
+**Get a Quote**. When it's on, it shows on every page of the site, and it's the main way phone visitors reach
+Tangent.
+
+<Frame caption="The bar on a phone, after the visitor scrolls past the top of the page">
+  <img src="/images/sticky-bar-phone.png" alt="A bar at the bottom of a phone screen with a black Call Now button and a white Get a Quote button" style={{ maxWidth: "375px" }} />
+</Frame>
+
+## Where to find it
+
+<Steps>
+  <Step title="Open any page">
+    In the theme editor, open any page, and switch the preview to the mobile view.
+  </Step>
+  <Step title="Select the bar">
+    At the bottom of the sidebar, in the **Footer** group, select **Mobile sticky CTA**.
+  </Step>
+  <Step title="Turn it on or off">
+    Use the eye icon next to **Mobile sticky CTA** to show or hide the bar on the site.
+  </Step>
+</Steps>
+
 ## How it behaves
+
+With **Show the bar** set to **After scrolling**:
 
 - It's hidden at the top of the page, where the hero has its own buttons.
 - It slides in once the visitor scrolls past the first screen.
 - It slides out while the quote form or the footer is on screen, so it never covers them.
-- It doesn't show on desktop screens.
 
-## Where to find it
-
-In the theme editor, it's at the bottom of the sidebar, under **Footer**: **Mobile sticky CTA**. Switch the
-preview to the mobile view to see it.
+It shows on screens narrower than 750 pixels, and on tablets and touch screens where the header uses the menu
+drawer. It doesn't show on desktop screens.
 
 ## Settings
 
-| Setting | What it does |
-|---|---|
-| **Show the bar** | **After scrolling** (the behavior above) or **Always**. Keep **After scrolling**. |
-| **Phone number** | The number the **Call Now** button calls. Leave empty to use the store phone from **Settings → Store details**. |
-| **Call button label** | "Call Now". |
-| **Quote button label** | "Get a Quote". |
-| **Quote button link** | Where **Get a Quote** goes when the page has no quote form: `/pages/contact-us`. On pages with a quote form, the button jumps to the form. |
+Because the section is turned off, **Tangent uses** below shows its saved settings, kept for when it's turned
+back on: **Show the bar** is **After scrolling**, the phone number is Tangent's main number, the
+labels are "Call Now" and "Get a Quote", and **Quote button link** is `/pages/contact-us`. Keep **After
+scrolling**.
+
+{/* settings:begin source=section:mobile-sticky-cta level=3 */}
+
+Turned off on the site: 1 saved copy inside a hidden section or block. **Tangent uses** shows their saved values.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Show the bar** | Always, After scrolling | Always | After scrolling | **After scrolling**: hidden at the top of the page, slides in after the first screen, slides out while the quote form or the footer is on screen. |
+| **Phone number** | Text | — | “949-345-0611” | The number **Call Now** calls. Leave empty to use the store phone from **Settings › Store details**. |
+| **Call button label** | Text | “Call” | “Call Now” | — |
+| **Quote button label** | Text | “Get a Quote” | “Get a Quote” | — |
+| **Quote button link** | Link | — | Set on all | Used on pages without a quote form. On pages with one, the button jumps to the form. When empty, it goes to the Contact us page. |
+| **Background color** | Color | — | Empty | — |
+| **Show top divider** | On, Off | Off | Off | — |
+
+{/* settings:end */}
+
+## Data and metafields
+
+None. The store phone in **Settings → Store details** is used only when **Phone number** is empty.
+
+## Limitations
+
+- The phone number is typed here, so it doesn't follow the store phone or the header. Update it with the others:
+  see [Change the phone number](/how-to/change-phone-number).
+- The bar is the same on every page: you can't turn it off for one page only.
+- On phones, the header's **Contact us** button is hidden because this bar is meant to carry the quote button.
+  While the bar is off, phones have no quote button at the top or bottom of the screen. See [Header](/blocks/header).

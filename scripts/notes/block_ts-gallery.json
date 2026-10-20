@@ -1,0 +1,6 @@
+{
+  "ts_columns": "Photos per row on screens 990px and wider.",
+  "min_width": "Cards only: on screens 750px and wider, columns are added while each tile is at least this wide. Ruled tiles use Columns instead.",
+  "columns_mobile": "Cards: below 750px. Ruled tiles: below 990px.",
+  "corner_radius": "Cards only. Ruled tiles always have square corners."
+}

@@ -1,0 +1,207 @@
+---
+title: "Store features"
+description: "The theme settings groups for online selling, which a quote-only site doesn't use."
+---
+
+## What it does
+
+Six theme settings groups are for selling online: **Cart**, **Prices**, **Product cards**, **Search**,
+**Swatches** and **Variant pickers**. Tangent sells by quote and phone, so none of them has a visible effect on the
+site. This page lists them in one place so you know what they are and why to leave them alone.
+
+The **Cart** group also holds **Block cart and checkout**, the Tangent setting that keeps the site quote-only.
+It has its own page: [Block cart and checkout](/theme-settings/tangent).
+
+Where each group would apply, and why it doesn't:
+
+| Group | Where Horizon would use it | Why it doesn't show on the site |
+|---|---|---|
+| **Cart** | The cart page and the cart drawer. | The cart is blocked by [Block cart and checkout](/theme-settings/tangent), and the header has no cart icon. |
+| **Prices** | Prices on product pages, product cards and in the cart. | The scanner's product page shows no price. |
+| **Product cards** | Product tiles in collection lists, search results and product recommendation rows. | The site has no shop lists. Quick add is also hidden by **Block cart and checkout**. |
+| **Search** | The search panel that opens from the header's search icon. | The header has no search icon, so the panel never opens. |
+| **Swatches** | Color or picture swatches for product options. | The scanner's product page has no option picker. |
+| **Variant pickers** | The option buttons (size, color …) of a product page. | The scanner's product page uses the **quote** template, which has none. |
+
+## Where to find it
+
+<Steps>
+  <Step title="Open the theme editor">
+    **Online Store → Themes → Customize**. See [Open the theme editor](/getting-started/theme-editor).
+  </Step>
+  <Step title="Open Theme settings">
+    In the narrow bar on the far left of the editor, click the **Theme settings** icon.
+  </Step>
+  <Step title="Open a group">
+    Click **Cart**, **Prices**, **Product cards**, **Search**, **Swatches** or **Variant pickers**.
+  </Step>
+</Steps>
+
+## What the Tangent design overrides
+
+- [Block cart and checkout](/theme-settings/tangent) switches off the cart, quick add and the add-to-cart bar,
+  whatever the other **Cart** settings and **Product cards** say.
+- The site's own lists (blog posts, case studies, service and location cards) are Tangent blocks. They don't read
+  **Product cards** or **Search**.
+- The scanner's product page is built from Tangent blocks on the **quote** template, without price, option picker
+  or buy button. See [Product page](/page-recipes/product-page).
+
+## Settings
+
+Leave all six groups as they are, and keep **Cart › Block cart and checkout** on: see
+[Block cart and checkout](/theme-settings/tangent).
+
+### Cart
+
+{/* settings:begin source=theme:cart level=4 */}
+
+**Tangent uses** is the value saved in the live theme's settings.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Block cart and checkout** | On, Off | On | On | Keep on. Hides buy buttons, quick add, the cart icon and the cart, sends the cart page home, and stops cart and checkout requests in the browser. |
+| **Type** | Page, Drawer | Page | Drawer | No effect while Block cart and checkout is on: the cart drawer isn't drawn and the cart page goes to the home page. |
+| **Product title case** | Default, Uppercase | Default | Default | — |
+| **Price font** | Body, Subheading, Heading, Accent | Subheading | Subheading | — |
+| **"Add to cart" auto-opens drawer** | On, Off | Off | Off | Shown when **Type** is Drawer. |
+
+#### Cart features
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Allow note to seller** | On, Off | Off | Off | — |
+| **Open note to seller by default** | On, Off | Off | Off | Shown when **Allow note to seller** is on. |
+| **Allow discounts in cart** | On, Off | On | On | — |
+| **Installments** | On, Off | On | On | — |
+| **Accelerated checkout buttons** | On, Off | On | On | Express payment buttons, such as Shop Pay, in the cart. Not shown while Block cart and checkout is on. |
+| **Empty cart button link** | Link | /collections/all | /collections/all | Where the button of an empty cart goes. Not shown while Block cart and checkout is on. |
+
+#### Product media
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Border style** | None, Solid | None | None | — |
+| **Border thickness** | 0–10px | 1px | 1px | Shown when **Border style** is not None. |
+| **Border opacity** | 0–100% | 50% | 50% | Shown when **Border style** is not None. |
+| **Corner radius** | 0–100px | 0px | 0px | — |
+
+{/* settings:end */}
+
+### Prices
+
+{/* settings:begin source=theme:prices level=4 */}
+
+**Tangent uses** is the value saved in the live theme's settings.
+
+#### Currency code
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Product pages** | On, Off | On | Off | Adds the currency code after Shopify prices. The site shows no Shopify prices, so this group has no effect. |
+| **Product cards** | On, Off | On | Off | — |
+| **Cart items** | On, Off | On | Off | — |
+| **Cart total** | On, Off | On | On | — |
+
+{/* settings:end */}
+
+### Product cards
+
+{/* settings:begin source=theme:product-cards level=4 */}
+
+**Tangent uses** is the value saved in the live theme's settings.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Quick add** | On, Off | On | On | A quick add button on product cards. Hidden while Cart › Block cart and checkout is on, and the site shows no product cards. |
+| **Mobile quick add** | On, Off | Off | Off | Shown when **Quick add** is on. |
+| **Background** | Color | Palette background | Palette background | Shown when **Quick add** is on. |
+| **Text** | Color | Palette foreground | Palette foreground | Shown when **Quick add** is on. |
+
+#### Media
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Show second image on hover** | On, Off | On | On | — |
+| **Show carousel** | On, Off | On | On | — |
+
+{/* settings:end */}
+
+### Search
+
+{/* settings:begin source=theme:search level=4 */}
+
+**Tangent uses** is the value saved in the live theme's settings.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Empty state collection** | Collection | — | Empty | Products the search panel shows before anyone types. The header has no search, so the panel never opens. |
+
+#### Search popover
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Product corner radius** | 0–32px | 0px | 0px | — |
+| **Card corner radius** | 0–16px | 0px | 14px | — |
+| **Product and card title case** | Default, Uppercase | Default | Default | — |
+
+{/* settings:end */}
+
+### Swatches
+
+{/* settings:begin source=theme:swatches level=4 */}
+
+**Tangent uses** is the value saved in the live theme's settings.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Variant images** | On, Off | Off | Off | Swatches show product options as small color or picture squares. The scanner's page has no option picker, so this group has no effect. |
+| **Width** | 16–100px | 30px | 34px | — |
+| **Height** | 16–100px | 30px | 34px | — |
+| **Corner radius** | 0–100px | 100px | 32px | — |
+| **Borders** | None, Solid | Solid | Solid | — |
+| **Border thickness** | 0–10px | 1px | 1px | Shown when **Borders** is not None. |
+| **Border opacity** | 0–100% | 10% | 10% | Shown when **Borders** is not None. |
+
+{/* settings:end */}
+
+### Variant pickers
+
+{/* settings:begin source=theme:variant-pickers level=4 */}
+
+**Tangent uses** is the value saved in the live theme's settings.
+
+#### Variant settings
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Background** | Color | Palette background | Palette background | The option buttons of Shopify's default product page. The scanner's page uses the quote template, which has none. |
+| **Text** | Color | Palette foreground | Palette foreground | — |
+| **Borders** | Color | Palette foreground | Palette Color 2 | — |
+
+#### Selected variants
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Background** | Color | Palette foreground | Palette foreground | — |
+| **Text** | Color | Palette background | Palette background | — |
+| **Borders** | Color | Palette foreground | Palette foreground | — |
+
+#### Buttons
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Border thickness** | 0–4px | 1px | 1px | — |
+| **Corner radius** | 0–100px | 8px | 14px | — |
+| **Width** | Fit, Fill | Fill | Fill | — |
+
+{/* settings:end */}
+
+## Data and metafields
+
+None. Products, prices and collections live in the Shopify admin, but the site only uses the scanner's product
+record: see [Product page](/page-recipes/product-page).
+
+## Limitations
+
+- Shopify still serves its standard shop pages: a search page, collection pages and the default product template.
+  The site doesn't link to them, and they keep Horizon's look rather than the Tangent design. Leave them as they are.

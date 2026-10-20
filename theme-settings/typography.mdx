@@ -1,0 +1,148 @@
+---
+title: "Typography"
+description: "Horizon's fonts and text presets, and why texts with a Tangent style ignore them."
+---
+
+## What it does
+
+Sets Horizon's default text color, its 4 fonts and its 7 **text presets**: **Paragraph** and **Heading 1** to
+**Heading 6**. A preset is a ready-made text size with its line height, letter spacing and case. Horizon's own
+blocks pick a preset; the sizes shrink by themselves on smaller screens.
+
+On this site the group has almost no visible effect: every text on the site's pages uses a **Tangent style**,
+which brings its own font, size and color.
+
+<Frame caption="Tangent text styles. They don't come from this group.">
+  <img src="/images/text-styles.png" alt="A section head in the Tangent styles: a small mono eyebrow, a large blue heading and a grey lede" />
+</Frame>
+
+## Where to find it
+
+<Steps>
+  <Step title="Open the theme editor">
+    **Online Store → Themes → Customize**. See [Open the theme editor](/getting-started/theme-editor).
+  </Step>
+  <Step title="Open Theme settings">
+    In the narrow bar on the far left of the editor, click the **Theme settings** icon.
+  </Step>
+  <Step title="Open the group">
+    Click **Typography**.
+  </Step>
+</Steps>
+
+## What the Tangent design overrides
+
+- **Fonts.** The Tangent styles use Geist for headings, Inter for text and Geist Mono for small labels. These fonts
+  come with the theme and aren't listed in the font pickers here. **Body** and **Heading** (both Archivo) are only
+  fallbacks, used for a character the Tangent fonts don't have. **Subheading** (Archivo) and **Accent** (IBM Plex
+  Mono) aren't used by the Tangent styles at all.
+- **Text presets.** A Text block with a **Tangent style** ignores its **Preset**, so it ignores these sizes too.
+  The footer menu, the blog post cards and the FAQ questions also have their look set by the Tangent design.
+- **Text color.** Every Tangent style sets its own color, so **Text** only reaches text that has no Tangent style.
+
+What the group still reaches: the pages Horizon draws on its own, such as the password page shown while the store
+is locked, and Shopify's shop pages, which the site doesn't link to.
+
+## Settings
+
+Leave the group as it is. To make one text bigger or smaller, don't change the presets: pick another
+**Tangent style** on that Text block. See [Text styles](/blocks/text-styles).
+
+{/* settings:begin source=theme:typography level=3 */}
+
+**Tangent uses** is the value saved in the live theme's settings.
+
+### Colors
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Text** | Color | Palette foreground | Palette Color 1 | Leave as is. Default color of text with no Tangent style and of the parts Horizon draws itself. |
+
+### Fonts
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Body** | Font | Work Sans 400 | Archivo 400 | Leave as is. Only a fallback: Tangent text uses Inter, which comes with the theme. |
+| **Subheading** | Font | Work Sans 500 | Archivo 600 | Leave as is. The Tangent styles don't use it. |
+| **Heading** | Font | Anonymous Pro 400 | Archivo 700 | Leave as is. Only a fallback: Tangent headings use Geist, which comes with the theme. |
+| **Accent** | Font | Anonymous Pro 400 | IBM Plex Mono 500 | Leave as is. The Tangent styles don't use it: small labels use Geist Mono. |
+
+### Paragraph
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Size** | 10px, 12px, 14px, 16px, 18px | 14px | 16px | — |
+| **Line height** | Tight, Normal, Loose | Normal | Loose | — |
+
+### Heading 1
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Font** | Heading, Accent | Heading | Heading | — |
+| **Size** | 16 options: 10px, 12px, 14px, 16px, … | 72px | 56px | — |
+| **Line height** | Tight, Normal, Loose | Normal | Tight | — |
+| **Letter spacing** | Tight, Normal, Loose | Normal | Tight | — |
+| **Case** | Default, Uppercase | Default | Default | — |
+
+### Heading 2
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Font** | Heading, Accent | Heading | Heading | — |
+| **Size** | 16 options: 10px, 12px, 14px, 16px, … | 48px | 40px | — |
+| **Line height** | Tight, Normal, Loose | Normal | Tight | — |
+| **Letter spacing** | Tight, Normal, Loose | Normal | Tight | — |
+| **Case** | Default, Uppercase | Default | Default | — |
+
+### Heading 3
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Font** | Heading, Accent, Subheading, Body | Heading | Heading | — |
+| **Size** | 16 options: 10px, 12px, 14px, 16px, … | 32px | 24px | — |
+| **Line height** | Tight, Normal, Loose | Normal | Normal | — |
+| **Letter spacing** | Tight, Normal, Loose | Normal | Normal | — |
+| **Case** | Default, Uppercase | Default | Default | — |
+
+### Heading 4
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Font** | Heading, Accent, Subheading, Body | Subheading | Heading | — |
+| **Size** | 16 options: 10px, 12px, 14px, 16px, … | 24px | 20px | — |
+| **Line height** | Tight, Normal, Loose | Normal | Tight | — |
+| **Letter spacing** | Tight, Normal, Loose | Normal | Normal | — |
+| **Case** | Default, Uppercase | Default | Default | — |
+
+### Heading 5
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Font** | Heading, Accent, Subheading, Body | Subheading | Subheading | — |
+| **Size** | 16 options: 10px, 12px, 14px, 16px, … | 18px | 14px | — |
+| **Line height** | Tight, Normal, Loose | Normal | Loose | — |
+| **Letter spacing** | Tight, Normal, Loose | Normal | Normal | — |
+| **Case** | Default, Uppercase | Default | Default | — |
+
+### Heading 6
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Font** | Heading, Accent, Subheading, Body | Subheading | Subheading | — |
+| **Size** | 16 options: 10px, 12px, 14px, 16px, … | 16px | 12px | — |
+| **Line height** | Tight, Normal, Loose | Normal | Loose | — |
+| **Letter spacing** | Tight, Normal, Loose | Normal | Normal | — |
+| **Case** | Default, Uppercase | Default | Default | — |
+
+{/* settings:end */}
+
+## Data and metafields
+
+None.
+
+## Limitations
+
+- The Tangent fonts and sizes can't be changed in the theme editor. Ask your developer.
+- A text with its **Tangent style** set to **None** falls back to the presets here and looks out of place next to
+  the rest of the page. Keep a Tangent style on every text.
+- Changing a preset changes it on every page that uses it, at once.

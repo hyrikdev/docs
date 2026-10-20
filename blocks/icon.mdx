@@ -3,13 +3,10 @@ title: "Icon"
 description: "A single line icon on its own, beside a short text or above a card title."
 ---
 
-The **Icon** block shows one small icon. On this site it's a blue line icon from the **Tangent** set, placed
-in a group next to a short text or above a title. It's not the same as the icon of a **Card**: cards in a
-**Card list** pick their icon in the card's own **Icon** setting (see [Card list](/blocks/card-list)).
+## What it does
 
-## What it looks like
-
-The site uses two of its **Tangent style** looks:
+Shows one small icon. On this site it's a blue line icon from the **Tangent** set, placed in a group next to a
+short text or above a title. The site uses two of its **Tangent style** looks:
 
 - **Accent**: a bare blue line icon, 24 pixels wide. For example the precision target beside "0.025mm accuracy"
   in the homepage hero.
@@ -24,21 +21,7 @@ The site uses two of its **Tangent style** looks:
   <img src="/images/why-badges.png" alt="The Why Tangent section: three reasons with blue line icons above a row of five blue check badges before Fast turn-around, Same day service, Expert technicians, Universal file delivery and In-house teams" />
 </Frame>
 
-## Block settings
-
-| Setting | What it does |
-|---|---|
-| **Icon** | The icon to show. Pick one of the **Tangent** icons (their names all start with "Tangent"). The list also has the theme's own icons (food, clothing, social networks…), which this site doesn't use. See [Icons](/design-rules/icons) for which icon means what. |
-| **Image icon** | An uploaded picture to use instead of an icon. Not used on this site. |
-| **Width** | The icon's size in pixels. The site uses 24 for icons, 22 in the contact rows of the short landing pages, and 12 for badges. |
-| **Link** | Makes the icon a link. |
-| **Open link in new tab** | Opens the link in a new tab. Links to other websites open in a new tab anyway. |
-| **Color** | A custom color. Leave it empty: the **Tangent style** sets the blue. |
-| **Tangent style** | **Accent** (blue icon), **Badge** (filled blue square), **Tile** (bordered square) or **None** (the theme's own look). |
-
-## Where it's used on the site
-
-**The homepage**, in four sections:
+The site has 31 icon blocks. **The homepage** has 21, in four sections:
 
 | Section | Icons |
 |---|---|
@@ -47,10 +30,49 @@ The site uses two of its **Tangent style** looks:
 | **Why Tangent** | **Tangent plane**, **Tangent target** and **Tangent clock**, plus five **Tangent check** badges before the short list of strengths. |
 | **Scanning options** | **Tangent scan**, **Tangent pin**, **Tangent truck**. |
 
-**The short landing pages** (five of them), in the **Contact** section: **Tangent pin** before the address and
-**Tangent clock** before the opening hours, both **Accent** at 22 pixels.
+**The short landing pages** (five of them) have 2 each, in the **Contact** section: **Tangent pin** before the
+address and **Tangent clock** before the opening hours, both **Accent** at 22 pixels.
 
-## Notes
+## Where to find it
+
+<Steps>
+  <Step title="Open the page">
+    In the theme editor, open the **Home page** template, or a short landing page's template (for example
+    **landing-short-reverse-engineering-company**).
+  </Step>
+  <Step title="Select the block">
+    In the sidebar, open the section (for example **Hero**) and the groups inside it, and select **Icon**.
+  </Step>
+</Steps>
+
+To add one, select the group that holds the text and choose **Add block › Icon**.
+
+## Settings
+
+Pick the **Icon** and keep **Tangent style** on **Accent** (or **Badge** for a check before a short strength).
+Leave **Color** empty.
+
+{/* settings:begin source=block:icon level=3 */}
+
+Used 31 times across 6 page layouts and header/footer groups. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Icon** | 115 options: None, Apple, Arrow, Banana, … | Apple | Tangent clock (7), Tangent pin (6), 9 more | Pick a Tangent icon (their names start with Tangent). The other icons are the theme's own and aren't used on this site. |
+| **Image icon** | Image | — | Empty | An uploaded picture instead of an icon. Not used on this site. |
+| **Width** | 12–200px | 24px | 24px (16), 22px (10), 1 more | 24 for icons, 22 in the contact rows of the short landing pages, 12 for badges. |
+| **Link** | Link | — | Empty | — |
+| **Open link in new tab** | On, Off | Off | Off | Links to other websites open in a new tab anyway. |
+| **Color** | Color | — | Empty | Leave empty: the Tangent style sets the blue. |
+| **Tangent style** | None, Accent, Tile, Badge | None | Accent (26), Badge (5) | Accent: bare blue icon. Badge: filled blue square, a 12px icon makes an 18px badge. Tile: bordered square, not used here. None: the theme's own look. |
+
+{/* settings:end */}
+
+## Data and metafields
+
+None.
+
+## Limitations
 
 <Warning>
 Same idea, same icon. Before you pick an icon, check the [icon table](/design-rules/icons): if the homepage
@@ -58,5 +80,7 @@ already uses an icon for that idea, use the same one. Don't put icons in boxes (
 on the site).
 </Warning>
 
+- It's not the same as the icon of a **Card**: cards in a **Card list** pick their icon in the card's own
+  **Icon** setting (see [Card list](/blocks/card-list)).
 - To add an icon beside a text, put the **Icon** and the **Text** in the same group, as on the homepage hero.
   Copy an existing group rather than building a new one.

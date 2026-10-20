@@ -1,0 +1,6 @@
+{
+  "color_palette.background": "Leave as is. Fills Page › Background, the color behind every section of every page. The Tangent text colors are made for white.",
+  "color_palette.foreground": "Leave as is. A navy from an earlier design. Only parts Horizon draws itself use it; the Tangent blocks use their own near-black.",
+  "color_palette.color1": "Leave as is. Fills Typography › Text, the default color of text that has no Tangent style.",
+  "color_palette.color2": "Leave as is. The light line color of Horizon's drawers, pop-ups and option buttons."
+}

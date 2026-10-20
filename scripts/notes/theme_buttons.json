@@ -1,0 +1,5 @@
+{
+  "palette_primary_button_background": "Horizon's own primary buttons only. Buttons with a Tangent **Style** ignore every setting in this group.",
+  "palette_secondary_button_background": "Horizon's own secondary buttons only; Tangent buttons ignore it.",
+  "pills_border_radius": "The rounded tags of shop filters, discount codes and search suggestions. None show on the site."
+}

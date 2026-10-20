@@ -3,8 +3,10 @@ title: "Breadcrumbs"
 description: "The small trail at the top of a page that shows where the visitor is."
 ---
 
-Breadcrumbs are the small trail at the top of most pages, for example **Home / Locations / 3D scanning Chicago**.
-Visitors can click a step to go back up. Search engines read the trail too.
+## What it does
+
+Shows the small trail at the top of a page, for example **Home / Locations / 3D scanning Chicago**. Visitors
+can click a step to go back up. Search engines read the trail too.
 
 <Frame caption="Breadcrumbs on a location page, in their own ruled row">
   <img src="/images/breadcrumbs-desktop.png" alt="Breadcrumbs reading Home / Locations / 3D scanning Chicago above the page title" />
@@ -14,27 +16,80 @@ Visitors can click a step to go back up. Search engines read the trail too.
   <img src="/images/breadcrumbs-phone.png" alt="On a phone, the breadcrumbs sit in a thin row above the page title" style={{ maxWidth: "375px" }} />
 </Frame>
 
-## The trails on this site
+The site has breadcrumbs on 86 templates: every location and service page, the blog, the case studies, every
+blog post, the products and almost every other page.
+
+### The trails on this site
 
 | Page | Trail |
 |---|---|
 | Service pages | Home / Services / page |
 | Location pages | Home / Locations / page |
+| The Orange County landing page and three short landing pages | Home / Locations / page |
 | Blog posts | Home / Blog / post |
 | Other pages | Home / page |
 
+## Where to find it
+
+<Steps>
+  <Step title="Open the page">
+    In the theme editor, open the page's template (for example **location-chicago**).
+  </Step>
+  <Step title="Select the block">
+    In the sidebar, open the hero section (**Location hero** on a location page, **Service hero** on a service
+    page, **Hero** or **Page** on most others) and select **Breadcrumbs**. It's the first block of the section, or
+    of the **Page** group inside it.
+  </Step>
+</Steps>
+
+To add one, select the hero section and choose **Add block › Breadcrumbs**, then drag it to the top.
+
 ## Settings
 
-| Setting | What it does |
-|---|---|
-| **Home label** | The first step. Keep "Home". |
-| **Parent label** | The middle step, for example "Services" or "Locations". Leave empty for none. |
-| **Parent link** | Where the middle step goes, for example `/pages/services` or `/pages/locations`. |
-| **Title override** | The last step. Leave empty to use the page title. |
-| **Tangent style** | **Strip: own ruled row** puts the trail in its own row with a line under it. Used on every page. |
-| **Accessible name** | What screen readers announce. Keep "Breadcrumb". |
+**Parent label** and **Parent link** make the middle step. Leave **Title override** empty, so the last step
+follows the page title; only the blog list ("Blog") and the case studies list ("Case studies") set one. Keep the
+rest as it is.
 
-<Tip>
-The breadcrumbs are the first block of the hero section. When you make a new page from an existing
-template, check that **Parent label** and **Parent link** fit the new page.
-</Tip>
+{/* settings:begin source=block:breadcrumbs level=3 */}
+
+Used 86 times across 86 page layouts and header/footer groups. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Home label** | Text | “Home” | “Home” | The first step. Keep Home. |
+
+### Parent page
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Parent label** | Text | — | Set on 64 of 86 | The middle step, for example Services or Locations. Leave empty for none. |
+| **Parent link** | Link | — | Set on 64 of 86 | Where the middle step goes, for example the Services or Locations page. |
+
+### Current page
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Title override** | Text | — | Empty (84), “Case studies” (1), 1 more | The last step. Leave empty to use the page's own title. |
+| **Alignment** | Left, Center | Left | Left | — |
+| **Tangent style** | None, Strip: own ruled row | None | Strip: own ruled row | Strip: the trail in its own row with a thin line under it. Used on every page; keep it the first block of the hero section. |
+| **Accessible name** | Text | “Breadcrumb” | “Breadcrumb” | What screen readers announce. Keep Breadcrumb. |
+
+### Padding
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Top** | 0–100px | 0px | 0px | — |
+| **Bottom** | 0–100px | 0px | 0px | — |
+
+{/* settings:end */}
+
+## Data and metafields
+
+None. The last step is the title of the page, post or product, as set in the admin (see
+[Pages and SEO](/admin/pages-and-seo)).
+
+## Limitations
+
+- When you make a new page from an existing template, check that **Parent label** and **Parent link** fit the
+  new page.
+- Each page has its own breadcrumbs: a change on one page doesn't change the others.

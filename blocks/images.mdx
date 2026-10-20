@@ -1,31 +1,41 @@
 ---
 title: "Images"
-description: "Photos, logos and drawings: how they're framed and cropped."
+description: "The Image block: photos, logos and drawings, and how they're framed and cropped."
 ---
 
-Photos appear in two places:
+## What it does
 
-- in an **Image** block, for example the hero photo or a photo beside a block of text;
-- inside a **Card**, for example in a gallery or a set of photo cards. See [Card list](/blocks/card-list).
+The **Image** block shows one picture: a photo beside a block of text, the hero photo of a page, a client logo
+or a drawing. Its **Tangent style** decides the look: **Media** for photos, **Logo** for client logos.
 
 <Frame caption="A Media image beside the hero text, with a caption in its bottom corner">
   <img src="/images/image-caption.png" alt="A landing page hero: title, intro, chips and buttons on the left, a photo on the right with the caption '3D scanning of engine head'" />
 </Frame>
 
-## Image block settings
+The site has 558 Image blocks on 79 page layouts: 448 photos (**Media**), 106 client logos (**Logo**), 3 small
+logos in a row and 1 wordmark.
 
-| Setting | What it does |
-|---|---|
-| **Image** | The picture. Click **Change** to pick another one. |
-| **Link** | Optional. Makes the image a link. |
-| **Tangent style** | **Media** for photos (fills its frame on a light gray background), **Logo** for client logos (gray, in color on hover), **Logo in a row** (small color logo), **Wordmark** (a brand name logo). |
-| **Caption** | **Media** only: a short mono label in the bottom corner of the photo. Leave blank for none. |
-| **Crop position, vertical** | **Media** only: where a cropped photo is cut. 0% keeps the top, 50% the middle, 100% the bottom. |
-| **Show the whole image** | **Media** only: for a part on a white background, shows the whole image without cropping. |
-| **Maximum image height** | With **Show the whole image**: limits the height of the image. 0 lets it fill the space. |
-| **Hide when empty** | Shows nothing when no image is picked. |
-| **Aspect ratio** | The shape of the frame: **Auto**, **Portrait**, **Square**, **Landscape**, **4:3**, **21:9** or **16:10**. |
-| **Grid span** | In a photo grid: makes one photo take 2 columns, 2 rows or both. Already set where it's used. |
+Photos inside cards and galleries aren't Image blocks: they're set on each **Card**. See
+[Card list](/blocks/card-list).
+
+## Where to find it
+
+<Steps>
+  <Step title="Open the page">
+    In the theme editor, open the page's template (for example **landing-cnc**). See
+    [How the pages are set up](/editing-pages/how-pages-work).
+  </Step>
+  <Step title="Select the image">
+    Click the picture in the preview, or open its section in the sidebar and select **Image**. Most images sit
+    inside a group, next to the text they belong to.
+  </Step>
+  <Step title="Change it">
+    Under **Image**, click **Change** to pick another file or upload one. See
+    [Replace an image](/how-to/replace-image).
+  </Step>
+</Steps>
+
+To add one, select a section or group and choose **Add block › Image**.
 
 ## Cropping and focus
 
@@ -34,7 +44,7 @@ of a photo is cut off:
 
 1. Click the image (or the card).
 2. Move **Crop position, vertical**: lower numbers keep more of the top, higher numbers more of the bottom.
-3. Check the desktop and the mobile view: the frame shape changes between them.
+3. Check the desktop and the mobile view: the frame's shape changes between them.
 
 If the image is a screenshot, a report or a drawing with text in it, turn on **Show the whole image** instead.
 Text in a picture should never be cut off.
@@ -43,11 +53,85 @@ Text in a picture should never be cut off.
 
 - **Size:** at least 1600 pixels wide for wide photos, 1000 pixels for cards. Keep files under about 1 MB.
 - **Format:** JPG for photos, PNG or SVG for logos and drawings.
-- **One shape per row:** all photos in a row or a grid use the same aspect ratio.
+- **One shape per row:** all photos in a row or a grid use the same **Aspect ratio**.
 - **Real photos:** use Tangent's own project photos. Don't add stock photos that weren't on the site before.
-- **Alt text:** describe each image in a short sentence. See [Files and images](/admin/files-and-images).
+- **Alt text:** describe each image in a short sentence. The alt text belongs to the file: see
+  [Files and images](/admin/files-and-images).
 - **Logos:** the alt text is the company name shown on the logo.
 
-<Note>
-Cards with a photo don't get an icon. One marker per card is enough.
-</Note>
+## Settings
+
+Pick the picture under **Image** and the look under **Tangent style**: **Media** for photos, **Logo** for client
+logos. For photos, **Crop position, vertical**, **Show the whole image** and **Caption** are the ones you may
+need. The size, border and padding settings are already set to fit the layout around the image: leave them as
+they are.
+
+{/* settings:begin source=block:image level=3 */}
+
+Used 558 times across 79 page layouts and header/footer groups. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Image** | Image | — | Set on all, 6 from a page field | Pick a file or upload one. The alt text comes from the file itself: set it in Content → Files. |
+| **Link** | Link | — | Empty | — |
+| **Tangent style** | None, Logo, Logo in a row, Media, Wordmark | None | Media (448), Logo (106), 2 more | Media: photos, filling the frame on light gray. Logo: client logos, gray, in color on hover. Logo in a row: small color logo. Wordmark: a brand-name logo. |
+| **Grid span** | None · Wide, 2 columns · Tall, 2 rows · Large, 2 × 2 · Lead, 2 columns, fills the row · Row on top below 1200px | None | None (523) · Lead, 2 columns, fills the row (33) · 2 more | Leave as is: already set where it's used. In a photo grid it makes one photo take 2 columns, 2 rows or both. |
+| **Hide when empty** | On, Off | Off | Off (460), On (98) | Shows nothing on the storefront when there is no image, for example when the page field connected here is blank on a page. The theme editor still shows the placeholder. |
+| **Minimum height from 990px** | 0–800px | 0px | 0px (164), 420px (16), 6 more | Shown when **Tangent style** is Media and **Height** is Fill. Leave as is. The least height of a photo beside text on large screens (for example a hero photo); longer text still makes the row taller. |
+| **Caption** | Text | — | Empty (447), “3D scanning of engine head” (1) | Shown when **Tangent style** is Media. A short label in the bottom corner of the photo, for example what it shows. Leave blank for none. |
+| **Show the whole image** | On, Off | Off | Off (440), On (8) | Shown when **Tangent style** is Media. For a part on a white background or a drawing: shows the whole image, never cropped. Keep it off for photos. |
+| **Maximum image height** | 0–800px | 0px | 0px (7), 420px (1) | Shown when **Tangent style** is Media and **Show the whole image** is on. Limits the height of the whole image, centred in its space. 0 lets it fill the space. |
+| **Fill above the image** | Color | — | Empty (7), #767580 (1) | Shown when **Tangent style** is Media and **Show the whole image** is on. Leave empty. Used once, for an image with its own gray background: the colour of the image's top edge fills the space above it. |
+| **Fill below the image** | Color | — | Empty (7), #414047 (1) | Shown when **Tangent style** is Media and **Show the whole image** is on. Leave empty. The colour of the image's bottom edge, filling the space below it. |
+| **Copy first when stacked** | On, Off | Off | Off (420), On (28) | Shown when **Tangent style** is Media. For a group of photos beside text: below 990 pixels the text comes first, then the photos. |
+| **Crop position, vertical** | 0–100% | 50% | 50% (447), 30% (1) | Shown when **Tangent style** is Media. Where a cropped photo is cut: 0% keeps the top, 50% the middle, 100% the bottom. |
+
+### Size
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Aspect ratio** | Auto, Portrait, Square, Landscape, 4:3, 21:9, 16:10 | Auto | Auto (300), 4:3 (245), 4 more | The frame's shape. Auto keeps the image's own shape; Portrait is 4:5, Landscape 16:9. Keep one shape per row. |
+| **Desktop width** | Fit, Fill, Custom | Fill | Fill (449), Custom (107), 1 more | Leave as is: the layout around the image depends on it. |
+| **Custom width** | 0–100% | 100% | 50% (106), 16% (1) | Shown when **Desktop width** is Custom. |
+| **Mobile width** | Fit, Fill, Custom | Fill | Fill (555), Fit (2), 1 more | Leave as is: the layout around the image depends on it. |
+| **Custom width** | 0–100% | 100% | 30% | Shown when **Mobile width** is Custom. |
+| **Height** | Fit, Fill | Fit | Fill (189), Fit (111) | Shown when **Aspect ratio** is Auto. |
+
+### Borders
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Style** | None, Solid | None | None | Leave on None: images on this site have no border. |
+| **Thickness** | 0–100px | 1px | Hidden on every copy | Shown when **Style** is not None. |
+| **Opacity** | 0–100% | 100% | Hidden on every copy | Shown when **Style** is not None. |
+| **Color** | Color | — | Hidden on every copy | Shown when **Style** is not None. |
+| **Corner radius** | 0–100px | 0px | 0px | Leave at 0px: the site's images have square corners. |
+
+### Padding
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Top** | 0–100px | 0px | 0px | — |
+| **Bottom** | 0–100px | 0px | 0px | — |
+| **Left** | 0–100px | 0px | 0px | — |
+| **Right** | 0–100px | 0px | 0px | — |
+
+{/* settings:end */}
+
+## Data and metafields
+
+| Where | What lives there |
+|---|---|
+| Shopify admin → **Content → Files** | Every image file and its alt text. See [Files and images](/admin/files-and-images). |
+| Shopify admin → **Online Store → Pages** → the page → **Metafields** | The hero image field, used by the five short landing page templates and the shared **landing-short** layout. There the **Image** setting is connected to that field, so the photo is changed on the page, not in the theme editor. See [Landing pages](/page-recipes/landing-page). |
+
+## Limitations
+
+- **Caption**, **Crop position, vertical**, **Show the whole image** and **Copy first when stacked** only work
+  with the **Media** style.
+- The frame's shape can change between desktop and phone, so a crop that looks right on one may cut on the
+  other. Check both.
+- An image connected to a page field shows a placeholder in the theme editor when the field is empty. With
+  **Hide when empty** on, visitors see nothing there.
+- The block has no alt text setting: the alt text always comes from the file.
+- Logos look gray until the visitor points at them; that's the **Logo** style, not a faded file.

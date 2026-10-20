@@ -1,17 +1,37 @@
 ---
 title: "Footer"
-description: "The bottom of every page: about text, industries, links, contact and social icons."
+description: "The bottom of every page: about text, industries, links, contact details and social icons."
 ---
 
-The footer is shared by every page. In the theme editor it's near the bottom of the sidebar, under **Footer**.
+## What it does
+
+The footer closes every page of the site: the logo and a short text about Tangent, the industries Tangent
+serves, the Helpful Links menu, the contact details, the social icons and the copyright line. It's one shared
+section, so a change here shows on every page at once.
 
 <Frame caption="The footer on desktop">
   <img src="/images/footer-desktop.png" alt="The footer with the logo and about text, industry chips, helpful links, contact details, social icons and the copyright line" />
 </Frame>
 
+## Where to find it
+
+<Steps>
+  <Step title="Open any page">
+    In the theme editor, open any page. The footer is the same on all of them.
+  </Step>
+  <Step title="Select the footer">
+    At the bottom of the sidebar, in the **Footer** group, select **Footer** for its own settings.
+  </Step>
+  <Step title="Select a part">
+    Open **Footer** and the groups inside it, then select the block you want to change (see the table below).
+  </Step>
+</Steps>
+
+To add a block, select a group inside the footer and choose **Add block**, then the block, for example **Add block › Text**.
+
 ## What's in it
 
-The footer is made of groups of ordinary blocks, so you edit it like any page:
+The footer is built from groups of ordinary blocks, so you edit it like any page:
 
 | Part | Block | How to change it |
 |---|---|---|
@@ -19,16 +39,183 @@ The footer is made of groups of ordinary blocks, so you edit it like any page:
 | About text | **Text** (style **Body small**) | Click it and edit the words. |
 | "Industries we serve" | **Text** (style **Chips**) | Edit the bulleted list: one industry per bullet. |
 | "Helpful links" | **Menu** | Shows the **Helpful Links** menu. Edit that menu in **Online Store → Navigation**. See [Menus](/admin/menus). |
-| "Contact us" | **Text** (style **Body small**) | Edit the phone, email, meeting link, hours and address. Each is a line with a link. |
+| "Contact us" | **Text** (style **Body small**) | Edit the phone, email, meeting link, hours and address. Each is its own line; all but the hours are links. |
 | "Get connected" | **Social media links** | Paste the Facebook, Instagram and YouTube page addresses. Empty fields hide their icon. |
 | Copyright line | **Text** (style **Mono**) | Update the year when it changes. |
+
+The headings ("Industries we serve", "Contact us", "Get connected") are **Text** blocks with the style
+**Eyebrow, leading mark**. For the **Text** styles, see [Text styles](/blocks/text-styles); for groups, see
+[Section layout](/blocks/section-layout).
 
 <Note>
 The phone number appears twice in the footer: in the "Contact us" text and as the **Call Now** link in the
 Helpful Links menu. Update both when the number changes. See [Change the phone number](/how-to/change-phone-number).
 </Note>
 
-## Footer settings
+## Settings
 
-Click **Footer** itself to see **Rails** and **Top border across the page**. Keep **Rails, no inner padding**
-and the top border on, as on every other section.
+On **Footer** itself, keep **Rails** at **Rails, no inner padding** and **Top border across the page** on, as on
+every other section. In the blocks, the settings you'll use are the **Menu** block's **Menu** and **Heading**, and
+the **Social media links** addresses. The tables for **Logo**, **Menu** and **Social media links** count every
+copy of those blocks on the site, not only the footer's.
+
+### Footer
+
+{/* settings:begin source=section:footer level=4 */}
+
+Used once across 1 page layout or header/footer group. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Width** | Page, Full | Page | Page | — |
+| **Gap** | 0–100px | 0px | 0px | — |
+| **Background color** | Color | Palette foreground | Palette background | — |
+
+#### Tangent frame
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Rails** | None · Rails with inner padding · Rails, no inner padding | None | Rails, no inner padding | Keep **Rails, no inner padding**: thin vertical lines at the page edges and between the footer columns, as on every other section. |
+| **Top border across the page** | On, Off | Off | On | A thin line across the whole page above the footer. Keep it on. |
+
+#### Padding
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Top** | 0–100px | 20px | 0px | — |
+| **Bottom** | 0–100px | 20px | 0px | — |
+
+{/* settings:end */}
+
+### Logo
+
+{/* settings:begin source=block:logo level=4 */}
+
+Used 2 times across 2 page layouts and header/footer groups. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Use inverse logo** | On, Off | Off | Off | Shown when Theme settings › **Inverse logo** is set. |
+| **Font** | Body, Subheading, Heading, Accent | Heading | Heading | Shown when Theme settings › **Default logo** is empty and Theme settings › **Inverse logo** is empty or **Use inverse logo** is off. |
+| **Color** | Color | — | Empty | Shown when Theme settings › **Default logo** is empty and Theme settings › **Inverse logo** is empty or **Use inverse logo** is off. |
+
+#### Size
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Unit** | Pixel, Percent | Percent | Pixel | — |
+| **Width** | 10–100% | 100% | Hidden on every copy | Shown when **Size › Unit** is Percent. |
+| **Height** | 16–320px | 48px | 24px | Shown when **Size › Unit** is Pixel. |
+| **Custom mobile size** | On, Off | Off | Off | — |
+
+#### Mobile size
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Unit** | Pixel, Percent | Percent | Hidden on every copy | Shown when **Custom mobile size** is on. |
+| **Width** | 10–100% | 100% | Hidden on every copy | Shown when **Mobile size › Unit** is Percent and **Custom mobile size** is on. |
+| **Height** | 16–160px | 120px | Hidden on every copy | Shown when **Mobile size › Unit** is Pixel and **Custom mobile size** is on. |
+
+#### Padding
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Top** | 0–100px | 0px | 2px (1), 0px (1) | — |
+| **Bottom** | 0–100px | 0px | 4px (1), 32px (1) | — |
+| **Left** | 0–100px | 0px | 0px | — |
+| **Right** | 0–100px | 0px | 0px | — |
+
+{/* settings:end */}
+
+### Menu
+
+{/* settings:begin source=block:menu level=4 */}
+
+Used 3 times across 3 page layouts and header/footer groups. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Menu** | Menu | main-menu | Set on all | — |
+| **Heading** | Text | — | Empty (2), “Helpful links” (1) | — |
+
+#### Appearance
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Tangent style** | None, Index: ruled columns | None | Index: ruled columns (2), None (1) | Index: the links as ruled cells in 3 columns (2 on tablet, 1 on mobile), each with its sub-links in small mono text below it. Only the Heading setting is shown as a title. |
+| **Caption from the page title** | On, Off | Off | Off (1), On (1) | Shown when **Tangent style** is Index: ruled columns. Index only: under each link, its page's title without the link title (e.g. 3D scanning services Atlanta under Atlanta), before the sub-links. |
+| **Vertical gap** | 0–50px | 12px | 12px (2), 10px (1) | — |
+| **Show as accordion on mobile** | On, Off | Off | Off | — |
+| **Icon** | Caret, Plus | Caret | Hidden on every copy | Shown when **Show as accordion on mobile** is on. |
+| **Dividers** | On, Off | Off | Hidden on every copy | Shown when **Show as accordion on mobile** is on. |
+| **Background color** | Color | — | Empty | — |
+| **Text color** | Color | — | Empty | — |
+
+#### Typography
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Heading preset** | Default, Paragraph, Heading 1, Heading 2, Heading 3, Heading 4, Heading 5, Heading 6 | Heading 3 | Heading 3 (2), Heading 6 (1) | — |
+| **Link preset** | Default, Paragraph, Heading 1, Heading 2, Heading 3, Heading 4, Heading 5, Heading 6 | Paragraph | Paragraph | — |
+
+#### Padding
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Top** | 0–100px | 0px | 0px | — |
+| **Bottom** | 0–100px | 0px | 0px | — |
+| **Left** | 0–100px | 0px | 0px | — |
+| **Right** | 0–100px | 0px | 0px | — |
+
+{/* settings:end */}
+
+### Social media links
+
+{/* settings:begin source=block:social-links level=4 */}
+
+Used once across 1 page layout or header/footer group. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+#### Appearance
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Color** | Color | — | Empty | — |
+
+#### Links
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Facebook** | Link | — | Set on all | — |
+| **Instagram** | Link | — | Set on all | — |
+| **YouTube** | Link | — | Set on all | — |
+| **TikTok** | Link | — | Empty | — |
+| **X (Twitter)** | Link | — | Empty | — |
+| **Threads** | Link | — | Empty | — |
+| **LinkedIn** | Link | — | Empty | — |
+| **Bluesky** | Link | — | Empty | — |
+| **Snapchat** | Link | — | Empty | — |
+| **Pinterest** | Link | — | Empty | — |
+| **Tumblr** | Link | — | Empty | — |
+| **Vimeo** | Link | — | Empty | — |
+| **Custom link** | Link | — | Empty | — |
+
+{/* settings:end */}
+
+## Data and metafields
+
+| Where | What lives there |
+|---|---|
+| **Online Store → Navigation** → **Helpful Links** | The links under "Helpful links", including **Call Now**. |
+| **Theme settings → Logo and favicon** | The logo image. |
+| Theme editor → footer **Text** blocks | The about text, industries, contact details and copyright line, typed in place. |
+
+## Limitations
+
+- The footer is shared: you can't give one page a different footer.
+- The contact details are typed text, not read from **Settings → Store details**. Change them here when they
+  change.
+- A **Utilities** section (copyright, policy links and social icons) is in the **Footer** group but
+  turned off (the eye icon in the sidebar). Leave it off: the footer above already has the copyright line and
+  the social icons.
+- The **Mobile sticky CTA** section in the same group is the [mobile call bar](/blocks/sticky-bar). It's turned
+  off for now.

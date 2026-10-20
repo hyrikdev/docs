@@ -72,7 +72,7 @@ common ancestor for a three-way merge:
 |---|---|
 | `templates/*.json`, `sections/header-group.json`, `sections/footer-group.json` | **Ours.** They're the site's content. Then check whether new Horizon defaults or removed settings affect them. |
 | `config/settings_data.json` | **Ours** (merged from the live theme). |
-| `config/settings_schema.json` | **Theirs**, then re-add the **Tangent** group with `ts_sales_disabled` at the end. The new `theme_info.theme_version` comes with it. |
+| `config/settings_schema.json` | **Theirs**, then re-add `ts_sales_disabled` as the first setting of the **Cart** group. The new `theme_info.theme_version` comes with it. |
 | `locales/*.schema.json` | **Theirs**, then run `python3 docs/tangent-homepage/sync_locales.py` to append the `tangent` group again. |
 | `locales/*.json` (storefront) | **Theirs.** Check that `accessibility.new_window` still exists; `layout/theme.liquid` prints it for external links. |
 | Liquid, CSS and JS in edited Horizon files | **Theirs, with the Tangent edits re-applied.** Read the Tangent diff of each file (`git diff "$FIRST" dev -- <file>`) and port it onto the new code. |

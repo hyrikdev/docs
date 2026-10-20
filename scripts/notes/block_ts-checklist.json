@@ -1,0 +1,7 @@
+{
+  "items": "One item per line. Empty lines are skipped. Keep each item to a few words.",
+  "items_source": "Links the list to a multi-line field of the page: each line becomes an item and Items is not used. A page whose field is blank shows no list.",
+  "layout": "Inline: side by side, wrapping onto the next line. List: one under the other. Grid: in columns, as many as fit.",
+  "appearance": "Match the section background, so the text and check marks stay easy to read.",
+  "text_tone": "Body is gray, Heading is black."
+}

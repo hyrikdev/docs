@@ -1,0 +1,65 @@
+---
+title: "Page"
+description: "The page background and page width, which the Tangent layout depends on."
+---
+
+## What it does
+
+Sets 2 things for every page: the **Background** color behind all sections, and the **Page width**, the widest
+the content gets on a large screen.
+
+Both show on every page of the site. Most sections have no background of their own, so the page background
+shows through them. The page width is the width of the 2 thin vertical lines (the rails) that frame every
+page, from the header down to the footer.
+
+<Frame caption="The rails: the thin vertical lines on both sides of the content, at the page width.">
+  <img src="/images/home-desktop.png" alt="The homepage on a large screen, with thin vertical lines framing the content" />
+</Frame>
+
+## Where to find it
+
+<Steps>
+  <Step title="Open the theme editor">
+    **Online Store → Themes → Customize**. See [Open the theme editor](/getting-started/theme-editor).
+  </Step>
+  <Step title="Open Theme settings">
+    In the narrow bar on the far left of the editor, click the **Theme settings** icon.
+  </Step>
+  <Step title="Open the group">
+    Click **Page**.
+  </Step>
+</Steps>
+
+## What the Tangent design overrides
+
+- **Page width.** The Tangent design redefines **Narrow** as 1400 pixels, so the rails stay in view on a common
+  1440-pixel laptop screen. **Normal** and **Wide** keep Horizon's own widths (1920 and 2400 pixels): the rails
+  would move off the edges of most screens, and the card pictures, which are sized for 1400 pixels, could look
+  soft.
+- **Background.** Not overridden: the Tangent blocks sit on this color. But their text, lines and buttons are
+  designed for white, so another color makes the pages look wrong.
+
+## Settings
+
+Leave both settings as they are. **Page width** must stay on **Narrow**.
+
+{/* settings:begin source=theme:page level=3 */}
+
+**Tangent uses** is the value saved in the live theme's settings.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Background** | Color | Palette background | Palette background | Leave as is. The color behind every section of every page. The Tangent blocks are designed on white. |
+| **Page width** | Narrow, Normal, Wide | Narrow | Narrow | Keep **Narrow**: the Tangent design sets it to 1400 pixels, the width of the rails. Another value breaks the line-up of rails and columns. |
+
+{/* settings:end */}
+
+## Data and metafields
+
+None.
+
+## Limitations
+
+- **Background** is linked to the **Background** of the [color palette](/theme-settings/color-palette). Changing
+  the palette color changes this too.
+- The 1400-pixel width belongs to **Narrow** only. There's no setting for the width itself; ask your developer.

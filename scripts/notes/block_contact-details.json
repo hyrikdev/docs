@@ -1,0 +1,6 @@
+{
+  "ts_hide_phone": "Leaves out the phone row, even the store phone. For a list that sits next to a call button.",
+  "schedule_link": "For example a Calendly page. The row shows only when this and Schedule link label are both filled in.",
+  "schedule_new_tab": "Links to other websites open in a new tab anyway.",
+  "address_link": "Optional Google Maps link. The address then opens the map in a new tab."
+}

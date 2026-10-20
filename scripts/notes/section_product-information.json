@@ -1,0 +1,6 @@
+{
+  "equal_columns": "Splits the photo and the details 50 / 50. On for the HandySCAN page.",
+  "enable_sticky_add_to_cart": "A bar with the cart button while visitors scroll. Keep off on the HandySCAN page: the site has no cart.",
+  "ts_frame": "The thin vertical page lines. The HandySCAN page uses **Rails, no inner padding**, like the other pages.",
+  "ts_crumbs_strip": "Shows the breadcrumbs (Home / product name) in a ruled strip above the photo and the details. Keep it on."
+}

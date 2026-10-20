@@ -1,0 +1,7 @@
+{
+  "show_cart": "Keep off: the site doesn't sell online, so there is no cart.",
+  "show_country": "Shows only when the store sells to more than one country or region.",
+  "show_language": "Shows only when the store has more than one language.",
+  "ts_style": "**Technical** gives the thin, see-through bar with a line under it and the compact menu. Keep it: the Tangent design depends on it.",
+  "enable_sticky_header": "**Always** keeps the header at the top of the screen while visitors scroll."
+}

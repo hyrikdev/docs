@@ -3,11 +3,11 @@ title: "Process"
 description: "The homepage process: a list of steps beside a photo that changes with the active step."
 ---
 
-The **Process** block shows a series of steps beside a large photo. One step is active at a time: its text
-opens under its title and its photo fills the image area. The steps move on by themselves, or visitors pick one.
-Each step is a **Process step** block inside the process.
+## What it does
 
-## What it looks like
+Shows a series of steps beside a large photo. One step is active at a time: its text opens under its title and
+its photo fills the image area. The steps move on by themselves, or visitors pick one. Each step is a
+**Process step** block inside the process.
 
 On large screens the photo takes two thirds of the width and the list of steps the last third. On phones the
 photo and the list are stacked.
@@ -20,7 +20,11 @@ photo and the list are stacked.
   <img src="/images/process.png" alt="A large photo with the counter '01 / 05' on the left, and the list of steps on the right: 01. Scope open with its text and a thin bar under it, then Scan, Process, Rebuild and Deliver" />
 </Frame>
 
-How the steps move:
+The site has one process, on the **homepage**, in the **Process** section. It has five steps: Scope, Scan,
+Process, Rebuild and Deliver, numbered "01." to "05.". Its **Accessible name** is
+"From physical part to CAD file in 5 steps".
+
+### How the steps move
 
 - With **Autoplay** on, the next step opens after the **Time per step**.
 - Autoplay pauses while the mouse is over the block or the visitor is using the keyboard inside it, and while
@@ -29,41 +33,75 @@ How the steps move:
 - Visitors who have asked their device for reduced motion get no autoplay.
 - Visitors can also move between steps with the arrow keys.
 
+## Where to find it
+
+<Steps>
+  <Step title="Open the page">
+    In the theme editor, open the **Home page** template (the first one the editor opens).
+  </Step>
+  <Step title="Select the block">
+    In the sidebar, open the **Process** section, then its group, and select **Process**. The steps are the
+    **Process step** blocks inside it.
+  </Step>
+</Steps>
+
+To add a step, select the **Process** block and choose **Add block › Process step**, then drag it into place.
+
 <Note>
 In the theme editor, click a **Process step** in the sidebar: the preview shows that step and holds it there
 while you edit it.
 </Note>
 
-## Block settings
+## Settings
+
+Most changes are to the steps: their **Title**, **Text** and **Image**. On the **Process** block itself,
+**Autoplay** and **Time per step** set how the steps move.
 
 ### Process
 
-| Setting | What it does |
-|---|---|
-| **Autoplay** | Moves to the next step by itself. |
-| **Time per step** | How long each step stays open with autoplay, from 3 to 12 seconds. The homepage uses 6. |
-| **Aspect ratio** | The shape of the photo area. **Auto** follows the height of the step list (and 4:3 on phones). The other choices (**Square**, **4:3**, **3:2**, **16:9**) set its minimum height. |
-| **Accessible name** | Read by screen readers to name the list of steps. Usually the section heading. |
-| **Padding** (**Top**, **Bottom**, **Left**, **Right**) | Space around the block. |
+{/* settings:begin source=block:ts-process level=4 */}
+
+Used once across 1 page layout or header/footer group. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Autoplay** | On, Off | On | On | — |
+| **Time per step** | 3–12s | 6s | 6s | Shown when **Autoplay** is on. |
+| **Aspect ratio** | Auto, Square, 4:3, 3:2, 16:9 | Auto | Auto | Auto follows the height of the step list (at least 520px on desktop, 420px on tablet) and uses 4:3 on mobile. A ratio sets the minimum height of the image. |
+| **Accessible name** | Text | — | Set on all | Read by screen readers to name the list of steps, for example the section heading. |
+
+#### Padding
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Top** | 0–100px | 0px | 0px | — |
+| **Bottom** | 0–100px | 0px | 0px | — |
+| **Left** | 0–100px | 0px | 0px | — |
+| **Right** | 0–100px | 0px | 0px | — |
+
+{/* settings:end */}
 
 ### Process step
 
-| Setting | What it does |
-|---|---|
-| **Number** | Shown before the title, for example "01.". Leave it empty to number the steps by their order. |
-| **Title** | The step's name. A step without a title isn't shown on the site. |
-| **Text** | The text that opens under the title while the step is active. |
-| **Image** | The photo shown while this step is active. |
+{/* settings:begin source=block:_ts-process-step level=4 */}
 
-## Where it's used on the site
+Used 5 times across 1 page layout or header/footer group. In **Tangent uses**, a number in brackets is how many of those copies use that value.
 
-On the **homepage**, in the **Process** section. It has five steps: Scope, Scan, Process, Rebuild and Deliver,
-numbered "01." to "05.", with **Autoplay** on and 6 seconds per step. Its **Accessible name** is
-"From physical part to CAD file in 5 steps".
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Number** | Text | — | Set on all | Shown before the title, for example 01. Leave empty to number the steps automatically by their order. |
+| **Title** | Text | — | Set on all | A step without a title isn't shown on the site. |
+| **Text** | Text | — | Set on all | Opens under the title while the step is active. |
+| **Image** | Image | — | Set on all | Shown while this step is active. Give every step a photo of the same shape, so the image area doesn't jump. |
 
-## Notes
+{/* settings:end */}
+
+## Data and metafields
+
+None. The steps are typed in the blocks, and the photos are picked in each step's **Image** setting (see
+[Files and images](/admin/files-and-images)).
+
+## Limitations
 
 - The section heading above the process is made of separate **Text** blocks, not part of the process block.
-- Give every step a photo of the same shape, so the image area doesn't jump between steps.
-- To add a step: click the **Process** block, then **Add block** → **Process step**, and drag it into place. If the
-  other steps have a **Number**, give the new one a number too and renumber the ones after it.
+- If the other steps have a **Number**, give a new step a number too and renumber the ones after it.

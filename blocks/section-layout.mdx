@@ -1,53 +1,266 @@
 ---
 title: "Section layout"
-description: "The ruled grid, the lines between cells and the faint decorations."
+description: "The Section and Group settings that draw the ruled grid: the rails, the line between sections and the lines between cells."
 ---
 
-The Tangent look is a technical drawing grid: thin vertical lines on both sides of the page (the "rails"),
-thin lines between sections, and thin lines between cells. These come from a few settings on sections and
-groups. They're already set on every page. This page explains them so you can recognize them, and copy them
+## What it does
+
+The Tangent look is a technical drawing grid: thin vertical lines on both sides of the page (the "rails"), a
+thin line between sections, and thin lines between the cells of a row or grid. These lines don't come from a
+special block. They come from a few settings Tangent added to two of Horizon's building parts:
+
+- **Section**: the outer part of every content row on a page. Its **Tangent frame** settings draw the rails, the
+  line across the top and the faint dot pattern. The site has 671 of these sections, on 83 page layouts.
+- **Group**: a block that holds other blocks (texts, images, buttons, other groups). Its **Tangent grid**
+  settings draw the lines between the blocks inside it and set the number of columns. The site has 1,732 groups,
+  on 89 page layouts and in the footer.
+
+<Frame caption="A ruled row: the rails on both edges, a line across the top, and a line between the photo cell and the text cell.">
+  <img src="/images/content-row.png" alt="A photo with the caption 'How to use 3D laser scanning in your project' on the left; on the right the eyebrow 'CAD files', the heading 'Reverse engineering', a larger lead sentence, two paragraphs and a 'Read more' button, framed by thin gray lines" />
+</Frame>
+
+These settings are already set on every page. This page explains them so you can recognize them, and copy them
 when you add a section.
 
-## Section settings
+## Where to find it
 
-Click a section's name in the sidebar to see these, under **Tangent frame**.
+<Steps>
+  <Step title="Open the page">
+    In the theme editor, open the page's template (for example **service-3d-scanning-services**). See
+    [Open a page in the theme editor](/editing-pages/how-pages-work#open-a-page-in-the-theme-editor).
+  </Step>
+  <Step title="Select the section">
+    In the sidebar, click the section's name (for example **What we do**). Its settings open; scroll down to
+    **Tangent frame**.
+  </Step>
+  <Step title="Select a group">
+    Expand the section in the sidebar and click a **Group** inside it. Scroll down to **Tangent grid**.
+  </Step>
+</Steps>
+
+To add a group, select a section or another group and choose **Add block › Group**. To add a section, it's
+safest to copy one from another page so its lines match (see the note below).
+
+## The section frame
+
+Three settings under **Tangent frame** draw the frame of a section:
 
 | Setting | What it does | On this site |
 |---|---|---|
-| **Rails** | Thin vertical lines at the page width. **Rails with inner padding** adds space inside; **Rails, no inner padding** leaves it to the blocks. | **Rails, no inner padding** on almost every section. |
-| **Top border across the page** | A thin line across the top of the section. | On, so sections are separated by a line. |
-| **Background pattern** | A faint pattern of blue dots behind the heading. **Dot lattice** for a centered heading, **Dot lattice at the end** for left-aligned text, and two variants for the bottom corner. | On a few text-only sections, such as plain page heroes and closing calls. |
+| **Rails** | Thin vertical lines at the page width. **Rails with inner padding** adds space inside the lines; **Rails, no inner padding** leaves it to the blocks. | **Rails, no inner padding** on every section. |
+| **Top border across the page** | A thin line across the top of the section. | On for almost every section, so sections are divided by a line. |
+| **Background pattern** | Faint blue dots under the blocks, inside the rails. See the choices below. | On a few text-only sections: page heads and closing calls to action. |
 
-## Group settings
+The **Background pattern** choices:
+
+| Choice | Where the dots sit | On this site |
+|---|---|---|
+| **Dot lattice** | Fading out from the top center, behind a centered heading. | 10 sections: the **Why Tangent** heads of the homepage and three service pages, and the closing section of six location pages. |
+| **Dot lattice at the end** | Fading in from the top corner on the far side, clear of left-aligned text. Hidden on phones. | 20 sections: most **Call to action** sections at the foot of a page, and five page heads. |
+| **Dot lattice from the bottom start** | From the bottom corner under a title, beside its text. Hidden on phones. | 5 statement rows on service pages. |
+| **Lattice at the foot (bottom start, closing rows)** | A low band in the bottom corner of a closing row (text and buttons). Hidden below 990 pixels. | 7 closing rows on landing pages. |
+
+The dots are decoration only: screen readers skip them.
+
+## Lines between cells
 
 A **Group** holds other blocks. Under **Tangent grid**, its **Lines** setting draws thin lines between the blocks
-inside:
+inside, in place of the gap:
 
-| Lines | What it does |
-|---|---|
-| **None** | No lines; the blocks keep their gap. |
-| **Lines between blocks** | A line between each block. |
-| **Lines between blocks, stacked on tablet** | The same, and the blocks stack one under the other below 990 pixels. Used for "text beside photo" rows. |
-| **No lines, stacked on tablet** | No lines, and the blocks stack below 990 pixels. |
-| **Grid with lines** | The blocks become equal columns on a ruled grid. Set **Columns on desktop**, **Columns on tablet** and **Columns on mobile**. |
-| **Cards** | The blocks become separate bordered cards. |
+| Lines | What it does | Groups on this site |
+|---|---|---|
+| **None** | No lines; the blocks keep their gap. | 1,006 |
+| **Lines between blocks** | A line between each block, in a row or a column. | 283 |
+| **Lines between blocks, stacked on tablet** | The same, and the blocks stack one under the other below 990 pixels. Used for "text beside photo" rows. | 352 |
+| **No lines, stacked on tablet** | No lines, and the blocks stack below 990 pixels. Used for a title beside its text. | 27 |
+| **Grid with lines** | The blocks become equal columns on a ruled grid. Set **Columns on desktop**, **Columns on tablet** and **Columns on mobile**. | 63 |
+| **Ruled grid, compact cells on phones** | The same ruled grid, with smaller padding in each cell on phones. | 1 (the facts under the homepage hero) |
+| **Cards** | The blocks become separate bordered cards, 16 pixels apart, in the columns you set. | Not used |
+
+For the column settings, desktop means screens 990 pixels wide and up, tablet 750 to 989 pixels, and mobile
+under 750 pixels. The most common grid is 4 columns on desktop, 2 on tablet and 2 on phones.
+
+The lines on the left and right edges of a grid are trimmed: the section's rails draw those.
 
 <Note>
 Two-column rows split 50 / 50, and the column lines of one section line up with the lines of the next. If you
 add a section, copy one from the same page so its lines match.
 </Note>
 
-## Pixel mark
+The faint pixel squares or part drawings on the edge of some groups are a separate block: see
+[Pixel mark](/blocks/mark).
 
-The **Pixel mark** block draws a faint decoration on the edge of its group: the pixel squares of the Tangent
-logo, or the outline of a scanned part. It takes no space and screen readers skip it.
+## Settings
 
-| Setting | What it does |
-|---|---|
-| **Drawing** | **Logo** (the pixel squares), one of the **Part scan** drawings, or **Handheld scanner**. **Auto** uses the drawing set for the page. |
-| **Position** | **Top right**, **Middle right**, **Bottom right** or **In the cell**. |
-| **Size** | **Logo** only: **Medium** or **Small**. |
+On a section, the settings that matter are under **Tangent frame**: keep **Rails** on **Rails, no inner
+padding** and **Top border across the page** on, as on the other sections. On a group, **Lines** and the three
+column counts under **Tangent grid** shape the row; for one half of a two-column row, set **Width** to
+**Custom** at 50%. Horizon's own background, border and corner settings stay at their defaults on this site.
 
-<Warning>
-Use a pixel mark at most once per page, and only where there's empty space. Never place it over text.
-</Warning>
+### Section settings
+
+{/* settings:begin source=section:section level=4 */}
+
+Used 671 times across 83 page layouts and header/footer groups. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+#### Layout
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Direction** | Vertical, Horizontal | Vertical | Vertical | — |
+| **Vertical on mobile** | On, Off | On | Hidden on every copy | Shown when **Direction** is Horizontal. |
+| **Alignment** | Left, Center, Right, Space between | Left | Hidden on every copy | Shown when **Direction** is Horizontal. |
+| **Position** | Top, Center, Bottom | Center | Hidden on every copy | Shown when **Direction** is Horizontal. |
+| **Align text baseline** | On, Off | Off | Hidden on every copy | Shown when **Position**, the one shown when Direction is Horizontal, is Bottom. |
+| **Alignment** | Left, Center, Right | Left | Left (667), Center (4) | Shown when **Direction** is not Horizontal. |
+| **Position** | Top, Center, Bottom, Space between | Center | Center | Shown when **Direction** is Vertical. |
+| **Gap** | 0–100px | 12px | 0px (670), 12px (1) | Space between the blocks of the section. 0px on every section but one: the groups inside set the spacing. |
+
+#### Size
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Width** | Page, Full | Page | Page | Keep **Page**, as on every section: the rails are drawn at the page width. |
+| **Height** | Auto, Small, Medium, Large, Full screen, Custom | Auto | Auto | Keep **Auto**, as on every section: the section is as tall as its content. |
+| **Custom height** | 0–100% | 50% | Hidden on every copy | Shown when **Height** is Custom. |
+
+#### Appearance
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Background media** | None, Image, Video | None | None | Leave on **None**. Tangent sections stay on the plain white page. |
+| **Background color** | Color | — | Empty (670), Palette background (1) | Shown when **Background media** is None. Leave empty. Colored bands aren't part of the Tangent design. |
+| **Video** | Video | — | Hidden on every copy | Shown when **Background media** is Video. |
+| **Video position** | Cover, Contain | Cover | Hidden on every copy | Shown when **Background media** is Video. |
+| **Image** | Image | — | Hidden on every copy | Shown when **Background media** is Image. |
+| **Image position** | Cover, Fit | Cover | Hidden on every copy | Shown when **Background media** is Image. |
+| **Background overlay** | On, Off | Off | Off | Leave off. Only for a section with a background photo or video, which the site doesn't use. |
+| **Overlay color** | Color | #00000026 | Hidden on every copy | Shown when **Background overlay** is on. |
+| **Overlay style** | Solid, Gradient | Solid | Hidden on every copy | Shown when **Background overlay** is on. |
+| **Gradient direction** | Up, Down | Up | Hidden on every copy | Shown when **Background overlay** is on and **Overlay style** is Gradient. |
+
+#### Borders
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Style** | None, Solid | None | None | Leave on **None**. The Tangent lines come from **Rails** and **Top border across the page**. |
+| **Thickness** | 0–100px | 1px | Hidden on every copy | Shown when **Style** is not None. |
+| **Opacity** | 0–100% | 100% | Hidden on every copy | Shown when **Style** is not None. |
+| **Color** | Color | — | Hidden on every copy | Shown when **Style** is not None. |
+| **Corner radius** | 0–100px | 0px | 0px | Leave at 0px: the Tangent design keeps square corners. |
+
+#### Tangent frame
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Rails** | None · Rails with inner padding · Rails, no inner padding | None | Rails, no inner padding (670) · None (1) | The thin vertical lines down both sides of the page. Keep **Rails, no inner padding**, as on every section; **Rails with inner padding** adds side space inside the lines. |
+| **Top border across the page** | On, Off | Off | On (599), Off (72) | A thin line across the top of the section, so sections are divided by a line. On for almost every section. |
+| **Background pattern** | None · Dot lattice · Dot lattice at the end · Dot lattice from the bottom start · Lattice at the foot (bottom start, closing rows) | None | None (629), Dot lattice at the end (20), 3 more | Faint blue dots under the blocks. **Dot lattice**: behind a centered heading; **Dot lattice at the end**: beside left-aligned text; the bottom-corner choices: statement and closing rows. |
+
+#### Padding
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Top** | 0–100px | 0px | 0px (638), 96px (31), 1 more | Most sections keep 0px and leave the spacing to the groups inside; about 30 keep 96px. |
+| **Bottom** | 0–100px | 0px | 0px (670), 48px (1) | Most sections keep 0px and leave the spacing to the groups inside. |
+
+{/* settings:end */}
+
+### Group settings
+
+{/* settings:begin source=block:group level=4 */}
+
+Used 1,732 times across 90 page layouts and header/footer groups. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+#### Layout
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Direction** | Vertical, Horizontal | Vertical | Vertical (1,248), Horizontal (484) | — |
+| **Vertical on mobile** | On, Off | On | On (465), Off (19) | Shown when **Direction** is Horizontal. |
+| **Alignment** | Left, Center, Right, Space between | Left | Left (480), Center (4) | Shown when **Direction** is Horizontal. |
+| **Position** | Top, Center, Bottom | Center | Top (376), Center (107), 1 more | Shown when **Direction** is Horizontal. |
+| **Align text baseline** | On, Off | Off | Off | Shown when **Position**, the one shown when Direction is Horizontal, is Bottom. |
+| **Alignment** | Left, Center, Right | Left | Left (1,006), Center (242) | Shown when **Direction** is not Horizontal. |
+| **Position** | Top, Center, Bottom, Space between | Center | Top (700), Center (494), 2 more | Shown when **Direction** is Vertical. |
+| **Gap** | 0–100px | 12px | 0px (948), 16px (570), 7 more | Space between the blocks inside. Ignored when **Lines** draws lines or cards; kept with **None** and **No lines, stacked on tablet**. |
+
+#### Size
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Width** | Fit, Fill, Custom | Fill | Fill (1,537), Custom (177), 1 more | **Custom** with 50% makes one half of a two-column row. |
+| **Custom width** | 0–100% | 100% | 50% (149), 33% (27), 1 more | Shown when **Width** is Custom. For two-column rows keep 50%, so the column line lines up with the sections above and below. |
+| **Mobile width** | Fit, Fill, Custom | Fill | Fill (1,731), Fit (1) | — |
+| **Custom width** | 0–100% | 100% | Hidden on every copy | Shown when **Mobile width** is Custom. |
+| **Height** | Fit, Fill, Custom | Fit | Fit (1,728), Fill (4) | — |
+| **Custom height** | 0–100% | 100% | Hidden on every copy | Shown when **Height** is Custom. |
+
+#### Appearance
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Background media** | None, Image, Video | None | None | Leave on **None**. Tangent cells stay on the plain white page. |
+| **Background color** | Color | — | Empty | Shown when **Background media** is None. Leave empty. Colored boxes aren't part of the Tangent design. |
+| **Video** | Video | — | Hidden on every copy | Shown when **Background media** is Video. |
+| **Video position** | Cover, Contain | Cover | Hidden on every copy | Shown when **Background media** is Video. |
+| **Image** | Image | — | Hidden on every copy | Shown when **Background media** is Image. |
+| **Image position** | Cover, Fit | Cover | Hidden on every copy | Shown when **Background media** is Image. |
+| **Background overlay** | On, Off | Off | Off | Leave off. Only for a group with a background photo or video, which the site doesn't use. |
+| **Overlay color** | Color | #00000026 | Hidden on every copy | Shown when **Background overlay** is on. |
+| **Overlay style** | Solid, Gradient | Solid | Hidden on every copy | Shown when **Background overlay** is on. |
+| **Gradient direction** | Up, Down | Up | Hidden on every copy | Shown when **Background overlay** is on and **Overlay style** is Gradient. |
+
+#### Borders
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Style** | None, Solid | None | None | Leave on **None**. Lines between cells come from **Lines** under **Tangent grid**. |
+| **Thickness** | 0–100px | 1px | Hidden on every copy | Shown when **Style** is not None. |
+| **Opacity** | 0–100% | 100% | Hidden on every copy | Shown when **Style** is not None. |
+| **Color** | Color | — | Hidden on every copy | Shown when **Style** is not None. |
+| **Corner radius** | 0–100px | 0px | 0px | Leave at 0px: the Tangent design keeps square corners. |
+
+#### Block link
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Link** | Link | — | Set on 5 of 1,732 | Makes the whole group a link. Inside a Tangent grid, a linked cell gets a soft background when the pointer is over it. |
+| **Open link in new tab** | On, Off | Off | Off | — |
+
+#### Tangent grid
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Lines** | None · Lines between blocks · Lines between blocks, stacked on tablet · No lines, stacked on tablet · Grid with lines · Cards · Ruled grid, compact cells on phones | None | None (1,006) · Lines between blocks, stacked on tablet (352) · 4 more | Draws thin lines between the blocks inside, in place of the gap. Each choice is explained under **Lines between cells** above. |
+| **Columns on desktop** | 1–6 | 3 | 4 (35), 3 (8), 4 more | Shown when **Lines** is one of Grid with lines · Ruled grid, compact cells on phones · Cards. Columns on screens 990px wide and up. |
+| **Columns on tablet** | 1–6 | 2 | 2 (44), 4 (8), 3 more | Shown when **Lines** is one of Grid with lines · Ruled grid, compact cells on phones · Cards. Columns on screens 750 to 989px wide. |
+| **Columns on mobile** | 1–4 | 1 | 2 (38), 1 (18), 1 more | Shown when **Lines** is one of Grid with lines · Ruled grid, compact cells on phones · Cards. Columns on screens under 750px wide (phones). |
+
+#### Padding
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Top** | 0–100px | 0px | 0px (951), 96px (329), 9 more | Space inside the group. Inside the Tangent frame, values over 20px shrink smoothly on smaller screens. |
+| **Bottom** | 0–100px | 0px | 0px (968), 64px (355), 6 more | Space inside the group. Inside the Tangent frame, values over 20px shrink smoothly on smaller screens. |
+| **Left** | 0–100px | 0px | 0px (923), 48px (782), 3 more | 48px is the usual cell padding. Inside the Tangent frame, values over 20px shrink smoothly on smaller screens. |
+| **Right** | 0–100px | 0px | 0px (923), 48px (782), 3 more | 48px is the usual cell padding. Inside the Tangent frame, values over 20px shrink smoothly on smaller screens. |
+
+{/* settings:end */}
+
+## Data and metafields
+
+None. These are layout settings only; nothing needs to exist in the admin first.
+
+## Limitations
+
+- When **Lines** draws lines or cards, the group's **Gap** is ignored. The cells sit on the lines instead.
+- The **Page**, **404**, **Blog posts**, **Blog post** and **Product information** sections (the parts that
+  show a page's own content, a blog or the scanner's product page) have their own **Rails** and **Top border
+  across the page** settings with the same look. **Page** and **404** also have **Background pattern**.
+- A new section added with **Add section** starts with **Rails** on **None** and no top border. Set them as
+  above, or copy a section from another page instead.
+- Keep the dot patterns rare, in empty space and never over text. See
+  [Do's and don'ts](/design-rules/do-and-dont#layout).
+- Leave **Background color**, **Background media** and **Borders** on their defaults. Colored bands, boxes and
+  rounded corners aren't part of the Tangent design.

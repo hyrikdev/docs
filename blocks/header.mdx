@@ -1,60 +1,290 @@
 ---
 title: "Header"
-description: "The logo, the menu, the phone button and the Contact us button."
+description: "The logo, the menu, the phone button and the Contact us button at the top of every page."
 ---
 
-The header is shared by every page. In the theme editor it's at the top of the sidebar, under **Header**.
+## What it does
+
+The header is the bar at the top of every page of the site: the Tangent logo, the menu, a black button with the
+phone number and a white **Contact us** button. It stays at the top of the screen while visitors scroll. It's
+one shared section, so a change here shows on every page at once.
 
 <Frame caption="The header on desktop: logo, menu, phone button and Contact us">
   <img src="/images/header-desktop.png" alt="The header with the Tangent logo, the menu, a black phone number button and a white Contact us button" />
 </Frame>
 
+On phones and tablets, the menu folds into a menu button that opens a drawer, and the phone becomes a square
+call button.
+
 <Frame caption="The header on a phone: logo, call button and menu button">
   <img src="/images/header-phone.png" alt="The phone header with the logo, a black square call button and the menu button" style={{ maxWidth: "375px" }} />
 </Frame>
 
-The header has four parts, each a block you can click:
+## Where to find it
 
-## Logo
+<Steps>
+  <Step title="Open any page">
+    In the theme editor, open any page. The header is the same on all of them.
+  </Step>
+  <Step title="Select the header">
+    At the top of the sidebar, in the **Header** group, select **Header** for the bar's own settings.
+  </Step>
+  <Step title="Select a part">
+    Open **Header** to see its four blocks: **Logo**, **Menu**, **Phone** and **Quote button**. Select one to
+    change it.
+  </Step>
+</Steps>
 
-The logo comes from the theme settings. If the brand changes, replace it in **Theme settings** (the gear
-icon in the editor's left bar) → **Logo and favicon**. The footer logo follows.
+The four blocks are fixed parts of the header: you can change them, but not add, remove or move them.
 
-## Menu
+## The four parts
 
-The **Menu** block shows the **Main menu** from **Online Store → Navigation**. To change the menu items, edit
-that menu, not the header. See [Menus](/admin/menus).
+- **Logo**: the logo image comes from the theme settings, not from this block. To replace it, open
+  **Theme settings** (the gear icon in the editor's left bar) → **Logo and favicon**. The footer logo follows.
+  See [Theme settings](/horizon/theme-settings).
+- **Menu**: shows the **Main menu** from **Online Store → Navigation**. To change the menu items, edit that
+  menu, not the header. See [Menus](/admin/menus).
+- **Phone**: the black button with the phone number. See [Change the phone number](/how-to/change-phone-number).
+- **Quote button**: the white **Contact us** button. It's hidden on phones, where the
+  [mobile call bar](/blocks/sticky-bar) is meant to carry the quote button.
 
-On phones and tablets, the menu opens in a drawer from the menu button.
+## Settings
 
-## Phone
+The one header setting that matters is **Tangent style** (under **Appearance**): **Technical** gives the thin
+bar with the line under it. Keep it, and keep **Show cart icon** off, because the site doesn't sell online. In
+the blocks, you'll mostly change the **Phone number** and the **Quote button**'s **Label** and **Link**. Leave
+the **Style** settings as they are.
 
-The **Phone** block is the black button with the phone number.
+### Header
 
-| Setting | What it does |
+{/* settings:begin source=section:header level=4 */}
+
+Used once across 1 page layout or header/footer group. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+#### Logo
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Position** | Left, Center, Right | Center | Left | — |
+
+#### Menu
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Position** | Left, Center, Right | Left | Left | — |
+| **Row** | Top, Bottom | Top | Top | — |
+
+#### Customer account
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Customer account menu** | Menu | customer-account-main-menu | Set on all | — |
+| **Show cart icon** | On, Off | On | Off | Keep off: the site doesn't sell online, so there is no cart. |
+
+#### Search
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Search icon** | On, Off | On | Off | — |
+| **Position** | Left, Right | Right | Hidden on every copy | Shown when **Search icon** is on. |
+| **Row** | Top, Bottom | Top | Hidden on every copy | Shown when **Search icon** is on. |
+
+#### Localization
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Country/Region** | On, Off | On | On | Shows only when the store sells to more than one country or region. |
+| **Flag** | On, Off | On | Off | Shown when **Country/Region** is on. |
+| **Language selector** | On, Off | On | On | Shows only when the store has more than one language. |
+| **Font** | Heading, Subheading, Body, Accent | Heading | Heading | Shown when **Country/Region** is on or **Language selector** is on. |
+| **Size** | 10px, 12px, 14px, 16px, 18px | 16px | 14px | — |
+| **Position** | Left, Right | Right | Right | Shown when **Country/Region** is on or **Language selector** is on. |
+| **Row** | Top, Bottom | Top | Top | Shown when **Country/Region** is on or **Language selector** is on. |
+
+#### Appearance
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Tangent style** | None, Technical | None | Technical | **Technical** gives the thin, see-through bar with a line under it and the compact menu. Keep it: the Tangent design depends on it. |
+| **Width** | Page, Full | — | Page | — |
+| **Height** | Compact, Standard | Standard | Standard | — |
+| **Sticky header** | Always, On scroll up, Never | Always | Always | **Always** keeps the header at the top of the screen while visitors scroll. |
+| **Divider thickness** | 0–5px | 0px | Hidden on every copy | Shown when **Menu › Row** is Bottom or **Localization › Row** is Bottom or **Search › Row** is Bottom. |
+| **Divider width** | Page, Full | — | Hidden on every copy | Shown when **Divider thickness** is more than 0px and **Menu › Row** is Bottom or **Localization › Row** is Bottom or **Search › Row** is Bottom. |
+| **Divider color** | Color | — | Hidden on every copy | Shown when **Divider thickness** is more than 0px and **Menu › Row** is Bottom or **Localization › Row** is Bottom or **Search › Row** is Bottom. |
+| **Border thickness** | 0–5px | 0px | 0px | — |
+| **Bottom border color** | Color | — | Hidden on every copy | Shown when **Border thickness** is more than 0px. |
+
+#### Utilities
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Menu style** | Icons, Text | Icons | Icons | Icons are always used on mobile |
+| **Size** | 12px, 14px, 16px, 18px | 14px | Hidden on every copy | Shown when **Menu style** is Text. |
+| **Font** | Heading, Subheading, Body, Accent | Body | Hidden on every copy | Shown when **Menu style** is Text. |
+| **Case** | Default, Uppercase | Default | Hidden on every copy | Shown when **Menu style** is Text. |
+
+#### Colors
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Top row background** | Color | — | Palette background | — |
+| **Top row text** | Color | — | Empty | — |
+| **Bottom row background** | Color | — | Hidden on every copy | Shown when **Menu › Row** is Bottom or **Localization › Row** is Bottom or **Search › Row** is Bottom. |
+| **Bottom row text** | Color | — | Hidden on every copy | Shown when **Menu › Row** is Bottom or **Localization › Row** is Bottom or **Search › Row** is Bottom. |
+
+#### Cart bubble
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Bubble style** | Default, Custom | Default | Default | — |
+| **Background** | Color | — | Hidden on every copy | Shown when **Bubble style** is Custom. |
+| **Text** | Color | — | Hidden on every copy | Shown when **Bubble style** is Custom. |
+
+#### Home page
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Transparent background** | On, Off | Off | Off | — |
+| **Inverse logo** | On, Off | Off | Hidden on every copy | Shown when **Home page › Transparent background** is on. |
+| **Transparent header text** | Color | — | Hidden on every copy | Shown when **Home page › Transparent background** is on. |
+
+#### Product page
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Transparent background** | On, Off | Off | Off | — |
+| **Inverse logo** | On, Off | Off | Hidden on every copy | Shown when **Product page › Transparent background** is on. |
+| **Transparent header text** | Color | — | Hidden on every copy | Shown when **Product page › Transparent background** is on. |
+
+#### Collection page
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Transparent background** | On, Off | Off | Off | — |
+| **Inverse logo** | On, Off | Off | Hidden on every copy | Shown when **Collection page › Transparent background** is on. |
+| **Transparent header text** | Color | — | Hidden on every copy | Shown when **Collection page › Transparent background** is on. |
+
+{/* settings:end */}
+
+### Logo
+
+{/* settings:begin source=block:_header-logo level=4 */}
+
+Used once across 1 page layout or header/footer group. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+#### Visibility
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Hide logo on home page** | On, Off | Off | Off | Logo will remain visible when sticky header is active |
+
+#### Desktop padding
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Top** | 0–100px | 0px | 0px | — |
+| **Bottom** | 0–100px | 0px | 0px | — |
+
+{/* settings:end */}
+
+### Menu
+
+{/* settings:begin source=block:_header-menu level=4 */}
+
+Used once across 1 page layout or header/footer group. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Menu** | Menu | main-menu | Set on all | Shows the **Main menu**. Change its links in **Online Store › Navigation**, not here. |
+
+#### Appearance
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Background color** | Color | Palette background | Palette background | — |
+| **Text color** | Color | — | Empty | — |
+
+#### Typography
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Top level size** | 10px, 12px, 14px, 16px, 18px | 16px | 14px | — |
+| **Submenu size** | Small, Medium, Large | Medium | Medium | — |
+| **Font** | Body, Subheading, Heading, Accent | Heading | Body | — |
+| **Case** | Default, Uppercase | Default | Default | — |
+
+#### Submenu feature
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Media type** | None, Collection images, Featured products, Featured collections | Collection images | None | Keep **None**: the Technical header expects a menu without submenu images. |
+| **Image ratio** | Auto, Portrait, Square | Portrait | Hidden on every copy | Shown when **Media type** is Featured products. |
+| **Image ratio** | Auto, Landscape, Square | Landscape | Hidden on every copy | Shown when **Media type** is Featured collections. |
+| **Image corner radius** | 0–32px | 0px | Hidden on every copy | Shown when **Media type** is not None. |
+
+#### Mobile layout
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Navigation bar** | On, Off | Off | Off | — |
+| **Navigation bar background color** | Color | Palette background | Hidden on every copy | Shown when **Navigation bar** is on. |
+| **Navigation bar text color** | Color | — | Hidden on every copy | Shown when **Navigation bar** is on. |
+| **Accordion** | On, Off | Off | On | In the phone menu drawer, submenus fold open under their link. |
+| **Expand first group** | On, Off | Off | Off | Shown when **Accordion** is on. |
+| **Dividers** | On, Off | Off | On | — |
+
+{/* settings:end */}
+
+### Phone
+
+{/* settings:begin source=block:_header-phone level=4 */}
+
+Used once across 1 page layout or header/footer group. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Phone number** | Text | — | “949-345-0611” | The number shown and called. Leave empty to use the store phone from **Settings › Store details**. |
+| **Label** | Text | — | Empty | Optional text before the number, for example “Call us”. Hidden on smaller screens. Leave empty: the button shows the icon and the number. |
+| **Show icon** | On, Off | On | On | — |
+| **Hide in the drawer layout** | On, Off | Off | Off | Leave off: on phones and tablets the phone becomes a square call button. |
+| **Accessible name** | Text | “Call” | “Call” | What screen readers say before the number. Keep “Call”. |
+| **Style** | None · Primary, neutral | None | Primary, neutral | **Primary, neutral** makes it the black button. Keep it. |
+
+{/* settings:end */}
+
+### Quote button
+
+{/* settings:begin source=block:_header-cta level=4 */}
+
+Used once across 1 page layout or header/footer group. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Label** | Text | “Get a free quote” | “Contact us” | The button text. Leave empty to hide the button. |
+| **Link** | Link | — | Set on all | Where the button goes. When empty, it goes to the Contact us page. |
+| **Style** | None, Secondary | None | Secondary | **Secondary** makes it the white outlined button, second after the phone. Keep it. |
+
+{/* settings:end */}
+
+## Data and metafields
+
+| Where | What lives there |
 |---|---|
-| **Phone number** | The number shown and called. Leave empty to use the store phone from **Settings → Store details**. |
-| **Label** | Optional text before the number, for example "Call us". Leave empty: the button shows the icon and the number. |
-| **Show icon** | Shows the phone icon. |
-| **Hide in the drawer layout** | Hides the phone on phones and tablets. Leave it off: there it becomes a square call button. |
-| **Accessible name** | What screen readers say before the number. Keep "Call". |
-| **Style** | **Primary, neutral** makes it the black button. Keep it. |
+| **Online Store → Navigation** → **Main menu** | The menu links and their submenus. |
+| **Theme settings → Logo and favicon** | The logo image. |
+| **Settings → Store details** | The store phone, used by the **Phone** block only when its **Phone number** is empty. |
 
-## Quote button
+## Limitations
 
-The **Quote button** block is the white **Contact us** button.
-
-| Setting | What it does |
-|---|---|
-| **Label** | The button text: "Contact us". Leave empty to hide it. |
-| **Link** | Where it goes: `/pages/contact-us`. |
-| **Style** | **Secondary** makes it the white button, second after the phone. Keep it. |
-
-On phones, the **Contact us** button is replaced by the mobile call bar at the bottom of the screen. See
-[Mobile call bar](/blocks/sticky-bar).
-
-## Header settings
-
-Click **Header** itself to see its settings. The important one is **Tangent style** under **Appearance**:
-**Technical** gives the thin, translucent bar with the line under it. Keep it on. **Show cart icon** stays off,
-because the site doesn't sell online.
+- The header is shared: you can't give one page a different header.
+- The phone number is typed in the **Phone** block, so it doesn't follow the store phone. The same number also
+  appears in the footer and in the Helpful Links menu. Update them together: see
+  [Change the phone number](/how-to/change-phone-number).
+- On phones the **Contact us** button is hidden. While the [mobile call bar](/blocks/sticky-bar) is turned off,
+  phone visitors see no quote button in the header, only the call button.
+- The **Technical** style expects a menu without submenu images. Keep the **Menu** block's **Media type** at
+  **None**.
+- **Country/Region** and **Language selector** are on, but they only show when the store sells to more than one
+  country or region, or has more than one language.
+- Leave the settings for search, the cart bubble and the transparent header alone: the site doesn't use them.

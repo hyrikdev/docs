@@ -3,6 +3,8 @@ title: "Product blocks"
 description: "The blocks of the HandySCAN product page, and the shop blocks of the default product template."
 ---
 
+## What it does
+
 A product page in Shopify is built from a **Product information** section. Its blocks read the product
 you're looking at: its title, description and photos come from the product in the Shopify admin
 (**Products**), not from the theme editor. The site has one product, the HandySCAN Black Elite scanner, on the
@@ -13,6 +15,27 @@ a call instead.
   <img src="/images/product.png" alt="The HandySCAN product page with breadcrumbs, the scanner photo on the left, and on the right the Creaform and Tangent logos, the title, the description and two buttons" />
 </Frame>
 
+The **Product information** section is used on two templates: **quote** (the HandySCAN page) and the default
+product template, **product**, described [below](#the-default-product-template).
+
+## Where to find it
+
+<Steps>
+  <Step title="Open the product template">
+    In the theme editor, open the page picker at the top and choose the **quote** product template (the
+    HandySCAN page).
+  </Step>
+  <Step title="Select the section">
+    In the sidebar, select **Product information** for the section's own settings.
+  </Step>
+  <Step title="Select a block">
+    Open **Product information** to see **Breadcrumbs**, **Product media** and **Details**. Open **Details** to
+    see the blocks inside it.
+  </Step>
+</Steps>
+
+To add a block, select **Details** and choose **Add block**, then the block, for example **Add block › Text**.
+
 ## What it looks like
 
 The top of the page is split in two equal halves on the ruled grid, under a breadcrumbs strip:
@@ -21,47 +44,6 @@ The top of the page is split in two equal halves on the ruled grid, under a brea
 - on the right (**Details**): the Creaform and Tangent logos, the product title, the description, and the
   **Call Now** and **Schedule a call** buttons. On large screens this half stays in view while the photo
   column scrolls.
-
-Below the top come ordinary sections, built from the same blocks as the rest of the site: applications,
-photos, benefits, specs, software, portability and a call to action. See
-[Product page](/page-recipes/product-page) for each one.
-
-## Block settings
-
-### Product information (the section)
-
-| Setting | What it does |
-|---|---|
-| **Media position** | The photo column on the **Left** or **Right** on large screens. The site uses **Left**. |
-| **Equal columns** | Splits the photo and the details 50 / 50. On. |
-| **Sticky add to cart bar** | A bar with the cart button when visitors scroll. Off: the site has no cart. |
-| **Rails** | The thin vertical page lines. **Rails, no inner padding**, as on the other pages. See [Section layout](/blocks/section-layout). |
-| **Breadcrumbs strip above the product** | Shows the breadcrumbs ("Home / HandySCAN Black Elite") in a ruled strip above the photo and the details. On. |
-
-### Product media
-
-Shows the photos and videos of the product, in the order set on the product in the admin.
-
-| Setting | What it does |
-|---|---|
-| **Type** | **Grid** or **Carousel**. Phones always get a carousel. The site uses **Grid**. |
-| **Columns** | **1** or **2** photos side by side in the grid. The site uses **1**. |
-| **Gap** | Space between the photos. 0 on the site. |
-| **Mobile pagination** | How phones show where you are in the carousel: **Dots**, **Counter**, **Hint** or **Thumbnails**. **Dots** on the site. |
-| **Aspect ratio** | **Auto** keeps each photo's own shape. **Auto** on the site. |
-| **Media fit** | **Contain** shows the whole photo, never cropped. |
-| **Corner radius** | 0 on the site: square corners. |
-| **Enable zoom** | Lets visitors open a photo larger. Off on the site. |
-
-### Details
-
-The right half. It holds other blocks, like a group.
-
-| Setting | What it does |
-|---|---|
-| **Sticky on desktop** | Keeps the details in view while the photo column scrolls. On. |
-| **Gap** | Space between the blocks inside. 16 pixels on the site. |
-| **Padding** | Space inside the half. 48 pixels on every side on the site. |
 
 Inside **Details**, the HandySCAN page uses:
 
@@ -72,11 +54,11 @@ Inside **Details**, the HandySCAN page uses:
 | **Text** named **Description** | The product's description from the admin (**Lede, wide**). |
 | **Group** with two **Button** blocks | **Call Now** and **Schedule a call**. See [Buttons](/blocks/buttons). |
 
-## Where it's used on the site
+Below the top come ordinary sections, built from the same blocks as the rest of the site: applications,
+photos, benefits, specs, software, portability and a call to action. See
+[Product page](/page-recipes/product-page) for each one.
 
-Only on the HandySCAN Black Elite page (template **quote**).
-
-### The default product template
+## The default product template
 
 The theme also has a default product template (template **product**), the theme's standard shop layout. A new
 product gets it unless you pick another template on the product in the admin. Its blocks are the shop blocks:
@@ -87,11 +69,545 @@ product gets it unless you pick another template on the product in the admin. It
 | **Variant picker** | Buttons or drop-downs to choose a size, color or other option. |
 | **Buy buttons** | Holds **Quantity**, **Add to cart** and **Accelerated checkout** (express payment buttons). |
 | **Disclosures** | Notices set on the product in the admin (Shopify's product disclosures), as fold-out rows. |
-| **Recommended products** | A section with other products under the main one. |
+| **Recommended products** | A section under the main one, with a **Product card** for each suggested product. |
 
 The site doesn't sell online, so the HandySCAN page uses none of these blocks.
 
-## Notes
+## Settings
+
+On the HandySCAN page, the settings that matter are on **Product information** (**Equal columns** on,
+**Sticky add to cart bar** off, **Breadcrumbs strip above the product** on) and **Details** (**Sticky on
+desktop** on). **Tangent uses** counts both product templates, so a value with "(1)" is often the HandySCAN
+page's and the other the default template's. **Breadcrumbs** has its own page: [Breadcrumbs](/blocks/breadcrumbs).
+**Accelerated checkout** has no settings.
+
+### Product information
+
+{/* settings:begin source=section:product-information level=4 */}
+
+Used 2 times across 2 page layouts and header/footer groups. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+#### Layout
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Width** | Page, Full | Page | Page | — |
+| **Media position** | Left, Right | Left | Left | — |
+| **Equal columns** | On, Off | Off | Off (1), On (1) | Splits the photo and the details 50 / 50. On for the HandySCAN page. |
+| **Limit product details width** | On, Off | Off | Off | Shown when **Equal columns** is on. |
+| **Gap** | 0–48px | 16px | 48px (1), 0px (1) | — |
+| **Sticky add to cart bar** | On, Off | On | On (1), Off (1) | A bar with the cart button while visitors scroll. Keep off on the HandySCAN page: the site has no cart. |
+| **Background color** | Color | — | Palette background (1), Empty (1) | — |
+
+#### Tangent frame
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Rails** | None · Rails with inner padding · Rails, no inner padding | None | None (1) · Rails, no inner padding (1) | The thin vertical page lines. The HandySCAN page uses **Rails, no inner padding**, like the other pages. |
+| **Top border across the page** | On, Off | Off | Off | — |
+| **Breadcrumbs strip above the product** | On, Off | Off | On | Shows the breadcrumbs (Home / product name) in a ruled strip above the photo and the details. Keep it on. |
+
+#### Padding
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Top** | 0–100px | 0px | 0px | — |
+| **Bottom** | 0–100px | 0px | 0px | — |
+
+{/* settings:end */}
+
+### Product media
+
+{/* settings:begin source=block:_product-media-gallery level=4 */}
+
+Used 2 times across 2 page layouts and header/footer groups. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Type** | Grid, Carousel | Grid | Grid | Phones always get a carousel. |
+
+#### Grid
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Columns** | 1, 2 | 1 | 2 (1), 1 (1) | Shown when **Type** is Grid. |
+| **Gap** | 0–100px | 0px | 4px (1), 0px (1) | Shown when **Type** is Grid. |
+| **Full width first image** | On, Off | Off | Off | Shown when **Type** is Grid and **Columns** is 2. |
+
+#### Carousel
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Icons** | Arrows, Chevrons, Large arrows, Large chevrons | Arrows | Hidden on every copy | Shown when **Type** is Carousel. |
+| **Desktop pagination** | Dots, Counter, Thumbnails | — | Hidden on every copy | Shown when **Type** is Carousel. |
+| **Mobile pagination** | Dots, Counter, Hint, Thumbnails | — | Dots | — |
+
+#### Thumbnails
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Desktop position** | Left, Bottom, Right | Bottom | Hidden on every copy | Shown when **Desktop pagination** is Thumbnails. |
+| **Desktop width** | 44–72px | 64px | Hidden on every copy | Shown when **Desktop pagination** is Thumbnails. |
+| **Corner radius** | 0–50px | 0px | Hidden on every copy | Shown when **Desktop pagination** is Thumbnails or **Mobile pagination** is Thumbnails. |
+
+#### Media
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Aspect ratio** | Auto, Portrait, Square, Landscape | Auto | Auto | — |
+| **Constrain to screen height** | On, Off | Off | On (1), Off (1) | — |
+| **Media fit** | Cover, Contain | Cover | Contain | Shown when **Aspect ratio** is Auto and **Constrain to screen height** is on. |
+| **Corner radius** | 0–32px | 4px | 0px | — |
+| **Extend media to screen edge** | On, Off | On | Off | Shown only with some settings of the section around it. |
+| **Enable zoom** | On, Off | On | On (1), Off (1) | Lets visitors open a photo larger. Off on the HandySCAN page. |
+| **Video looping** | On, Off | Off | Off | — |
+| **Hide unselected variant media** | On, Off | Off | On (1), Off (1) | — |
+
+#### Padding
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Top** | 0–100px | 0px | 0px | — |
+| **Bottom** | 0–100px | 0px | 0px | — |
+| **Left** | 0–100px | 0px | 0px | — |
+| **Right** | 0–100px | 0px | 0px | — |
+
+{/* settings:end */}
+
+### Details
+
+{/* settings:begin source=block:_product-details level=4 */}
+
+Used 2 times across 2 page layouts and header/footer groups. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+#### Size
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Width** | Fit, Fill, Custom | Fill | Fill | — |
+| **Custom width** | 0–100% | 100% | Hidden on every copy | Shown when **Width** is Custom. |
+| **Mobile width** | Fit, Fill, Custom | Fill | Fill | — |
+| **Custom width** | 0–100% | 100% | Hidden on every copy | Shown when **Mobile width** is Custom. |
+| **Height** | Fit, Fill | Fit | Fit | — |
+
+#### Layout
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Position** | Top, Center, Bottom | Top | Hidden on every copy | Shown when **Height** is Fill. |
+| **Gap** | 0–100px | 12px | 28px (1), 16px (1) | — |
+| **Sticky on desktop** | On, Off | Off | On | Keeps the details in view on large screens while the photo column scrolls. On. |
+
+#### Appearance
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Background media** | None, Image, Video | None | None | — |
+| **Background color** | Color | — | Empty | Shown when **Background media** is None. |
+| **Video** | Video | — | Hidden on every copy | Shown when **Background media** is Video. |
+| **Video position** | Cover, Contain | Cover | Hidden on every copy | Shown when **Background media** is Video. |
+| **Image** | Image | — | Hidden on every copy | Shown when **Background media** is Image. |
+| **Image position** | Cover, Fit | Cover | Hidden on every copy | Shown when **Background media** is Image. |
+
+#### Borders
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Style** | None, Solid | None | None | — |
+| **Thickness** | 0–100px | 1px | Hidden on every copy | Shown when **Style** is not None. |
+| **Opacity** | 0–100% | 100% | Hidden on every copy | Shown when **Style** is not None. |
+| **Color** | Color | — | Hidden on every copy | Shown when **Style** is not None. |
+| **Corner radius** | 0–100px | 0px | 0px | — |
+
+#### Padding
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Top** | 0–100px | 0px | 24px (1), 48px (1) | — |
+| **Bottom** | 0–100px | 0px | 24px (1), 48px (1) | — |
+| **Left** | 0–100px | 0px | 0px (1), 48px (1) | — |
+| **Right** | 0–100px | 0px | 0px (1), 48px (1) | — |
+
+{/* settings:end */}
+
+### Price
+
+{/* settings:begin source=block:price level=4 */}
+
+Used 4 times across 3 page layouts and header/footer groups. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Show sale price first** | On, Off | On | On | — |
+| **Installments** | On, Off | Off | Off | — |
+| **Tax information** | On, Off | Off | Off | — |
+
+#### Typography
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Preset** | 9 options: Default, Paragraph, Heading 1, Heading 2, … | — | Heading 6 (3), Paragraph (1) | Edit presets in theme settings |
+| **Width** | Fit, Fill | Fill | Fill | — |
+| **Alignment** | Left, Center, Right | Left | Left | Shown when **Width** is not Fit. |
+| **Font** | Body, Subheading, Heading, Accent | Body | Hidden on every copy | Shown when **Preset** is Custom. |
+| **Size** | 17 options: Default, 10px, 12px, 14px, … | 16px | Hidden on every copy | Shown when **Preset** is Custom. |
+| **Line height** | Tight, Normal, Loose | Normal | Hidden on every copy | Shown when **Preset** is Custom. |
+| **Letter spacing** | Tight, Normal, Loose | Normal | Hidden on every copy | Shown when **Preset** is Custom. |
+| **Case** | Default, Uppercase | Default | Hidden on every copy | Shown when **Preset** is Custom. |
+
+#### Appearance
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Text color** | Color | — | Empty | — |
+
+#### Padding
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Top** | 0–100px | 0px | 0px (3), 4px (1) | — |
+| **Bottom** | 0–100px | 0px | 0px | — |
+| **Left** | 0–100px | 0px | 0px | — |
+| **Right** | 0–100px | 0px | 0px | — |
+
+{/* settings:end */}
+
+### Variant picker
+
+{/* settings:begin source=block:variant-picker level=4 */}
+
+Used once across 1 page layout or header/footer group. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+#### Type
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Style** | Dropdowns, Buttons | Buttons | Buttons | — |
+| **Swatches** | On, Off | On | Off | — |
+
+#### Appearance
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Text color** | Color | — | Empty | — |
+| **Variant style** | Default, Custom | Default | Default | Edit variant styling in theme settings |
+| **Background** | Color | Palette background | Hidden on every copy | Shown when **Variant style** is Custom. |
+| **Text** | Color | Palette foreground | Hidden on every copy | Shown when **Variant style** is Custom. |
+| **Borders** | Color | Palette foreground | Hidden on every copy | Shown when **Variant style** is Custom. |
+| **Selected variant style** | Default, Custom | Default | Default | Shown when **Style** is Buttons. |
+| **Background** | Color | Palette foreground | Hidden on every copy | Shown when **Style** is Buttons and **Selected variant style** is Custom. |
+| **Text** | Color | Palette background | Hidden on every copy | Shown when **Style** is Buttons and **Selected variant style** is Custom. |
+| **Borders** | Color | Palette foreground | Hidden on every copy | Shown when **Style** is Buttons and **Selected variant style** is Custom. |
+| **Alignment** | Left, Center, Right | Left | Left | — |
+
+#### Padding
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Top** | 0–100px | 0px | 0px | — |
+| **Bottom** | 0–100px | 8px | 0px | — |
+| **Left** | 0–100px | 0px | 0px | — |
+| **Right** | 0–100px | 0px | 0px | — |
+
+{/* settings:end */}
+
+### Buy buttons
+
+{/* settings:begin source=block:buy-buttons level=4 */}
+
+Used once across 1 page layout or header/footer group. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Always stack buttons** | On, Off | Off | On | — |
+| **Text color** | Color | — | Empty | — |
+
+#### Local pickup
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Show pickup availability** | On, Off | On | Off | — |
+
+#### Gift card products
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Gift card form** | On, Off | On | On | — |
+| **Button style** | Default, Custom | Default | Default | Shown when **Gift card form** is on. |
+| **Background** | Color | Palette background | Hidden on every copy | Shown when **Gift card form** is on and **Button style** is Custom. |
+| **Text** | Color | Palette foreground | Hidden on every copy | Shown when **Gift card form** is on and **Button style** is Custom. |
+| **Borders** | Color | Palette foreground | Hidden on every copy | Shown when **Gift card form** is on and **Button style** is Custom. |
+| **Selected button style** | Default, Custom | Default | Default | Shown when **Gift card form** is on. |
+| **Background** | Color | Palette foreground | Hidden on every copy | Shown when **Gift card form** is on and **Selected button style** is Custom. |
+| **Text** | Color | Palette background | Hidden on every copy | Shown when **Gift card form** is on and **Selected button style** is Custom. |
+| **Borders** | Color | Palette foreground | Hidden on every copy | Shown when **Gift card form** is on and **Selected button style** is Custom. |
+| **Input style** | Input field, Custom | Input field | Input field | Shown when **Gift card form** is on. Edit input field in theme settings |
+| **Background** | Color | Palette background | Hidden on every copy | Shown when **Gift card form** is on and **Input style** is Custom. |
+| **Text** | Color | Palette foreground | Hidden on every copy | Shown when **Gift card form** is on and **Input style** is Custom. |
+| **Borders** | Color | Palette foreground | Hidden on every copy | Shown when **Gift card form** is on and **Input style** is Custom. |
+| **Border thickness** | 0–4px | 1px | Hidden on every copy | Shown when **Gift card form** is on and **Input style** is Custom. |
+| **Corner radius** | 0–50px | 0px | Hidden on every copy | Shown when **Gift card form** is on and **Input style** is Custom. |
+
+#### Padding
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Top** | 0–100px | 0px | 0px | — |
+| **Bottom** | 0–100px | 0px | 0px | — |
+| **Left** | 0–100px | 0px | 0px | — |
+| **Right** | 0–100px | 0px | 0px | — |
+
+{/* settings:end */}
+
+### Quantity
+
+{/* settings:begin source=block:quantity level=4 */}
+
+Used once across 1 page layout or header/footer group. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+#### Input
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Style** | Default, Custom | Default | Default | Edit input field in theme settings |
+| **Background** | Color | Palette background | Hidden on every copy | Shown when **Style** is Custom. |
+| **Text** | Color | Palette foreground | Hidden on every copy | Shown when **Style** is Custom. |
+| **Borders** | Color | Palette foreground | Hidden on every copy | Shown when **Style** is Custom. |
+| **Border thickness** | 0–4px | 1px | Hidden on every copy | Shown when **Style** is Custom. |
+| **Corner radius** | 0–50px | 0px | Hidden on every copy | Shown when **Style** is Custom. |
+
+{/* settings:end */}
+
+### Add to cart
+
+{/* settings:begin source=block:add-to-cart level=4 */}
+
+Used once across 1 page layout or header/footer group. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Style** | Primary, Secondary, Custom | Secondary | Primary | Edit primary and secondary button styles in theme settings |
+
+#### Button colors
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Background** | Color | Palette foreground | Hidden on every copy | Shown when **Style** is Custom. |
+| **Text** | Color | Palette background | Hidden on every copy | Shown when **Style** is Custom. |
+| **Borders** | Color | Palette background | Hidden on every copy | Shown when **Style** is Custom. |
+
+{/* settings:end */}
+
+### Disclosures
+
+{/* settings:begin source=block:disclosures level=4 */}
+
+Used once across 1 page layout or header/footer group. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+#### Heading
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Heading** | Text | “Disclosures” | “Disclosures” | — |
+| **Heading preset** | Default, Paragraph, Heading 1, Heading 2, Heading 3, Heading 4, Heading 5, Heading 6 | Heading 4 | Heading 5 | Edit presets in theme settings |
+
+#### Disclosures
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Open by default** | On, Off | Off | Off | — |
+| **Icon** | Caret, Plus | Caret | Caret | — |
+| **Title preset** | Default, Paragraph, Heading 1, Heading 2, Heading 3, Heading 4, Heading 5, Heading 6 | Heading 5 | Heading 6 | Edit presets in theme settings |
+
+#### Appearance
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Text color** | Color | — | Empty | — |
+| **Dividers** | On, Off | On | On | — |
+| **Divider color** | Color | — | Palette Color 2 | Shown when **Dividers** is on. |
+
+#### Padding
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Top** | 0–100px | 0px | 0px | — |
+| **Bottom** | 0–100px | 0px | 0px | — |
+| **Left** | 0–100px | 0px | 0px | — |
+| **Right** | 0–100px | 0px | 0px | — |
+
+{/* settings:end */}
+
+### Recommended products
+
+{/* settings:begin source=section:product-recommendations level=4 */}
+
+Used once across 1 page layout or header/footer group. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Product** | Product | — | Set on all, 1 from a page field | The product to find suggestions for. Set to the product on the page. |
+| **Type** | Related, Complementary | Related | Related | **Related** suggests similar products, picked by Shopify. **Complementary** shows the products set as complements in the Search & Discovery app. |
+
+#### Cards layout
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Style** | Grid, Carousel | Grid | Grid | — |
+| **Carousel on mobile** | On, Off | Off | Off | Shown when **Style** is Grid. |
+| **Product count** | 3–10 | 4 | 4 | — |
+| **Columns** | 1–8 | 4 | 4 | — |
+| **Mobile columns** | 1, 2 | 2 | 2 | Shown when **Style** is Grid and **Carousel on mobile** is off. |
+| **Horizontal gap** | 0–100px | 16px | 12px | Shown when **Style** is Grid or Carousel. |
+| **Vertical gap** | 0–100px | 16px | 24px | Shown when **Style** is Grid. |
+
+#### Carousel navigation
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Icon** | Arrows, Chevrons, Large arrows, Large chevrons, None | Arrows | Hidden on every copy | Shown when **Style** is Carousel or **Carousel on mobile** is on. |
+| **Icon background** | None, Circle, Square | None | Hidden on every copy | Shown when **Icon** is not None and **Style** is Carousel or **Carousel on mobile** is on. |
+
+#### Section layout
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Width** | Page, Full | Page | Page | — |
+| **Gap** | 0–100px | 12px | 28px | — |
+| **Background color** | Color | — | Palette background | — |
+
+#### Padding
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Top** | 0–100px | 0px | 48px | — |
+| **Bottom** | 0–100px | 0px | 48px | — |
+
+{/* settings:end */}
+
+### Product card
+
+{/* settings:begin source=block:_product-card level=4 */}
+
+Used 3 times across 3 page layouts and header/footer groups. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Vertical gap** | 0–50px | 16px | 4px (2), 8px (1) | — |
+
+#### Appearance
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Background color** | Color | — | Empty | — |
+
+#### Borders
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Style** | None, Solid | None | None | — |
+| **Thickness** | 0–100px | 1px | Hidden on every copy | Shown when **Style** is not None. |
+| **Opacity** | 0–100% | 100% | Hidden on every copy | Shown when **Style** is not None. |
+| **Color** | Color | — | Hidden on every copy | Shown when **Style** is not None. |
+| **Corner radius** | 0–32px | 0px | 0px | — |
+
+#### Padding
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Top** | 0–50px | 0px | 0px | — |
+| **Bottom** | 0–50px | 0px | 0px (2), 8px (1) | — |
+| **Left** | 0–50px | 0px | 0px | — |
+| **Right** | 0–50px | 0px | 0px | — |
+
+{/* settings:end */}
+
+### Product image
+
+{/* settings:begin source=block:_product-card-gallery level=4 */}
+
+Used 3 times across 3 page layouts and header/footer groups. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Aspect ratio** | Auto, Portrait, Square, Landscape | Portrait | Auto | Adjusted in some layouts |
+
+#### Borders
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Style** | None, Solid | None | None | — |
+| **Thickness** | 0–4px | 1px | Hidden on every copy | Shown when **Style** is not None. |
+| **Opacity** | 0–100% | 100% | Hidden on every copy | Shown when **Style** is not None. |
+| **Color** | Color | — | Hidden on every copy | Shown when **Style** is not None. |
+| **Corner radius** | 0–100px | 0px | 0px | — |
+
+#### Padding
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Top** | 0–50px | 0px | 0px | — |
+| **Bottom** | 0–50px | 0px | 0px | — |
+| **Left** | 0–50px | 0px | 0px | — |
+| **Right** | 0–50px | 0px | 0px | — |
+
+{/* settings:end */}
+
+### Product title
+
+{/* settings:begin source=block:product-title level=4 */}
+
+Used 3 times across 3 page layouts and header/footer groups. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+#### Layout
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Width** | Fit, Fill | Fit | Fill (2), Fit (1) | — |
+| **Max width** | Narrow, Normal, None | Normal | Normal | — |
+| **Alignment** | Left, Center, Right | Left | Left | Shown when **Width** is Fill. |
+
+#### Typography
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Preset** | 9 options: Default, Paragraph, Heading 1, Heading 2, … | Default | Default | Edit presets in theme settings |
+| **Font** | Body, Subheading, Heading, Accent | Body | Hidden on every copy | Shown when **Preset** is Custom. |
+| **Size** | 17 options: Default, 10px, 12px, 14px, … | 16px | Hidden on every copy | Shown when **Preset** is Custom. |
+| **Line height** | Tight, Normal, Loose | Normal | Hidden on every copy | Shown when **Preset** is Custom. |
+| **Letter spacing** | Tight, Normal, Loose | Normal | Hidden on every copy | Shown when **Preset** is Custom. |
+| **Case** | Default, Uppercase | Default | Hidden on every copy | Shown when **Preset** is Custom. |
+| **Wrap** | Pretty, Balance, None | — | Hidden on every copy | Shown when **Preset** is Custom. |
+
+#### Appearance
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Text color** | Color | — | Empty | — |
+| **Background** | On, Off | Off | Off | — |
+| **Background color** | Color | #00000026 | Hidden on every copy | Shown when **Background** is on. |
+| **Corner radius** | 0–50 | 0 | Hidden on every copy | Shown when **Background** is on. |
+
+#### Padding
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Top** | 0–100px | 0px | 4px | — |
+| **Bottom** | 0–100px | 0px | 0px | — |
+| **Left** | 0–100px | 0px | 0px | — |
+| **Right** | 0–100px | 0px | 0px | — |
+
+{/* settings:end */}
+
+## Data and metafields
+
+| Where | What lives there |
+|---|---|
+| Shopify admin → **Products** → HandySCAN Black Elite | The title, description and photos at the top of the page, and the **Theme template** (**quote**). |
+| Theme editor → **quote** template | Everything under the top: applications, photos, benefits, specs, software, portability, call to action. |
+| Shopify admin → product disclosures | The notices the **Disclosures** block shows (default template only). |
+
+## Limitations
 
 <Warning>
 Don't add **Price**, **Variant picker** or **Buy buttons** to the HandySCAN page. The page is built to have no
@@ -100,6 +616,8 @@ price and no cart.
 
 - To change the title, the description or the photos at the top, edit the product in the admin
   (**Products** → HandySCAN Black Elite). The theme editor shows where they appear but doesn't hold them.
-- Everything under the top (applications, photos, benefits, specs, software, portability, call to action) is
-  typed in the theme editor, in the **quote** template.
+- A new product gets the default template, with a price and a cart button. Don't switch it to **quote** as
+  it is: that template holds the HandySCAN page's own text and photos under the top.
+- The **Product card**, **Product image** and **Product title** tables count every product card in the theme,
+  not only the ones under **Recommended products**.
 - To change the text Google shows for the product, see [Pages and SEO](/admin/pages-and-seo#products-and-blog-posts).

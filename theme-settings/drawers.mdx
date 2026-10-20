@@ -1,0 +1,57 @@
+---
+title: "Drawers"
+description: "The colors of Horizon's slide-out panels, and why the phone menu ignores them."
+---
+
+## What it does
+
+A **drawer** is a panel that slides in from the side of the screen, for example a shop's cart or its filters. This
+group sets the background, text and border colors of Horizon's drawers.
+
+On this site the group has no visible effect. The cart drawer isn't drawn at all, because the cart is blocked, and
+the shop filters only exist on Shopify's shop pages, which the site doesn't link to.
+
+## Where to find it
+
+<Steps>
+  <Step title="Open the theme editor">
+    **Online Store → Themes → Customize**. See [Open the theme editor](/getting-started/theme-editor).
+  </Step>
+  <Step title="Open Theme settings">
+    In the narrow bar on the far left of the editor, click the **Theme settings** icon.
+  </Step>
+  <Step title="Open the group">
+    Click **Drawers**.
+  </Step>
+</Steps>
+
+## What the Tangent design overrides
+
+The menu that opens from the menu button on phones and tablets is a Horizon drawer, but the Tangent header redraws
+it: it opens under the header bar instead of sliding in from the side, with the Tangent white background, no edge
+line and numbered rows. These settings don't reach it. See [Header](/blocks/header).
+
+## Settings
+
+Leave the group as it is.
+
+{/* settings:begin source=theme:drawers level=3 */}
+
+**Tangent uses** is the value saved in the live theme's settings.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Background color** | Color | Palette background | Palette background | Horizon's slide-out panels: the cart and the shop filters, both unused. The phone menu uses the Tangent colors instead. |
+| **Text color** | Color | Palette foreground | Palette foreground | — |
+| **Border color** | Color | Palette foreground | Palette Color 2 | The line along the panel's edge. The phone menu has no edge line. |
+
+{/* settings:end */}
+
+## Data and metafields
+
+None.
+
+## Limitations
+
+- The colors are linked to the [color palette](/theme-settings/color-palette). Changing a palette color changes
+  them too.

@@ -1,0 +1,11 @@
+{
+  "variant_name": "Tells analytics which kind of form a message came from: service, location, short or contact. Keep the value the form already has.",
+  "card": "Puts the form on a light gray background that fills its cell. On for every form except the contact page's.",
+  "anchor_id": "The name buttons use to jump to the form (#quote). Keep \"quote\". Use another name only if a page has two forms.",
+  "show_needs": "Not on any of the site's forms and has no wording yet. Leave off.",
+  "show_location": "Not on any of the site's forms and has no wording yet. Leave off.",
+  "optional_text": "An optional word after the **Phone** and **Company** labels, for example \"(optional)\". Empty on every form.",
+  "body_label": "Leave empty to drop the project description box, as on the short landing page forms.",
+  "photos_note": "Optional. A note with a file icon above the button, for example asking visitors to email photos.",
+  "submit_label": "On the short landing pages it comes from the page's **Form button label** field: change it there."
+}

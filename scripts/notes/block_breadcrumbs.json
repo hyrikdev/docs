@@ -1,0 +1,8 @@
+{
+  "home_label": "The first step. Keep Home.",
+  "parent_label": "The middle step, for example Services or Locations. Leave empty for none.",
+  "parent_link": "Where the middle step goes, for example the Services or Locations page.",
+  "current_title": "The last step. Leave empty to use the page's own title.",
+  "ts_style": "Strip: the trail in its own row with a thin line under it. Used on every page; keep it the first block of the hero section.",
+  "aria_label": "What screen readers announce. Keep Breadcrumb."
+}

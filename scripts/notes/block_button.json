@@ -1,0 +1,9 @@
+{
+  "link": "A page on the site, a phone number (tel: then the digits) or another website. Type #quote to jump to the quote form on the same page.",
+  "open_in_new_tab": "Not needed for other websites: they open in a new tab by themselves. Leave off for pages on the site.",
+  "style_class": "Horizon's own style. Leave as is: the **Style** under **Tangent style** overrides it.",
+  "width": "Keep **Fit**. **Custom** at 100% makes the button fill its column, as in the closing call rows.",
+  "width_mobile": "Keep **Fit**. **Custom** at 100% makes the button fill its column, as in the closing call rows.",
+  "icon": "Use **Tangent phone** on every call button. **Phone on call links** shows the phone icon only when the link is a phone number.",
+  "ts_style": "**Primary, neutral** (black) for the main action, **Secondary** (white with a line) for the second. Keep **Accent** for selection and progress. Overrides **Style** above."
+}

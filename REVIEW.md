@@ -117,3 +117,32 @@ theme editor or GitHub.
   repository's release tags.
 - **Launch**: whether re-running `import_services.py` at the domain switch is still needed (dry run first).
 - **Old redirects**: what handled redirects on the WordPress site (no plugin shows in the saved pages).
+
+## 6. Settings pages rebuilt on 2026-10-20
+
+Every block page and the theme settings now follow one layout (What it does, Where to find it, Settings, Data
+and metafields, Limitations), with settings tables written by `scripts/settings_tables.py` (see `README.md`).
+Run it after each theme release.
+
+### Facts to confirm
+
+- **Block cart and checkout** moved from a **Tangent** group into **Cart** in the theme's work branch. The guide
+  already shows it under **Cart**; until that change is released, the live editor still shows the old group.
+- **Header on tablets**: `blocks/header.mdx` says the phone becomes a square call button on phones and tablets;
+  the code hides it in the 750–989px menu layout. Check on a tablet.
+- **Corner wording**: `blocks/buttons.mdx` says "square buttons", `theme-settings/buttons.mdx` says "2-pixel
+  corners". Pick one.
+- **Palette names**: the tables call the extra palette colors **Color 1** and **Color 2**; check the editor's names.
+- **Card list › Cards** (card entries) is empty on every list, but the theme's help text still says to connect it
+  on service pages. The guide says not to use it.
+- **Analytics pixel**: the quote form's **Form name** is sent to analytics only if the Customer events pixel is
+  set up in the store.
+- **Markets**: the country / language picker stays hidden only while the store has one country and one language.
+
+### Screenshots wanted
+
+| Page | Screenshot |
+|---|---|
+| `blocks/card-list.mdx` | The Stats, Numbered steps, Quotes, Drawing notes, Check list and Note strip layouts. |
+| `horizon/theme-settings.mdx` | The Theme settings group list in the editor. |
+| `theme-settings/*.mdx` | Each group's panel open in the editor (Logo and favicon first). |

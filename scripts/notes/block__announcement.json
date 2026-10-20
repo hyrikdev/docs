@@ -1,0 +1,10 @@
+{
+  "text": "The message. Keep it short: about 40 characters fit on one line on a phone.",
+  "link": "Where the bar goes when clicked. A link to another website opens in a new tab and shows the diagonal arrow (↗).",
+  "font": "Ignored with **Brand gradient**: it sets its own mono text.",
+  "font_size": "Ignored with **Brand gradient**: it sets its own mono text.",
+  "weight": "Ignored with **Brand gradient**: it sets its own mono text.",
+  "letter_spacing": "Ignored with **Brand gradient**: it sets its own mono text.",
+  "case": "Ignored with **Brand gradient**: it sets its own mono text.",
+  "text_color": "Ignored with **Brand gradient**: the style sets the text color."
+}

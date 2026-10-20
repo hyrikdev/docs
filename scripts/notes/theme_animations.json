@@ -1,0 +1,6 @@
+{
+  "page_transition_enabled": "Leave off. A fade between pages; it was tried during the build and turned off again.",
+  "transition_to_main_product": "Shop feature: from a product card to its product page. The site shows no product cards.",
+  "add_to_cart_animation": "Shop feature. No effect while Cart › Block cart and checkout is on.",
+  "card_hover_effect": "Product and collection cards only, which the site doesn't show. The Tangent cards ignore it."
+}

@@ -1,0 +1,64 @@
+---
+title: "Block cart and checkout"
+description: "The Tangent setting in the Cart group that blocks the cart and checkout on a quote-only site."
+---
+
+## What it does
+
+**Block cart and checkout** is a setting the Tangent layer adds to Horizon, at the top of the **Cart** group. It
+turns the theme into a quote-and-call site: nothing can be bought online.
+
+While it's on:
+
+- buy buttons, quick add and the add-to-cart bar of product pages are hidden,
+- the cart icon and the cart drawer aren't drawn,
+- the cart page sends visitors to the home page and is kept out of search engines,
+- cart and checkout forms, links and requests are stopped in the visitor's browser.
+
+It covers every page. The scanner's product page also uses its own **quote** template, which has call and booking
+buttons and no buy button. See [Product page](/page-recipes/product-page).
+
+<Frame caption="The scanner's product page: call and booking buttons, no price and no buy button.">
+  <img src="/images/product.png" alt="The HandySCAN product page with photos on the left and the title, description and call buttons on the right" />
+</Frame>
+
+## Where to find it
+
+<Steps>
+  <Step title="Open the theme editor">
+    **Online Store → Themes → Customize**. See [Open the theme editor](/getting-started/theme-editor).
+  </Step>
+  <Step title="Open Theme settings">
+    In the narrow bar on the far left of the editor, click the **Theme settings** icon.
+  </Step>
+  <Step title="Open the group">
+    Click **Cart**. **Block cart and checkout** is the first setting of the group.
+  </Step>
+</Steps>
+
+## What the Tangent design overrides
+
+This setting is the Tangent design. It switches off Horizon's shop parts whatever the shop groups say: with it on,
+the other **Cart** settings, **Product cards** and **Animations › Add to cart** have nothing left to act on. See
+[Store features](/theme-settings/store-features).
+
+## Settings
+
+Keep **Block cart and checkout** on. Its row, with the rest of the **Cart** group, is in the table on
+[Store features › Cart](/theme-settings/store-features#cart).
+
+<Warning>
+Keep **Block cart and checkout** on. The site sells by quote and phone only. If it's turned off, the cart page and
+checkout work again, and any product shown with Shopify's default product template gets its buy buttons back.
+</Warning>
+
+## Data and metafields
+
+None.
+
+## Limitations
+
+- It's a guard in the visitor's browser. Programs that send orders to Shopify directly never load the page, so they
+  aren't stopped. To be safe, the products should also be set up in the admin so they can't be bought online; ask
+  your developer.
+- The quote forms and the search page aren't affected.

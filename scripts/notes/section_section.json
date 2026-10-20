@@ -1,0 +1,15 @@
+{
+  "gap": "Space between the blocks of the section. 0px on every section but one: the groups inside set the spacing.",
+  "section_width": "Keep **Page**, as on every section: the rails are drawn at the page width.",
+  "section_height": "Keep **Auto**, as on every section: the section is as tall as its content.",
+  "background_media": "Leave on **None**. Tangent sections stay on the plain white page.",
+  "background_color": "Leave empty. Colored bands aren't part of the Tangent design.",
+  "toggle_overlay": "Leave off. Only for a section with a background photo or video, which the site doesn't use.",
+  "border": "Leave on **None**. The Tangent lines come from **Rails** and **Top border across the page**.",
+  "border_radius": "Leave at 0px: the Tangent design keeps square corners.",
+  "ts_frame": "The thin vertical lines down both sides of the page. Keep **Rails, no inner padding**, as on every section; **Rails with inner padding** adds side space inside the lines.",
+  "ts_rule": "A thin line across the top of the section, so sections are divided by a line. On for almost every section.",
+  "ts_pattern": "Faint blue dots under the blocks. **Dot lattice**: behind a centered heading; **Dot lattice at the end**: beside left-aligned text; the bottom-corner choices: statement and closing rows.",
+  "padding-block-start": "Most sections keep 0px and leave the spacing to the groups inside; about 30 keep 96px.",
+  "padding-block-end": "Most sections keep 0px and leave the spacing to the groups inside."
+}

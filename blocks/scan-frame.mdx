@@ -3,16 +3,10 @@ title: "Scan frame"
 description: "The large animated scan picture in the homepage hero."
 ---
 
-The **Scan frame** block shows one photo as if it were on a 3D scanner's screen: rulers along the edges, a
-fine grid, corner marks, and a laser line that sweeps across the picture. Behind the laser, the photo turns into a
-point cloud (a picture made of small dots, like raw scan data). A small readout and a strip of file formats
-finish the frame.
+## What it does
 
-<Frame caption="The homepage hero: the scan frame starts under the intro row">
-  <img src="/images/home-desktop.png" alt="The homepage hero with the title, the intro and buttons, and below them a wide photo with rulers, corner marks and a laser line: left of the line the photo is a blue dot pattern" />
-</Frame>
-
-## What it looks like
+Shows one photo as if it were on a 3D scanner's screen, with a laser line that sweeps across it. Behind the
+laser, the photo turns into a point cloud (a picture made of small dots, like raw scan data).
 
 - **Rulers** along the top and left edges, a 50-pixel grid over the photo, three small targets and four corner
   marks.
@@ -21,31 +15,73 @@ finish the frame.
 - **The readout**: a small label with a target icon, inside the frame, for example "0.025mm accuracy".
 - **The file formats**: a row of small cells under the picture, one per format.
 
-The whole frame is decoration. Screen readers skip it, and the photo has no alt text.
+<Frame caption="The homepage hero: the scan frame starts under the intro row">
+  <img src="/images/home-desktop.png" alt="The homepage hero with the title, the intro and buttons, and below them a wide photo with rulers, corner marks and a laser line: left of the line the photo is a blue dot pattern" />
+</Frame>
 
-## Block settings
+The site has one scan frame, on the **homepage**, in the **Hero** section, under the title and the intro. It
+shows a photo of a scanned engine, the readout "0.025mm accuracy" and the formats "STEP, IGES, STL, POINT
+CLOUD".
 
-| Setting | What it does |
-|---|---|
-| **Image** | The photo. The same image is used for the photo and for the point cloud. |
-| **Readout caption** | The small label in the frame. Screen readers don't read it, so use words that are also elsewhere on the page. |
-| **File formats** | The formats in the strip under the picture, separated by commas. Each one gets its own cell. |
-| **Laser sweep** | Makes the laser move. When it's off, or for visitors who have asked their device for reduced motion, the laser stays still part of the way across. |
-| **Sweep duration** | How long one sweep takes, from 3 to 20 seconds. The homepage uses 9. |
-| **Aspect ratio on desktop** | The shape of the frame on large screens: **21:9**, **16:9**, **3:2**, **4:3**, **Square** or **Portrait 4:5**. |
-| **Aspect ratio on mobile** | The same, on phones. |
-| **Padding** (**Top**, **Bottom**, **Left**, **Right**) | Space around the frame. |
+## Where to find it
 
-## Where it's used on the site
+<Steps>
+  <Step title="Open the page">
+    In the theme editor, open the **Home page** template (the first one the editor opens).
+  </Step>
+  <Step title="Select the block">
+    In the sidebar, open the **Hero** section and select **Scan frame**.
+  </Step>
+</Steps>
 
-Only on the **homepage**, in the **Hero** section, under the title and the intro. It uses:
+## Settings
 
-- a photo of a scanned engine;
-- the readout "0.025mm accuracy";
-- the formats "STEP, IGES, STL, POINT CLOUD";
-- **21:9** on desktop and **4:3** on phones, with a 9-second sweep.
+To replace the photo, pick another **Image** (see [Replace an image](/how-to/replace-image)). **Readout
+caption** and **File formats** hold the words in the frame.
 
-## Notes
+{/* settings:begin source=block:ts-scan-frame level=3 */}
 
+Used once across 1 page layout or header/footer group. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Image** | Image | — | Set on all | Pick a sharp, wide photo. The same image shows as the photo and, behind the laser, as a blue dot pattern (point cloud). No alt text: it's decoration. |
+| **Readout caption** | Text | “0.025mm accuracy” | “0.025mm accuracy” | The frame is decorative and hidden from screen readers, so use text that is also on the page. |
+| **File formats** | Text | — | “STEP, IGES, STL, POINT CLOUD” | Comma separated, one cell each. |
+
+### Animation
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Laser sweep** | On, Off | On | On | Stays still at a fixed split for visitors who prefer reduced motion. |
+| **Sweep duration** | 3–20s | 9s | 9s | Shown when **Laser sweep** is on. |
+
+### Size
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Aspect ratio on desktop** | 21:9, 16:9, 3:2, 4:3, Square, Portrait 4:5 | 21:9 | 21:9 | — |
+| **Aspect ratio on mobile** | 21:9, 16:9, 3:2, 4:3, Square, Portrait 4:5 | 4:3 | 4:3 | — |
+
+### Padding
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Top** | 0–100px | 0px | 0px | — |
+| **Bottom** | 0–100px | 0px | 0px | — |
+| **Left** | 0–100px | 0px | 0px | — |
+| **Right** | 0–100px | 0px | 0px | — |
+
+{/* settings:end */}
+
+## Data and metafields
+
+None. The photo is picked in the block's **Image** setting (see [Files and images](/admin/files-and-images)).
+
+## Limitations
+
+- The whole frame is decoration. Screen readers skip it, and the photo has no alt text. Don't put words in it
+  that aren't elsewhere on the page.
 - Part of the photo is always shown as dots. Pick a sharp, wide photo with a clear subject.
-- To replace the photo, see [Replace an image](/how-to/replace-image).
+- When **Laser sweep** is off, or for visitors who have asked their device for reduced motion, the laser stays
+  still part of the way across.

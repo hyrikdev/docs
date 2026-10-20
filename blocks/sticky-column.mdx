@@ -3,42 +3,22 @@ title: "Sticky column"
 description: "A ruled column beside the main text that stays in view while the page scrolls."
 ---
 
-The **Sticky column** block is a narrow column that sits beside the main content of a page. Whatever you put
-in it (buttons, a short heading, a list of recent articles) stays in view while visitors scroll down the long
-text next to it. It's a container: you add other blocks inside it, the same way you add blocks to a group.
+## What it does
 
-## What it looks like
+A narrow column beside the main content of a page. Whatever you put in it (buttons, a short heading, a list of
+recent articles) stays in view while visitors scroll down the long text next to it. It's a container: you add
+other blocks inside it, the same way you add blocks to a group.
 
 On a large screen (990 pixels wide and up), the column sits to the right of the content, with a thin line on
 its left side from top to bottom. As the visitor scrolls, the blocks inside it stay just under the header. If
-the column holds a quote form, it gets a light gray background.
-
-On tablets and phones there's no room for a second column, so the column moves under the content (or above
-it, or is hidden: see **Below 990px**).
+the column holds a quote form, it gets a light gray background. On tablets and phones there's no room for a
+second column, so the column moves under the content (or above it, or is hidden: see **Below 990px**).
 
 <Frame caption="The sticky column of an article: buttons and recent articles beside the text">
   <img src="/images/article-sticky-column.png" alt="An article on desktop: the post text on the left; on the right, after a thin line, the Call Now and Get a Quote buttons and the list 'Recent articles'" />
 </Frame>
 
-<Note>
-In the **Page** and **Blog post** sections, blocks can only be stacked one under the other. There, the sticky
-column places itself beside the block just before it, for example the post's text. Keep it right after that
-block.
-</Note>
-
-## Block settings
-
-| Setting | What it does |
-|---|---|
-| **Sticky offset** | The space between the header and the column while it sticks. The header's height is added by itself. |
-| **Width** | The width of the column on large screens, from 240 to 480 pixels. The site uses 360. |
-| **Below 990px** | Where the column goes on tablets and phones: **After the content**, **Before the content** or **Hidden**. |
-| **Hide the whole section when hidden** | Only with **Hidden**. For a section that holds nothing but this column: below 990 pixels the whole section, with its top line, is hidden too. |
-| **Centred** | For a column that's alone in its row: no line on its side, and its blocks centred. Centre the row as well. |
-| **Gap** | The space between the blocks inside the column. |
-| **Padding** (**Top**, **Bottom**, **Left**, **Right**) | The space inside the column. The site uses 48 pixels on every side. |
-
-## Where it's used on the site
+The site uses 3 sticky columns:
 
 - **Every blog article** (template **article**): the column beside the post holds the **Call Now** and
   **Get a Quote** buttons and the **Recent posts** list titled "Recent articles". On phones it comes after the
@@ -49,8 +29,58 @@ block.
 - **The CNC landing page** (3D scanning services for CNC): the closing "Get started" row is a sticky column on
   its own, **Centred**, and hidden with its section on tablets and phones.
 
-## Notes
+## Where to find it
 
+<Steps>
+  <Step title="Open the page">
+    In the theme editor, open the template, for example **article** for the blog posts.
+  </Step>
+  <Step title="Select the block">
+    In the sidebar, open the **Blog post** section and select **Sticky column**. On the **landing** template
+    it's in the **Page** section, inside the **Page** and **Body and sticky column** groups.
+  </Step>
+</Steps>
+
+To add one, select a section or group and choose **Add block › Sticky column**. Then add blocks inside it.
+
+## Settings
+
+**Below 990px** decides what happens on tablets and phones. **Width** and the padding are the same on every
+column of the site (360 pixels wide, 48 pixels of padding on each side): keep them.
+
+{/* settings:begin source=block:ts-sticky level=3 */}
+
+Used 3 times across 3 page layouts and header/footer groups. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Sticky offset** | 0–100px | 8px | 8px | Space under the header while the column sticks. The height of a sticky header is added automatically. |
+| **Width** | 240–480px | 360px | 360px | — |
+| **Below 990px** | After the content, Before the content, Hidden | After the content | Hidden (2), After the content (1) | Where the column goes on tablets and phones. |
+| **Hide the whole section when hidden** | On, Off | Off | On (1), Off (1) | Shown when **Below 990px** is Hidden. For a section that holds only this column, such as a closing column under the page: below 990px the section, its top line included, is hidden with it. |
+| **Centred** | On, Off | Off | Off (2), On (1) | For a column alone in its row: from 990px no side line and its blocks centred. Centre the row as well. |
+| **Gap** | 0–100px | 8px | 16px (2), 12px (1) | Space between the blocks inside the column. |
+
+### Padding
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Top** | 0–100px | 0px | 48px | — |
+| **Bottom** | 0–100px | 0px | 48px | — |
+| **Left** | 0–100px | 0px | 48px | — |
+| **Right** | 0–100px | 0px | 48px | — |
+
+{/* settings:end */}
+
+## Data and metafields
+
+None. The column shows the blocks you put in it.
+
+## Limitations
+
+- In the **Page** and **Blog post** sections, blocks can only be stacked one under the other. There, the sticky
+  column places itself beside the block just before it, for example the post's text. Keep it right after that
+  block.
 - The column only sticks on large screens (990 pixels and up). Check the page on a phone after a change.
 - To change the buttons in the article column, open the **article** template: the change applies to every
   blog post at once.

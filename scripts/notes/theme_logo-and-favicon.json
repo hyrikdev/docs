@@ -1,0 +1,7 @@
+{
+  "logo": "The logo in the header and the footer, and the logo search engines read. Replace it with an SVG of the same shape.",
+  "logo_inverse": "For a see-through header over a dark picture. The site doesn't use one: leave it empty.",
+  "logo_height": "Height of the header logo on large screens. The footer logo has its own height.",
+  "logo_height_mobile": "Height of the header logo on phones. The logo, call button and menu button must still fit on one line.",
+  "favicon": "The small icon in the browser tab, shown at 32 × 32 pixels. Use a square image."
+}

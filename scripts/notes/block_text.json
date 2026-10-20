@@ -1,0 +1,16 @@
+{
+  "text": "The words. Set the heading level (H1, H2, H3) inside the text box. Some copies show a page field instead of typed words.",
+  "ts_page_title_fallback": "When this text is empty on a page (for example a page field left blank), the page's title shows here as the main heading (H1).",
+  "max_width": "Leave at **Normal**. Many Tangent styles set their own line length and ignore it.",
+  "type_preset": "Keep **Default**. Ignored when a **Tangent style** is set.",
+  "ts_style": "The look of the text: font, size, color and any marks. Each style is described above. Overrides **Preset**, **Font** and **Size**.",
+  "ts_hide_section_when_blank": "Hides the whole section on the live site when this text is empty, for example a blank page field. The editor still shows it, so you can fill it in.",
+  "ts_field_wrapper": "Turn on when you type words here instead of a page field (service and location pages), so paragraph spacing stays the same. Then edit them in the sidebar.",
+  "font": "Ignored when a **Tangent style** is set.",
+  "font_size": "Ignored when a **Tangent style** is set.",
+  "line_height": "Ignored by almost every **Tangent style**, which sets its own.",
+  "letter_spacing": "Ignored when a **Tangent style** is set.",
+  "case": "Ignored when a **Tangent style** is set. Write in sentence case instead.",
+  "text_color": "Leave empty. The blue headings (Display, Heading large and medium, Stat value, Statement title and Row heading) ignore it.",
+  "background": "Leave off. Boxes behind text aren't part of the Tangent design."
+}

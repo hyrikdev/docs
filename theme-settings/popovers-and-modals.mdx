@@ -1,0 +1,71 @@
+---
+title: "Popovers and modals"
+description: "The look of Horizon's small pop-up panels, none of which show on the site."
+---
+
+## What it does
+
+A **popover** is a small panel that opens over the page next to what you clicked; a **modal** is a window that opens
+in the middle of the screen. This group sets their background, text color, corners, border and shadow.
+
+Horizon uses them for search suggestions, the country and language picker, the list of store policies, quick add on
+product cards and the add-to-cart bar of product pages. None of these show on the site today, so the group has no
+visible effect.
+
+## Where to find it
+
+<Steps>
+  <Step title="Open the theme editor">
+    **Online Store → Themes → Customize**. See [Open the theme editor](/getting-started/theme-editor).
+  </Step>
+  <Step title="Open Theme settings">
+    In the narrow bar on the far left of the editor, click the **Theme settings** icon.
+  </Step>
+  <Step title="Open the group">
+    Click **Popovers and modals**.
+  </Step>
+</Steps>
+
+## What the Tangent design overrides
+
+- The header's drop-down menus on large screens are drawn by the Tangent header: square panels with their own
+  shadow. These settings don't reach them.
+- The full-screen photo viewer of the project galleries is a Tangent part. See [Gallery and lightbox](/blocks/gallery).
+
+Why the Horizon pop-ups don't show:
+
+| Pop-up | Why it doesn't show |
+|---|---|
+| Search suggestions | The header has no search. |
+| Quick add, add-to-cart bar | Hidden by [Block cart and checkout](/theme-settings/tangent). |
+| Store policy list | The footer's **Utilities** section that holds it is hidden. |
+| Country and language picker | The header shows it only when the store is set up for more than one country or language. Today it isn't. |
+
+## Settings
+
+Leave the group as it is.
+
+{/* settings:begin source=theme:popovers-and-modals level=3 */}
+
+**Tangent uses** is the value saved in the live theme's settings.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Background color** | Color | Palette background | Palette background | Horizon's small pop-up panels: search suggestions, country picker, policy list, quick add. None show on the site today. |
+| **Text color** | Color | Palette foreground | Palette foreground | — |
+| **Corner radius** | 0–16px | 8px | 14px | — |
+| **Border color** | Color | Palette foreground | Palette Color 2 | — |
+| **Border thickness** | 0–10px | 0px | 1px | — |
+| **Drop shadow** | On, Off | On | On | — |
+| **Shadow** | Color | Palette foreground | Palette foreground | Shown when **Drop shadow** is on. |
+
+{/* settings:end */}
+
+## Data and metafields
+
+None.
+
+## Limitations
+
+- The colors are linked to the [color palette](/theme-settings/color-palette). Changing a palette color changes
+  them too.

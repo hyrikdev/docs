@@ -1,43 +1,63 @@
 ---
 title: "Buttons"
-description: "Call buttons, quote buttons and links to other websites."
+description: "The Button block, Tangent's button styles, call and quote buttons, and links to other websites."
 ---
 
+## What it does
+
 A **Button** block is a link that looks like a button. The site uses square buttons in two looks: black
-(**Primary, neutral**) for the main action and white with a line (**Secondary**) for the second one.
+(**Primary, neutral**) for the main action and white with a line (**Secondary**) for the second one. Call
+buttons carry a phone icon; other buttons end in an arrow.
 
 <Frame caption="A call button (black, with the phone icon) and a quote button (white, with an arrow)">
   <img src="/images/breadcrumbs-desktop.png" alt="A location hero with a black 'Call us now' button with a phone icon and a white 'Get a Quote' button with an arrow" />
 </Frame>
 
-## Settings
+The site has 290 buttons on 84 page layouts: in heroes, closing call rows, asides and text sections. The most
+common are **Call us now** and **Get a Quote** in the heroes of location and service pages.
 
-| Setting | What it does |
-|---|---|
-| **Label** | The button text. |
-| **Link** | Where the button goes: a page on the site, a phone number or another website. |
-| **Leading icon** (under **Tangent style**) | An icon before the label. Use **Tangent phone** on call buttons. **Phone on call links** shows the phone icon only when the link is a phone number. |
-| **Style** (under **Tangent style**) | **Primary, neutral** (black), **Secondary** (white with a line) or **Accent** (blue). |
-| **Size** | **Medium**, **Small** or **Large**. |
-| **Trailing arrow** | The arrow after the label. It's hidden on its own when the button has a leading icon. |
-| **Full width on mobile** | On phones, the button fills the width of the screen and gets taller. |
+## Where to find it
 
-<Note>
-There is also a **Style** setting near the top of the block, from the Horizon theme. Leave it as it is: the
-**Style** under **Tangent style** overrides it.
-</Note>
+<Steps>
+  <Step title="Open the page">
+    In the theme editor, open the page's template (for example **location-boston**).
+  </Step>
+  <Step title="Select the block">
+    In the sidebar, open the section, then the group that holds the buttons (often **Buttons**), and select the
+    **Button**.
+  </Step>
+</Steps>
 
-## Rules for buttons
+To add one, select a group and choose **Add block › Button**, or **Add block › Call button** for a ready-made
+call button.
 
-- **Phone first.** When a call button and a contact button sit together, the call button comes first and is
-  **Primary, neutral**. The contact or quote button comes second and is **Secondary**.
-- **Every call button has the phone icon.** Pick **Tangent phone** as the **Leading icon**.
+## Button styles
+
+Every button on the site uses the **Style** under **Tangent style**:
+
+| Style | Looks like | Use it for |
+|---|---|---|
+| **Primary, neutral** | Black, white text | The main action, and every call button. |
+| **Secondary** | White, with a thin line | The second action, for example **Get a Quote** next to a call button. |
+| **Accent** | Blue | Not for ordinary buttons. Blue is kept for selected items and progress. |
+
+**Size** (**Medium**, **Small**, **Large**), **Trailing arrow** and **Full width on mobile** only show once a
+Tangent style is picked. The theme-wide **Buttons** settings don't change these buttons: see
+[Theme settings › Buttons](/theme-settings/buttons).
+
+### Call buttons and quote buttons
+
+- **Phone first.** When a call button and a contact or quote button sit together, the call button comes first
+  and is **Primary, neutral**. The contact or quote button comes second and is **Secondary**.
+- **Every call button has the phone icon.** Pick **Tangent phone** as the **Leading icon**. The icon replaces
+  the arrow by itself.
 - **A button whose label is the phone number** shows only the icon and the number, for example
   "949-345-0611", not "Call 949-345-0611". Labels like "Call Now" or "Call us now" keep their words.
-- **Don't use Accent** for ordinary buttons. Blue is kept for selected items and progress.
+- **Quote buttons** link to `#quote`, which scrolls down to the [quote form](/blocks/contact-and-quote-form) on
+  the same page. On a page without a form, link to the contact page instead.
 - **Hero buttons on phones** use **Full width on mobile**.
 
-## Add a call button
+### Add a call button
 
 1. In the sidebar, click **Add block** in the group where the button should go.
 2. Choose **Call button**. It comes ready with the label "Call Now", the phone icon, the black style and the
@@ -50,7 +70,7 @@ A phone link is written `tel:` followed by the number without spaces, for exampl
 on phones can tap it to call.
 </Tip>
 
-## Links to other websites
+### Links to other websites
 
 A link to another website (for example a Calendly booking page or a Google Drive folder) opens in a new tab
 by itself. You don't need to turn on **Open link in new tab**. Its arrow turns diagonal (↗) so visitors know
@@ -61,8 +81,70 @@ they're leaving the site. Links to pages on usetangent.com keep the straight arr
 </Frame>
 
 This works everywhere on the site: buttons, cards, menus, and links inside text, blog posts and FAQ answers.
+Phone and email links are left as they are.
 
-## Link to a page on the site
+### Link to a page on the site
 
 In **Link**, start typing the page name and pick it from the list. Shopify fills in the right address, for
 example `/pages/reverse-engineering`. To jump to the quote form on the same page, type `#quote`.
+
+## Settings
+
+The settings that matter are **Label**, **Link**, and under **Tangent style** the **Leading icon** and
+**Style**. Leave the Horizon **Style** near the top as it is: the Tangent **Style** overrides it.
+
+{/* settings:begin source=block:button level=3 */}
+
+Used 290 times across 84 page layouts and header/footer groups. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Label** | Text | “Shop now” | Set on all, 4 from a page field | — |
+| **Link** | Link | — | Set on all, 4 from a page field | A page on the site, a phone number (tel: then the digits) or another website. Type #quote to jump to the quote form on the same page. |
+| **Open link in new tab** | On, Off | Off | Off (241), On (49) | Not needed for other websites: they open in a new tab by themselves. Leave off for pages on the site. |
+| **Style** | Primary, Secondary, Link, Custom | Primary | Primary | Horizon's own style. Leave as is: the **Style** under **Tangent style** overrides it. |
+
+### Button colors
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Background** | Color | Palette foreground | Hidden on every copy | Shown when **Style** is Custom. |
+| **Text** | Color | Palette background | Hidden on every copy | Shown when **Style** is Custom. |
+| **Borders** | Color | Palette background | Hidden on every copy | Shown when **Style** is Custom. |
+| **Link text color** | Color | — | Hidden on every copy | Shown when **Style** is Link. |
+
+### Size
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Desktop width** | Fit, Custom | Fit | Fit (250), Custom (40) | Keep **Fit**. **Custom** at 100% makes the button fill its column, as in the closing call rows. |
+| **Custom width** | 0–100% | 100% | 100% | Shown when **Desktop width** is Custom. |
+| **Mobile width** | Fit, Custom | Fit | Fit (250), Custom (40) | Keep **Fit**. **Custom** at 100% makes the button fill its column, as in the closing call rows. |
+| **Custom width** | 0–100% | 100% | 100% | Shown when **Mobile width** is Custom. |
+
+### Tangent style
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Leading icon** | 58 options: None, Tangent scan, Tangent cube, Tangent pen, … | None | None (193), Tangent phone (92), 1 more | Use **Tangent phone** on every call button. **Phone on call links** shows the phone icon only when the link is a phone number. |
+| **Style** | None · Primary, neutral · Secondary · Accent | None | Secondary (172) · Primary, neutral (118) | **Primary, neutral** (black) for the main action, **Secondary** (white with a line) for the second. Keep **Accent** for selection and progress. Overrides **Style** above. |
+| **Size** | Medium, Small, Large | Medium | Medium | Shown when **Tangent style › Style** is not None. |
+| **Trailing arrow** | On, Off | On | On | Shown when **Tangent style › Style** is not None. Hidden while the button has an icon: the icon already says what the button does. |
+| **Full width on mobile** | On, Off | Off | On (245), Off (45) | Shown when **Tangent style › Style** is not None. Below 750px the button fills the row at the large height. To stack buttons, put them in a group set to vertical on mobile. |
+
+{/* settings:end */}
+
+## Data and metafields
+
+None for most buttons: the label and link are typed in the theme editor. The two hero buttons of the long
+landing pages read the page's **Hero button 1 label** / **Hero button 1 link** and **Hero button 2 label** /
+**Hero button 2 link** fields: change them on the page in the admin. See [Landing pages](/page-recipes/landing-page).
+
+## Limitations
+
+- A button with an empty **Label** doesn't show at all. That's how a landing page hides a hero button: leave
+  its label field empty.
+- A button with a **Leading icon** never shows the arrow, even with **Trailing arrow** on.
+- Leave the theme-wide **Buttons** settings and the Horizon **Style** alone; they don't restyle the site's buttons.
+- Each button is its own block. If the phone number changes, every call button's link needs the new number:
+  see [Change the phone number](/how-to/change-phone-number).

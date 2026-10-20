@@ -1,0 +1,5 @@
+{
+  "reveal": "**After scrolling**: hidden at the top of the page, slides in after the first screen, slides out while the quote form or the footer is on screen.",
+  "phone": "The number **Call Now** calls. Leave empty to use the store phone from **Settings › Store details**.",
+  "quote_link": "Used on pages without a quote form. On pages with one, the button jumps to the form. When empty, it goes to the Contact us page."
+}

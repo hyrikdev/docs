@@ -3,8 +3,10 @@ title: "Announcement bar"
 description: "The blue bar at the very top of every page."
 ---
 
-The announcement bar is the thin blue bar above the header. It currently says "Schedule your free estimate
-now" and links to the free estimate booking page.
+## What it does
+
+The announcement bar is the thin blue bar above the header, on every page of the site. It currently says
+"Schedule your free estimate now" and links to the free estimate booking page. The site has one announcement.
 
 <Frame caption="The announcement bar. The diagonal arrow shows the link goes to another website.">
   <img src="/images/announcement-bar.png" alt="A blue gradient bar with the mono text 'Schedule your free estimate now' and a diagonal arrow" />
@@ -12,29 +14,93 @@ now" and links to the free estimate booking page.
 
 ## Where to find it
 
-In the theme editor, it's the first line in the sidebar, under **Header**: **Announcement bar**. Click the
-arrow next to it to see the **Announcement** block inside.
+<Steps>
+  <Step title="Open any page">
+    In the theme editor, open any page. The bar is the same on all of them.
+  </Step>
+  <Step title="Select the bar">
+    At the top of the sidebar, in the **Header** group, select **Announcement bar** for the bar's own settings.
+  </Step>
+  <Step title="Select the announcement">
+    Open **Announcement bar** and select the **Announcement** block inside it to change the text or the link.
+  </Step>
+</Steps>
 
-## Announcement settings
+To add one, select **Announcement bar** and choose **Add block › Announcement**. With two or more, the bar
+rotates between them.
 
-| Setting | What it does |
-|---|---|
-| **Text** | The message. Keep it short: one line on a phone is about 40 characters. |
-| **Link** | Where the bar goes when clicked. A link to another website opens in a new tab and shows the diagonal arrow (↗). |
-| **Typography** | Font, size, weight, letter spacing and case. Leave these as they are. |
+## Settings
 
-## Bar settings
+You'll only change the **Announcement**'s **Text** and **Link**. On **Announcement bar**, keep **Tangent style**
+at **Brand gradient**: it gives the blue gradient, the mono text and the arrow. To change the text or link step
+by step, see [Change the announcement](/how-to/change-announcement).
 
-Click **Announcement bar** itself to see:
+### Announcement bar
 
-| Setting | What it does |
-|---|---|
-| **Tangent style** | **Brand gradient** gives the blue gradient bar with mono text and the arrow. Keep it. |
-| **Time to next announcement** | With more than one announcement, how many seconds each one shows. |
+{/* settings:begin source=section:header-announcements level=4 */}
 
-<Tip>
-You can add a second **Announcement** block. The bar then rotates between them. One message is clearer, so
-keep a second one for short campaigns.
-</Tip>
+Used once across 1 page layout or header/footer group. In **Tangent uses**, a number in brackets is how many of those copies use that value.
 
-To change the text or link step by step, see [Change the announcement](/how-to/change-announcement).
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Time to next announcement** | 2–10sec | 5sec | 5sec | With more than one announcement, how many seconds each one shows. |
+
+#### Appearance
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Tangent style** | None, Brand gradient | None | Brand gradient | **Brand gradient** gives the blue gradient bar with mono text, and an arrow when there's a link. Keep it. |
+| **Section width** | Page, Full | Page | Page | — |
+| **Background color** | Color | — | Palette background | Ignored with **Brand gradient**: the blue gradient replaces it. |
+| **Divider thickness** | 0–5px | 0px | 0px | — |
+| **Divider color** | Color | — | Hidden on every copy | Shown when **Divider thickness** is more than 0px. |
+
+#### Padding
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Top** | 0–100px | 15px | 6px | — |
+| **Bottom** | 0–100px | 15px | 6px | — |
+
+{/* settings:end */}
+
+### Announcement
+
+{/* settings:begin source=block:_announcement level=4 */}
+
+Used once across 1 page layout or header/footer group. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Text** | Rich text | “Shop our latest arrivals!” | Set on all | The message. Keep it short: about 40 characters fit on one line on a phone. |
+| **Link** | Link | — | Set on all | Where the bar goes when clicked. A link to another website opens in a new tab and shows the diagonal arrow (↗). |
+
+#### Typography
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Font** | Body, Subheading, Heading, Accent | Body | Subheading | Ignored with **Brand gradient**: it sets its own mono text. |
+| **Size** | 17 options: Default, 10px, 12px, 14px, … | 16px | 12px | Ignored with **Brand gradient**: it sets its own mono text. |
+| **Weight** | Default, Thin, Light, Regular, Medium, Semibold, Bold, Black | Default | Default | Ignored with **Brand gradient**: it sets its own mono text. |
+| **Letter spacing** | Tight, Normal, Loose | Normal | Normal | Ignored with **Brand gradient**: it sets its own mono text. |
+| **Case** | Default, Uppercase | Default | Default | Ignored with **Brand gradient**: it sets its own mono text. |
+
+#### Appearance
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Text color** | Color | — | Empty | Ignored with **Brand gradient**: the style sets the text color. |
+
+{/* settings:end */}
+
+## Data and metafields
+
+None. The text and the link are typed in the theme editor.
+
+## Limitations
+
+- The bar shows on every page: you can't show it on some pages only.
+- One message is clearer than several. Keep a second **Announcement** for short campaigns, and remove it after.
+- A long message wraps onto two lines on phones. Keep it to about 40 characters.
+- The **Typography** settings, the text color and the background color have no effect while **Tangent style** is
+  **Brand gradient**: the style sets them. Leave them as they are.

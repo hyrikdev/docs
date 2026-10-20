@@ -1,0 +1,71 @@
+---
+title: "Badges"
+description: "The Sale and Sold out labels of Horizon's product cards, which the site doesn't show."
+---
+
+## What it does
+
+Sets the look of the small **Sale** and **Sold out** labels that Horizon puts on product cards in shop lists:
+where they sit on the card, their corners, colors and font.
+
+The site shows no product cards and sells nothing online, so no badge appears anywhere on it. The group has no
+visible effect.
+
+## Where to find it
+
+<Steps>
+  <Step title="Open the theme editor">
+    **Online Store → Themes → Customize**. See [Open the theme editor](/getting-started/theme-editor).
+  </Step>
+  <Step title="Open Theme settings">
+    In the narrow bar on the far left of the editor, click the **Theme settings** icon.
+  </Step>
+  <Step title="Open the group">
+    Click **Badges**.
+  </Step>
+</Steps>
+
+## What the Tangent design overrides
+
+Nothing: the Tangent blocks have no badges of their own that read these settings. The blue check squares on some
+cards are Tangent **Icon** blocks (style **Badge**), not shop badges. See [Icon](/blocks/icon).
+
+## Settings
+
+Leave the group as it is.
+
+{/* settings:begin source=theme:badges level=3 */}
+
+**Tangent uses** is the value saved in the live theme's settings.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Position on cards** | Bottom left, Top left, Top right | Top left | Top right | Sale and sold-out badges show on product cards in shop lists. The site shows none, so this group has no visible effect. |
+| **Corner radius** | 0–100px | 40px | 100px | — |
+
+### Colors
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Sale badge background** | Color | Palette foreground | Palette background | — |
+| **Sale badge text** | Color | — | Palette foreground | — |
+| **Sold out badge background** | Color | Palette background | #EEF1EA | — |
+| **Sold out badge text** | Color | Palette foreground | Palette foreground | — |
+
+### Typography
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Font** | Body, Subheading, Heading, Accent | Body | Body | — |
+| **Case** | Default, Uppercase | Default | Default | — |
+
+{/* settings:end */}
+
+## Data and metafields
+
+None.
+
+## Limitations
+
+- The badges would only show on Shopify's default shop pages (collections, search results), which the site
+  doesn't link to.

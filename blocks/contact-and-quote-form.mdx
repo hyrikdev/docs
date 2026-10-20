@@ -1,53 +1,152 @@
 ---
-title: "Contact details and quote form"
-description: "The phone, email, address and hours list, and the request form."
+title: "Quote form"
+description: "The request form on the contact, service, location and short landing pages, and where its messages go."
 ---
+
+## What it does
+
+The **Quote form** block is the site's request form. Visitors type their name, email and phone (on most forms
+also their company and a description of the project) and click the button. After sending, the form is replaced
+by a check mark, a heading ("You're all set.") and a short thank-you text. Fields marked with a star must be
+filled in; a short red message under the field says so when one is missing.
 
 <Frame caption="The contact page: contact details on the left, the quote form on the right">
   <img src="/images/contact-page.png" alt="The contact page with a heading, call and meeting buttons, rows for phone, email, address and hours, and a form" />
 </Frame>
 
-## Contact details
+The site has 66 quote forms, in four versions:
 
-The **Contact details** block shows rows of contact information. It's on the contact page and in the closing
-section of every service and location page. Full settings: [Contact details](/blocks/contact-details).
+| Version | Where | Fields | Button |
+|---|---|---|---|
+| Full form | The **Quote** section of the 13 service pages | Name, Phone, Email, Company, Tell us about your project, with gray example text | **Send**, with the note "No obligation. We reply within one business day." |
+| Contact form | The contact page, right column, without the gray background | The same five fields | **Send**, with the note "* Required fields" |
+| Location form | The **Quote** section of the 46 location pages | Name, Phone, Email, Tell us about your project, no example text | **Send** |
+| Short form | The hero of the 5 short landing pages and the shared **landing-short** layout | Full name, Phone, Email | The page's own label, for example "Send now" |
 
-| Setting | What it does |
+<Frame caption="The Quote section of a service page: contact details on the left, the full form on a light gray background on the right">
+  <img src="/images/quote-section.png" alt="The heading 'Tell us about your part', a short text and rows for phone, email, meeting link, address and hours on the left, the quote form on a light gray background on the right" />
+</Frame>
+
+The phone, email, address and hours beside the form are a separate block: see
+[Contact details](/blocks/contact-details).
+
+## Where to find it
+
+<Steps>
+  <Step title="Open the page">
+    In the theme editor, open the page's template (for example **service-reverse-engineering**).
+  </Step>
+  <Step title="Select the block">
+    On service and location pages, open the **Quote** section at the bottom and select **Quote form** inside its
+    groups. On the contact page and the short landing pages, it's inside the **Page** section.
+  </Step>
+</Steps>
+
+To add one, select a group and choose **Add block › Quote form**. **Quote form (location)** and
+**Quote form (short)** add the location and short versions with their fields already set.
+
+### Jump to the form from a button
+
+Every form has the name `quote`, so a button with the link `#quote` scrolls down to it. The **Get a Quote**
+buttons in the heroes of service and location pages work this way: keep their link. The
+[mobile call bar](/blocks/sticky-bar), when it's turned on, does the same on pages with a form. See [Buttons](/blocks/buttons).
+
+## Settings
+
+Most changes are words: the field labels, the button label and the messages. Turn fields on or off with
+**Company** and **Phone**; empty **Description label** to drop the project description. Leave
+**Form name (for tracking)** and **Anchor ID** as they are, and leave **What do you need?** and
+**Where should we scan?** off.
+
+{/* settings:begin source=block:quote-form level=3 */}
+
+Used 66 times across 66 page layouts and header/footer groups. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Form name (for tracking)** | Text | “full” | “location” (46), “service” (13), 2 more | Tells analytics which kind of form a message came from: service, location, short or contact. Keep the value the form already has. |
+| **Card style** | On, Off | On | On (65), Off (1) | Puts the form on a light gray background that fills its cell. On for every form except the contact page's. |
+| **Anchor ID** | Text | “quote” | “quote” | The name buttons use to jump to the form (#quote). Keep "quote". Use another name only if a page has two forms. |
+
+### Fields
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Company** | On, Off | On | Off (52), On (14) | — |
+| **Phone** | On, Off | On | On | — |
+| **What do you need?** | On, Off | Off | Off | Not on any of the site's forms and has no wording yet. Leave off. |
+| **Where should we scan?** | On, Off | Off | Off | Not on any of the site's forms and has no wording yet. Leave off. |
+
+### Labels
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Name label** | Text | “Name” | “Name” (60), “Full name” (6) | — |
+| **Name placeholder** | Text | “Your name” | Empty (52), “Your name” (14) | — |
+| **Company label** | Text | “Company” | “Company” | Shown when **Company** is on. |
+| **Company placeholder** | Text | “Your company” | “Your company” | Shown when **Company** is on. |
+| **Email label** | Text | “Email” | “Email” | — |
+| **Email placeholder** | Text | “you@company.com” | Empty (52), “you@company.com” (14) | — |
+| **Phone label** | Text | “Phone” | “Phone” | Shown when **Phone** is on. |
+| **Phone placeholder** | Text | “+1 (555) 000-0000” | Empty (52), “+1 (555) 000-0000” (14) | Shown when **Phone** is on. |
+| **Optional marker** | Text | — | Empty | An optional word after the **Phone** and **Company** labels, for example "(optional)". Empty on every form. |
+| **Needs label** | Text | — | Hidden on every copy | Shown when **What do you need?** is on. |
+| **Needs hint** | Text | — | Hidden on every copy | Shown when **What do you need?** is on. |
+| **Need options** | Text | — | Hidden on every copy | Shown when **What do you need?** is on. Comma-separated. |
+| **Location label** | Text | — | Hidden on every copy | Shown when **Where should we scan?** is on. |
+| **Option 1** | Text | — | Hidden on every copy | Shown when **Where should we scan?** is on. |
+| **Option 1 note** | Text | — | Hidden on every copy | Shown when **Where should we scan?** is on. |
+| **Option 2** | Text | — | Hidden on every copy | Shown when **Where should we scan?** is on. |
+| **Option 2 note** | Text | — | Hidden on every copy | Shown when **Where should we scan?** is on. |
+| **Description label** | Text | “Tell us about your project” | “Tell us about your project” (60), Empty (6) | Leave empty to drop the project description box, as on the short landing page forms. |
+| **Description placeholder** | Text | “Describe your project, parts, materials …” | Set on 20 of 66 | — |
+| **Photos note** | Rich text | — | Empty | Optional. A note with a file icon above the button, for example asking visitors to email photos. |
+| **Button label** | Text | “Send” | Set on all, 6 from a page field | On the short landing pages it comes from the page's **Form button label** field: change it there. |
+| **Note under button** | Text | “No obligation. We reply within one business day.” | Set on 14 of 66 | — |
+
+### Messages
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Required field message** | Text | “Please fill in all required fields.” | “Please fill in all required fields.” | — |
+| **Invalid email message** | Text | — | Empty | Leave empty to show the required field message for an invalid email too (the live forms have no separate email message). |
+| **Success heading** | Text | “You're all set.” | “You're all set.” (65), “You're all set!” (1) | — |
+| **Success text** | Rich text | “Your message has been received by the Tangent …” | Set on all | — |
+
+### Padding
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Top** | 0–100px | 0px | 0px | — |
+| **Bottom** | 0–100px | 0px | 0px | — |
+
+{/* settings:end */}
+
+## Data and metafields
+
+Nothing has to exist in the admin for the form to work. Where its messages go, and the one field it reads:
+
+| Where | What lives there |
 |---|---|
-| **Phone** | The phone number. Leave empty to use the store phone from **Settings → Store details**. |
-| **Phone row label** | Optional label before the value, for example "Phone". The same goes for **Email row label**, **Address row label** and **Hours row label**. |
-| **Hide the phone row** | Leaves the phone row out, for example when a call button sits right next to the list. |
-| **Email** | The email address. |
-| **Schedule link label** and **Schedule link** | A booking link, for example a Calendly page. |
-| **Open schedule link in a new tab** | Opens the booking page in a new tab. |
-| **Address** and **Address link** | The address, and an optional Google Maps link. |
-| **Hours** | The opening hours. |
-| **Top divider** | A line above the first row. |
+| Shopify admin → **Settings → Notifications** | The store's **sender email**. Every message from every quote form is emailed there. Change it there if messages should reach another inbox. |
+| The message itself | A hidden **Source page** line with the address of the page it was sent from, so you can see which page brought the request. |
+| Short landing pages → the page's **Form button label** field | The button text of the short form. See [Landing pages](/page-recipes/landing-page). |
 
-<Warning>
-Each page has its own **Contact details** block. If the address, email or hours change, update the block on
-every page, or ask your developer to do it in one go. See [Change the phone number](/how-to/change-phone-number).
-</Warning>
+See [Contact pages](/page-recipes/contact-pages) for the pages built around the form.
 
-## Quote form
+<Tip>
+After a change to the form or the sender email, send yourself a test message from the live page and check it
+arrives.
+</Tip>
 
-The **Quote form** block is the request form. Visitors fill in their name, email, phone, company and a
-description of the project, then click **Send**.
+## Limitations
 
-- Messages are emailed to the store's sender email, set in **Settings → Notifications**.
-- The form can't take file uploads. Ask visitors to email photos instead.
-- Buttons can jump to the form with the link `#quote`. The mobile call bar's **Get a Quote** button does the same
-  when the page has a form (the bar is turned off for now).
-
-| Setting | What it does |
-|---|---|
-| **Card style** | Puts the form on a light gray background with padding. |
-| **Anchor ID** | The name buttons use to jump to the form. Keep "quote". Use another name only if a page has two forms. |
-| **Company**, **Phone** | Show or hide these fields. |
-| **What do you need?**, **Where should we scan?** | Extra fields that aren't used on the site. Leave them off. |
-| **Labels** | The label and the gray example text of each field. |
-| **Description label** | The label of the project description box. Leave empty to hide the box (short form). |
-| **Photos note** | An optional note under the form. |
-| **Button label** | The button text, "Send". |
-| **Note under button** | A short note under the button. |
-| **Messages** | The error message, and the heading and text shown after sending. |
+- The form can't take file uploads. Ask visitors to email photos or drawings, for example in **Photos note**.
+- Each block has its own words. To change a label on every location page, change it in every location page's
+  form, or ask your developer to do it in one go.
+- Keep **Anchor ID** as "quote". Use another name only if a page has two forms; buttons linking to `#quote` then
+  reach only the one still called "quote".
+- **What do you need?** and **Where should we scan?** have no wording and aren't on the live forms. Leave them
+  off.
+- The **Add block** list also offers Horizon's **Contact form**. The site doesn't use it: add a **Quote form**
+  instead, so the form looks and behaves like the others.

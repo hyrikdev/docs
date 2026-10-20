@@ -1,0 +1,19 @@
+{
+  "gap": "Space between the blocks inside. Ignored when **Lines** draws lines or cards; kept with **None** and **No lines, stacked on tablet**.",
+  "width": "**Custom** with 50% makes one half of a two-column row.",
+  "custom_width": "For two-column rows keep 50%, so the column line lines up with the sections above and below.",
+  "background_media": "Leave on **None**. Tangent cells stay on the plain white page.",
+  "background_color": "Leave empty. Colored boxes aren't part of the Tangent design.",
+  "toggle_overlay": "Leave off. Only for a group with a background photo or video, which the site doesn't use.",
+  "border": "Leave on **None**. Lines between cells come from **Lines** under **Tangent grid**.",
+  "border_radius": "Leave at 0px: the Tangent design keeps square corners.",
+  "link": "Makes the whole group a link. Inside a Tangent grid, a linked cell gets a soft background when the pointer is over it.",
+  "ts_grid": "Draws thin lines between the blocks inside, in place of the gap. Each choice is explained under **Lines between cells** above.",
+  "ts_columns": "Columns on screens 990px wide and up.",
+  "ts_columns_tablet": "Columns on screens 750 to 989px wide.",
+  "ts_columns_mobile": "Columns on screens under 750px wide (phones).",
+  "padding-block-start": "Space inside the group. Inside the Tangent frame, values over 20px shrink smoothly on smaller screens.",
+  "padding-block-end": "Space inside the group. Inside the Tangent frame, values over 20px shrink smoothly on smaller screens.",
+  "padding-inline-start": "48px is the usual cell padding. Inside the Tangent frame, values over 20px shrink smoothly on smaller screens.",
+  "padding-inline-end": "48px is the usual cell padding. Inside the Tangent frame, values over 20px shrink smoothly on smaller screens."
+}

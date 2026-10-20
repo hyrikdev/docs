@@ -58,7 +58,7 @@ stock Horizon.
 | `blocks/_blog-post-card`, `_blog-post-info-text`, `_blog-post-featured-image` | `ts_style` (+ `ts_show_tag` on `_blog-post-info-text`) | Ruled blog cards, mono details, ruled featured image. |
 | `sections/header.liquid` (+ `_header-menu`, `snippets/header-drawer.liquid`, `assets/header-drawer.js`) | `ts_style`, `show_cart` | The "Technical" header: bar, dropdowns, mobile drawer; cart icon switch. |
 | `sections/header-announcements.liquid`, `blocks/_announcement.liquid` | `ts_style` (on the section; `_announcement` reads it) | The brand gradient announcement bar. |
-| `config/settings_schema.json` | `ts_sales_disabled` in a **Tangent** group | See [Sales disabled](#sales-disabled). |
+| `config/settings_schema.json` | `ts_sales_disabled`, first setting of Horizon's **Cart** group | See [Sales disabled](#sales-disabled). |
 
 `blocks/group.liquid` is at Horizon's limit of 40 settings: don't add more to it. `sections/header.liquid` has
 44 and is the source of the `ExcessiveSettingsCount` warning in the Theme Check baseline.
@@ -153,8 +153,8 @@ text). `mailto:`, `tel:`, relative links and `#anchors` are never touched.
 
 ## Sales disabled
 
-The store sells nothing online. The theme setting **Block cart and checkout** (`ts_sales_disabled`, group
-**Tangent** in theme settings, default on) switches the cart off everywhere:
+The store sells nothing online. The theme setting **Block cart and checkout** (`ts_sales_disabled`, first
+setting of the **Cart** group in theme settings, default on) switches the cart off everywhere:
 
 | File | With the setting on |
 |---|---|

@@ -1,0 +1,60 @@
+---
+title: "Animations"
+description: "Horizon's page transition and card effects, which the site keeps off."
+---
+
+## What it does
+
+Turns 4 of Horizon's movements on or off: a fade between pages, a move from a product card to its product page,
+a small animation when something is added to the cart, and an effect when the pointer is over a product or
+collection card.
+
+On this site **Page transition** is off and **Card hover effect** is **None**. A page transition was tried during
+the build and turned off again. The other 2 settings are for shop features the site doesn't use.
+
+## Where to find it
+
+<Steps>
+  <Step title="Open the theme editor">
+    **Online Store → Themes → Customize**. See [Open the theme editor](/getting-started/theme-editor).
+  </Step>
+  <Step title="Open Theme settings">
+    In the narrow bar on the far left of the editor, click the **Theme settings** icon.
+  </Step>
+  <Step title="Open the group">
+    Click **Animations**.
+  </Step>
+</Steps>
+
+## What the Tangent design overrides
+
+The small movements of the Tangent blocks, such as the arrow that slides right when the pointer is over a button,
+belong to the Tangent design and have no setting here. **Card hover effect** doesn't reach the Tangent cards: it
+only applies to Horizon's product and collection cards.
+
+## Settings
+
+Leave the group as it is.
+
+{/* settings:begin source=theme:animations level=3 */}
+
+**Tangent uses** is the value saved in the live theme's settings.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Page transition** | On, Off | On | Off | Leave off. A fade between pages; it was tried during the build and turned off again. |
+| **Product card to product page transition** | On, Off | On | Off | Shop feature: from a product card to its product page. The site shows no product cards. |
+| **Add to cart** | On, Off | On | On | Shop feature. No effect while Cart › Block cart and checkout is on. |
+| **Card hover effect** | None, Lift, Scale, Zoom | Lift | None | Product and collection cards only, which the site doesn't show. The Tangent cards ignore it. |
+
+{/* settings:end */}
+
+## Data and metafields
+
+None.
+
+## Limitations
+
+- **Add to cart** shows as on, but has no effect: the cart is blocked by
+  [Block cart and checkout](/theme-settings/tangent).
+- Turning **Page transition** on changes how every page opens. It was turned off on purpose; ask before changing it.

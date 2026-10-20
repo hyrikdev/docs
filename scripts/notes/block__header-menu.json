@@ -1,0 +1,5 @@
+{
+  "menu": "Shows the **Main menu**. Change its links in **Online Store › Navigation**, not here.",
+  "menu_style": "Keep **None**: the Technical header expects a menu without submenu images.",
+  "drawer_accordion": "In the phone menu drawer, submenus fold open under their link."
+}

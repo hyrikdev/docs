@@ -1,0 +1,4 @@
+{
+  "product": "The product to find suggestions for. Set to the product on the page.",
+  "recommendation_type": "**Related** suggests similar products, picked by Shopify. **Complementary** shows the products set as complements in the Search & Discovery app."
+}

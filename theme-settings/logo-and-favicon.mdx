@@ -1,0 +1,84 @@
+---
+title: "Logo and favicon"
+description: "The site logo, its height in the header, and the small icon in the browser tab."
+---
+
+## What it does
+
+Sets the Tangent logo and the favicon, the small icon in the browser tab. This is the one theme settings group
+you may need to change, for example when the brand changes.
+
+<Frame caption="The header logo on a phone. Its height here is the Mobile height setting.">
+  <img src="/images/header-phone.png" alt="The phone header: the Tangent Solutions logo on the left, a black call button and a menu button on the right" />
+</Frame>
+
+The logo set here shows in 3 places:
+
+- **The header**, on every page, at the height set by **Desktop height** and **Mobile height**.
+- **The footer**, on every page, at a height set on the footer's own **Logo** block, not here.
+- **Search engines**: the theme gives Google this logo as the company's logo.
+
+The favicon shows in the browser tab and in bookmarks, on every page.
+
+The **Manage store name** link at the top of the group opens the store name in the Shopify settings. The theme
+adds the store name to the end of each page's title (in the browser tab and in search results), unless the title
+already contains it.
+
+## Where to find it
+
+<Steps>
+  <Step title="Open the theme editor">
+    **Online Store → Themes → Customize**. See [Open the theme editor](/getting-started/theme-editor).
+  </Step>
+  <Step title="Open Theme settings">
+    In the narrow bar on the far left of the editor, click the **Theme settings** icon.
+  </Step>
+  <Step title="Open the group">
+    Click **Logo and favicon**.
+  </Step>
+</Steps>
+
+## What the Tangent design overrides
+
+Nothing: the Tangent header and footer use the logo and favicon set here. The Tangent design only decides where
+the logo sits in the header bar and how much room it gets.
+
+## Settings
+
+To replace the logo, pick a new file in **Default logo**: an SVG file of the same shape stays sharp at any size.
+To make it bigger or smaller in the header, change **Desktop height** and **Mobile height**. Leave **Inverse logo**
+empty.
+
+{/* settings:begin source=theme:logo-and-favicon level=3 */}
+
+**Tangent uses** is the value saved in the live theme's settings.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Default logo** | Image | — | tangent-logo.svg | The logo in the header and the footer, and the logo search engines read. Replace it with an SVG of the same shape. |
+| **Inverse logo** | Image | — | Empty | For a see-through header over a dark picture. The site doesn't use one: leave it empty. |
+| **Desktop height** | 12–100px | 36px | 26px | Shown when **Default logo** is set or **Inverse logo** is set. Height of the header logo on large screens. The footer logo has its own height. |
+| **Mobile height** | 12–100px | 28px | 22px | Shown when **Default logo** is set or **Inverse logo** is set. Height of the header logo on phones. The logo, call button and menu button must still fit on one line. |
+| **Favicon** | Image | — | tangent-favicon.png | The small icon in the browser tab, shown at 32 × 32 pixels. Use a square image. |
+
+{/* settings:end */}
+
+<Tip>
+After a change, check the header on a phone: the logo, the call button and the menu button must still fit on one
+line.
+</Tip>
+
+## Data and metafields
+
+| Where | What lives there |
+|---|---|
+| Shopify admin → **Content → Files** | The logo and favicon files. A file picked in the theme editor is uploaded there. See [Files and images](/admin/files-and-images). |
+| Shopify admin → **Settings → General** | The store name, which ends each page title. |
+
+## Limitations
+
+- **Desktop height** and **Mobile height** change only the header logo. The footer logo's height is a setting of
+  the **Logo** block in the footer: see [Footer](/blocks/footer).
+- Browsers keep favicons for a long time. After a change, the old one can show in your own browser for a while.
+- A change here is live on every page as soon as you save on the live theme. Try it on a copy of the theme first:
+  see [Preview and publish](/getting-started/preview-and-publish).

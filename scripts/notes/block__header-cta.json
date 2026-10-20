@@ -1,0 +1,5 @@
+{
+  "label": "The button text. Leave empty to hide the button.",
+  "link": "Where the button goes. When empty, it goes to the Contact us page.",
+  "ts_style": "**Secondary** makes it the white outlined button, second after the phone. Keep it."
+}

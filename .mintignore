@@ -8,3 +8,6 @@ drafts/
 
 # Internal review list (not a guide page)
 REVIEW.md
+
+# Generator for the settings tables (see scripts/settings_tables.py)
+scripts/

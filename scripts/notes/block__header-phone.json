@@ -1,0 +1,7 @@
+{
+  "phone": "The number shown and called. Leave empty to use the store phone from **Settings › Store details**.",
+  "label": "Optional text before the number, for example “Call us”. Hidden on smaller screens. Leave empty: the button shows the icon and the number.",
+  "hide_in_drawer": "Leave off: on phones and tablets the phone becomes a square call button.",
+  "aria_label": "What screen readers say before the number. Keep “Call”.",
+  "ts_style": "**Primary, neutral** makes it the black button. Keep it."
+}

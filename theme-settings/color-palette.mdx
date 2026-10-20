@@ -1,0 +1,75 @@
+---
+title: "Color palette"
+description: "The four base colors of the theme, and why the Tangent blocks don't use them."
+---
+
+## What it does
+
+The color palette holds 4 base colors that other theme settings point to: **Background**, **Foreground**,
+**Color 1** and **Color 2**. Most color settings elsewhere start out "linked" to one of them, so changing a
+palette color changes every setting linked to it at once.
+
+The values come from an earlier version of the design (a navy text color among them). That's expected: the
+Tangent blocks use their own near-black and blue, so most palette colors don't show on the pages.
+
+## Where to find it
+
+<Steps>
+  <Step title="Open the theme editor">
+    **Online Store → Themes → Customize**. See [Open the theme editor](/getting-started/theme-editor).
+  </Step>
+  <Step title="Open Theme settings">
+    In the narrow bar on the far left of the editor, click the **Theme settings** icon.
+  </Step>
+  <Step title="Open the group">
+    Click **Color palette**.
+  </Step>
+</Steps>
+
+## What the Tangent design overrides
+
+The Tangent design has its own color list: near-black text on white, grey lines and one accent blue (#0562EF).
+Every Tangent block, text style and button reads that list, never the palette. Those colors are fixed in the theme
+files and have no setting in the editor.
+
+One palette color still shows on every page: **Background** fills **Page › Background**, the color behind every
+section. Change it and every page changes color, while the Tangent text, lines and buttons stay made for white.
+
+## Settings
+
+Leave every color as it is.
+
+{/* settings:begin source=theme:color-palette level=3 */}
+
+**Tangent uses** is the value saved in the live theme's settings.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Background** | Color | #FFFFFF | #FFFFFF | Leave as is. Fills Page › Background, the color behind every section of every page. The Tangent text colors are made for white. |
+| **Foreground** | Color | #000000 | #1A2B5E | Leave as is. A navy from an earlier design. Only parts Horizon draws itself use it; the Tangent blocks use their own near-black. |
+| **Color 1** | Color | — | #3A4560 | Leave as is. Fills Typography › Text, the default color of text that has no Tangent style. |
+| **Color 2** | Color | — | #DCE2EC | Leave as is. The light line color of Horizon's drawers, pop-ups and option buttons. |
+
+{/* settings:end */}
+
+Which settings are linked to each palette color:
+
+| Palette color | Linked from |
+|---|---|
+| **Background** | **Page › Background**; the background settings of the header, footer and blog sections; Horizon's drawers and pop-ups. |
+| **Foreground** | The text of Horizon's own secondary buttons, drawers, pop-ups and form fields; Horizon's option buttons. |
+| **Color 1** | **Typography › Text**. |
+| **Color 2** | The lines of Horizon's drawers, pop-ups and option buttons. |
+
+The Tangent design paints over most of these. **Page › Background** is the one that shows on every page.
+
+## Data and metafields
+
+None.
+
+## Limitations
+
+- The Tangent colors can't be changed in the theme editor. To change the brand colors, ask your developer.
+- A palette change reaches every linked setting at once, on every page. If you change one by mistake, use
+  **undo** before you save, or set the value back from the **Tangent uses** column above. See
+  [Undo and versions](/getting-started/undo-and-versions).

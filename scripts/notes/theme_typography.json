@@ -1,0 +1,7 @@
+{
+  "page_text_color": "Leave as is. Default color of text with no Tangent style and of the parts Horizon draws itself.",
+  "type_body_font": "Leave as is. Only a fallback: Tangent text uses Inter, which comes with the theme.",
+  "type_subheading_font": "Leave as is. The Tangent styles don't use it.",
+  "type_heading_font": "Leave as is. Only a fallback: Tangent headings use Geist, which comes with the theme.",
+  "type_accent_font": "Leave as is. The Tangent styles don't use it: small labels use Geist Mono."
+}

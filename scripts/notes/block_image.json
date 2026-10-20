@@ -1,0 +1,18 @@
+{
+  "image": "Pick a file or upload one. The alt text comes from the file itself: set it in Content → Files.",
+  "ts_style": "Media: photos, filling the frame on light gray. Logo: client logos, gray, in color on hover. Logo in a row: small color logo. Wordmark: a brand-name logo.",
+  "ts_span": "Leave as is: already set where it's used. In a photo grid it makes one photo take 2 columns, 2 rows or both.",
+  "ts_min_height": "Leave as is. The least height of a photo beside text on large screens (for example a hero photo); longer text still makes the row taller.",
+  "ts_caption": "A short label in the bottom corner of the photo, for example what it shows. Leave blank for none.",
+  "ts_contain": "For a part on a white background or a drawing: shows the whole image, never cropped. Keep it off for photos.",
+  "ts_max_height": "Limits the height of the whole image, centred in its space. 0 lets it fill the space.",
+  "ts_fill_top": "Leave empty. Used once, for an image with its own gray background: the colour of the image's top edge fills the space above it.",
+  "ts_fill_bottom": "Leave empty. The colour of the image's bottom edge, filling the space below it.",
+  "ts_copy_first": "For a group of photos beside text: below 990 pixels the text comes first, then the photos.",
+  "ts_focus_y": "Where a cropped photo is cut: 0% keeps the top, 50% the middle, 100% the bottom.",
+  "image_ratio": "The frame's shape. Auto keeps the image's own shape; Portrait is 4:5, Landscape 16:9. Keep one shape per row.",
+  "width": "Leave as is: the layout around the image depends on it.",
+  "width_mobile": "Leave as is: the layout around the image depends on it.",
+  "border": "Leave on None: images on this site have no border.",
+  "border_radius": "Leave at 0px: the site's images have square corners."
+}

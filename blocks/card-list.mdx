@@ -3,51 +3,59 @@ title: "Card list"
 description: "Grids of cards: industries, benefits, options, galleries, steps, quotes and link cells."
 ---
 
-A **Card list** block shows a set of cards in a ruled grid. Each card is a **Card** block inside it. The card
-list decides the layout; each card holds its own words and image.
+## What it does
+
+A **Card list** shows a set of cards on the site's ruled grid. Each card is a **Card** block inside the list.
+The list decides the layout (cards, figures, steps, a photo gallery, quotes…), the columns and the look; each
+card holds its own title, text, icon or photo, and link.
 
 <Frame caption="A card list with four cards, each with a bare line icon">
   <img src="/images/card-list-icons.png" alt="Four cards in a row: File creation, Enhancement, Measurement, Compression, each with a small blue line icon" />
 </Frame>
 
-## What a card holds
+It's the most used block on the site: 289 card lists on 74 page layouts, holding about 1,650 cards. Service,
+location, landing and company pages all use it.
 
-Click a **Card** in the sidebar to edit it.
+## Where to find it
 
-| Setting | What it does |
-|---|---|
-| **Title** | The card's title. |
-| **Text** | The card's text. A bulleted list shows one item per line. |
-| **Label** | A small mono label. With an icon it sits beside the icon. Write `a · b · c` (with the middle dot) to show the items as small check chips. In quotes it's the person's name line; in stats it's the line under the number. |
-| **Icon** | A line icon above the title. Pick from the **Tangent** icons. See [Icons](/design-rules/icons) for which icon means what. Leave it on **None** for cards with a photo. |
-| **Image** | The card's photo. |
-| **Show the whole image** | For a screenshot, report or drawing with text in it: shows the whole picture, never cropped. Keep it off for photos. |
-| **Taller wide photo** | For a single card whose photo spans the whole row: makes the photo taller. |
-| **Crop position, vertical** | Where a cropped photo is cut: 0% keeps the top, 50% the middle, 100% the bottom. |
-| **Link** and **Link label** | Makes the whole card a link. The label is the link text; leave it blank to use the list's **Default link label**. |
-| **More images** (**Image 2** to **Image 12**) | Extra photos stacked with the first one, or logos when **Icon** is set to **Images as logo cells**. |
+<Steps>
+  <Step title="Open the page">
+    In the theme editor, open the page's template (for example **service-reverse-engineering**). See
+    [How the pages are set up](/editing-pages/how-pages-work).
+  </Step>
+  <Step title="Select the list">
+    In the sidebar, open the section and select **Card list** inside it. In some sections it sits inside a group.
+  </Step>
+  <Step title="Select a card">
+    Open the list to see its **Card** blocks, or click a card in the preview. The sidebar shows that card's settings.
+  </Step>
+</Steps>
 
-<Tip>
-A card with only a title (no text, image, link or label) shows as a small badge with a check mark.
-</Tip>
+To add one, select a section or group and choose **Add block › Card list**. The same menu also has ready-made
+starts: **Stats strip**, **Numbered steps**, **Image gallery**, **Static cards** and **Static stats strip**.
+To add a card, select the list and choose **Add block › Card**, or see
+[Add or edit a card in a grid](/how-to/edit-card).
 
-## Choose a layout
+## Layouts
 
-Click the **Card list** and pick a **Layout**.
+Select the **Card list** and pick a **Layout**. The 11 layouts:
 
-| Layout | Use it for |
-|---|---|
-| **Cards** | The standard grid: title and text, with an icon or a photo. Industries, benefits, why-us, options. |
-| **Stats** | Big figures with a short line under each, for example "0.025mm". |
-| **Numbered steps** | A process, numbered 01, 02, 03… |
-| **Gallery** | Photos with a short caption under each. |
-| **Quotes** | Client testimonials: the quote, the logo, the name and the person's line. |
-| **Drawing notes** | Short notes under a drawing, in small mono text. |
-| **Entries** | A term and a sentence in each ruled cell, for example "What sets us apart". |
-| **Link cells** | Each card is a link: its title and an arrow. Turn on **Images in link cells** to add the photo. |
-| **Check list** | Short lines with a blue check mark. |
-| **Tiles** | Short names in large tiles, for example a list of industries. |
-| **Note strip** | A label on the left and a title on the right, on a light gray band. |
+| Layout | What it shows | Use it for | Lists on the site |
+|---|---|---|---|
+| **Cards** | The standard grid: title and text, with an icon or a photo. | Industries, benefits, why-us, options, service cards. | 106 |
+| **Stats** | Big figures with a short line under each, for example "0.025mm". | Rows of figures on service pages. | 5 |
+| **Numbered steps** | A process, numbered 01, 02, 03… | Process steps on service pages. | 5 |
+| **Gallery** | Photos with a short caption under each. | Photo grids on location and service pages. | 83 |
+| **Quotes** | Client testimonials: the quote, the logo, the name and the person's line. | Testimonials on location and landing pages. | 41 |
+| **Drawing notes** | Short notes under a drawing, in small mono text, in two columns. No icons, photos or links. | Key specs under the part drawing at the top of two service pages, and one list of benefits. | 3 |
+| **Entries** | A term and a sentence in each ruled cell, in one column or a grid. | Lists like "What sets us apart", or reasons beside a photo. | 27 |
+| **Link cells** | Each card is a link: its title and an arrow. Turn on **Images in link cells** to add the photo. | Rows of services on the short landing pages. | 7 |
+| **Check list** | Short lines, each with a blue check mark. | Short lists of features or reasons. | 5 |
+| **Tiles** | Short names in large tiles. Turn on **Centred tiles** when the tiles have icons. | Lists of industries, materials or options. | 6 |
+| **Note strip** | A label on the left and a title on the right, on a light gray band. | A single highlighted note. | 1 |
+
+In the **Cards** layout, a card with only a title (no text, image, link or label) shows as a small badge with a
+check mark.
 
 ### Examples
 
@@ -55,6 +63,11 @@ Click the **Card list** and pick a **Layout**.
   <Tab title="Gallery">
     <Frame caption="Gallery: photos with captions. Photo cards have no icon.">
       <img src="/images/card-list-gallery.png" alt="A gallery of photos in a 4-column grid with one large photo" />
+    </Frame>
+  </Tab>
+  <Tab title="Gallery, Bento">
+    <Frame caption="Gallery with Bento turned on: the first photo is large and every row is full">
+      <img src="/images/location-gallery.png" alt="The heading 'Chicago 3D scanning services' above a four-column photo grid: one large photo top left, then rows of scanning photos with no gaps" />
     </Frame>
   </Tab>
   <Tab title="Tiles, centred">
@@ -73,43 +86,17 @@ Click the **Card list** and pick a **Layout**.
     </Frame>
   </Tab>
   <Tab title="Photo cards">
-    <Frame caption="Photo cards with a caption, no icon">
+    <Frame caption="Cards layout with photos and a caption, no icon">
       <img src="/images/card-list-photo-cards.png" alt="Industry photos with a small caption under each" />
     </Frame>
   </Tab>
 </Tabs>
 
-## Key settings of the card list
-
-| Setting | What it does | When to use it |
-|---|---|---|
-| **Card icon** | How card icons look. | Always choose **Bare icon, 24px**. It's the site's icon style. |
-| **Card style** | **Bordered** (ruled cells), **Plain** (only lines between cells) or **Tinted** (light gray cells). | Keep what the page already uses, usually **Bordered**. |
-| **Columns on desktop** | How many cards sit side by side on a large screen. | 4 for short cards, 3 for cards with photos and longer text. |
-| **Columns on mobile** | 1 or 2. | 1 for cards with text; 2 only for short tiles or photos. |
-| **Columns on tablet** | Columns from 750 to 989 pixels wide. **Auto** means at most 2. | Leave on **Auto** unless a page already uses something else. |
-| **Desktop columns from** | The screen width where the desktop columns start (990px or 1200px). | 1200px when 4 columns get too narrow on small laptops. |
-| **Text cards over their images** | For a row of text cards over a row of matching photos. Put the cards in reading order: text 1, image 1, text 2, image 2… | Whenever each text has its own image. On phones each text is then followed by its image. |
-| **Centred tiles** | **Tiles** layout: centres the icon and the name in each tile. | When the tiles have icons. |
-| **Images in link cells** | **Link cells** layout: shows each card's photo above its title. | For service link cells that have photos. |
-| **Short row first** | When the cards don't fill the last row, the leftover cards open the list instead of closing it. | Galleries with an odd number of photos. |
-| **Label style** | **Kicker** (small label) or **Number** (the label shown as a large blue number, like 01.). | **Number** for steps that carry their own numbers. |
-| **Checks beside the copy** | Shows `a · b · c` labels as check lines beside the text instead of chips under it. | Option cards with a list of features. |
-| **Checks on list lines** | Each line of a card's list starts with a check instead of a small square. | Lists of reasons or features. |
-| **Photo on the left in the first row** | With 1 column: starts the copy and photo rows with the photo on the left. | Alternating copy and photo rows. |
-| **Copy first when stacked** | With 1 column: on smaller screens the copy comes first, then the photo. | Rows where the text should be read before the photo. |
-| **Bento** | **Gallery** layout: the first photo large, the last ones wide, so the grid ends on a full row. | The location galleries. Designed for 4 columns. |
-| **Show images**, **Image ratio** | Shows or hides the card photos and sets their shape (4:3, 16:9, 16:10, Square). | Keep one ratio per list. |
-| **Title size** | **Card** or **Section** (the title as big as a section heading). | **Section** only for large copy and photo rows. |
-| **Default link label** | The link text for cards with a link and no label of their own. | Usually "Learn more". |
-| **Blog posts**, **Number of posts** | When the list has no cards, it shows the latest posts of this blog. | Case study rows on service pages. |
-| **Hide section when empty** | Hides the whole section when the list has nothing to show. | Leave as it is. |
-
 ## Text then its image on phones
 
 When a section has a row of text cards over a row of their photos (for example "What gets delivered"), turn
-on **Text cards over their images** and put the cards in reading order. Desktop keeps two rows; phones show
-each text right before its image.
+on **Text cards over their images** and put the cards in reading order: text 1, image 1, text 2, image 2…
+Desktop keeps two rows; phones show each text right before its image.
 
 <Columns cols={2}>
   <Frame caption="Desktop: texts on the first row, images under them">
@@ -120,6 +107,121 @@ each text right before its image.
   </Frame>
 </Columns>
 
-## Add or edit a card
+## Settings
 
-See [Add or edit a card in a grid](/how-to/edit-card).
+On the list, the settings that matter most are **Layout**, **Columns on desktop** and **Columns on mobile**. For
+cards with icons, keep **Card icon** on **Bare icon, 24px**. On each card you mostly change **Title**, **Text**,
+**Icon** or **Image**, and **Link**. Many of the other switches were set for one particular page: leave them as
+they are.
+
+### Card list
+
+{/* settings:begin source=block:card-list level=4 */}
+
+Used 289 times across 74 page layouts and header/footer groups. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Hide section when empty** | On, Off | Off | On (175), Off (114) | Hides the whole section on the storefront when there is nothing to show, e.g. a service without this content. |
+| **Cards** | Entries | — | Empty | Not used on this site: every list holds its own Card blocks. Leave empty; card entries chosen here would replace the cards. |
+| **Blog posts** | Blog | — | Set on 3 of 289 | When the list has no cards, it shows the latest posts of this blog as cards. Used for the case study rows on three service pages. |
+| **Number of posts** | 1–12 | 4 | 4 | Shown when **Blog posts** is set. |
+| **Layout** | 11 options: Cards, Stats, Numbered steps, Gallery, … | Cards | Cards (106), Gallery (83), 9 more | — |
+| **Show for key specs** | Always, Facts only, Figures and features only | Always | Always (282), Figures and features only (5), 1 more | Leave as it is. The other values show the list only when its cards are short figures, or only plain facts. Seven service page heroes use them. |
+| **Bento** | On, Off | Off | Off (49), On (34) | Shown when **Layout** is Gallery. The first card large and the last cards wide, so the grid always ends on a full row. Designed for 4 columns. |
+| **Card style** | Plain, Bordered, Tinted | Bordered | Bordered (241), Plain (46), 1 more | Bordered: ruled cells. Plain: only the lines between cells. Tinted: ruled cells on light gray. Keep what the page already uses, usually Bordered. |
+| **Card icon** | Tile · Accent icon beside the label · Bare icon, 24px | Tile | Tile (214) · Bare icon, 24px (75) | For cards with icons, choose Bare icon, 24px: the site's icon style. Tile puts the icon in a small tile; the accent option puts it beside the label. |
+| **Columns on desktop** | 1–6 | 3 | 4 (157), 3 (81), 4 more | 4 for short cards, 3 for cards with photos and longer text. A list never shows more columns than it has cards. |
+| **Columns on mobile** | 1, 2 | 1 | 1 (170), 2 (119) | 1 for cards with text. 2 only for short tiles, figures or photos. |
+| **Desktop columns from** | 990px, 1200px | 990px | 990px (269), 1200px (20) | Below this width the tablet columns apply. Pick 1200px when 4 columns get too narrow on small laptops. |
+| **Columns on tablet** | Auto, Same as desktop, 3 columns, One card per row (photo / text) | Auto | Auto (277), Same as desktop (9), 1 more | For screens 750 to 989 pixels wide. Auto: at most 2. Leave on Auto unless the page already uses another value. |
+| **Photo on the left in the first row** | On, Off | Off | Off (21), On (3) | Shown when **Columns on desktop** is 1. From 990px. The rows still alternate. |
+| **Copy first when stacked** | On, Off | Off | Off (17), On (7) | Shown when **Columns on desktop** is 1. Below 990 pixels, a row of text and photo shows the text first, then the photo. |
+| **Text cards over their images** | On, Off | Off | Off (104), On (2) | Shown when **Layout** is Cards. Cards in reading order: text 1, image 1, text 2, image 2… Phones then show each text before its image. Needs twice as many cards as columns. |
+| **Short row first** | On, Off | Off | Off (288), On (1) | When the cards don't fill the last row, the cards left over open the list (wider) instead of closing it, e.g. a gallery of 5: 2 wide photos, then 3. |
+| **On the text edge** | On, Off | Off | Off (288), On (1) | Leave off. Used once, for a list inside a text column: the cards line up with the text, with no outer frame. |
+| **Strip at the cell foot** | On, Off | Off | Off (288), On (1) | Leave off. Used once, for a list of names that closes a text column, as a ruled strip along the section's bottom line. |
+| **Link as a button** | On, Off | Off | Off (287), On (2) | Each card's link shows as an outline button with its link label; the card itself is not a link. Cards without a link show no button. |
+| **Even photo rows** | On, Off | Off | Off (277), On (12) | When photos don't fill the last row, the leftover photos share it, a bit taller, with no white gap. A single last photo becomes a wide band. |
+| **Label style** | Kicker, Number | Kicker | Kicker (288), Number (1) | Number: the card's label shows as a large blue number, like 01. In Numbered steps it replaces the automatic number. |
+| **Checks beside the copy** | On, Off | Off | Off (288), On (1) | A label written “a · b · c” shows as check lines beside the title and text (from 750 pixels), instead of check chips under the text. |
+| **Checks on list lines** | On, Off | Off | Off (288), On (1) | In a card text with one item per line, each line starts with a check instead of a small square. |
+| **Centred tiles** | On, Off | Off | Off (285), On (4) | Tiles layout: centres the icon and the name in each tile. Turn it on when the tiles have icons. Off: the name sits at the tile's foot. |
+| **Images in link cells** | On, Off | Off | On (5), Off (2) | Shown when **Layout** is Link cells. Shows each card's photo above its title and arrow, with Show images on; the whole card stays the link. On phones the photo sits beside the title. |
+| **Show images** | On, Off | On | On (189), Off (100) | — |
+| **Image ratio** | 4:3, 16:9, 16:10, Square | 4:3 | 4:3 (175), 16:10 (13), 1 more | Shown when **Show images** is on. The shape of every card photo. Keep one ratio per list. |
+| **Title HTML tag** | H2, H3, H4, Paragraph | H3 | H3 (260), Paragraph (16), 2 more | The heading level of the card titles, for search engines and screen readers. Keep H3 under a section heading. |
+| **Title size** | Card, Section | Card | Card (288), Section (1) | Section: card titles as big as a section heading. Only for large rows of text beside a photo. |
+| **Title color** | Color | — | Empty | Leave empty to use the section text color. |
+| **Default link label** | Text | “Learn more” | “Learn more” (243), “See details” (35), 2 more | The link text for cards that have a link but no link label of their own. Usually “Learn more”. |
+
+#### Padding
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Top** | 0–100px | 0px | 0px | — |
+| **Bottom** | 0–100px | 0px | 0px | — |
+
+{/* settings:end */}
+
+### Card
+
+{/* settings:begin source=block:_card-list-item level=4 */}
+
+Used 1,658 times across 74 page layouts and header/footer groups. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Title** | Text | — | Set on 1,104 of 1,658 | — |
+| **Text** | Rich text | — | Set on 468 of 1,658 | A bulleted list shows one item per line; paragraphs stay paragraphs. Numbered lines ("1. …") get no bullet. |
+| **Label** | Text | — | Set on 146 of 1,658 | A small label above the title. Write “a · b · c” (with middle dots) for check chips. Stats: the line under the figure. Quotes: the person's line. |
+| **Icon** | 59 options: None, Tangent scan, Tangent cube, Tangent pen, … | None | None (1,323), Tangent file (48), 51 more | A line icon above the title (see Icons for which means what). Image as icon puts the image in the icon's place. Leave None on photo cards. |
+| **Image** | Image | — | Set on 1,216 of 1,658 | — |
+| **Show the whole image** | On, Off | Off | Off (1,622), On (36) | For a screenshot, report or drawing with text in it: shows the whole picture, never cropped. Keep it off for photos. |
+| **Taller wide photo** | On, Off | Off | Off (1,657), On (1) | For a single card whose photo spans the whole row: makes the photo taller instead of a thin band. On phones the photo shows uncropped. |
+| **Trim the image's top pixel row** | On, Off | Off | Off (1,656), On (2) | Leave off. Only for an image file with a thin line baked into its top edge: cuts that line off. |
+| **Crop position, vertical** | 0–100% | 50% | 50% (1,657), 30% (1) | Where a cropped photo is cut: 0% keeps the top, 50% the middle, 100% the bottom. |
+| **Link** | Link | — | Set on 325 of 1,658 | Makes the whole card a link, unless the list has Link as a button turned on. |
+| **Link label** | Text | — | Set on 293 of 1,658 | The link text. Blank uses the list's Default link label. |
+
+#### More images
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Image 2** | Image | — | Set on 1 of 1,658 | Images 2 to 12: extra photos stacked with the first one, or logos when Icon is set to Images as logo cells. |
+| **Image 3** | Image | — | Set on 1 of 1,658 | — |
+| **Image 4** | Image | — | Set on 1 of 1,658 | — |
+| **Image 5** | Image | — | Empty | — |
+| **Image 6** | Image | — | Empty | — |
+| **Image 7** | Image | — | Empty | — |
+| **Image 8** | Image | — | Empty | — |
+| **Image 9** | Image | — | Empty | — |
+| **Image 10** | Image | — | Empty | — |
+| **Image 11** | Image | — | Empty | — |
+| **Image 12** | Image | — | Empty | — |
+
+{/* settings:end */}
+
+## Data and metafields
+
+None for most lists: the words, icons and links are typed in each **Card** in the theme editor.
+
+| Where | What lives there |
+|---|---|
+| Theme editor → **Card list** and **Card** blocks | The layout, and each card's title, text, label, icon, photo and link. |
+| Shopify admin → **Content → Files** | The photos and their alt text. A card has no alt text setting of its own. See [Files and images](/admin/files-and-images). |
+| Shopify admin → **Online Store → Blog posts** | Only for a list with **Blog posts** set and no cards: the latest posts show as cards. See [Blog posts](/admin/blog-posts). |
+
+## Limitations
+
+- The grid always ends on a full row: when the cards don't fill the last row, the last cards stretch to fill it.
+  Don't add cards just to fill a row.
+- A list never shows more columns than it has cards.
+- A card with no title, text, image or link shows nothing.
+- **Text cards over their images** needs the cards in pairs (a text card, then its photo card), exactly twice as
+  many cards as columns, **Show images** on and **Columns on mobile** on 1. Otherwise the list falls back to a
+  normal grid.
+- **Bento** is designed for 4 columns.
+- Leave **Cards** (card entries) empty: no list on the site uses it, and entries chosen there would replace the
+  cards typed in the editor.
+- A card has an icon or a photo, not both. Photo cards get no icon.

@@ -1,0 +1,63 @@
+---
+title: "Input fields"
+description: "The look of Horizon's form fields, and why the quote form ignores it."
+---
+
+## What it does
+
+Sets the look of the form fields Horizon draws: background, text and border colors, border thickness, corners and
+the text preset inside the field.
+
+On this site the group has no visible effect on the pages people visit. The site's forms are the Tangent quote
+forms, which ignore it. Horizon's own fields only appear on pages the site doesn't link to, such as the search
+page.
+
+## Where to find it
+
+<Steps>
+  <Step title="Open the theme editor">
+    **Online Store → Themes → Customize**. See [Open the theme editor](/getting-started/theme-editor).
+  </Step>
+  <Step title="Open Theme settings">
+    In the narrow bar on the far left of the editor, click the **Theme settings** icon.
+  </Step>
+  <Step title="Open the group">
+    Click **Input fields**.
+  </Step>
+</Steps>
+
+## What the Tangent design overrides
+
+The quote form (on the contact pages and in the closing quote sections) draws its fields in the Tangent design:
+white fields with a grey line, 2-pixel corners, small mono labels, a blue line when a field is in use and a red
+line when it's filled in wrong. None of it comes from this group. See
+[Contact and quote form](/blocks/contact-and-quote-form).
+
+## Settings
+
+Leave the group as it is.
+
+{/* settings:begin source=theme:input-fields level=3 */}
+
+**Tangent uses** is the value saved in the live theme's settings.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Background** | Color | Palette background | #FFFFFF | Form fields Horizon draws itself, such as the search page field. The quote form uses the Tangent design and ignores this group. |
+| **Text** | Color | Palette foreground | Palette foreground | — |
+| **Borders** | Color | Palette foreground | #7F8BA3 | — |
+| **Border thickness** | 0–4px | 1px | 1px | — |
+| **Corner radius** | 0–32px | 8px | 8px | — |
+| **Text preset** | Default, Paragraph, Heading 1, Heading 2, Heading 3, Heading 4, Heading 5, Heading 6 | Paragraph | Paragraph | — |
+
+{/* settings:end */}
+
+## Data and metafields
+
+None.
+
+## Limitations
+
+- The email field of the password page (shown only while the store is locked with a password) sets its own colors
+  on its block, so this group barely reaches it either.
+- Checkout and customer account pages are drawn by Shopify, not by the theme. These settings don't reach them.

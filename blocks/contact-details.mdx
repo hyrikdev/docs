@@ -3,15 +3,9 @@ title: "Contact details"
 description: "The rows of phone, email, meeting link, address and hours."
 ---
 
-The **Contact details** block shows Tangent's contact information as ruled rows, each with a small blue line
-icon: phone, email, meeting link, address and opening hours. Each row is optional. The phone and email rows are
-links: a click calls the number or opens a new email.
+## What it does
 
-<Frame caption="The contact page: the contact details are the four ruled rows under the buttons, with their labels">
-  <img src="/images/contact-page.png" alt="The contact page with a heading, call and meeting buttons, rows for phone, email, address and office hours, and a form" />
-</Frame>
-
-## What it looks like
+Shows Tangent's contact information as ruled rows, each with a small blue line icon. Each row is optional.
 
 | Row | Icon | Shows |
 |---|---|---|
@@ -24,26 +18,11 @@ links: a click calls the number or opens a new email.
 Each row can also show a small label before the value (such as "Phone" or "Office hours"), in a column of its
 own. Without labels, the rows show only the icon and the value.
 
-## Block settings
+<Frame caption="The contact page: the contact details are the four ruled rows under the buttons, with their labels">
+  <img src="/images/contact-page.png" alt="The contact page with a heading, call and meeting buttons, rows for phone, email, address and office hours, and a form" />
+</Frame>
 
-| Setting | What it does |
-|---|---|
-| **Phone** | The phone number. Leave it empty to use the store phone from **Settings → Store details** in the admin. |
-| **Phone row label** | Optional label before the phone number. Leave it empty for no label. |
-| **Hide the phone row** | Leaves the phone row out, even the store phone. For a list that sits next to a call button. |
-| **Email** | The email address. |
-| **Email row label** | Optional label before the email. |
-| **Schedule link label** and **Schedule link** | The text and the address of a booking link, for example a Calendly page. The row shows only when both are filled in. |
-| **Open schedule link in a new tab** | Opens the booking page in a new tab. Links to other websites open in a new tab anyway. |
-| **Address** | The address. |
-| **Address row label** | Optional label before the address. |
-| **Address link** | Optional Google Maps link for the address. |
-| **Hours** | The opening hours. |
-| **Hours row label** | Optional label before the hours. |
-| **Top divider** | A thin line above the first row. |
-| **Padding** (**Top**, **Bottom**) | Space above and below the list. |
-
-## Where it's used on the site
+The site has 62 contact details blocks:
 
 - **Every service page (13) and every location page (46)**, in the closing **Quote** section, next to the quote
   form. These show the phone number, the email, a "Schedule a meeting" link, the address and the hours,
@@ -57,7 +36,63 @@ own. Without labels, the rows show only the icon and the value.
   <img src="/images/quote-section.png" alt="The Quote section of the reverse engineering page: under the heading and text, five ruled rows with blue icons for the phone, email, 'Schedule a meeting', address and hours, beside the quote form" />
 </Frame>
 
-## Notes
+## Where to find it
+
+<Steps>
+  <Step title="Open the page">
+    In the theme editor, open the page's template (for example **location-chicago** or
+    **service-reverse-engineering**).
+  </Step>
+  <Step title="Select the block">
+    In the sidebar, open the **Quote** section and the groups inside it, and select **Contact details**. On a
+    location page the groups are **Quote row** and **Quote text**.
+  </Step>
+</Steps>
+
+To add one, select a section or group and choose **Add block › Contact details**.
+
+## Settings
+
+Fill in only the rows you want: an empty row isn't shown, except the phone, which falls back to the store phone.
+Leave the row labels empty, as on the service and location pages, unless the list stands on its own like on the
+contact page.
+
+{/* settings:begin source=block:contact-details level=3 */}
+
+Used 62 times across 61 page layouts and header/footer groups. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Phone** | Text | — | “949-345-0611” (60), Empty (2) | Leave empty to use the store phone from Settings > Store details. |
+| **Phone row label** | Text | — | Empty (61), “Phone” (1) | Optional. Shown in a label column before the value; leave empty for no label. |
+| **Hide the phone row** | On, Off | Off | Off (60), On (2) | Leaves out the phone row, even the store phone. For a list that sits next to a call button. |
+| **Email** | Text | “contact@usetangent.com” | “contact@usetangent.com” (60), Empty (2) | — |
+| **Email row label** | Text | — | Empty (61), “Email” (1) | Optional. Shown in a label column before the value; leave empty for no label. |
+| **Schedule link label** | Text | “Schedule a meeting” | “Schedule a meeting” (59), Empty (3) | — |
+| **Schedule link** | Link | — | Set on 59 of 62 | For example a Calendly page. The row shows only when this and Schedule link label are both filled in. |
+| **Open schedule link in a new tab** | On, Off | On | On | Links to other websites open in a new tab anyway. |
+| **Address** | Text | “3100 Airway Ave. Suite 130 Costa Mesa CA 92626” | Set on all | — |
+| **Address row label** | Text | — | Empty (61), “Address” (1) | Optional. Shown in a label column before the value; leave empty for no label. |
+| **Address link** | Link | — | Set on 1 of 62 | Optional Google Maps link. The address then opens the map in a new tab. |
+| **Hours** | Text | “Monday – Friday 9:00am – 5:00pm PST” | “Monday – Friday 9:00am – 5:00pm PST” (60), “Monday – Friday 9am – 5pm” (1), 1 more | — |
+| **Hours row label** | Text | — | Empty (61), “Office hours” (1) | Optional. Shown in a label column before the value; leave empty for no label. |
+| **Top divider** | On, Off | On | On (61), Off (1) | A 1px line above the first row. |
+
+### Padding
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Top** | 0–100px | 0px | 0px | — |
+| **Bottom** | 0–100px | 0px | 0px | — |
+
+{/* settings:end */}
+
+## Data and metafields
+
+The phone row falls back to the store phone in **Settings → Store details** when **Phone** is empty and
+**Hide the phone row** is off. Everything else is typed in the block.
+
+## Limitations
 
 <Warning>
 Every page has its own **Contact details** block, so a change on one page doesn't change the others. If the
@@ -66,5 +101,5 @@ phone, email, address or hours change, ask your developer to update every page i
 </Warning>
 
 - The quote form next to the contact details is its own block. See
-  [Contact details and quote form](/blocks/contact-and-quote-form#quote-form).
+  [Quote form](/blocks/contact-and-quote-form).
 - The pages are explained section by section in [Contact pages](/page-recipes/contact-pages).

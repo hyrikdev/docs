@@ -29,7 +29,7 @@ The theme repository holds the theme folders Shopify reads plus three folders Sh
 |---|---|
 | `assets/` | Horizon's CSS and JS, plus `tangent-tokens.css` (design tokens and shared `.ts-*` classes), the self-hosted fonts (`tangent-geist.woff2`, `tangent-geist-mono.woff2`, `tangent-inter.woff2`), the Tangent JS modules (`ts-*.js`, `quote-form.js`) and SVG artwork (`ts-scan-*.svg`, `ts-pixel-mark*.svg`, `ts-hero-*.svg`, `tangent-logo.svg`, `icon-*.svg`). |
 | `blocks/` | Horizon theme blocks (some extended with `ts_*` settings) and the Tangent blocks (`ts-*`, `_ts-*`, `card-list`, `_card-list-item`, `breadcrumbs`, `contact-details`, `faq-category`, `quote-form`…). |
-| `config/` | `settings_schema.json` (Horizon's theme settings plus one **Tangent** group) and `settings_data.json` (the live values). |
+| `config/` | `settings_schema.json` (Horizon's theme settings plus `ts_sales_disabled` in the **Cart** group) and `settings_data.json` (the live values). |
 | `layout/` | `theme.liquid` (loads the Tangent tokens, the sales-disabled guards) and `password.liquid`. |
 | `locales/` | Horizon's storefront and schema translations. Every `*.schema.json` also carries a `tangent` group of editor labels, written by a script. See [Architecture](/technical/architecture#editor-labels-locales). |
 | `sections/` | Horizon sections (several extended with `ts_*` settings), `mobile-sticky-cta.liquid` (new) and the header and footer section groups (`header-group.json`, `footer-group.json`). |

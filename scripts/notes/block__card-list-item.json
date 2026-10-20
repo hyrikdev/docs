@@ -1,0 +1,11 @@
+{
+  "label": "A small label above the title. Write “a · b · c” (with middle dots) for check chips. Stats: the line under the figure. Quotes: the person's line.",
+  "icon": "A line icon above the title (see Icons for which means what). Image as icon puts the image in the icon's place. Leave None on photo cards.",
+  "image_contain": "For a screenshot, report or drawing with text in it: shows the whole picture, never cropped. Keep it off for photos.",
+  "image_band": "For a single card whose photo spans the whole row: makes the photo taller instead of a thin band. On phones the photo shows uncropped.",
+  "image_trim_top": "Leave off. Only for an image file with a thin line baked into its top edge: cuts that line off.",
+  "image_focus_y": "Where a cropped photo is cut: 0% keeps the top, 50% the middle, 100% the bottom.",
+  "link": "Makes the whole card a link, unless the list has Link as a button turned on.",
+  "link_label": "The link text. Blank uses the list's Default link label.",
+  "image_2": "Images 2 to 12: extra photos stacked with the first one, or logos when Icon is set to Images as logo cells."
+}

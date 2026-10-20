@@ -66,6 +66,24 @@
             ]
           },
           {
+            "group": "Theme settings",
+            "pages": [
+              "theme-settings/logo-and-favicon",
+              "theme-settings/color-palette",
+              "theme-settings/typography",
+              "theme-settings/page",
+              "theme-settings/animations",
+              "theme-settings/badges",
+              "theme-settings/buttons",
+              "theme-settings/drawers",
+              "theme-settings/icons",
+              "theme-settings/input-fields",
+              "theme-settings/popovers-and-modals",
+              "theme-settings/tangent",
+              "theme-settings/store-features"
+            ]
+          },
+          {
             "group": "Editing pages",
             "pages": [
               "editing-pages/how-pages-work",

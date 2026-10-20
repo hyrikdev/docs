@@ -1,0 +1,6 @@
+{
+  "ts_sales_disabled": "Keep on. Hides buy buttons, quick add, the cart icon and the cart, sends the cart page home, and stops cart and checkout requests in the browser.",
+  "cart_type": "No effect while Block cart and checkout is on: the cart drawer isn't drawn and the cart page goes to the home page.",
+  "show_accelerated_checkout_buttons": "Express payment buttons, such as Shop Pay, in the cart. Not shown while Block cart and checkout is on.",
+  "empty_cart_button_link": "Where the button of an empty cart goes. Not shown while Block cart and checkout is on."
+}

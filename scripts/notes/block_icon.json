@@ -1,0 +1,8 @@
+{
+  "icon": "Pick a Tangent icon (their names start with Tangent). The other icons are the theme's own and aren't used on this site.",
+  "image_upload": "An uploaded picture instead of an icon. Not used on this site.",
+  "width": "24 for icons, 22 in the contact rows of the short landing pages, 12 for badges.",
+  "open_in_new_tab": "Links to other websites open in a new tab anyway.",
+  "icon_color": "Leave empty: the Tangent style sets the blue.",
+  "ts_style": "Accent: bare blue icon. Badge: filled blue square, a 12px icon makes an 18px badge. Tile: bordered square, not used here. None: the theme's own look."
+}

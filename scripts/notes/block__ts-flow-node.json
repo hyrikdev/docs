@@ -1,0 +1,6 @@
+{
+  "title": "The step or result, for example Mesh File.",
+  "kind": "Deliverable is for a result, such as a file type: a light gray cell with a small blue square.",
+  "position": "Where the cell sits on large screens. Tablets show 2 columns; phones one column in block order, with the column 3 and 4 cells indented as branches.",
+  "arrows": "Two is for a step that branches into the top and bottom rows."
+}

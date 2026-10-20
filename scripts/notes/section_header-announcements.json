@@ -1,0 +1,5 @@
+{
+  "speed": "With more than one announcement, how many seconds each one shows.",
+  "ts_style": "**Brand gradient** gives the blue gradient bar with mono text, and an arrow when there's a link. Keep it.",
+  "background_color": "Ignored with **Brand gradient**: the blue gradient replaces it."
+}

@@ -1,0 +1,93 @@
+---
+title: "Buttons"
+description: "Horizon's primary and secondary button looks, and why the site's buttons ignore them."
+---
+
+## What it does
+
+Sets the look of Horizon's own buttons: colors, border, corners, font and case for the **Primary button** and the
+**Secondary button**, and the corners of **Pills**, the rounded tags of shop filters and search suggestions.
+
+The values here (yellow primary buttons with rounded corners, among others) come from an earlier version of the
+design and don't show on the site. All 290 Button blocks on the site use a Tangent **Style**, which ignores this
+group: square black **Primary, neutral** buttons and white **Secondary** buttons with a thin line.
+
+<Frame caption="The site's buttons in the header: Tangent styles, not the colors set here.">
+  <img src="/images/header-desktop.png" alt="The desktop header with a black phone number button and a white 'Contact us' button with an arrow" />
+</Frame>
+
+## Where to find it
+
+<Steps>
+  <Step title="Open the theme editor">
+    **Online Store → Themes → Customize**. See [Open the theme editor](/getting-started/theme-editor).
+  </Step>
+  <Step title="Open Theme settings">
+    In the narrow bar on the far left of the editor, click the **Theme settings** icon.
+  </Step>
+  <Step title="Open the group">
+    Click **Buttons**.
+  </Step>
+</Steps>
+
+## What the Tangent design overrides
+
+When a Button block's Tangent **Style** is set, the button drops Horizon's button look completely and takes the
+Tangent one: colors, 2-pixel corners, Inter font, height and the trailing arrow. Nothing in this group reaches it.
+The same goes for the quote form's send button and the blog's **Load more** button, which are Tangent buttons, and
+for the header's phone and **Contact us** buttons, whose colors, corners and font the Tangent header sets over
+Horizon's.
+
+So this group only reaches buttons that Horizon draws on its own: on Shopify's shop pages and on the password page,
+none of which the site links to.
+
+## Settings
+
+Leave the group as it is. To change how one button looks, change its Tangent **Style** on the Button block. See
+[Buttons](/blocks/buttons).
+
+{/* settings:begin source=theme:buttons level=3 */}
+
+**Tangent uses** is the value saved in the live theme's settings.
+
+### Primary button
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Background** | Color | Palette foreground | #E8C204 | Horizon's own primary buttons only. Buttons with a Tangent **Style** ignore every setting in this group. |
+| **Text** | Color | Palette background | #13213F | — |
+| **Borders** | Color | Palette background | #E8C204 | — |
+| **Border thickness** | 0–4px | 0px | 0px | — |
+| **Corner radius** | 0–100px | 100px | 8px | — |
+| **Font** | Body, Accent | Body | Body | — |
+| **Text case** | Default, Uppercase | Default | Default | — |
+
+### Secondary button
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Background** | Color | Palette background | Transparent | Horizon's own secondary buttons only; Tangent buttons ignore it. |
+| **Text** | Color | Palette foreground | Palette foreground | — |
+| **Borders** | Color | Palette foreground | #1B2A4A | — |
+| **Border thickness** | 0–4px | 1px | 2px | — |
+| **Corner radius** | 0–100px | 100px | 8px | — |
+| **Font** | Body, Accent | Body | Body | — |
+| **Text case** | Default, Uppercase | Default | Default | — |
+
+### Pills
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Corner radius** | 0–40px | 40px | 40px | The rounded tags of shop filters, discount codes and search suggestions. None show on the site. |
+
+{/* settings:end */}
+
+## Data and metafields
+
+None.
+
+## Limitations
+
+- A Button block with its Tangent **Style** set to **None** falls back to the Horizon button set here (yellow and
+  rounded for a primary) and looks out of place. Keep a Tangent **Style** on every button.
+- The Tangent button colors can't be changed in the theme editor. Ask your developer.

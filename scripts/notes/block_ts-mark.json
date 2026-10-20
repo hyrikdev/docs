@@ -1,0 +1,4 @@
+{
+  "motif": "Auto draws the part chosen in the page's Scan motif field, or nothing when it's blank. Part scans keep their size on large screens and shrink a little on tablets.",
+  "corner": "In the cell isn't an edge decoration: the drawing sits centred in its cell, like a picture."
+}

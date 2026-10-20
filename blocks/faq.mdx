@@ -3,15 +3,63 @@ title: "FAQ"
 description: "How the question lists work, and where the questions live."
 ---
 
-Pages with frequently asked questions use the **FAQ category** block. The questions themselves aren't typed
-in the theme editor: each one is an **FAQ** entry in the Shopify admin, and each entry belongs to a
-**category**. A page shows every question of its category.
+## What it does
+
+Shows a list of frequently asked questions. A click on a question opens its answer; the plus sign turns into a
+minus. The questions themselves aren't typed in the theme editor: each one is an **FAQ** entry in the Shopify
+admin, and each entry belongs to a **category**. The block shows every question of the category you pick.
 
 <Frame caption="A FAQ list. A click on a question opens its answer; the plus sign turns into a minus.">
   <img src="/images/faq-open.png" alt="A section titled '3D scanning services FAQ' with seven questions in ruled rows, the first one open with its answer" />
 </Frame>
 
-## How it fits together
+The site has FAQ lists on 10 pages: 7 service pages, the Hawaii location page, the Orange County landing page
+and the 3D scanner reverse engineering page.
+
+## Where to find it
+
+<Steps>
+  <Step title="Open the page">
+    In the theme editor, open the page's template (for example **service-3d-scanning-services**).
+  </Step>
+  <Step title="Select the block">
+    In the sidebar, open the **FAQ** section and select **FAQ category** inside it.
+  </Step>
+</Steps>
+
+To add a list to another page, select a section or group and choose **Add block › FAQ category**.
+
+## Settings
+
+To change which questions show, pick another **Category**. To add, change or remove a question, edit the FAQ
+entries in the admin instead: see [FAQ entries](/admin/faq-entries) and
+[Add a FAQ question](/how-to/add-faq-question).
+
+{/* settings:begin source=block:faq-category level=3 */}
+
+Used 10 times across 10 page layouts and header/footer groups. In **Tangent uses**, a number in brackets is how many of those copies use that value.
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Category** | Entry | — | Set on all | An FAQ category entry (Content > Metaobjects > FAQ category). |
+| **Hide section when empty** | On, Off | Off | On | Hides the whole section on the storefront when no category is chosen or the category has no entries. |
+| **Output FAQPage structured data** | On, Off | On | On | Turn off if another FAQ list on the same page already outputs it. |
+| **Open first question** | On, Off | Off | Off (9), On (1) | — |
+| **Icon** | Caret, Plus | Plus | Plus | — |
+| **Dividers** | On, Off | On | On | — |
+| **Ruled rows on the text edge** | On, Off | Off | Off (8), On (2) | For a list straight under a wide section head: the rows run across the page with the text on the page's text edge, no line under the last row, answers at most 38em wide. |
+| **Question style** | Paragraph, Heading 4, Heading 5, Heading 6 | Heading 5 | Heading 5 | — |
+
+### Padding
+
+| Setting | Values | Default | Tangent uses | Notes |
+|---|---|---|---|---|
+| **Top** | 0–100px | 0px | 0px | — |
+| **Bottom** | 0–100px | 0px | 0px | — |
+
+{/* settings:end */}
+
+## Data and metafields
 
 | Where | What lives there |
 |---|---|
@@ -19,30 +67,11 @@ in the theme editor: each one is an **FAQ** entry in the Shopify admin, and each
 | Shopify admin → **FAQ** entries | Each question, with its **Question**, **Answer** and **Category**. |
 | Theme editor → **FAQ category** block | Which category the page shows, and how the list looks. |
 
-So:
+## Limitations
 
-- **To add, change or remove a question**, edit the FAQ entries in the admin. See
-  [FAQ entries](/admin/faq-entries) and [Add a FAQ question](/how-to/add-faq-question).
-- **To show the questions on a page**, pick the category in the page's **FAQ category** block.
-
-## Block settings
-
-| Setting | What it does |
-|---|---|
-| **Category** | The FAQ category this list shows. |
-| **Hide section when empty** | Hides the whole section when no category is picked or it has no questions. |
-| **Output FAQPage structured data** | Tells search engines this is a FAQ, so they may show the questions in search results. Leave it on. Turn it off only if the page has a second FAQ list. |
-| **Open first question** | Shows the first answer open when the page loads. |
-| **Icon** | **Plus** or **Caret** (a small arrow) at the end of each question. The site uses **Plus**. |
-| **Dividers** | Lines between the questions. |
-| **Ruled rows on the text edge** | For a list placed straight under a wide heading: rows run across the page. |
-| **Question style** | The size of the question text. Keep what the page uses. |
-
-## Order of the questions
-
-Questions show in the order their entries were created in the admin, oldest first. A new question appears at
-the end of the list.
-
-<Note>
-Answers can contain links. Links to other websites open in a new tab by themselves.
-</Note>
+- Questions show in the order their entries were created in the admin, oldest first. A new question appears at
+  the end of the list.
+- Only the first 250 FAQ entries in the store are read. Past that, the editor shows a warning.
+- If a page has a second FAQ list, turn off **Output FAQPage structured data** on one of them, so search
+  engines read the questions once.
+- Answers can contain links. Links to other websites open in a new tab by themselves.
